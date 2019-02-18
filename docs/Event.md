@@ -9,7 +9,7 @@ import 'package:openapi/api.dart';
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **eventID** | **int** |  | [default to null]
-**journeyID** | **int** |  | [optional] [default to null]
+**journeyID** | **String** |  | [optional] [default to null]
 **autoID** | **int** |  | [optional] [default to null]
 **eventCategoryID** | **int** |  | [optional] [default to null]
 **steeringWheelAngle** | **double** |  | [optional] [default to null]

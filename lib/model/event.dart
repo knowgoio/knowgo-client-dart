@@ -4,7 +4,7 @@ class Event {
   
   int eventID = null;
   
-  int journeyID = null;
+  String journeyID = null;
   
   int autoID = null;
   
