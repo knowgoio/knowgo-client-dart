@@ -2,12 +2,20 @@ part of openapi.api;
 
 class Journey {
   
-  int journeyID = null;
+  String journeyID = null;
+  
+  int driverID = null;
+  
+  int autoID = null;
+  
+  DateTime journeyBegin = null;
+  
+  DateTime journeyEnd = null;
   Journey();
 
   @override
   String toString() {
-    return 'Journey[journeyID=$journeyID, ]';
+    return 'Journey[journeyID=$journeyID, driverID=$driverID, autoID=$autoID, journeyBegin=$journeyBegin, journeyEnd=$journeyEnd, ]';
   }
 
   Journey.fromJson(Map<String, dynamic> json) {
@@ -17,11 +25,35 @@ class Journey {
     } else {
           journeyID = json['JourneyID'];
     }
+    if (json['DriverID'] == null) {
+      driverID = null;
+    } else {
+          driverID = json['DriverID'];
+    }
+    if (json['AutoID'] == null) {
+      autoID = null;
+    } else {
+          autoID = json['AutoID'];
+    }
+    if (json['JourneyBegin'] == null) {
+      journeyBegin = null;
+    } else {
+      journeyBegin = DateTime.parse(json['JourneyBegin']);
+    }
+    if (json['JourneyEnd'] == null) {
+      journeyEnd = null;
+    } else {
+      journeyEnd = DateTime.parse(json['JourneyEnd']);
+    }
   }
 
   Map<String, dynamic> toJson() {
     return {
-      'JourneyID': journeyID
+      'JourneyID': journeyID,
+      'DriverID': driverID,
+      'AutoID': autoID,
+      'JourneyBegin': journeyBegin == null ? '' : journeyBegin.toUtc().toIso8601String(),
+      'JourneyEnd': journeyEnd == null ? '' : journeyEnd.toUtc().toIso8601String()
     };
   }
 

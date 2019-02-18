@@ -8,7 +8,7 @@ import 'package:openapi/api.dart';
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**eventID** | **int** |  | [optional] [default to null]
+**eventID** | **int** |  | [default to null]
 **journeyID** | **int** |  | [optional] [default to null]
 **autoID** | **int** |  | [optional] [default to null]
 **eventCategoryID** | **int** |  | [optional] [default to null]

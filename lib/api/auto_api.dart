@@ -60,16 +60,16 @@ class AutoApi {
   /// Deletes an Auto
   ///
   /// 
-  Future deleteAuto(int autoId, { String apiKey }) async {
+  Future deleteAuto(int autoID, { String apiKey }) async {
     Object postBody;
 
     // verify required params are set
-    if(autoId == null) {
-     throw new ApiException(400, "Missing required param: autoId");
+    if(autoID == null) {
+     throw new ApiException(400, "Missing required param: autoID");
     }
 
     // create path and map variables
-    String path = "/auto/{autoId}".replaceAll("{format}","json").replaceAll("{" + "autoId" + "}", autoId.toString());
+    String path = "/auto/{AutoID}".replaceAll("{format}","json").replaceAll("{" + "AutoID" + "}", autoID.toString());
 
     // query params
     List<QueryParam> queryParams = [];
@@ -110,16 +110,16 @@ class AutoApi {
   /// Find auto by ID
   ///
   /// Returns a single auto
-  Future<Auto> getAutoById(int autoId) async {
+  Future<Auto> getAutoById(int autoID) async {
     Object postBody;
 
     // verify required params are set
-    if(autoId == null) {
-     throw new ApiException(400, "Missing required param: autoId");
+    if(autoID == null) {
+     throw new ApiException(400, "Missing required param: autoID");
     }
 
     // create path and map variables
-    String path = "/auto/{autoId}".replaceAll("{format}","json").replaceAll("{" + "autoId" + "}", autoId.toString());
+    String path = "/auto/{AutoID}".replaceAll("{format}","json").replaceAll("{" + "AutoID" + "}", autoID.toString());
 
     // query params
     List<QueryParam> queryParams = [];
@@ -209,19 +209,19 @@ class AutoApi {
   /// Updates an auto with form data
   ///
   /// 
-  Future updateAutoWithForm(int autoId, Auto auto) async {
+  Future updateAutoWithForm(int autoID, Auto auto) async {
     Object postBody = auto;
 
     // verify required params are set
-    if(autoId == null) {
-     throw new ApiException(400, "Missing required param: autoId");
+    if(autoID == null) {
+     throw new ApiException(400, "Missing required param: autoID");
     }
     if(auto == null) {
      throw new ApiException(400, "Missing required param: auto");
     }
 
     // create path and map variables
-    String path = "/auto/{autoId}".replaceAll("{format}","json").replaceAll("{" + "autoId" + "}", autoId.toString());
+    String path = "/auto/{AutoID}".replaceAll("{format}","json").replaceAll("{" + "AutoID" + "}", autoID.toString());
 
     // query params
     List<QueryParam> queryParams = [];

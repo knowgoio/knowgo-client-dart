@@ -10,10 +10,10 @@ All URIs are relative to *https://api.adaptant.io/payd/v1*
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**addAuto**](AutoApi.md#addAuto) | **POST** /auto | Add a new auto
-[**deleteAuto**](AutoApi.md#deleteAuto) | **DELETE** /auto/{autoId} | Deletes an Auto
-[**getAutoById**](AutoApi.md#getAutoById) | **GET** /auto/{autoId} | Find auto by ID
+[**deleteAuto**](AutoApi.md#deleteAuto) | **DELETE** /auto/{AutoID} | Deletes an Auto
+[**getAutoById**](AutoApi.md#getAutoById) | **GET** /auto/{AutoID} | Find auto by ID
 [**updateAuto**](AutoApi.md#updateAuto) | **PUT** /auto | Update an existing auto
-[**updateAutoWithForm**](AutoApi.md#updateAutoWithForm) | **POST** /auto/{autoId} | Updates an auto with form data
+[**updateAutoWithForm**](AutoApi.md#updateAutoWithForm) | **POST** /auto/{AutoID} | Updates an auto with form data
 
 
 # **addAuto**
@@ -62,7 +62,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **deleteAuto**
-> deleteAuto(autoId, apiKey)
+> deleteAuto(autoID, apiKey)
 
 Deletes an Auto
 
@@ -73,11 +73,11 @@ import 'package:openapi/api.dart';
 //openapi.api.Configuration.accessToken = 'YOUR_ACCESS_TOKEN';
 
 var api_instance = new AutoApi();
-var autoId = 789; // int | Auto id to delete
+var autoID = 789; // int | Auto id to delete
 var apiKey = apiKey_example; // String | 
 
 try { 
-    api_instance.deleteAuto(autoId, apiKey);
+    api_instance.deleteAuto(autoID, apiKey);
 } catch (e) {
     print("Exception when calling AutoApi->deleteAuto: $e\n");
 }
@@ -87,7 +87,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **autoId** | **int**| Auto id to delete | [default to null]
+ **autoID** | **int**| Auto id to delete | [default to null]
  **apiKey** | **String**|  | [optional] [default to null]
 
 ### Return type
@@ -106,7 +106,7 @@ void (empty response body)
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **getAutoById**
-> Auto getAutoById(autoId)
+> Auto getAutoById(autoID)
 
 Find auto by ID
 
@@ -121,10 +121,10 @@ import 'package:openapi/api.dart';
 //openapi.api.Configuration.apiKeyPrefix{'api_key'} = "Bearer";
 
 var api_instance = new AutoApi();
-var autoId = 789; // int | ID of auto to return
+var autoID = 789; // int | ID of auto to return
 
 try { 
-    var result = api_instance.getAutoById(autoId);
+    var result = api_instance.getAutoById(autoID);
     print(result);
 } catch (e) {
     print("Exception when calling AutoApi->getAutoById: $e\n");
@@ -135,7 +135,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **autoId** | **int**| ID of auto to return | [default to null]
+ **autoID** | **int**| ID of auto to return | [default to null]
 
 ### Return type
 
@@ -195,7 +195,7 @@ void (empty response body)
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **updateAutoWithForm**
-> updateAutoWithForm(autoId, auto)
+> updateAutoWithForm(autoID, auto)
 
 Updates an auto with form data
 
@@ -206,11 +206,11 @@ import 'package:openapi/api.dart';
 //openapi.api.Configuration.accessToken = 'YOUR_ACCESS_TOKEN';
 
 var api_instance = new AutoApi();
-var autoId = 789; // int | ID of auto that needs to be updated
+var autoID = 789; // int | ID of auto that needs to be updated
 var auto = new Auto(); // Auto | Auto object to operate on
 
 try { 
-    api_instance.updateAutoWithForm(autoId, auto);
+    api_instance.updateAutoWithForm(autoID, auto);
 } catch (e) {
     print("Exception when calling AutoApi->updateAutoWithForm: $e\n");
 }
@@ -220,7 +220,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **autoId** | **int**| ID of auto that needs to be updated | [default to null]
+ **autoID** | **int**| ID of auto that needs to be updated | [default to null]
  **auto** | [**Auto**](Auto.md)| Auto object to operate on | 
 
 ### Return type

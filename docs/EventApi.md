@@ -9,9 +9,54 @@ All URIs are relative to *https://api.adaptant.io/payd/v1*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
+[**addEvent**](EventApi.md#addEvent) | **POST** /events | Add a new Event
 [**deleteEvent**](EventApi.md#deleteEvent) | **DELETE** /events/{EventID} | Delete Event by ID
 [**getEventById**](EventApi.md#getEventById) | **GET** /events/{EventID} | Find Event by ID
+[**updateEventWithForm**](EventApi.md#updateEventWithForm) | **POST** /events/{EventID} | Updates an Event with form data
 
+
+# **addEvent**
+> Event addEvent(event)
+
+Add a new Event
+
+Adds a new Event to the system. The EventID as input is ignored, as it is dynamically allocated at insertion time. Auto details may be as complete or as incomplete as needed, with later updates possible via the PUT method. The complete new Event record with allocated EventID are returned upon successful record creation.
+
+### Example 
+```dart
+import 'package:openapi/api.dart';
+
+var api_instance = new EventApi();
+var event = new Event(); // Event | Event object to operate on
+
+try { 
+    var result = api_instance.addEvent(event);
+    print(result);
+} catch (e) {
+    print("Exception when calling EventApi->addEvent: $e\n");
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **event** | [**Event**](Event.md)| Event object to operate on | [optional] 
+
+### Return type
+
+[**Event**](Event.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **deleteEvent**
 > deleteEvent(eventID)
@@ -93,6 +138,48 @@ No authorization required
 
  - **Content-Type**: Not defined
  - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **updateEventWithForm**
+> updateEventWithForm(eventID, event)
+
+Updates an Event with form data
+
+### Example 
+```dart
+import 'package:openapi/api.dart';
+
+var api_instance = new EventApi();
+var eventID = 789; // int | ID of Event that needs to be updated
+var event = new Event(); // Event | Event object to operate on
+
+try { 
+    api_instance.updateEventWithForm(eventID, event);
+} catch (e) {
+    print("Exception when calling EventApi->updateEventWithForm: $e\n");
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **eventID** | **int**| ID of Event that needs to be updated | [default to null]
+ **event** | [**Event**](Event.md)| Event object to operate on | [optional] 
+
+### Return type
+
+void (empty response body)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: Not defined
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
