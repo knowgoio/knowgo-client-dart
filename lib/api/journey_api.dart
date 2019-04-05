@@ -29,7 +29,7 @@ class JourneyApi {
     List<String> contentTypes = ["application/json"];
 
     String contentType = contentTypes.length > 0 ? contentTypes[0] : "application/json";
-    List<String> authNames = [];
+    List<String> authNames = ["app_id"];
 
     if(contentType.startsWith("multipart/form-data")) {
       bool hasFields = false;
@@ -79,7 +79,7 @@ class JourneyApi {
     List<String> contentTypes = [];
 
     String contentType = contentTypes.length > 0 ? contentTypes[0] : "application/json";
-    List<String> authNames = [];
+    List<String> authNames = ["app_id"];
 
     if(contentType.startsWith("multipart/form-data")) {
       bool hasFields = false;
@@ -128,7 +128,7 @@ class JourneyApi {
     List<String> contentTypes = [];
 
     String contentType = contentTypes.length > 0 ? contentTypes[0] : "application/json";
-    List<String> authNames = [];
+    List<String> authNames = ["app_id"];
 
     if(contentType.startsWith("multipart/form-data")) {
       bool hasFields = false;
@@ -181,7 +181,7 @@ class JourneyApi {
     List<String> contentTypes = ["application/json"];
 
     String contentType = contentTypes.length > 0 ? contentTypes[0] : "application/json";
-    List<String> authNames = [];
+    List<String> authNames = ["app_id"];
 
     if(contentType.startsWith("multipart/form-data")) {
       bool hasFields = false;

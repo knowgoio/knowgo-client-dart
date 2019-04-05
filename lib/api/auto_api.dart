@@ -29,7 +29,7 @@ class AutoApi {
     List<String> contentTypes = ["application/json"];
 
     String contentType = contentTypes.length > 0 ? contentTypes[0] : "application/json";
-    List<String> authNames = ["payd_auth"];
+    List<String> authNames = ["app_id"];
 
     if(contentType.startsWith("multipart/form-data")) {
       bool hasFields = false;
@@ -60,7 +60,7 @@ class AutoApi {
   /// Deletes an Auto
   ///
   /// 
-  Future deleteAuto(int autoID, { String apiKey }) async {
+  Future deleteAuto(int autoID) async {
     Object postBody;
 
     // verify required params are set
@@ -75,12 +75,11 @@ class AutoApi {
     List<QueryParam> queryParams = [];
     Map<String, String> headerParams = {};
     Map<String, String> formParams = {};
-    headerParams["api_key"] = apiKey;
 
     List<String> contentTypes = [];
 
     String contentType = contentTypes.length > 0 ? contentTypes[0] : "application/json";
-    List<String> authNames = ["payd_auth"];
+    List<String> authNames = ["app_id"];
 
     if(contentType.startsWith("multipart/form-data")) {
       bool hasFields = false;
@@ -129,7 +128,7 @@ class AutoApi {
     List<String> contentTypes = [];
 
     String contentType = contentTypes.length > 0 ? contentTypes[0] : "application/json";
-    List<String> authNames = ["api_key"];
+    List<String> authNames = ["app_id"];
 
     if(contentType.startsWith("multipart/form-data")) {
       bool hasFields = false;
@@ -179,7 +178,7 @@ class AutoApi {
     List<String> contentTypes = ["application/json"];
 
     String contentType = contentTypes.length > 0 ? contentTypes[0] : "application/json";
-    List<String> authNames = ["payd_auth"];
+    List<String> authNames = ["app_id"];
 
     if(contentType.startsWith("multipart/form-data")) {
       bool hasFields = false;
@@ -231,7 +230,7 @@ class AutoApi {
     List<String> contentTypes = ["application/json"];
 
     String contentType = contentTypes.length > 0 ? contentTypes[0] : "application/json";
-    List<String> authNames = ["payd_auth"];
+    List<String> authNames = ["app_id"];
 
     if(contentType.startsWith("multipart/form-data")) {
       bool hasFields = false;

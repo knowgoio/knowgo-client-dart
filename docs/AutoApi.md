@@ -5,7 +5,7 @@
 import 'package:openapi/api.dart';
 ```
 
-All URIs are relative to *https://api.adaptant.io/payd/v1*
+All URIs are relative to *http://api.adaptant.io:8080/payd/v1*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -26,8 +26,10 @@ Adds a new Auto to the system. The AutoID as input is ignored, as it is dynamica
 ### Example 
 ```dart
 import 'package:openapi/api.dart';
-// TODO Configure OAuth2 access token for authorization: payd_auth
-//openapi.api.Configuration.accessToken = 'YOUR_ACCESS_TOKEN';
+// TODO Configure API key authorization: app_id
+//defaultApiClient.getAuthentication<ApiKeyAuth>('app_id').apiKey = 'YOUR_API_KEY';
+// uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+//defaultApiClient.getAuthentication<ApiKeyAuth>('app_id').apiKeyPrefix = 'Bearer';
 
 var api_instance = new AutoApi();
 var auto = new Auto(); // Auto | Auto object to operate on
@@ -52,7 +54,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[payd_auth](../README.md#payd_auth)
+[app_id](../README.md#app_id)
 
 ### HTTP request headers
 
@@ -62,22 +64,23 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **deleteAuto**
-> deleteAuto(autoID, apiKey)
+> deleteAuto(autoID)
 
 Deletes an Auto
 
 ### Example 
 ```dart
 import 'package:openapi/api.dart';
-// TODO Configure OAuth2 access token for authorization: payd_auth
-//openapi.api.Configuration.accessToken = 'YOUR_ACCESS_TOKEN';
+// TODO Configure API key authorization: app_id
+//defaultApiClient.getAuthentication<ApiKeyAuth>('app_id').apiKey = 'YOUR_API_KEY';
+// uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+//defaultApiClient.getAuthentication<ApiKeyAuth>('app_id').apiKeyPrefix = 'Bearer';
 
 var api_instance = new AutoApi();
 var autoID = 789; // int | Auto id to delete
-var apiKey = apiKey_example; // String | 
 
 try { 
-    api_instance.deleteAuto(autoID, apiKey);
+    api_instance.deleteAuto(autoID);
 } catch (e) {
     print("Exception when calling AutoApi->deleteAuto: $e\n");
 }
@@ -88,7 +91,6 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **autoID** | **int**| Auto id to delete | [default to null]
- **apiKey** | **String**|  | [optional] [default to null]
 
 ### Return type
 
@@ -96,7 +98,7 @@ void (empty response body)
 
 ### Authorization
 
-[payd_auth](../README.md#payd_auth)
+[app_id](../README.md#app_id)
 
 ### HTTP request headers
 
@@ -115,10 +117,10 @@ Returns a single auto
 ### Example 
 ```dart
 import 'package:openapi/api.dart';
-// TODO Configure API key authorization: api_key
-//openapi.api.Configuration.apiKey{'api_key'} = 'YOUR_API_KEY';
+// TODO Configure API key authorization: app_id
+//defaultApiClient.getAuthentication<ApiKeyAuth>('app_id').apiKey = 'YOUR_API_KEY';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-//openapi.api.Configuration.apiKeyPrefix{'api_key'} = "Bearer";
+//defaultApiClient.getAuthentication<ApiKeyAuth>('app_id').apiKeyPrefix = 'Bearer';
 
 var api_instance = new AutoApi();
 var autoID = 789; // int | ID of auto to return
@@ -143,7 +145,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[api_key](../README.md#api_key)
+[app_id](../README.md#app_id)
 
 ### HTTP request headers
 
@@ -160,8 +162,10 @@ Update an existing auto
 ### Example 
 ```dart
 import 'package:openapi/api.dart';
-// TODO Configure OAuth2 access token for authorization: payd_auth
-//openapi.api.Configuration.accessToken = 'YOUR_ACCESS_TOKEN';
+// TODO Configure API key authorization: app_id
+//defaultApiClient.getAuthentication<ApiKeyAuth>('app_id').apiKey = 'YOUR_API_KEY';
+// uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+//defaultApiClient.getAuthentication<ApiKeyAuth>('app_id').apiKeyPrefix = 'Bearer';
 
 var api_instance = new AutoApi();
 var auto = new Auto(); // Auto | Auto object to operate on
@@ -185,7 +189,7 @@ void (empty response body)
 
 ### Authorization
 
-[payd_auth](../README.md#payd_auth)
+[app_id](../README.md#app_id)
 
 ### HTTP request headers
 
@@ -202,8 +206,10 @@ Updates an auto with form data
 ### Example 
 ```dart
 import 'package:openapi/api.dart';
-// TODO Configure OAuth2 access token for authorization: payd_auth
-//openapi.api.Configuration.accessToken = 'YOUR_ACCESS_TOKEN';
+// TODO Configure API key authorization: app_id
+//defaultApiClient.getAuthentication<ApiKeyAuth>('app_id').apiKey = 'YOUR_API_KEY';
+// uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+//defaultApiClient.getAuthentication<ApiKeyAuth>('app_id').apiKeyPrefix = 'Bearer';
 
 var api_instance = new AutoApi();
 var autoID = 789; // int | ID of auto that needs to be updated
@@ -229,7 +235,7 @@ void (empty response body)
 
 ### Authorization
 
-[payd_auth](../README.md#payd_auth)
+[app_id](../README.md#app_id)
 
 ### HTTP request headers
 

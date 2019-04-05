@@ -5,7 +5,7 @@
 import 'package:openapi/api.dart';
 ```
 
-All URIs are relative to *https://api.adaptant.io/payd/v1*
+All URIs are relative to *http://api.adaptant.io:8080/payd/v1*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -25,6 +25,10 @@ Adds a new Event to the system. The EventID as input is ignored, as it is dynami
 ### Example 
 ```dart
 import 'package:openapi/api.dart';
+// TODO Configure API key authorization: app_id
+//defaultApiClient.getAuthentication<ApiKeyAuth>('app_id').apiKey = 'YOUR_API_KEY';
+// uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+//defaultApiClient.getAuthentication<ApiKeyAuth>('app_id').apiKeyPrefix = 'Bearer';
 
 var api_instance = new EventApi();
 var event = new Event(); // Event | Event object to operate on
@@ -49,7 +53,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[app_id](../README.md#app_id)
 
 ### HTTP request headers
 
@@ -68,6 +72,10 @@ For valid response try integer IDs with positive integer value. Negative or non-
 ### Example 
 ```dart
 import 'package:openapi/api.dart';
+// TODO Configure API key authorization: app_id
+//defaultApiClient.getAuthentication<ApiKeyAuth>('app_id').apiKey = 'YOUR_API_KEY';
+// uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+//defaultApiClient.getAuthentication<ApiKeyAuth>('app_id').apiKeyPrefix = 'Bearer';
 
 var api_instance = new EventApi();
 var eventID = 789; // int | ID of the Event to delete
@@ -91,7 +99,7 @@ void (empty response body)
 
 ### Authorization
 
-No authorization required
+[app_id](../README.md#app_id)
 
 ### HTTP request headers
 
@@ -108,6 +116,10 @@ Find Event by ID
 ### Example 
 ```dart
 import 'package:openapi/api.dart';
+// TODO Configure API key authorization: app_id
+//defaultApiClient.getAuthentication<ApiKeyAuth>('app_id').apiKey = 'YOUR_API_KEY';
+// uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+//defaultApiClient.getAuthentication<ApiKeyAuth>('app_id').apiKeyPrefix = 'Bearer';
 
 var api_instance = new EventApi();
 var eventID = 789; // int | ID of Event that needs to be fetched
@@ -132,7 +144,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[app_id](../README.md#app_id)
 
 ### HTTP request headers
 
@@ -149,6 +161,10 @@ Updates an Event with form data
 ### Example 
 ```dart
 import 'package:openapi/api.dart';
+// TODO Configure API key authorization: app_id
+//defaultApiClient.getAuthentication<ApiKeyAuth>('app_id').apiKey = 'YOUR_API_KEY';
+// uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+//defaultApiClient.getAuthentication<ApiKeyAuth>('app_id').apiKeyPrefix = 'Bearer';
 
 var api_instance = new EventApi();
 var eventID = 789; // int | ID of Event that needs to be updated
@@ -174,7 +190,7 @@ void (empty response body)
 
 ### Authorization
 
-No authorization required
+[app_id](../README.md#app_id)
 
 ### HTTP request headers
 

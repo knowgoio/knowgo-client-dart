@@ -5,7 +5,7 @@
 import 'package:openapi/api.dart';
 ```
 
-All URIs are relative to *https://api.adaptant.io/payd/v1*
+All URIs are relative to *http://api.adaptant.io:8080/payd/v1*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -19,7 +19,7 @@ Method | HTTP request | Description
 
 
 # **createUser**
-> createUser(user)
+> User createUser(user)
 
 Create user
 
@@ -28,12 +28,17 @@ This can only be done by the logged in user.
 ### Example 
 ```dart
 import 'package:openapi/api.dart';
+// TODO Configure API key authorization: app_id
+//defaultApiClient.getAuthentication<ApiKeyAuth>('app_id').apiKey = 'YOUR_API_KEY';
+// uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+//defaultApiClient.getAuthentication<ApiKeyAuth>('app_id').apiKeyPrefix = 'Bearer';
 
 var api_instance = new UserApi();
-var user = new User(); // User | Created user object
+var user = new User(); // User | User object to operate on
 
 try { 
-    api_instance.createUser(user);
+    var result = api_instance.createUser(user);
+    print(result);
 } catch (e) {
     print("Exception when calling UserApi->createUser: $e\n");
 }
@@ -43,20 +48,20 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **user** | [**User**](User.md)| Created user object | 
+ **user** | [**User**](User.md)| User object to operate on | 
 
 ### Return type
 
-void (empty response body)
+[**User**](User.md)
 
 ### Authorization
 
-No authorization required
+[app_id](../README.md#app_id)
 
 ### HTTP request headers
 
  - **Content-Type**: application/json
- - **Accept**: Not defined
+ - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -70,6 +75,10 @@ This can only be done by the logged in user.
 ### Example 
 ```dart
 import 'package:openapi/api.dart';
+// TODO Configure API key authorization: app_id
+//defaultApiClient.getAuthentication<ApiKeyAuth>('app_id').apiKey = 'YOUR_API_KEY';
+// uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+//defaultApiClient.getAuthentication<ApiKeyAuth>('app_id').apiKeyPrefix = 'Bearer';
 
 var api_instance = new UserApi();
 var userId = 789; // int | ID of user that needs to be fetched
@@ -93,7 +102,7 @@ void (empty response body)
 
 ### Authorization
 
-No authorization required
+[app_id](../README.md#app_id)
 
 ### HTTP request headers
 
@@ -112,6 +121,10 @@ This endpoint allows a logged in user to export all of the data pertaining to th
 ### Example 
 ```dart
 import 'package:openapi/api.dart';
+// TODO Configure API key authorization: app_id
+//defaultApiClient.getAuthentication<ApiKeyAuth>('app_id').apiKey = 'YOUR_API_KEY';
+// uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+//defaultApiClient.getAuthentication<ApiKeyAuth>('app_id').apiKeyPrefix = 'Bearer';
 
 var api_instance = new UserApi();
 var userId = 789; // int | ID of user that needs to be fetched
@@ -135,7 +148,7 @@ void (empty response body)
 
 ### Authorization
 
-No authorization required
+[app_id](../README.md#app_id)
 
 ### HTTP request headers
 
@@ -152,6 +165,10 @@ Get user by user id
 ### Example 
 ```dart
 import 'package:openapi/api.dart';
+// TODO Configure API key authorization: app_id
+//defaultApiClient.getAuthentication<ApiKeyAuth>('app_id').apiKey = 'YOUR_API_KEY';
+// uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+//defaultApiClient.getAuthentication<ApiKeyAuth>('app_id').apiKeyPrefix = 'Bearer';
 
 var api_instance = new UserApi();
 var userId = 789; // int | ID of user that needs to be fetched
@@ -176,7 +193,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[app_id](../README.md#app_id)
 
 ### HTTP request headers
 
@@ -236,6 +253,10 @@ Logs out current logged in user session
 ### Example 
 ```dart
 import 'package:openapi/api.dart';
+// TODO Configure API key authorization: app_id
+//defaultApiClient.getAuthentication<ApiKeyAuth>('app_id').apiKey = 'YOUR_API_KEY';
+// uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+//defaultApiClient.getAuthentication<ApiKeyAuth>('app_id').apiKeyPrefix = 'Bearer';
 
 var api_instance = new UserApi();
 
@@ -255,7 +276,7 @@ void (empty response body)
 
 ### Authorization
 
-No authorization required
+[app_id](../README.md#app_id)
 
 ### HTTP request headers
 
@@ -274,6 +295,10 @@ This can only be done by the logged in user.
 ### Example 
 ```dart
 import 'package:openapi/api.dart';
+// TODO Configure API key authorization: app_id
+//defaultApiClient.getAuthentication<ApiKeyAuth>('app_id').apiKey = 'YOUR_API_KEY';
+// uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+//defaultApiClient.getAuthentication<ApiKeyAuth>('app_id').apiKeyPrefix = 'Bearer';
 
 var api_instance = new UserApi();
 var userId = 789; // int | ID of user that needs to be fetched
@@ -299,7 +324,7 @@ void (empty response body)
 
 ### Authorization
 
-No authorization required
+[app_id](../README.md#app_id)
 
 ### HTTP request headers
 

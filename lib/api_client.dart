@@ -10,7 +10,7 @@ class QueryParam {
 class ApiClient {
 
   String basePath;
-  var client = Client();
+  var client = BrowserClient();
 
   Map<String, String> _defaultHeaderMap = {};
   Map<String, Authentication> _authentications = {};
@@ -18,10 +18,9 @@ class ApiClient {
   final _regList = RegExp(r'^List<(.*)>$');
   final _regMap = RegExp(r'^Map<String,(.*)>$');
 
-  ApiClient({this.basePath: "https://api.adaptant.io/payd/v1"}) {
+  ApiClient({this.basePath: "http://api.adaptant.io:8080/payd/v1"}) {
     // Setup authentications (key: authentication name, value: authentication).
-    _authentications['api_key'] = ApiKeyAuth("header", "api_key");
-    _authentications['payd_auth'] = OAuth();
+    _authentications['app_id'] = ApiKeyAuth("header", "X-API-Key");
   }
 
   void addDefaultHeader(String key, String value) {
@@ -101,7 +100,10 @@ class ApiClient {
 
     _updateParamsForAuth(authNames, queryParams, headerParams);
 
-    var ps = queryParams.where((p) => p.value != null).map((p) => '${p.name}=${p.value}');
+    var ps = queryParams
+      .where((p) => p.value != null)
+      .map((p) => '${p.name}=${Uri.encodeQueryComponent(p.value)}');
+
     String queryString = ps.isNotEmpty ?
                          '?' + ps.join('&') :
                          '';
@@ -146,11 +148,9 @@ class ApiClient {
     });
   }
 
-  void setAccessToken(String accessToken) {
-    _authentications.forEach((key, auth) {
-      if (auth is OAuth) {
-        auth.setAccessToken(accessToken);
-      }
-    });
+  T getAuthentication<T extends Authentication>(String name) {
+    var authentication = _authentications[name];
+
+    return authentication is T ? authentication : null;
   }
 }
