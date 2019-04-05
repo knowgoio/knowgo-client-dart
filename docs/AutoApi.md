@@ -5,7 +5,7 @@
 import 'package:openapi/api.dart';
 ```
 
-All URIs are relative to *http://api.adaptant.io:8080/payd/v1*
+All URIs are relative to *https://api.adaptant.io/payd/v1*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
