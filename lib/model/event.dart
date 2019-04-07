@@ -12,9 +12,9 @@ class Event {
   
   double steeringWheelAngle = null;
   
-  Object torqueAtTransmission = null;
+  double torqueAtTransmission = null;
   
-  Object engineSpeed = null;
+  double engineSpeed = null;
   
   double vehicleSpeed = null;
   
@@ -95,12 +95,12 @@ class Event {
     if (json['torque_at_transmission'] == null) {
       torqueAtTransmission = null;
     } else {
-      torqueAtTransmission = new Object.fromJson(json['torque_at_transmission']);
+          torqueAtTransmission = json['torque_at_transmission'];
     }
     if (json['engine_speed'] == null) {
       engineSpeed = null;
     } else {
-      engineSpeed = new Object.fromJson(json['engine_speed']);
+          engineSpeed = json['engine_speed'];
     }
     if (json['vehicle_speed'] == null) {
       vehicleSpeed = null;
