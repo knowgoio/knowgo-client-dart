@@ -183,7 +183,7 @@ class Auto {
 
   static Map<String, Auto> mapFromJson(Map<String, dynamic> json) {
     var map = new Map<String, Auto>();
-    if (json != null && json.length > 0) {
+    if (json != null && json.isNotEmpty) {
       json.forEach((String key, dynamic value) => map[key] = new Auto.fromJson(value));
     }
     return map;

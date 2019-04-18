@@ -63,7 +63,7 @@ class Journey {
 
   static Map<String, Journey> mapFromJson(Map<String, dynamic> json) {
     var map = new Map<String, Journey>();
-    if (json != null && json.length > 0) {
+    if (json != null && json.isNotEmpty) {
       json.forEach((String key, dynamic value) => map[key] = new Journey.fromJson(value));
     }
     return map;

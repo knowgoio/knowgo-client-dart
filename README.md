@@ -68,18 +68,20 @@ All URIs are relative to *https://api.adaptant.io/payd/v1*
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
 *AutoApi* | [**addAuto**](docs//AutoApi.md#addauto) | **POST** /auto | Add a new auto
-*AutoApi* | [**deleteAuto**](docs//AutoApi.md#deleteauto) | **DELETE** /auto/{AutoID} | Deletes an Auto
-*AutoApi* | [**getAutoById**](docs//AutoApi.md#getautobyid) | **GET** /auto/{AutoID} | Find auto by ID
+*AutoApi* | [**deleteAuto**](docs//AutoApi.md#deleteauto) | **DELETE** /auto/{autoId} | Deletes an Auto
+*AutoApi* | [**getAutoById**](docs//AutoApi.md#getautobyid) | **GET** /auto/{autoId} | Find auto by ID
+*AutoApi* | [**listVehicles**](docs//AutoApi.md#listvehicles) | **POST** /vehicles | Return a list of vehicles available for a specific user
+*AutoApi* | [**listVehiclesByUserId**](docs//AutoApi.md#listvehiclesbyuserid) | **POST** /user/{userId}/vehicles | Return a list of vehicles available for a specific user
 *AutoApi* | [**updateAuto**](docs//AutoApi.md#updateauto) | **PUT** /auto | Update an existing auto
-*AutoApi* | [**updateAutoWithForm**](docs//AutoApi.md#updateautowithform) | **POST** /auto/{AutoID} | Updates an auto with form data
+*AutoApi* | [**updateAutoWithForm**](docs//AutoApi.md#updateautowithform) | **POST** /auto/{autoId} | Updates an auto with form data
 *EventApi* | [**addEvent**](docs//EventApi.md#addevent) | **POST** /events | Add a new Event
-*EventApi* | [**deleteEvent**](docs//EventApi.md#deleteevent) | **DELETE** /events/{EventID} | Delete Event by ID
-*EventApi* | [**getEventById**](docs//EventApi.md#geteventbyid) | **GET** /events/{EventID} | Find Event by ID
-*EventApi* | [**updateEventWithForm**](docs//EventApi.md#updateeventwithform) | **POST** /events/{EventID} | Updates an Event with form data
+*EventApi* | [**deleteEvent**](docs//EventApi.md#deleteevent) | **DELETE** /events/{eventId} | Delete Event by ID
+*EventApi* | [**getEventById**](docs//EventApi.md#geteventbyid) | **GET** /events/{eventId} | Find Event by ID
+*EventApi* | [**updateEventWithForm**](docs//EventApi.md#updateeventwithform) | **POST** /events/{eventId} | Updates an Event with form data
 *JourneyApi* | [**addJourney**](docs//JourneyApi.md#addjourney) | **POST** /journey | Add a new Journey
-*JourneyApi* | [**deleteJourney**](docs//JourneyApi.md#deletejourney) | **DELETE** /journey/{JourneyID} | Delete Journey by ID
-*JourneyApi* | [**getJourneyById**](docs//JourneyApi.md#getjourneybyid) | **GET** /journey/{JourneyID} | Find journey by ID
-*JourneyApi* | [**updateJourneyWithForm**](docs//JourneyApi.md#updatejourneywithform) | **POST** /journey/{JourneyID} | Updates a Journey with form data
+*JourneyApi* | [**deleteJourney**](docs//JourneyApi.md#deletejourney) | **DELETE** /journey/{journeyId} | Delete Journey by ID
+*JourneyApi* | [**getJourneyById**](docs//JourneyApi.md#getjourneybyid) | **GET** /journey/{journeyId} | Find journey by ID
+*JourneyApi* | [**updateJourneyWithForm**](docs//JourneyApi.md#updatejourneywithform) | **POST** /journey/{journeyId} | Updates a Journey with form data
 *UserApi* | [**createUser**](docs//UserApi.md#createuser) | **POST** /user | Create user
 *UserApi* | [**deleteUser**](docs//UserApi.md#deleteuser) | **DELETE** /user/{userId} | Delete user
 *UserApi* | [**exportUser**](docs//UserApi.md#exportuser) | **GET** /user/{userId}/export | Exports all data about current user in CSV format

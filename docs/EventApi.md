@@ -10,9 +10,9 @@ All URIs are relative to *https://api.adaptant.io/payd/v1*
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**addEvent**](EventApi.md#addEvent) | **POST** /events | Add a new Event
-[**deleteEvent**](EventApi.md#deleteEvent) | **DELETE** /events/{EventID} | Delete Event by ID
-[**getEventById**](EventApi.md#getEventById) | **GET** /events/{EventID} | Find Event by ID
-[**updateEventWithForm**](EventApi.md#updateEventWithForm) | **POST** /events/{EventID} | Updates an Event with form data
+[**deleteEvent**](EventApi.md#deleteEvent) | **DELETE** /events/{eventId} | Delete Event by ID
+[**getEventById**](EventApi.md#getEventById) | **GET** /events/{eventId} | Find Event by ID
+[**updateEventWithForm**](EventApi.md#updateEventWithForm) | **POST** /events/{eventId} | Updates an Event with form data
 
 
 # **addEvent**
@@ -63,7 +63,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **deleteEvent**
-> deleteEvent(eventID)
+> deleteEvent(eventId)
 
 Delete Event by ID
 
@@ -78,10 +78,10 @@ import 'package:openapi/api.dart';
 //defaultApiClient.getAuthentication<ApiKeyAuth>('app_id').apiKeyPrefix = 'Bearer';
 
 var api_instance = new EventApi();
-var eventID = 789; // int | ID of the Event to delete
+var eventId = 789; // int | ID of the Event to delete
 
 try { 
-    api_instance.deleteEvent(eventID);
+    api_instance.deleteEvent(eventId);
 } catch (e) {
     print("Exception when calling EventApi->deleteEvent: $e\n");
 }
@@ -91,7 +91,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **eventID** | **int**| ID of the Event to delete | [default to null]
+ **eventId** | **int**| ID of the Event to delete | [default to null]
 
 ### Return type
 
@@ -109,7 +109,7 @@ void (empty response body)
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **getEventById**
-> Event getEventById(eventID)
+> Event getEventById(eventId)
 
 Find Event by ID
 
@@ -122,10 +122,10 @@ import 'package:openapi/api.dart';
 //defaultApiClient.getAuthentication<ApiKeyAuth>('app_id').apiKeyPrefix = 'Bearer';
 
 var api_instance = new EventApi();
-var eventID = 789; // int | ID of Event that needs to be fetched
+var eventId = 789; // int | ID of Event that needs to be fetched
 
 try { 
-    var result = api_instance.getEventById(eventID);
+    var result = api_instance.getEventById(eventId);
     print(result);
 } catch (e) {
     print("Exception when calling EventApi->getEventById: $e\n");
@@ -136,7 +136,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **eventID** | **int**| ID of Event that needs to be fetched | [default to null]
+ **eventId** | **int**| ID of Event that needs to be fetched | [default to null]
 
 ### Return type
 
@@ -154,7 +154,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **updateEventWithForm**
-> updateEventWithForm(eventID, event)
+> updateEventWithForm(eventId, event)
 
 Updates an Event with form data
 
@@ -167,11 +167,11 @@ import 'package:openapi/api.dart';
 //defaultApiClient.getAuthentication<ApiKeyAuth>('app_id').apiKeyPrefix = 'Bearer';
 
 var api_instance = new EventApi();
-var eventID = 789; // int | ID of Event that needs to be updated
+var eventId = 789; // int | ID of Event that needs to be updated
 var event = new Event(); // Event | Event object to operate on
 
 try { 
-    api_instance.updateEventWithForm(eventID, event);
+    api_instance.updateEventWithForm(eventId, event);
 } catch (e) {
     print("Exception when calling EventApi->updateEventWithForm: $e\n");
 }
@@ -181,7 +181,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **eventID** | **int**| ID of Event that needs to be updated | [default to null]
+ **eventId** | **int**| ID of Event that needs to be updated | [default to null]
  **event** | [**Event**](Event.md)| Event object to operate on | [optional] 
 
 ### Return type

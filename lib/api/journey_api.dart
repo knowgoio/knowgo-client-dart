@@ -28,7 +28,7 @@ class JourneyApi {
 
     List<String> contentTypes = ["application/json"];
 
-    String contentType = contentTypes.length > 0 ? contentTypes[0] : "application/json";
+    String contentType = contentTypes.isNotEmpty ? contentTypes[0] : "application/json";
     List<String> authNames = ["app_id"];
 
     if(contentType.startsWith("multipart/form-data")) {
@@ -59,17 +59,17 @@ class JourneyApi {
   }
   /// Delete Journey by ID
   ///
-  /// Manual deletion of a defined Journey based on its JourneyID.
-  Future deleteJourney(String journeyID) async {
+  /// Manual deletion of a defined Journey based on its journeyId.
+  Future deleteJourney(String journeyId) async {
     Object postBody;
 
     // verify required params are set
-    if(journeyID == null) {
-     throw new ApiException(400, "Missing required param: journeyID");
+    if(journeyId == null) {
+     throw new ApiException(400, "Missing required param: journeyId");
     }
 
     // create path and map variables
-    String path = "/journey/{JourneyID}".replaceAll("{format}","json").replaceAll("{" + "JourneyID" + "}", journeyID.toString());
+    String path = "/journey/{journeyId}".replaceAll("{format}","json").replaceAll("{" + "journeyId" + "}", journeyId.toString());
 
     // query params
     List<QueryParam> queryParams = [];
@@ -78,7 +78,7 @@ class JourneyApi {
 
     List<String> contentTypes = [];
 
-    String contentType = contentTypes.length > 0 ? contentTypes[0] : "application/json";
+    String contentType = contentTypes.isNotEmpty ? contentTypes[0] : "application/json";
     List<String> authNames = ["app_id"];
 
     if(contentType.startsWith("multipart/form-data")) {
@@ -109,16 +109,16 @@ class JourneyApi {
   /// Find journey by ID
   ///
   /// 
-  Future<Journey> getJourneyById(String journeyID) async {
+  Future<Journey> getJourneyById(String journeyId) async {
     Object postBody;
 
     // verify required params are set
-    if(journeyID == null) {
-     throw new ApiException(400, "Missing required param: journeyID");
+    if(journeyId == null) {
+     throw new ApiException(400, "Missing required param: journeyId");
     }
 
     // create path and map variables
-    String path = "/journey/{JourneyID}".replaceAll("{format}","json").replaceAll("{" + "JourneyID" + "}", journeyID.toString());
+    String path = "/journey/{journeyId}".replaceAll("{format}","json").replaceAll("{" + "journeyId" + "}", journeyId.toString());
 
     // query params
     List<QueryParam> queryParams = [];
@@ -127,7 +127,7 @@ class JourneyApi {
 
     List<String> contentTypes = [];
 
-    String contentType = contentTypes.length > 0 ? contentTypes[0] : "application/json";
+    String contentType = contentTypes.isNotEmpty ? contentTypes[0] : "application/json";
     List<String> authNames = ["app_id"];
 
     if(contentType.startsWith("multipart/form-data")) {
@@ -159,19 +159,19 @@ class JourneyApi {
   /// Updates a Journey with form data
   ///
   /// 
-  Future updateJourneyWithForm(String journeyID, Journey journey) async {
+  Future updateJourneyWithForm(String journeyId, Journey journey) async {
     Object postBody = journey;
 
     // verify required params are set
-    if(journeyID == null) {
-     throw new ApiException(400, "Missing required param: journeyID");
+    if(journeyId == null) {
+     throw new ApiException(400, "Missing required param: journeyId");
     }
     if(journey == null) {
      throw new ApiException(400, "Missing required param: journey");
     }
 
     // create path and map variables
-    String path = "/journey/{JourneyID}".replaceAll("{format}","json").replaceAll("{" + "JourneyID" + "}", journeyID.toString());
+    String path = "/journey/{journeyId}".replaceAll("{format}","json").replaceAll("{" + "journeyId" + "}", journeyId.toString());
 
     // query params
     List<QueryParam> queryParams = [];
@@ -180,7 +180,7 @@ class JourneyApi {
 
     List<String> contentTypes = ["application/json"];
 
-    String contentType = contentTypes.length > 0 ? contentTypes[0] : "application/json";
+    String contentType = contentTypes.isNotEmpty ? contentTypes[0] : "application/json";
     List<String> authNames = ["app_id"];
 
     if(contentType.startsWith("multipart/form-data")) {

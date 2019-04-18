@@ -224,7 +224,7 @@ class Event {
 
   static Map<String, Event> mapFromJson(Map<String, dynamic> json) {
     var map = new Map<String, Event>();
-    if (json != null && json.length > 0) {
+    if (json != null && json.isNotEmpty) {
       json.forEach((String key, dynamic value) => map[key] = new Event.fromJson(value));
     }
     return map;

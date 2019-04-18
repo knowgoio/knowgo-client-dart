@@ -10,9 +10,9 @@ All URIs are relative to *https://api.adaptant.io/payd/v1*
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**addJourney**](JourneyApi.md#addJourney) | **POST** /journey | Add a new Journey
-[**deleteJourney**](JourneyApi.md#deleteJourney) | **DELETE** /journey/{JourneyID} | Delete Journey by ID
-[**getJourneyById**](JourneyApi.md#getJourneyById) | **GET** /journey/{JourneyID} | Find journey by ID
-[**updateJourneyWithForm**](JourneyApi.md#updateJourneyWithForm) | **POST** /journey/{JourneyID} | Updates a Journey with form data
+[**deleteJourney**](JourneyApi.md#deleteJourney) | **DELETE** /journey/{journeyId} | Delete Journey by ID
+[**getJourneyById**](JourneyApi.md#getJourneyById) | **GET** /journey/{journeyId} | Find journey by ID
+[**updateJourneyWithForm**](JourneyApi.md#updateJourneyWithForm) | **POST** /journey/{journeyId} | Updates a Journey with form data
 
 
 # **addJourney**
@@ -63,11 +63,11 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **deleteJourney**
-> deleteJourney(journeyID)
+> deleteJourney(journeyId)
 
 Delete Journey by ID
 
-Manual deletion of a defined Journey based on its JourneyID.
+Manual deletion of a defined Journey based on its journeyId.
 
 ### Example 
 ```dart
@@ -78,10 +78,10 @@ import 'package:openapi/api.dart';
 //defaultApiClient.getAuthentication<ApiKeyAuth>('app_id').apiKeyPrefix = 'Bearer';
 
 var api_instance = new JourneyApi();
-var journeyID = journeyID_example; // String | ID of the journey to delete
+var journeyId = journeyId_example; // String | ID of the journey to delete
 
 try { 
-    api_instance.deleteJourney(journeyID);
+    api_instance.deleteJourney(journeyId);
 } catch (e) {
     print("Exception when calling JourneyApi->deleteJourney: $e\n");
 }
@@ -91,7 +91,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **journeyID** | **String**| ID of the journey to delete | [default to null]
+ **journeyId** | **String**| ID of the journey to delete | [default to null]
 
 ### Return type
 
@@ -109,7 +109,7 @@ void (empty response body)
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **getJourneyById**
-> Journey getJourneyById(journeyID)
+> Journey getJourneyById(journeyId)
 
 Find journey by ID
 
@@ -122,10 +122,10 @@ import 'package:openapi/api.dart';
 //defaultApiClient.getAuthentication<ApiKeyAuth>('app_id').apiKeyPrefix = 'Bearer';
 
 var api_instance = new JourneyApi();
-var journeyID = journeyID_example; // String | ID of journey that needs to be fetched
+var journeyId = journeyId_example; // String | ID of journey that needs to be fetched
 
 try { 
-    var result = api_instance.getJourneyById(journeyID);
+    var result = api_instance.getJourneyById(journeyId);
     print(result);
 } catch (e) {
     print("Exception when calling JourneyApi->getJourneyById: $e\n");
@@ -136,7 +136,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **journeyID** | **String**| ID of journey that needs to be fetched | [default to null]
+ **journeyId** | **String**| ID of journey that needs to be fetched | [default to null]
 
 ### Return type
 
@@ -154,7 +154,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **updateJourneyWithForm**
-> updateJourneyWithForm(journeyID, journey)
+> updateJourneyWithForm(journeyId, journey)
 
 Updates a Journey with form data
 
@@ -167,11 +167,11 @@ import 'package:openapi/api.dart';
 //defaultApiClient.getAuthentication<ApiKeyAuth>('app_id').apiKeyPrefix = 'Bearer';
 
 var api_instance = new JourneyApi();
-var journeyID = journeyID_example; // String | ID of journey that needs to be updated
+var journeyId = journeyId_example; // String | ID of journey that needs to be updated
 var journey = new Journey(); // Journey | Journey object to operate on
 
 try { 
-    api_instance.updateJourneyWithForm(journeyID, journey);
+    api_instance.updateJourneyWithForm(journeyId, journey);
 } catch (e) {
     print("Exception when calling JourneyApi->updateJourneyWithForm: $e\n");
 }
@@ -181,7 +181,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **journeyID** | **String**| ID of journey that needs to be updated | [default to null]
+ **journeyId** | **String**| ID of journey that needs to be updated | [default to null]
  **journey** | [**Journey**](Journey.md)| Journey object to operate on | 
 
 ### Return type

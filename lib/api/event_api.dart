@@ -25,7 +25,7 @@ class EventApi {
 
     List<String> contentTypes = ["application/json"];
 
-    String contentType = contentTypes.length > 0 ? contentTypes[0] : "application/json";
+    String contentType = contentTypes.isNotEmpty ? contentTypes[0] : "application/json";
     List<String> authNames = ["app_id"];
 
     if(contentType.startsWith("multipart/form-data")) {
@@ -57,16 +57,16 @@ class EventApi {
   /// Delete Event by ID
   ///
   /// For valid response try integer IDs with positive integer value. Negative or non-integer values will generate API errors
-  Future deleteEvent(int eventID) async {
+  Future deleteEvent(int eventId) async {
     Object postBody;
 
     // verify required params are set
-    if(eventID == null) {
-     throw new ApiException(400, "Missing required param: eventID");
+    if(eventId == null) {
+     throw new ApiException(400, "Missing required param: eventId");
     }
 
     // create path and map variables
-    String path = "/events/{EventID}".replaceAll("{format}","json").replaceAll("{" + "EventID" + "}", eventID.toString());
+    String path = "/events/{eventId}".replaceAll("{format}","json").replaceAll("{" + "eventId" + "}", eventId.toString());
 
     // query params
     List<QueryParam> queryParams = [];
@@ -75,7 +75,7 @@ class EventApi {
 
     List<String> contentTypes = [];
 
-    String contentType = contentTypes.length > 0 ? contentTypes[0] : "application/json";
+    String contentType = contentTypes.isNotEmpty ? contentTypes[0] : "application/json";
     List<String> authNames = ["app_id"];
 
     if(contentType.startsWith("multipart/form-data")) {
@@ -106,16 +106,16 @@ class EventApi {
   /// Find Event by ID
   ///
   /// 
-  Future<Event> getEventById(int eventID) async {
+  Future<Event> getEventById(int eventId) async {
     Object postBody;
 
     // verify required params are set
-    if(eventID == null) {
-     throw new ApiException(400, "Missing required param: eventID");
+    if(eventId == null) {
+     throw new ApiException(400, "Missing required param: eventId");
     }
 
     // create path and map variables
-    String path = "/events/{EventID}".replaceAll("{format}","json").replaceAll("{" + "EventID" + "}", eventID.toString());
+    String path = "/events/{eventId}".replaceAll("{format}","json").replaceAll("{" + "eventId" + "}", eventId.toString());
 
     // query params
     List<QueryParam> queryParams = [];
@@ -124,7 +124,7 @@ class EventApi {
 
     List<String> contentTypes = [];
 
-    String contentType = contentTypes.length > 0 ? contentTypes[0] : "application/json";
+    String contentType = contentTypes.isNotEmpty ? contentTypes[0] : "application/json";
     List<String> authNames = ["app_id"];
 
     if(contentType.startsWith("multipart/form-data")) {
@@ -156,16 +156,16 @@ class EventApi {
   /// Updates an Event with form data
   ///
   /// 
-  Future updateEventWithForm(int eventID, { Event event }) async {
+  Future updateEventWithForm(int eventId, { Event event }) async {
     Object postBody = event;
 
     // verify required params are set
-    if(eventID == null) {
-     throw new ApiException(400, "Missing required param: eventID");
+    if(eventId == null) {
+     throw new ApiException(400, "Missing required param: eventId");
     }
 
     // create path and map variables
-    String path = "/events/{EventID}".replaceAll("{format}","json").replaceAll("{" + "EventID" + "}", eventID.toString());
+    String path = "/events/{eventId}".replaceAll("{format}","json").replaceAll("{" + "eventId" + "}", eventId.toString());
 
     // query params
     List<QueryParam> queryParams = [];
@@ -174,7 +174,7 @@ class EventApi {
 
     List<String> contentTypes = ["application/json"];
 
-    String contentType = contentTypes.length > 0 ? contentTypes[0] : "application/json";
+    String contentType = contentTypes.isNotEmpty ? contentTypes[0] : "application/json";
     List<String> authNames = ["app_id"];
 
     if(contentType.startsWith("multipart/form-data")) {
