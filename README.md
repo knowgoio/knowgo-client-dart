@@ -70,8 +70,8 @@ Class | Method | HTTP request | Description
 *AutoApi* | [**addAuto**](docs//AutoApi.md#addauto) | **POST** /auto | Add a new auto
 *AutoApi* | [**deleteAuto**](docs//AutoApi.md#deleteauto) | **DELETE** /auto/{autoId} | Deletes an Auto
 *AutoApi* | [**getAutoById**](docs//AutoApi.md#getautobyid) | **GET** /auto/{autoId} | Find auto by ID
-*AutoApi* | [**listVehicles**](docs//AutoApi.md#listvehicles) | **POST** /vehicles | Return a list of vehicles available for a specific user
-*AutoApi* | [**listVehiclesByUserId**](docs//AutoApi.md#listvehiclesbyuserid) | **POST** /user/{userId}/vehicles | Return a list of vehicles available for a specific user
+*AutoApi* | [**listVehicles**](docs//AutoApi.md#listvehicles) | **GET** /vehicles | Return a list of vehicles available for a specific user
+*AutoApi* | [**listVehiclesByUserId**](docs//AutoApi.md#listvehiclesbyuserid) | **GET** /user/{userId}/vehicles | Return a list of vehicles available for a specific user
 *AutoApi* | [**updateAuto**](docs//AutoApi.md#updateauto) | **PUT** /auto | Update an existing auto
 *AutoApi* | [**updateAutoWithForm**](docs//AutoApi.md#updateautowithform) | **POST** /auto/{autoId} | Updates an auto with form data
 *EventApi* | [**addEvent**](docs//EventApi.md#addevent) | **POST** /events | Add a new Event

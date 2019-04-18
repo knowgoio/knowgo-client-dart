@@ -187,7 +187,7 @@ class AutoApi {
     }
 
     var response = await apiClient.invokeAPI(path,
-                                             'POST',
+                                             'GET',
                                              queryParams,
                                              postBody,
                                              headerParams,
@@ -237,7 +237,7 @@ class AutoApi {
     }
 
     var response = await apiClient.invokeAPI(path,
-                                             'POST',
+                                             'GET',
                                              queryParams,
                                              postBody,
                                              headerParams,

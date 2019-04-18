@@ -12,8 +12,8 @@ Method | HTTP request | Description
 [**addAuto**](AutoApi.md#addAuto) | **POST** /auto | Add a new auto
 [**deleteAuto**](AutoApi.md#deleteAuto) | **DELETE** /auto/{autoId} | Deletes an Auto
 [**getAutoById**](AutoApi.md#getAutoById) | **GET** /auto/{autoId} | Find auto by ID
-[**listVehicles**](AutoApi.md#listVehicles) | **POST** /vehicles | Return a list of vehicles available for a specific user
-[**listVehiclesByUserId**](AutoApi.md#listVehiclesByUserId) | **POST** /user/{userId}/vehicles | Return a list of vehicles available for a specific user
+[**listVehicles**](AutoApi.md#listVehicles) | **GET** /vehicles | Return a list of vehicles available for a specific user
+[**listVehiclesByUserId**](AutoApi.md#listVehiclesByUserId) | **GET** /user/{userId}/vehicles | Return a list of vehicles available for a specific user
 [**updateAuto**](AutoApi.md#updateAuto) | **PUT** /auto | Update an existing auto
 [**updateAutoWithForm**](AutoApi.md#updateAutoWithForm) | **POST** /auto/{autoId} | Updates an auto with form data
 
