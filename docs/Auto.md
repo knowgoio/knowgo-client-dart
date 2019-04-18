@@ -8,9 +8,9 @@ import 'package:openapi/api.dart';
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**autoID** | **String** |  | [default to null]
-**driverID** | **String** |  | [optional] [default to null]
-**ownerID** | **String** |  | [optional] [default to null]
+**autoID** | **int** |  | [default to null]
+**driverID** | **int** |  | [optional] [default to null]
+**ownerID** | **int** |  | [optional] [default to null]
 **name** | **String** |  | [optional] [default to null]
 **make** | **String** |  | [default to null]
 **model** | **String** |  | [default to null]

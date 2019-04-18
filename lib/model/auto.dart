@@ -2,11 +2,11 @@ part of openapi.api;
 
 class Auto {
   
-  String autoID = null;
+  int autoID = null;
   
-  String driverID = null;
+  int driverID = null;
   
-  String ownerID = null;
+  int ownerID = null;
   
   String name = null;
   
