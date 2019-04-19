@@ -6,19 +6,23 @@ class User {
   
   String fullName = null;
   
+  String emailAddress = null;
+  
+  String password = null;
+  
   String preferredName = null;
   
   String gender = null;
   //enum genderEnum {  Male,  Female,  Other,  Undisclosed,  };{
   
-  String phoneNumber = null;
+  DateTime dateOfBirth = null;
   
-  String emailAddress = null;
+  String phoneNumber = null;
   User();
 
   @override
   String toString() {
-    return 'User[personID=$personID, fullName=$fullName, preferredName=$preferredName, gender=$gender, phoneNumber=$phoneNumber, emailAddress=$emailAddress, ]';
+    return 'User[personID=$personID, fullName=$fullName, emailAddress=$emailAddress, password=$password, preferredName=$preferredName, gender=$gender, dateOfBirth=$dateOfBirth, phoneNumber=$phoneNumber, ]';
   }
 
   User.fromJson(Map<String, dynamic> json) {
@@ -33,6 +37,16 @@ class User {
     } else {
           fullName = json['FullName'];
     }
+    if (json['EmailAddress'] == null) {
+      emailAddress = null;
+    } else {
+          emailAddress = json['EmailAddress'];
+    }
+    if (json['Password'] == null) {
+      password = null;
+    } else {
+          password = json['Password'];
+    }
     if (json['PreferredName'] == null) {
       preferredName = null;
     } else {
@@ -43,15 +57,15 @@ class User {
     } else {
           gender = json['Gender'];
     }
+    if (json['DateOfBirth'] == null) {
+      dateOfBirth = null;
+    } else {
+      dateOfBirth = DateTime.parse(json['DateOfBirth']);
+    }
     if (json['PhoneNumber'] == null) {
       phoneNumber = null;
     } else {
           phoneNumber = json['PhoneNumber'];
-    }
-    if (json['EmailAddress'] == null) {
-      emailAddress = null;
-    } else {
-          emailAddress = json['EmailAddress'];
     }
   }
 
@@ -59,10 +73,12 @@ class User {
     return {
       'PersonID': personID,
       'FullName': fullName,
+      'EmailAddress': emailAddress,
+      'Password': password,
       'PreferredName': preferredName,
       'Gender': gender,
-      'PhoneNumber': phoneNumber,
-      'EmailAddress': emailAddress
+      'DateOfBirth': dateOfBirth == null ? '' : dateOfBirth.toUtc().toIso8601String(),
+      'PhoneNumber': phoneNumber
     };
   }
 

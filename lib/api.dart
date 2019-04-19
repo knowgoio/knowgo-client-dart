@@ -12,10 +12,10 @@ part 'auth/api_key_auth.dart';
 part 'auth/oauth.dart';
 part 'auth/http_basic_auth.dart';
 
-part 'api/auto_api.dart';
-part 'api/event_api.dart';
-part 'api/journey_api.dart';
-part 'api/user_api.dart';
+part 'api/events_api.dart';
+part 'api/journeys_api.dart';
+part 'api/users_api.dart';
+part 'api/vehicles_api.dart';
 
 part 'model/auto.dart';
 part 'model/event.dart';

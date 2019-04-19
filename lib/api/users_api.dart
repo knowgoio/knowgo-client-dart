@@ -2,10 +2,10 @@ part of openapi.api;
 
 
 
-class UserApi {
+class UsersApi {
   final ApiClient apiClient;
 
-  UserApi([ApiClient apiClient]) : apiClient = apiClient ?? defaultApiClient;
+  UsersApi([ApiClient apiClient]) : apiClient = apiClient ?? defaultApiClient;
 
   /// Create user
   ///
@@ -19,7 +19,7 @@ class UserApi {
     }
 
     // create path and map variables
-    String path = "/user".replaceAll("{format}","json");
+    String path = "/users".replaceAll("{format}","json");
 
     // query params
     List<QueryParam> queryParams = [];
@@ -69,7 +69,7 @@ class UserApi {
     }
 
     // create path and map variables
-    String path = "/user/{userId}".replaceAll("{format}","json").replaceAll("{" + "userId" + "}", userId.toString());
+    String path = "/users/{userId}".replaceAll("{format}","json").replaceAll("{" + "userId" + "}", userId.toString());
 
     // query params
     List<QueryParam> queryParams = [];
@@ -118,7 +118,7 @@ class UserApi {
     }
 
     // create path and map variables
-    String path = "/user/{userId}/export".replaceAll("{format}","json").replaceAll("{" + "userId" + "}", userId.toString());
+    String path = "/users/{userId}/export".replaceAll("{format}","json").replaceAll("{" + "userId" + "}", userId.toString());
 
     // query params
     List<QueryParam> queryParams = [];
@@ -167,7 +167,7 @@ class UserApi {
     }
 
     // create path and map variables
-    String path = "/user/{userId}".replaceAll("{format}","json").replaceAll("{" + "userId" + "}", userId.toString());
+    String path = "/users/{userId}".replaceAll("{format}","json").replaceAll("{" + "userId" + "}", userId.toString());
 
     // query params
     List<QueryParam> queryParams = [];
@@ -220,7 +220,7 @@ class UserApi {
     }
 
     // create path and map variables
-    String path = "/user/login".replaceAll("{format}","json");
+    String path = "/users/login".replaceAll("{format}","json");
 
     // query params
     List<QueryParam> queryParams = [];
@@ -269,7 +269,7 @@ class UserApi {
     // verify required params are set
 
     // create path and map variables
-    String path = "/user/logout".replaceAll("{format}","json");
+    String path = "/users/logout".replaceAll("{format}","json");
 
     // query params
     List<QueryParam> queryParams = [];
@@ -321,7 +321,7 @@ class UserApi {
     }
 
     // create path and map variables
-    String path = "/user/{userId}".replaceAll("{format}","json").replaceAll("{" + "userId" + "}", userId.toString());
+    String path = "/users/{userId}".replaceAll("{format}","json").replaceAll("{" + "userId" + "}", userId.toString());
 
     // query params
     List<QueryParam> queryParams = [];

@@ -1,4 +1,4 @@
-# openapi.api.AutoApi
+# openapi.api.UsersApi
 
 ## Load the API package
 ```dart
@@ -9,21 +9,21 @@ All URIs are relative to *https://api.adaptant.io/payd/v1*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**addAuto**](AutoApi.md#addAuto) | **POST** /auto | Add a new auto
-[**deleteAuto**](AutoApi.md#deleteAuto) | **DELETE** /auto/{autoId} | Deletes an Auto
-[**getAutoById**](AutoApi.md#getAutoById) | **GET** /auto/{autoId} | Find auto by ID
-[**listVehicles**](AutoApi.md#listVehicles) | **GET** /vehicles | Return a list of vehicles available for a specific user
-[**listVehiclesByUserId**](AutoApi.md#listVehiclesByUserId) | **GET** /user/{userId}/vehicles | Return a list of vehicles available for a specific user
-[**updateAuto**](AutoApi.md#updateAuto) | **PUT** /auto | Update an existing auto
-[**updateAutoWithForm**](AutoApi.md#updateAutoWithForm) | **POST** /auto/{autoId} | Updates an auto with form data
+[**createUser**](UsersApi.md#createUser) | **POST** /users | Create user
+[**deleteUser**](UsersApi.md#deleteUser) | **DELETE** /users/{userId} | Delete user
+[**exportUser**](UsersApi.md#exportUser) | **GET** /users/{userId}/export | Exports all data about current user in CSV format
+[**getUserById**](UsersApi.md#getUserById) | **GET** /users/{userId} | Get user by user id
+[**loginUser**](UsersApi.md#loginUser) | **GET** /users/login | Logs user into the system
+[**logoutUser**](UsersApi.md#logoutUser) | **GET** /users/logout | Logs out current logged in user session
+[**updateUser**](UsersApi.md#updateUser) | **PUT** /users/{userId} | Updated user
 
 
-# **addAuto**
-> Auto addAuto(auto)
+# **createUser**
+> User createUser(user)
 
-Add a new auto
+Create user
 
-Adds a new Auto to the system. The AutoID as input is ignored, as it is dynamically allocated at insertion time. Auto details may be as complete or as incomplete as needed, with later updates possible via the PUT method. The complete new Auto record with allocated AutoID are returned upon successful record creation.
+This can only be done by the logged in user.
 
 ### Example 
 ```dart
@@ -33,14 +33,14 @@ import 'package:openapi/api.dart';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('app_id').apiKeyPrefix = 'Bearer';
 
-var api_instance = new AutoApi();
-var auto = new Auto(); // Auto | Auto object to operate on
+var api_instance = new UsersApi();
+var user = new User(); // User | User object to operate on
 
 try { 
-    var result = api_instance.addAuto(auto);
+    var result = api_instance.createUser(user);
     print(result);
 } catch (e) {
-    print("Exception when calling AutoApi->addAuto: $e\n");
+    print("Exception when calling UsersApi->createUser: $e\n");
 }
 ```
 
@@ -48,11 +48,11 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **auto** | [**Auto**](Auto.md)| Auto object to operate on | 
+ **user** | [**User**](User.md)| User object to operate on | 
 
 ### Return type
 
-[**Auto**](Auto.md)
+[**User**](User.md)
 
 ### Authorization
 
@@ -65,56 +65,12 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **deleteAuto**
-> deleteAuto(autoId)
+# **deleteUser**
+> deleteUser(userId)
 
-Deletes an Auto
+Delete user
 
-### Example 
-```dart
-import 'package:openapi/api.dart';
-// TODO Configure API key authorization: app_id
-//defaultApiClient.getAuthentication<ApiKeyAuth>('app_id').apiKey = 'YOUR_API_KEY';
-// uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-//defaultApiClient.getAuthentication<ApiKeyAuth>('app_id').apiKeyPrefix = 'Bearer';
-
-var api_instance = new AutoApi();
-var autoId = 789; // int | Auto id to delete
-
-try { 
-    api_instance.deleteAuto(autoId);
-} catch (e) {
-    print("Exception when calling AutoApi->deleteAuto: $e\n");
-}
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **autoId** | **int**| Auto id to delete | [default to null]
-
-### Return type
-
-void (empty response body)
-
-### Authorization
-
-[app_id](../README.md#app_id)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: Not defined
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-# **getAutoById**
-> Auto getAutoById(autoId)
-
-Find auto by ID
-
-Returns a single auto
+This can only be done by the logged in user.
 
 ### Example 
 ```dart
@@ -124,104 +80,13 @@ import 'package:openapi/api.dart';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('app_id').apiKeyPrefix = 'Bearer';
 
-var api_instance = new AutoApi();
-var autoId = 789; // int | ID of auto to return
-
-try { 
-    var result = api_instance.getAutoById(autoId);
-    print(result);
-} catch (e) {
-    print("Exception when calling AutoApi->getAutoById: $e\n");
-}
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **autoId** | **int**| ID of auto to return | [default to null]
-
-### Return type
-
-[**Auto**](Auto.md)
-
-### Authorization
-
-[app_id](../README.md#app_id)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-# **listVehicles**
-> List<Object> listVehicles()
-
-Return a list of vehicles available for a specific user
-
-Given an authenticated user, return a list of vehicles that are available to them.
-
-### Example 
-```dart
-import 'package:openapi/api.dart';
-// TODO Configure API key authorization: app_id
-//defaultApiClient.getAuthentication<ApiKeyAuth>('app_id').apiKey = 'YOUR_API_KEY';
-// uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-//defaultApiClient.getAuthentication<ApiKeyAuth>('app_id').apiKeyPrefix = 'Bearer';
-
-var api_instance = new AutoApi();
-
-try { 
-    var result = api_instance.listVehicles();
-    print(result);
-} catch (e) {
-    print("Exception when calling AutoApi->listVehicles: $e\n");
-}
-```
-
-### Parameters
-This endpoint does not need any parameter.
-
-### Return type
-
-[**List<Object>**](Object.md)
-
-### Authorization
-
-[app_id](../README.md#app_id)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-# **listVehiclesByUserId**
-> List<Object> listVehiclesByUserId(userId)
-
-Return a list of vehicles available for a specific user
-
-Given an authenticated user, return a list of vehicles that are available to them.
-
-### Example 
-```dart
-import 'package:openapi/api.dart';
-// TODO Configure API key authorization: app_id
-//defaultApiClient.getAuthentication<ApiKeyAuth>('app_id').apiKey = 'YOUR_API_KEY';
-// uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-//defaultApiClient.getAuthentication<ApiKeyAuth>('app_id').apiKeyPrefix = 'Bearer';
-
-var api_instance = new AutoApi();
+var api_instance = new UsersApi();
 var userId = 789; // int | ID of user that needs to be fetched
 
 try { 
-    var result = api_instance.listVehiclesByUserId(userId);
-    print(result);
+    api_instance.deleteUser(userId);
 } catch (e) {
-    print("Exception when calling AutoApi->listVehiclesByUserId: $e\n");
+    print("Exception when calling UsersApi->deleteUser: $e\n");
 }
 ```
 
@@ -233,7 +98,98 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**List<Object>**](Object.md)
+void (empty response body)
+
+### Authorization
+
+[app_id](../README.md#app_id)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: Not defined
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **exportUser**
+> exportUser(userId)
+
+Exports all data about current user in CSV format
+
+This endpoint allows a logged in user to export all of the data pertaining to their userId from across the system in a simple CSV format, facilitating their right to data and service portability. This includes not only the personal information about the individual, but also all vehicles they are (or have been) associated with, journeys taken, and all events recorded.
+
+### Example 
+```dart
+import 'package:openapi/api.dart';
+// TODO Configure API key authorization: app_id
+//defaultApiClient.getAuthentication<ApiKeyAuth>('app_id').apiKey = 'YOUR_API_KEY';
+// uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+//defaultApiClient.getAuthentication<ApiKeyAuth>('app_id').apiKeyPrefix = 'Bearer';
+
+var api_instance = new UsersApi();
+var userId = 789; // int | ID of user that needs to be fetched
+
+try { 
+    api_instance.exportUser(userId);
+} catch (e) {
+    print("Exception when calling UsersApi->exportUser: $e\n");
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **userId** | **int**| ID of user that needs to be fetched | [default to null]
+
+### Return type
+
+void (empty response body)
+
+### Authorization
+
+[app_id](../README.md#app_id)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: Not defined
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **getUserById**
+> User getUserById(userId)
+
+Get user by user id
+
+### Example 
+```dart
+import 'package:openapi/api.dart';
+// TODO Configure API key authorization: app_id
+//defaultApiClient.getAuthentication<ApiKeyAuth>('app_id').apiKey = 'YOUR_API_KEY';
+// uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+//defaultApiClient.getAuthentication<ApiKeyAuth>('app_id').apiKeyPrefix = 'Bearer';
+
+var api_instance = new UsersApi();
+var userId = 789; // int | ID of user that needs to be fetched
+
+try { 
+    var result = api_instance.getUserById(userId);
+    print(result);
+} catch (e) {
+    print("Exception when calling UsersApi->getUserById: $e\n");
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **userId** | **int**| ID of user that needs to be fetched | [default to null]
+
+### Return type
+
+[**User**](User.md)
 
 ### Authorization
 
@@ -246,10 +202,53 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **updateAuto**
-> updateAuto(auto)
+# **loginUser**
+> String loginUser(email, password)
 
-Update an existing auto
+Logs user into the system
+
+### Example 
+```dart
+import 'package:openapi/api.dart';
+
+var api_instance = new UsersApi();
+var email = email_example; // String | The user email address for login
+var password = password_example; // String | The password for login in clear text
+
+try { 
+    var result = api_instance.loginUser(email, password);
+    print(result);
+} catch (e) {
+    print("Exception when calling UsersApi->loginUser: $e\n");
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **email** | **String**| The user email address for login | [default to null]
+ **password** | **String**| The password for login in clear text | [default to null]
+
+### Return type
+
+**String**
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **logoutUser**
+> logoutUser()
+
+Logs out current logged in user session
 
 ### Example 
 ```dart
@@ -259,21 +258,17 @@ import 'package:openapi/api.dart';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('app_id').apiKeyPrefix = 'Bearer';
 
-var api_instance = new AutoApi();
-var auto = new Auto(); // Auto | Auto object to operate on
+var api_instance = new UsersApi();
 
 try { 
-    api_instance.updateAuto(auto);
+    api_instance.logoutUser();
 } catch (e) {
-    print("Exception when calling AutoApi->updateAuto: $e\n");
+    print("Exception when calling UsersApi->logoutUser: $e\n");
 }
 ```
 
 ### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **auto** | [**Auto**](Auto.md)| Auto object to operate on | 
+This endpoint does not need any parameter.
 
 ### Return type
 
@@ -285,15 +280,17 @@ void (empty response body)
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: Not defined
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **updateAutoWithForm**
-> updateAutoWithForm(autoId, auto)
+# **updateUser**
+> updateUser(userId, user)
 
-Updates an auto with form data
+Updated user
+
+This can only be done by the logged in user.
 
 ### Example 
 ```dart
@@ -303,14 +300,14 @@ import 'package:openapi/api.dart';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('app_id').apiKeyPrefix = 'Bearer';
 
-var api_instance = new AutoApi();
-var autoId = 789; // int | ID of auto that needs to be updated
-var auto = new Auto(); // Auto | Auto object to operate on
+var api_instance = new UsersApi();
+var userId = 789; // int | ID of user that needs to be fetched
+var user = new User(); // User | Updated user object
 
 try { 
-    api_instance.updateAutoWithForm(autoId, auto);
+    api_instance.updateUser(userId, user);
 } catch (e) {
-    print("Exception when calling AutoApi->updateAutoWithForm: $e\n");
+    print("Exception when calling UsersApi->updateUser: $e\n");
 }
 ```
 
@@ -318,8 +315,8 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **autoId** | **int**| ID of auto that needs to be updated | [default to null]
- **auto** | [**Auto**](Auto.md)| Auto object to operate on | 
+ **userId** | **int**| ID of user that needs to be fetched | [default to null]
+ **user** | [**User**](User.md)| Updated user object | 
 
 ### Return type
 

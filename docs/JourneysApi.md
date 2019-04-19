@@ -1,4 +1,4 @@
-# openapi.api.JourneyApi
+# openapi.api.JourneysApi
 
 ## Load the API package
 ```dart
@@ -9,10 +9,10 @@ All URIs are relative to *https://api.adaptant.io/payd/v1*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**addJourney**](JourneyApi.md#addJourney) | **POST** /journey | Add a new Journey
-[**deleteJourney**](JourneyApi.md#deleteJourney) | **DELETE** /journey/{journeyId} | Delete Journey by ID
-[**getJourneyById**](JourneyApi.md#getJourneyById) | **GET** /journey/{journeyId} | Find journey by ID
-[**updateJourneyWithForm**](JourneyApi.md#updateJourneyWithForm) | **POST** /journey/{journeyId} | Updates a Journey with form data
+[**addJourney**](JourneysApi.md#addJourney) | **POST** /journeys | Add a new Journey
+[**deleteJourney**](JourneysApi.md#deleteJourney) | **DELETE** /journey/{journeyId} | Delete Journey by ID
+[**getJourneyById**](JourneysApi.md#getJourneyById) | **GET** /journey/{journeyId} | Find journey by ID
+[**updateJourneyWithForm**](JourneysApi.md#updateJourneyWithForm) | **POST** /journey/{journeyId} | Updates a Journey with form data
 
 
 # **addJourney**
@@ -30,14 +30,14 @@ import 'package:openapi/api.dart';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('app_id').apiKeyPrefix = 'Bearer';
 
-var api_instance = new JourneyApi();
+var api_instance = new JourneysApi();
 var journey = new Journey(); // Journey | Journey object to operate on
 
 try { 
     var result = api_instance.addJourney(journey);
     print(result);
 } catch (e) {
-    print("Exception when calling JourneyApi->addJourney: $e\n");
+    print("Exception when calling JourneysApi->addJourney: $e\n");
 }
 ```
 
@@ -77,13 +77,13 @@ import 'package:openapi/api.dart';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('app_id').apiKeyPrefix = 'Bearer';
 
-var api_instance = new JourneyApi();
+var api_instance = new JourneysApi();
 var journeyId = journeyId_example; // String | ID of the journey to delete
 
 try { 
     api_instance.deleteJourney(journeyId);
 } catch (e) {
-    print("Exception when calling JourneyApi->deleteJourney: $e\n");
+    print("Exception when calling JourneysApi->deleteJourney: $e\n");
 }
 ```
 
@@ -121,14 +121,14 @@ import 'package:openapi/api.dart';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('app_id').apiKeyPrefix = 'Bearer';
 
-var api_instance = new JourneyApi();
+var api_instance = new JourneysApi();
 var journeyId = journeyId_example; // String | ID of journey that needs to be fetched
 
 try { 
     var result = api_instance.getJourneyById(journeyId);
     print(result);
 } catch (e) {
-    print("Exception when calling JourneyApi->getJourneyById: $e\n");
+    print("Exception when calling JourneysApi->getJourneyById: $e\n");
 }
 ```
 
@@ -166,14 +166,14 @@ import 'package:openapi/api.dart';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('app_id').apiKeyPrefix = 'Bearer';
 
-var api_instance = new JourneyApi();
+var api_instance = new JourneysApi();
 var journeyId = journeyId_example; // String | ID of journey that needs to be updated
 var journey = new Journey(); // Journey | Journey object to operate on
 
 try { 
     api_instance.updateJourneyWithForm(journeyId, journey);
 } catch (e) {
-    print("Exception when calling JourneyApi->updateJourneyWithForm: $e\n");
+    print("Exception when calling JourneysApi->updateJourneyWithForm: $e\n");
 }
 ```
 

@@ -1,4 +1,4 @@
-# openapi.api.EventApi
+# openapi.api.EventsApi
 
 ## Load the API package
 ```dart
@@ -9,10 +9,10 @@ All URIs are relative to *https://api.adaptant.io/payd/v1*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**addEvent**](EventApi.md#addEvent) | **POST** /events | Add a new Event
-[**deleteEvent**](EventApi.md#deleteEvent) | **DELETE** /events/{eventId} | Delete Event by ID
-[**getEventById**](EventApi.md#getEventById) | **GET** /events/{eventId} | Find Event by ID
-[**updateEventWithForm**](EventApi.md#updateEventWithForm) | **POST** /events/{eventId} | Updates an Event with form data
+[**addEvent**](EventsApi.md#addEvent) | **POST** /events | Add a new Event
+[**deleteEvent**](EventsApi.md#deleteEvent) | **DELETE** /events/{eventId} | Delete Event by ID
+[**getEventById**](EventsApi.md#getEventById) | **GET** /events/{eventId} | Find Event by ID
+[**updateEventWithForm**](EventsApi.md#updateEventWithForm) | **POST** /events/{eventId} | Updates an Event with form data
 
 
 # **addEvent**
@@ -30,14 +30,14 @@ import 'package:openapi/api.dart';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('app_id').apiKeyPrefix = 'Bearer';
 
-var api_instance = new EventApi();
+var api_instance = new EventsApi();
 var event = new Event(); // Event | Event object to operate on
 
 try { 
     var result = api_instance.addEvent(event);
     print(result);
 } catch (e) {
-    print("Exception when calling EventApi->addEvent: $e\n");
+    print("Exception when calling EventsApi->addEvent: $e\n");
 }
 ```
 
@@ -77,13 +77,13 @@ import 'package:openapi/api.dart';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('app_id').apiKeyPrefix = 'Bearer';
 
-var api_instance = new EventApi();
+var api_instance = new EventsApi();
 var eventId = 789; // int | ID of the Event to delete
 
 try { 
     api_instance.deleteEvent(eventId);
 } catch (e) {
-    print("Exception when calling EventApi->deleteEvent: $e\n");
+    print("Exception when calling EventsApi->deleteEvent: $e\n");
 }
 ```
 
@@ -121,14 +121,14 @@ import 'package:openapi/api.dart';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('app_id').apiKeyPrefix = 'Bearer';
 
-var api_instance = new EventApi();
+var api_instance = new EventsApi();
 var eventId = 789; // int | ID of Event that needs to be fetched
 
 try { 
     var result = api_instance.getEventById(eventId);
     print(result);
 } catch (e) {
-    print("Exception when calling EventApi->getEventById: $e\n");
+    print("Exception when calling EventsApi->getEventById: $e\n");
 }
 ```
 
@@ -166,14 +166,14 @@ import 'package:openapi/api.dart';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('app_id').apiKeyPrefix = 'Bearer';
 
-var api_instance = new EventApi();
+var api_instance = new EventsApi();
 var eventId = 789; // int | ID of Event that needs to be updated
 var event = new Event(); // Event | Event object to operate on
 
 try { 
     api_instance.updateEventWithForm(eventId, event);
 } catch (e) {
-    print("Exception when calling EventApi->updateEventWithForm: $e\n");
+    print("Exception when calling EventsApi->updateEventWithForm: $e\n");
 }
 ```
 

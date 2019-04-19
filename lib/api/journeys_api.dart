@@ -2,10 +2,10 @@ part of openapi.api;
 
 
 
-class JourneyApi {
+class JourneysApi {
   final ApiClient apiClient;
 
-  JourneyApi([ApiClient apiClient]) : apiClient = apiClient ?? defaultApiClient;
+  JourneysApi([ApiClient apiClient]) : apiClient = apiClient ?? defaultApiClient;
 
   /// Add a new Journey
   ///
@@ -19,7 +19,7 @@ class JourneyApi {
     }
 
     // create path and map variables
-    String path = "/journey".replaceAll("{format}","json");
+    String path = "/journeys".replaceAll("{format}","json");
 
     // query params
     List<QueryParam> queryParams = [];

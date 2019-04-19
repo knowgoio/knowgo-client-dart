@@ -2,10 +2,10 @@ part of openapi.api;
 
 
 
-class AutoApi {
+class VehiclesApi {
   final ApiClient apiClient;
 
-  AutoApi([ApiClient apiClient]) : apiClient = apiClient ?? defaultApiClient;
+  VehiclesApi([ApiClient apiClient]) : apiClient = apiClient ?? defaultApiClient;
 
   /// Add a new auto
   ///
@@ -19,7 +19,7 @@ class AutoApi {
     }
 
     // create path and map variables
-    String path = "/auto".replaceAll("{format}","json");
+    String path = "/autos".replaceAll("{format}","json");
 
     // query params
     List<QueryParam> queryParams = [];
@@ -69,7 +69,7 @@ class AutoApi {
     }
 
     // create path and map variables
-    String path = "/auto/{autoId}".replaceAll("{format}","json").replaceAll("{" + "autoId" + "}", autoId.toString());
+    String path = "/autos/{autoId}".replaceAll("{format}","json").replaceAll("{" + "autoId" + "}", autoId.toString());
 
     // query params
     List<QueryParam> queryParams = [];
@@ -118,7 +118,7 @@ class AutoApi {
     }
 
     // create path and map variables
-    String path = "/auto/{autoId}".replaceAll("{format}","json").replaceAll("{" + "autoId" + "}", autoId.toString());
+    String path = "/autos/{autoId}".replaceAll("{format}","json").replaceAll("{" + "autoId" + "}", autoId.toString());
 
     // query params
     List<QueryParam> queryParams = [];
@@ -159,7 +159,7 @@ class AutoApi {
   /// Return a list of vehicles available for a specific user
   ///
   /// Given an authenticated user, return a list of vehicles that are available to them.
-  Future<List<Object>> listVehicles() async {
+  Future<List<Auto>> listVehicles() async {
     Object postBody;
 
     // verify required params are set
@@ -198,7 +198,7 @@ class AutoApi {
     if(response.statusCode >= 400) {
       throw new ApiException(response.statusCode, _decodeBodyBytes(response));
     } else if(response.body != null) {
-      return (apiClient.deserialize(_decodeBodyBytes(response), 'List<Object>') as List).map((item) => item as Object).toList();
+      return (apiClient.deserialize(_decodeBodyBytes(response), 'List<Auto>') as List).map((item) => item as Auto).toList();
     } else {
       return null;
     }
@@ -206,7 +206,7 @@ class AutoApi {
   /// Return a list of vehicles available for a specific user
   ///
   /// Given an authenticated user, return a list of vehicles that are available to them.
-  Future<List<Object>> listVehiclesByUserId(int userId) async {
+  Future<List<Auto>> listVehiclesByUserId(int userId) async {
     Object postBody;
 
     // verify required params are set
@@ -215,7 +215,7 @@ class AutoApi {
     }
 
     // create path and map variables
-    String path = "/user/{userId}/vehicles".replaceAll("{format}","json").replaceAll("{" + "userId" + "}", userId.toString());
+    String path = "/users/{userId}/vehicles".replaceAll("{format}","json").replaceAll("{" + "userId" + "}", userId.toString());
 
     // query params
     List<QueryParam> queryParams = [];
@@ -248,7 +248,7 @@ class AutoApi {
     if(response.statusCode >= 400) {
       throw new ApiException(response.statusCode, _decodeBodyBytes(response));
     } else if(response.body != null) {
-      return (apiClient.deserialize(_decodeBodyBytes(response), 'List<Object>') as List).map((item) => item as Object).toList();
+      return (apiClient.deserialize(_decodeBodyBytes(response), 'List<Auto>') as List).map((item) => item as Auto).toList();
     } else {
       return null;
     }
@@ -265,7 +265,7 @@ class AutoApi {
     }
 
     // create path and map variables
-    String path = "/auto".replaceAll("{format}","json");
+    String path = "/autos".replaceAll("{format}","json");
 
     // query params
     List<QueryParam> queryParams = [];
@@ -317,7 +317,7 @@ class AutoApi {
     }
 
     // create path and map variables
-    String path = "/auto/{autoId}".replaceAll("{format}","json").replaceAll("{" + "autoId" + "}", autoId.toString());
+    String path = "/autos/{autoId}".replaceAll("{format}","json").replaceAll("{" + "autoId" + "}", autoId.toString());
 
     // query params
     List<QueryParam> queryParams = [];

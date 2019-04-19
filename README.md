@@ -49,14 +49,14 @@ import 'package:openapi/api.dart';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('app_id').apiKeyPrefix = 'Bearer';
 
-var api_instance = new AutoApi();
-var auto = new Auto(); // Auto | Auto object to operate on
+var api_instance = new EventsApi();
+var event = new Event(); // Event | Event object to operate on
 
 try {
-    var result = api_instance.addAuto(auto);
+    var result = api_instance.addEvent(event);
     print(result);
 } catch (e) {
-    print("Exception when calling AutoApi->addAuto: $e\n");
+    print("Exception when calling EventsApi->addEvent: $e\n");
 }
 
 ```
@@ -67,28 +67,28 @@ All URIs are relative to *https://api.adaptant.io/payd/v1*
 
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
-*AutoApi* | [**addAuto**](docs//AutoApi.md#addauto) | **POST** /auto | Add a new auto
-*AutoApi* | [**deleteAuto**](docs//AutoApi.md#deleteauto) | **DELETE** /auto/{autoId} | Deletes an Auto
-*AutoApi* | [**getAutoById**](docs//AutoApi.md#getautobyid) | **GET** /auto/{autoId} | Find auto by ID
-*AutoApi* | [**listVehicles**](docs//AutoApi.md#listvehicles) | **GET** /vehicles | Return a list of vehicles available for a specific user
-*AutoApi* | [**listVehiclesByUserId**](docs//AutoApi.md#listvehiclesbyuserid) | **GET** /user/{userId}/vehicles | Return a list of vehicles available for a specific user
-*AutoApi* | [**updateAuto**](docs//AutoApi.md#updateauto) | **PUT** /auto | Update an existing auto
-*AutoApi* | [**updateAutoWithForm**](docs//AutoApi.md#updateautowithform) | **POST** /auto/{autoId} | Updates an auto with form data
-*EventApi* | [**addEvent**](docs//EventApi.md#addevent) | **POST** /events | Add a new Event
-*EventApi* | [**deleteEvent**](docs//EventApi.md#deleteevent) | **DELETE** /events/{eventId} | Delete Event by ID
-*EventApi* | [**getEventById**](docs//EventApi.md#geteventbyid) | **GET** /events/{eventId} | Find Event by ID
-*EventApi* | [**updateEventWithForm**](docs//EventApi.md#updateeventwithform) | **POST** /events/{eventId} | Updates an Event with form data
-*JourneyApi* | [**addJourney**](docs//JourneyApi.md#addjourney) | **POST** /journey | Add a new Journey
-*JourneyApi* | [**deleteJourney**](docs//JourneyApi.md#deletejourney) | **DELETE** /journey/{journeyId} | Delete Journey by ID
-*JourneyApi* | [**getJourneyById**](docs//JourneyApi.md#getjourneybyid) | **GET** /journey/{journeyId} | Find journey by ID
-*JourneyApi* | [**updateJourneyWithForm**](docs//JourneyApi.md#updatejourneywithform) | **POST** /journey/{journeyId} | Updates a Journey with form data
-*UserApi* | [**createUser**](docs//UserApi.md#createuser) | **POST** /user | Create user
-*UserApi* | [**deleteUser**](docs//UserApi.md#deleteuser) | **DELETE** /user/{userId} | Delete user
-*UserApi* | [**exportUser**](docs//UserApi.md#exportuser) | **GET** /user/{userId}/export | Exports all data about current user in CSV format
-*UserApi* | [**getUserById**](docs//UserApi.md#getuserbyid) | **GET** /user/{userId} | Get user by user id
-*UserApi* | [**loginUser**](docs//UserApi.md#loginuser) | **GET** /user/login | Logs user into the system
-*UserApi* | [**logoutUser**](docs//UserApi.md#logoutuser) | **GET** /user/logout | Logs out current logged in user session
-*UserApi* | [**updateUser**](docs//UserApi.md#updateuser) | **PUT** /user/{userId} | Updated user
+*EventsApi* | [**addEvent**](docs//EventsApi.md#addevent) | **POST** /events | Add a new Event
+*EventsApi* | [**deleteEvent**](docs//EventsApi.md#deleteevent) | **DELETE** /events/{eventId} | Delete Event by ID
+*EventsApi* | [**getEventById**](docs//EventsApi.md#geteventbyid) | **GET** /events/{eventId} | Find Event by ID
+*EventsApi* | [**updateEventWithForm**](docs//EventsApi.md#updateeventwithform) | **POST** /events/{eventId} | Updates an Event with form data
+*JourneysApi* | [**addJourney**](docs//JourneysApi.md#addjourney) | **POST** /journeys | Add a new Journey
+*JourneysApi* | [**deleteJourney**](docs//JourneysApi.md#deletejourney) | **DELETE** /journey/{journeyId} | Delete Journey by ID
+*JourneysApi* | [**getJourneyById**](docs//JourneysApi.md#getjourneybyid) | **GET** /journey/{journeyId} | Find journey by ID
+*JourneysApi* | [**updateJourneyWithForm**](docs//JourneysApi.md#updatejourneywithform) | **POST** /journey/{journeyId} | Updates a Journey with form data
+*UsersApi* | [**createUser**](docs//UsersApi.md#createuser) | **POST** /users | Create user
+*UsersApi* | [**deleteUser**](docs//UsersApi.md#deleteuser) | **DELETE** /users/{userId} | Delete user
+*UsersApi* | [**exportUser**](docs//UsersApi.md#exportuser) | **GET** /users/{userId}/export | Exports all data about current user in CSV format
+*UsersApi* | [**getUserById**](docs//UsersApi.md#getuserbyid) | **GET** /users/{userId} | Get user by user id
+*UsersApi* | [**loginUser**](docs//UsersApi.md#loginuser) | **GET** /users/login | Logs user into the system
+*UsersApi* | [**logoutUser**](docs//UsersApi.md#logoutuser) | **GET** /users/logout | Logs out current logged in user session
+*UsersApi* | [**updateUser**](docs//UsersApi.md#updateuser) | **PUT** /users/{userId} | Updated user
+*VehiclesApi* | [**addAuto**](docs//VehiclesApi.md#addauto) | **POST** /autos | Add a new auto
+*VehiclesApi* | [**deleteAuto**](docs//VehiclesApi.md#deleteauto) | **DELETE** /autos/{autoId} | Deletes an Auto
+*VehiclesApi* | [**getAutoById**](docs//VehiclesApi.md#getautobyid) | **GET** /autos/{autoId} | Find auto by ID
+*VehiclesApi* | [**listVehicles**](docs//VehiclesApi.md#listvehicles) | **GET** /vehicles | Return a list of vehicles available for a specific user
+*VehiclesApi* | [**listVehiclesByUserId**](docs//VehiclesApi.md#listvehiclesbyuserid) | **GET** /users/{userId}/vehicles | Return a list of vehicles available for a specific user
+*VehiclesApi* | [**updateAuto**](docs//VehiclesApi.md#updateauto) | **PUT** /autos | Update an existing auto
+*VehiclesApi* | [**updateAutoWithForm**](docs//VehiclesApi.md#updateautowithform) | **POST** /autos/{autoId} | Updates an auto with form data
 
 
 ## Documentation For Models

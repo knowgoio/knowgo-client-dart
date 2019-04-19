@@ -2,10 +2,10 @@ part of openapi.api;
 
 
 
-class EventApi {
+class EventsApi {
   final ApiClient apiClient;
 
-  EventApi([ApiClient apiClient]) : apiClient = apiClient ?? defaultApiClient;
+  EventsApi([ApiClient apiClient]) : apiClient = apiClient ?? defaultApiClient;
 
   /// Add a new Event
   ///
