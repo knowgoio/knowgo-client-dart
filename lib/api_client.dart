@@ -40,6 +40,8 @@ class ApiClient {
           return value is double ? value : double.parse('$value');
         case 'Auto':
           return Auto.fromJson(value);
+        case 'BasicAuthCredentials':
+          return BasicAuthCredentials.fromJson(value);
         case 'Event':
           return Event.fromJson(value);
         case 'Journey':

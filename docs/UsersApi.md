@@ -13,7 +13,7 @@ Method | HTTP request | Description
 [**deleteUser**](UsersApi.md#deleteUser) | **DELETE** /users/{userId} | Delete user
 [**exportUser**](UsersApi.md#exportUser) | **GET** /users/{userId}/export | Exports all data about current user in CSV format
 [**getUserById**](UsersApi.md#getUserById) | **GET** /users/{userId} | Get user by user id
-[**loginUser**](UsersApi.md#loginUser) | **GET** /users/login | Logs user into the system
+[**loginUser**](UsersApi.md#loginUser) | **POST** /users/login | Logs user into the system
 [**logoutUser**](UsersApi.md#logoutUser) | **GET** /users/logout | Logs out current logged in user session
 [**updateUser**](UsersApi.md#updateUser) | **PUT** /users/{userId} | Updated user
 
@@ -203,7 +203,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **loginUser**
-> String loginUser(email, password)
+> String loginUser(email, password, basicAuthCredentials)
 
 Logs user into the system
 
@@ -214,9 +214,10 @@ import 'package:openapi/api.dart';
 var api_instance = new UsersApi();
 var email = email_example; // String | The user email address for login
 var password = password_example; // String | The password for login in clear text
+var basicAuthCredentials = new BasicAuthCredentials(); // BasicAuthCredentials | Basic Auth credentials for user authentication
 
 try { 
-    var result = api_instance.loginUser(email, password);
+    var result = api_instance.loginUser(email, password, basicAuthCredentials);
     print(result);
 } catch (e) {
     print("Exception when calling UsersApi->loginUser: $e\n");
@@ -227,8 +228,9 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **email** | **String**| The user email address for login | [default to null]
- **password** | **String**| The password for login in clear text | [default to null]
+ **email** | **String**| The user email address for login | [optional] [default to null]
+ **password** | **String**| The password for login in clear text | [optional] [default to null]
+ **basicAuthCredentials** | [**BasicAuthCredentials**](BasicAuthCredentials.md)| Basic Auth credentials for user authentication | [optional] 
 
 ### Return type
 
@@ -240,7 +242,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)

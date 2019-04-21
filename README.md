@@ -79,7 +79,7 @@ Class | Method | HTTP request | Description
 *UsersApi* | [**deleteUser**](docs//UsersApi.md#deleteuser) | **DELETE** /users/{userId} | Delete user
 *UsersApi* | [**exportUser**](docs//UsersApi.md#exportuser) | **GET** /users/{userId}/export | Exports all data about current user in CSV format
 *UsersApi* | [**getUserById**](docs//UsersApi.md#getuserbyid) | **GET** /users/{userId} | Get user by user id
-*UsersApi* | [**loginUser**](docs//UsersApi.md#loginuser) | **GET** /users/login | Logs user into the system
+*UsersApi* | [**loginUser**](docs//UsersApi.md#loginuser) | **POST** /users/login | Logs user into the system
 *UsersApi* | [**logoutUser**](docs//UsersApi.md#logoutuser) | **GET** /users/logout | Logs out current logged in user session
 *UsersApi* | [**updateUser**](docs//UsersApi.md#updateuser) | **PUT** /users/{userId} | Updated user
 *VehiclesApi* | [**addAuto**](docs//VehiclesApi.md#addauto) | **POST** /autos | Add a new auto
@@ -94,6 +94,7 @@ Class | Method | HTTP request | Description
 ## Documentation For Models
 
  - [Auto](docs//Auto.md)
+ - [BasicAuthCredentials](docs//BasicAuthCredentials.md)
  - [Event](docs//Event.md)
  - [Journey](docs//Journey.md)
  - [User](docs//User.md)

@@ -208,16 +208,10 @@ class UsersApi {
   /// Logs user into the system
   ///
   /// 
-  Future<String> loginUser(String email, String password) async {
-    Object postBody;
+  Future<String> loginUser({ String email, String password, BasicAuthCredentials basicAuthCredentials }) async {
+    Object postBody = basicAuthCredentials;
 
     // verify required params are set
-    if(email == null) {
-     throw new ApiException(400, "Missing required param: email");
-    }
-    if(password == null) {
-     throw new ApiException(400, "Missing required param: password");
-    }
 
     // create path and map variables
     String path = "/users/login".replaceAll("{format}","json");
@@ -226,10 +220,14 @@ class UsersApi {
     List<QueryParam> queryParams = [];
     Map<String, String> headerParams = {};
     Map<String, String> formParams = {};
+    if(email != null) {
       queryParams.addAll(_convertParametersForCollectionFormat("", "email", email));
+    }
+    if(password != null) {
       queryParams.addAll(_convertParametersForCollectionFormat("", "password", password));
+    }
 
-    List<String> contentTypes = [];
+    List<String> contentTypes = ["application/json"];
 
     String contentType = contentTypes.isNotEmpty ? contentTypes[0] : "application/json";
     List<String> authNames = [];
@@ -244,7 +242,7 @@ class UsersApi {
     }
 
     var response = await apiClient.invokeAPI(path,
-                                             'GET',
+                                             'POST',
                                              queryParams,
                                              postBody,
                                              headerParams,
