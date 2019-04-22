@@ -32,6 +32,9 @@ import 'package:openapi/api.dart';
 //defaultApiClient.getAuthentication<ApiKeyAuth>('app_id').apiKey = 'YOUR_API_KEY';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('app_id').apiKeyPrefix = 'Bearer';
+// TODO Configure HTTP basic authorization: bearerAuth
+//defaultApiClient.getAuthentication<HttpBasicAuth>('bearerAuth').username = 'YOUR_USERNAME'
+//defaultApiClient.getAuthentication<HttpBasicAuth>('bearerAuth').password = 'YOUR_PASSWORD';
 
 var api_instance = new VehiclesApi();
 var auto = new Auto(); // Auto | Auto object to operate on
@@ -56,7 +59,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[app_id](../README.md#app_id)
+[app_id](../README.md#app_id), [bearerAuth](../README.md#bearerAuth)
 
 ### HTTP request headers
 
@@ -77,6 +80,9 @@ import 'package:openapi/api.dart';
 //defaultApiClient.getAuthentication<ApiKeyAuth>('app_id').apiKey = 'YOUR_API_KEY';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('app_id').apiKeyPrefix = 'Bearer';
+// TODO Configure HTTP basic authorization: bearerAuth
+//defaultApiClient.getAuthentication<HttpBasicAuth>('bearerAuth').username = 'YOUR_USERNAME'
+//defaultApiClient.getAuthentication<HttpBasicAuth>('bearerAuth').password = 'YOUR_PASSWORD';
 
 var api_instance = new VehiclesApi();
 var autoId = 789; // int | Auto id to delete
@@ -100,7 +106,7 @@ void (empty response body)
 
 ### Authorization
 
-[app_id](../README.md#app_id)
+[app_id](../README.md#app_id), [bearerAuth](../README.md#bearerAuth)
 
 ### HTTP request headers
 
@@ -123,6 +129,9 @@ import 'package:openapi/api.dart';
 //defaultApiClient.getAuthentication<ApiKeyAuth>('app_id').apiKey = 'YOUR_API_KEY';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('app_id').apiKeyPrefix = 'Bearer';
+// TODO Configure HTTP basic authorization: bearerAuth
+//defaultApiClient.getAuthentication<HttpBasicAuth>('bearerAuth').username = 'YOUR_USERNAME'
+//defaultApiClient.getAuthentication<HttpBasicAuth>('bearerAuth').password = 'YOUR_PASSWORD';
 
 var api_instance = new VehiclesApi();
 var autoId = 789; // int | ID of auto to return
@@ -147,7 +156,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[app_id](../README.md#app_id)
+[app_id](../README.md#app_id), [bearerAuth](../README.md#bearerAuth)
 
 ### HTTP request headers
 
@@ -170,6 +179,9 @@ import 'package:openapi/api.dart';
 //defaultApiClient.getAuthentication<ApiKeyAuth>('app_id').apiKey = 'YOUR_API_KEY';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('app_id').apiKeyPrefix = 'Bearer';
+// TODO Configure HTTP basic authorization: bearerAuth
+//defaultApiClient.getAuthentication<HttpBasicAuth>('bearerAuth').username = 'YOUR_USERNAME'
+//defaultApiClient.getAuthentication<HttpBasicAuth>('bearerAuth').password = 'YOUR_PASSWORD';
 
 var api_instance = new VehiclesApi();
 
@@ -190,7 +202,7 @@ This endpoint does not need any parameter.
 
 ### Authorization
 
-[app_id](../README.md#app_id)
+[app_id](../README.md#app_id), [bearerAuth](../README.md#bearerAuth)
 
 ### HTTP request headers
 
@@ -213,6 +225,9 @@ import 'package:openapi/api.dart';
 //defaultApiClient.getAuthentication<ApiKeyAuth>('app_id').apiKey = 'YOUR_API_KEY';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('app_id').apiKeyPrefix = 'Bearer';
+// TODO Configure HTTP basic authorization: bearerAuth
+//defaultApiClient.getAuthentication<HttpBasicAuth>('bearerAuth').username = 'YOUR_USERNAME'
+//defaultApiClient.getAuthentication<HttpBasicAuth>('bearerAuth').password = 'YOUR_PASSWORD';
 
 var api_instance = new VehiclesApi();
 var userId = 789; // int | ID of user that needs to be fetched
@@ -237,7 +252,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[app_id](../README.md#app_id)
+[app_id](../README.md#app_id), [bearerAuth](../README.md#bearerAuth)
 
 ### HTTP request headers
 
@@ -258,6 +273,9 @@ import 'package:openapi/api.dart';
 //defaultApiClient.getAuthentication<ApiKeyAuth>('app_id').apiKey = 'YOUR_API_KEY';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('app_id').apiKeyPrefix = 'Bearer';
+// TODO Configure HTTP basic authorization: bearerAuth
+//defaultApiClient.getAuthentication<HttpBasicAuth>('bearerAuth').username = 'YOUR_USERNAME'
+//defaultApiClient.getAuthentication<HttpBasicAuth>('bearerAuth').password = 'YOUR_PASSWORD';
 
 var api_instance = new VehiclesApi();
 var auto = new Auto(); // Auto | Auto object to operate on
@@ -281,7 +299,7 @@ void (empty response body)
 
 ### Authorization
 
-[app_id](../README.md#app_id)
+[app_id](../README.md#app_id), [bearerAuth](../README.md#bearerAuth)
 
 ### HTTP request headers
 
@@ -302,6 +320,9 @@ import 'package:openapi/api.dart';
 //defaultApiClient.getAuthentication<ApiKeyAuth>('app_id').apiKey = 'YOUR_API_KEY';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('app_id').apiKeyPrefix = 'Bearer';
+// TODO Configure HTTP basic authorization: bearerAuth
+//defaultApiClient.getAuthentication<HttpBasicAuth>('bearerAuth').username = 'YOUR_USERNAME'
+//defaultApiClient.getAuthentication<HttpBasicAuth>('bearerAuth').password = 'YOUR_PASSWORD';
 
 var api_instance = new VehiclesApi();
 var autoId = 789; // int | ID of auto that needs to be updated
@@ -327,7 +348,7 @@ void (empty response body)
 
 ### Authorization
 
-[app_id](../README.md#app_id)
+[app_id](../README.md#app_id), [bearerAuth](../README.md#bearerAuth)
 
 ### HTTP request headers
 

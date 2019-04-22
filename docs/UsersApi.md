@@ -23,15 +23,11 @@ Method | HTTP request | Description
 
 Create user
 
-This can only be done by the logged in user.
+Create a new user within the system
 
 ### Example 
 ```dart
 import 'package:openapi/api.dart';
-// TODO Configure API key authorization: app_id
-//defaultApiClient.getAuthentication<ApiKeyAuth>('app_id').apiKey = 'YOUR_API_KEY';
-// uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-//defaultApiClient.getAuthentication<ApiKeyAuth>('app_id').apiKeyPrefix = 'Bearer';
 
 var api_instance = new UsersApi();
 var user = new User(); // User | User object to operate on
@@ -56,7 +52,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[app_id](../README.md#app_id)
+No authorization required
 
 ### HTTP request headers
 
@@ -79,6 +75,9 @@ import 'package:openapi/api.dart';
 //defaultApiClient.getAuthentication<ApiKeyAuth>('app_id').apiKey = 'YOUR_API_KEY';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('app_id').apiKeyPrefix = 'Bearer';
+// TODO Configure HTTP basic authorization: bearerAuth
+//defaultApiClient.getAuthentication<HttpBasicAuth>('bearerAuth').username = 'YOUR_USERNAME'
+//defaultApiClient.getAuthentication<HttpBasicAuth>('bearerAuth').password = 'YOUR_PASSWORD';
 
 var api_instance = new UsersApi();
 var userId = 789; // int | ID of user that needs to be fetched
@@ -102,7 +101,7 @@ void (empty response body)
 
 ### Authorization
 
-[app_id](../README.md#app_id)
+[app_id](../README.md#app_id), [bearerAuth](../README.md#bearerAuth)
 
 ### HTTP request headers
 
@@ -125,6 +124,9 @@ import 'package:openapi/api.dart';
 //defaultApiClient.getAuthentication<ApiKeyAuth>('app_id').apiKey = 'YOUR_API_KEY';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('app_id').apiKeyPrefix = 'Bearer';
+// TODO Configure HTTP basic authorization: bearerAuth
+//defaultApiClient.getAuthentication<HttpBasicAuth>('bearerAuth').username = 'YOUR_USERNAME'
+//defaultApiClient.getAuthentication<HttpBasicAuth>('bearerAuth').password = 'YOUR_PASSWORD';
 
 var api_instance = new UsersApi();
 var userId = 789; // int | ID of user that needs to be fetched
@@ -148,7 +150,7 @@ void (empty response body)
 
 ### Authorization
 
-[app_id](../README.md#app_id)
+[app_id](../README.md#app_id), [bearerAuth](../README.md#bearerAuth)
 
 ### HTTP request headers
 
@@ -169,6 +171,9 @@ import 'package:openapi/api.dart';
 //defaultApiClient.getAuthentication<ApiKeyAuth>('app_id').apiKey = 'YOUR_API_KEY';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('app_id').apiKeyPrefix = 'Bearer';
+// TODO Configure HTTP basic authorization: bearerAuth
+//defaultApiClient.getAuthentication<HttpBasicAuth>('bearerAuth').username = 'YOUR_USERNAME'
+//defaultApiClient.getAuthentication<HttpBasicAuth>('bearerAuth').password = 'YOUR_PASSWORD';
 
 var api_instance = new UsersApi();
 var userId = 789; // int | ID of user that needs to be fetched
@@ -193,7 +198,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[app_id](../README.md#app_id)
+[app_id](../README.md#app_id), [bearerAuth](../README.md#bearerAuth)
 
 ### HTTP request headers
 
@@ -259,6 +264,9 @@ import 'package:openapi/api.dart';
 //defaultApiClient.getAuthentication<ApiKeyAuth>('app_id').apiKey = 'YOUR_API_KEY';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('app_id').apiKeyPrefix = 'Bearer';
+// TODO Configure HTTP basic authorization: bearerAuth
+//defaultApiClient.getAuthentication<HttpBasicAuth>('bearerAuth').username = 'YOUR_USERNAME'
+//defaultApiClient.getAuthentication<HttpBasicAuth>('bearerAuth').password = 'YOUR_PASSWORD';
 
 var api_instance = new UsersApi();
 
@@ -278,7 +286,7 @@ void (empty response body)
 
 ### Authorization
 
-[app_id](../README.md#app_id)
+[app_id](../README.md#app_id), [bearerAuth](../README.md#bearerAuth)
 
 ### HTTP request headers
 
@@ -301,6 +309,9 @@ import 'package:openapi/api.dart';
 //defaultApiClient.getAuthentication<ApiKeyAuth>('app_id').apiKey = 'YOUR_API_KEY';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('app_id').apiKeyPrefix = 'Bearer';
+// TODO Configure HTTP basic authorization: bearerAuth
+//defaultApiClient.getAuthentication<HttpBasicAuth>('bearerAuth').username = 'YOUR_USERNAME'
+//defaultApiClient.getAuthentication<HttpBasicAuth>('bearerAuth').password = 'YOUR_PASSWORD';
 
 var api_instance = new UsersApi();
 var userId = 789; // int | ID of user that needs to be fetched
@@ -326,7 +337,7 @@ void (empty response body)
 
 ### Authorization
 
-[app_id](../README.md#app_id)
+[app_id](../README.md#app_id), [bearerAuth](../README.md#bearerAuth)
 
 ### HTTP request headers
 

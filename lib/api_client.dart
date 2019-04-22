@@ -21,6 +21,7 @@ class ApiClient {
   ApiClient({this.basePath = "https://api.adaptant.io/payd/v1"}) {
     // Setup authentications (key: authentication name, value: authentication).
     _authentications['app_id'] = ApiKeyAuth("header", "X-API-Key");
+    _authentications['bearerAuth'] = HttpBasicAuth();
   }
 
   void addDefaultHeader(String key, String value) {

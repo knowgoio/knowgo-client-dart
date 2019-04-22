@@ -48,6 +48,9 @@ import 'package:openapi/api.dart';
 //defaultApiClient.getAuthentication<ApiKeyAuth>('app_id').apiKey = 'YOUR_API_KEY';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('app_id').apiKeyPrefix = 'Bearer';
+// TODO Configure HTTP basic authorization: bearerAuth
+//defaultApiClient.getAuthentication<HttpBasicAuth>('bearerAuth').username = 'YOUR_USERNAME'
+//defaultApiClient.getAuthentication<HttpBasicAuth>('bearerAuth').password = 'YOUR_PASSWORD';
 
 var api_instance = new EventsApi();
 var event = new Event(); // Event | Event object to operate on
@@ -108,6 +111,10 @@ Class | Method | HTTP request | Description
 - **Type**: API key
 - **API key parameter name**: X-API-Key
 - **Location**: HTTP header
+
+## bearerAuth
+
+- **Type**: HTTP basic authentication
 
 
 ## Author

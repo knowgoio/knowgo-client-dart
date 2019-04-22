@@ -26,7 +26,7 @@ class EventsApi {
     List<String> contentTypes = ["application/json"];
 
     String contentType = contentTypes.isNotEmpty ? contentTypes[0] : "application/json";
-    List<String> authNames = ["app_id"];
+    List<String> authNames = ["app_id", "bearerAuth"];
 
     if(contentType.startsWith("multipart/form-data")) {
       bool hasFields = false;
@@ -76,7 +76,7 @@ class EventsApi {
     List<String> contentTypes = [];
 
     String contentType = contentTypes.isNotEmpty ? contentTypes[0] : "application/json";
-    List<String> authNames = ["app_id"];
+    List<String> authNames = ["app_id", "bearerAuth"];
 
     if(contentType.startsWith("multipart/form-data")) {
       bool hasFields = false;
@@ -125,7 +125,7 @@ class EventsApi {
     List<String> contentTypes = [];
 
     String contentType = contentTypes.isNotEmpty ? contentTypes[0] : "application/json";
-    List<String> authNames = ["app_id"];
+    List<String> authNames = ["app_id", "bearerAuth"];
 
     if(contentType.startsWith("multipart/form-data")) {
       bool hasFields = false;
@@ -175,7 +175,7 @@ class EventsApi {
     List<String> contentTypes = ["application/json"];
 
     String contentType = contentTypes.isNotEmpty ? contentTypes[0] : "application/json";
-    List<String> authNames = ["app_id"];
+    List<String> authNames = ["app_id", "bearerAuth"];
 
     if(contentType.startsWith("multipart/form-data")) {
       bool hasFields = false;
