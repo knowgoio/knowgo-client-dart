@@ -15,6 +15,7 @@ Method | HTTP request | Description
 [**getUserById**](UsersApi.md#getUserById) | **GET** /users/{userId} | Get user by user id
 [**loginUser**](UsersApi.md#loginUser) | **POST** /users/login | Logs user into the system
 [**logoutUser**](UsersApi.md#logoutUser) | **GET** /users/logout | Logs out current logged in user session
+[**refreshToken**](UsersApi.md#refreshToken) | **GET** /users/refresh | Refreshes the session token for a logged-in user
 [**updateUser**](UsersApi.md#updateUser) | **PUT** /users/{userId} | Updated user
 
 
@@ -208,7 +209,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **loginUser**
-> String loginUser(email, password, basicAuthCredentials)
+> String loginUser(username, password, basicAuthCredentials)
 
 Logs user into the system
 
@@ -217,12 +218,12 @@ Logs user into the system
 import 'package:openapi/api.dart';
 
 var api_instance = new UsersApi();
-var email = email_example; // String | The user email address for login
+var username = username_example; // String | The user's username or email address for login
 var password = password_example; // String | The password for login in clear text
 var basicAuthCredentials = new BasicAuthCredentials(); // BasicAuthCredentials | Basic Auth credentials for user authentication
 
 try { 
-    var result = api_instance.loginUser(email, password, basicAuthCredentials);
+    var result = api_instance.loginUser(username, password, basicAuthCredentials);
     print(result);
 } catch (e) {
     print("Exception when calling UsersApi->loginUser: $e\n");
@@ -233,7 +234,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **email** | **String**| The user email address for login | [optional] [default to null]
+ **username** | **String**| The user&#39;s username or email address for login | [optional] [default to null]
  **password** | **String**| The password for login in clear text | [optional] [default to null]
  **basicAuthCredentials** | [**BasicAuthCredentials**](BasicAuthCredentials.md)| Basic Auth credentials for user authentication | [optional] 
 
@@ -274,6 +275,49 @@ try {
     api_instance.logoutUser();
 } catch (e) {
     print("Exception when calling UsersApi->logoutUser: $e\n");
+}
+```
+
+### Parameters
+This endpoint does not need any parameter.
+
+### Return type
+
+void (empty response body)
+
+### Authorization
+
+[app_id](../README.md#app_id), [bearerAuth](../README.md#bearerAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: Not defined
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **refreshToken**
+> refreshToken()
+
+Refreshes the session token for a logged-in user
+
+### Example 
+```dart
+import 'package:openapi/api.dart';
+// TODO Configure API key authorization: app_id
+//defaultApiClient.getAuthentication<ApiKeyAuth>('app_id').apiKey = 'YOUR_API_KEY';
+// uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+//defaultApiClient.getAuthentication<ApiKeyAuth>('app_id').apiKeyPrefix = 'Bearer';
+// TODO Configure HTTP basic authorization: bearerAuth
+//defaultApiClient.getAuthentication<HttpBasicAuth>('bearerAuth').username = 'YOUR_USERNAME'
+//defaultApiClient.getAuthentication<HttpBasicAuth>('bearerAuth').password = 'YOUR_PASSWORD';
+
+var api_instance = new UsersApi();
+
+try { 
+    api_instance.refreshToken();
+} catch (e) {
+    print("Exception when calling UsersApi->refreshToken: $e\n");
 }
 ```
 

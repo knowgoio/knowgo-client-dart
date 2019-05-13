@@ -47,6 +47,8 @@ class ApiClient {
           return Event.fromJson(value);
         case 'Journey':
           return Journey.fromJson(value);
+        case 'JourneyClassifications':
+          return JourneyClassifications.fromJson(value);
         case 'User':
           return User.fromJson(value);
         default:

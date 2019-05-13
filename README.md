@@ -75,15 +75,18 @@ Class | Method | HTTP request | Description
 *EventsApi* | [**getEventById**](docs//EventsApi.md#geteventbyid) | **GET** /events/{eventId} | Find Event by ID
 *EventsApi* | [**updateEventWithForm**](docs//EventsApi.md#updateeventwithform) | **POST** /events/{eventId} | Updates an Event with form data
 *JourneysApi* | [**addJourney**](docs//JourneysApi.md#addjourney) | **POST** /journeys | Add a new Journey
-*JourneysApi* | [**deleteJourney**](docs//JourneysApi.md#deletejourney) | **DELETE** /journey/{journeyId} | Delete Journey by ID
-*JourneysApi* | [**getJourneyById**](docs//JourneysApi.md#getjourneybyid) | **GET** /journey/{journeyId} | Find journey by ID
-*JourneysApi* | [**updateJourneyWithForm**](docs//JourneysApi.md#updatejourneywithform) | **POST** /journey/{journeyId} | Updates a Journey with form data
+*JourneysApi* | [**deleteJourney**](docs//JourneysApi.md#deletejourney) | **DELETE** /journeys/{journeyId} | Delete Journey by ID
+*JourneysApi* | [**getJourneyById**](docs//JourneysApi.md#getjourneybyid) | **GET** /journeys/{journeyId} | Find journey by ID
+*JourneysApi* | [**listJourneyClassifications**](docs//JourneysApi.md#listjourneyclassifications) | **GET** /journeys/classifications | Return a list of Journey classifications available for a specific user
+*JourneysApi* | [**listJourneyClassificationsByJourneyId**](docs//JourneysApi.md#listjourneyclassificationsbyjourneyid) | **GET** /journeys/{journeyId}/classifications | Return a list of Journey classifications for a specific Journey
+*JourneysApi* | [**updateJourneyWithForm**](docs//JourneysApi.md#updatejourneywithform) | **POST** /journeys/{journeyId} | Updates a Journey with form data
 *UsersApi* | [**createUser**](docs//UsersApi.md#createuser) | **POST** /users | Create user
 *UsersApi* | [**deleteUser**](docs//UsersApi.md#deleteuser) | **DELETE** /users/{userId} | Delete user
 *UsersApi* | [**exportUser**](docs//UsersApi.md#exportuser) | **GET** /users/{userId}/export | Exports all data about current user in CSV format
 *UsersApi* | [**getUserById**](docs//UsersApi.md#getuserbyid) | **GET** /users/{userId} | Get user by user id
 *UsersApi* | [**loginUser**](docs//UsersApi.md#loginuser) | **POST** /users/login | Logs user into the system
 *UsersApi* | [**logoutUser**](docs//UsersApi.md#logoutuser) | **GET** /users/logout | Logs out current logged in user session
+*UsersApi* | [**refreshToken**](docs//UsersApi.md#refreshtoken) | **GET** /users/refresh | Refreshes the session token for a logged-in user
 *UsersApi* | [**updateUser**](docs//UsersApi.md#updateuser) | **PUT** /users/{userId} | Updated user
 *VehiclesApi* | [**addAuto**](docs//VehiclesApi.md#addauto) | **POST** /autos | Add a new auto
 *VehiclesApi* | [**deleteAuto**](docs//VehiclesApi.md#deleteauto) | **DELETE** /autos/{autoId} | Deletes an Auto
@@ -100,6 +103,7 @@ Class | Method | HTTP request | Description
  - [BasicAuthCredentials](docs//BasicAuthCredentials.md)
  - [Event](docs//Event.md)
  - [Journey](docs//Journey.md)
+ - [JourneyClassifications](docs//JourneyClassifications.md)
  - [User](docs//User.md)
 
 

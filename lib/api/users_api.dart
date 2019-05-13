@@ -208,7 +208,7 @@ class UsersApi {
   /// Logs user into the system
   ///
   /// 
-  Future<String> loginUser({ String email, String password, BasicAuthCredentials basicAuthCredentials }) async {
+  Future<String> loginUser({ String username, String password, BasicAuthCredentials basicAuthCredentials }) async {
     Object postBody = basicAuthCredentials;
 
     // verify required params are set
@@ -220,8 +220,8 @@ class UsersApi {
     List<QueryParam> queryParams = [];
     Map<String, String> headerParams = {};
     Map<String, String> formParams = {};
-    if(email != null) {
-      queryParams.addAll(_convertParametersForCollectionFormat("", "email", email));
+    if(username != null) {
+      queryParams.addAll(_convertParametersForCollectionFormat("", "username", username));
     }
     if(password != null) {
       queryParams.addAll(_convertParametersForCollectionFormat("", "password", password));
@@ -268,6 +268,52 @@ class UsersApi {
 
     // create path and map variables
     String path = "/users/logout".replaceAll("{format}","json");
+
+    // query params
+    List<QueryParam> queryParams = [];
+    Map<String, String> headerParams = {};
+    Map<String, String> formParams = {};
+
+    List<String> contentTypes = [];
+
+    String contentType = contentTypes.isNotEmpty ? contentTypes[0] : "application/json";
+    List<String> authNames = ["app_id", "bearerAuth"];
+
+    if(contentType.startsWith("multipart/form-data")) {
+      bool hasFields = false;
+      MultipartRequest mp = new MultipartRequest(null, null);
+      if(hasFields)
+        postBody = mp;
+    }
+    else {
+    }
+
+    var response = await apiClient.invokeAPI(path,
+                                             'GET',
+                                             queryParams,
+                                             postBody,
+                                             headerParams,
+                                             formParams,
+                                             contentType,
+                                             authNames);
+
+    if(response.statusCode >= 400) {
+      throw new ApiException(response.statusCode, _decodeBodyBytes(response));
+    } else if(response.body != null) {
+    } else {
+      return;
+    }
+  }
+  /// Refreshes the session token for a logged-in user
+  ///
+  /// 
+  Future refreshToken() async {
+    Object postBody;
+
+    // verify required params are set
+
+    // create path and map variables
+    String path = "/users/refresh".replaceAll("{format}","json");
 
     // query params
     List<QueryParam> queryParams = [];

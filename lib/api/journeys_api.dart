@@ -69,7 +69,7 @@ class JourneysApi {
     }
 
     // create path and map variables
-    String path = "/journey/{journeyId}".replaceAll("{format}","json").replaceAll("{" + "journeyId" + "}", journeyId.toString());
+    String path = "/journeys/{journeyId}".replaceAll("{format}","json").replaceAll("{" + "journeyId" + "}", journeyId.toString());
 
     // query params
     List<QueryParam> queryParams = [];
@@ -118,7 +118,7 @@ class JourneysApi {
     }
 
     // create path and map variables
-    String path = "/journey/{journeyId}".replaceAll("{format}","json").replaceAll("{" + "journeyId" + "}", journeyId.toString());
+    String path = "/journeys/{journeyId}".replaceAll("{format}","json").replaceAll("{" + "journeyId" + "}", journeyId.toString());
 
     // query params
     List<QueryParam> queryParams = [];
@@ -156,6 +156,103 @@ class JourneysApi {
       return null;
     }
   }
+  /// Return a list of Journey classifications available for a specific user
+  ///
+  /// Given an authenticated user, return a list of Journey classifications that are available to them.
+  Future<List<JourneyClassifications>> listJourneyClassifications() async {
+    Object postBody;
+
+    // verify required params are set
+
+    // create path and map variables
+    String path = "/journeys/classifications".replaceAll("{format}","json");
+
+    // query params
+    List<QueryParam> queryParams = [];
+    Map<String, String> headerParams = {};
+    Map<String, String> formParams = {};
+
+    List<String> contentTypes = [];
+
+    String contentType = contentTypes.isNotEmpty ? contentTypes[0] : "application/json";
+    List<String> authNames = ["app_id", "bearerAuth"];
+
+    if(contentType.startsWith("multipart/form-data")) {
+      bool hasFields = false;
+      MultipartRequest mp = new MultipartRequest(null, null);
+      if(hasFields)
+        postBody = mp;
+    }
+    else {
+    }
+
+    var response = await apiClient.invokeAPI(path,
+                                             'GET',
+                                             queryParams,
+                                             postBody,
+                                             headerParams,
+                                             formParams,
+                                             contentType,
+                                             authNames);
+
+    if(response.statusCode >= 400) {
+      throw new ApiException(response.statusCode, _decodeBodyBytes(response));
+    } else if(response.body != null) {
+      return (apiClient.deserialize(_decodeBodyBytes(response), 'List<JourneyClassifications>') as List).map((item) => item as JourneyClassifications).toList();
+    } else {
+      return null;
+    }
+  }
+  /// Return a list of Journey classifications for a specific Journey
+  ///
+  /// Given an authenticated user, return a list of Journey classificiations that are available to them within the context of a specific Journey.
+  Future<List<JourneyClassifications>> listJourneyClassificationsByJourneyId(String journeyId) async {
+    Object postBody;
+
+    // verify required params are set
+    if(journeyId == null) {
+     throw new ApiException(400, "Missing required param: journeyId");
+    }
+
+    // create path and map variables
+    String path = "/journeys/{journeyId}/classifications".replaceAll("{format}","json").replaceAll("{" + "journeyId" + "}", journeyId.toString());
+
+    // query params
+    List<QueryParam> queryParams = [];
+    Map<String, String> headerParams = {};
+    Map<String, String> formParams = {};
+
+    List<String> contentTypes = [];
+
+    String contentType = contentTypes.isNotEmpty ? contentTypes[0] : "application/json";
+    List<String> authNames = ["app_id", "bearerAuth"];
+
+    if(contentType.startsWith("multipart/form-data")) {
+      bool hasFields = false;
+      MultipartRequest mp = new MultipartRequest(null, null);
+      if(hasFields)
+        postBody = mp;
+    }
+    else {
+    }
+
+    var response = await apiClient.invokeAPI(path,
+                                             'GET',
+                                             queryParams,
+                                             postBody,
+                                             headerParams,
+                                             formParams,
+                                             contentType,
+                                             authNames);
+
+    if(response.statusCode >= 400) {
+      throw new ApiException(response.statusCode, _decodeBodyBytes(response));
+    } else if(response.body != null) {
+      return (apiClient.deserialize(_decodeBodyBytes(response), 'List<JourneyClassifications>') as List).map((item) => item as JourneyClassifications).toList();
+    } else {
+      return null;
+    }
+  }
   /// Updates a Journey with form data
   ///
   /// 
@@ -171,7 +268,7 @@ class JourneysApi {
     }
 
     // create path and map variables
-    String path = "/journey/{journeyId}".replaceAll("{format}","json").replaceAll("{" + "journeyId" + "}", journeyId.toString());
+    String path = "/journeys/{journeyId}".replaceAll("{format}","json").replaceAll("{" + "journeyId" + "}", journeyId.toString());
 
     // query params
     List<QueryParam> queryParams = [];

@@ -21,6 +21,7 @@ part 'model/auto.dart';
 part 'model/basic_auth_credentials.dart';
 part 'model/event.dart';
 part 'model/journey.dart';
+part 'model/journey_classifications.dart';
 part 'model/user.dart';
 
 
