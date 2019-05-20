@@ -22,6 +22,7 @@ class ApiClient {
     // Setup authentications (key: authentication name, value: authentication).
     _authentications['app_id'] = ApiKeyAuth("header", "X-API-Key");
     _authentications['bearerAuth'] = HttpBasicAuth();
+    _authentications['cookieAuth'] = ApiKeyAuth("query", "token");
   }
 
   void addDefaultHeader(String key, String value) {

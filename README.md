@@ -51,6 +51,10 @@ import 'package:openapi/api.dart';
 // TODO Configure HTTP basic authorization: bearerAuth
 //defaultApiClient.getAuthentication<HttpBasicAuth>('bearerAuth').username = 'YOUR_USERNAME'
 //defaultApiClient.getAuthentication<HttpBasicAuth>('bearerAuth').password = 'YOUR_PASSWORD';
+// TODO Configure API key authorization: cookieAuth
+//defaultApiClient.getAuthentication<ApiKeyAuth>('cookieAuth').apiKey = 'YOUR_API_KEY';
+// uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+//defaultApiClient.getAuthentication<ApiKeyAuth>('cookieAuth').apiKeyPrefix = 'Bearer';
 
 var api_instance = new EventsApi();
 var event = new Event(); // Event | Event object to operate on
@@ -76,15 +80,19 @@ Class | Method | HTTP request | Description
 *EventsApi* | [**updateEventWithForm**](docs//EventsApi.md#updateeventwithform) | **POST** /events/{eventId} | Updates an Event with form data
 *JourneysApi* | [**addJourney**](docs//JourneysApi.md#addjourney) | **POST** /journeys | Add a new Journey
 *JourneysApi* | [**deleteJourney**](docs//JourneysApi.md#deletejourney) | **DELETE** /journeys/{journeyId} | Delete Journey by ID
+*JourneysApi* | [**deleteJourneyClassification**](docs//JourneysApi.md#deletejourneyclassification) | **DELETE** /journeys/classifications/{classificationId} | Delete specified Journey classification
 *JourneysApi* | [**getJourneyById**](docs//JourneysApi.md#getjourneybyid) | **GET** /journeys/{journeyId} | Find journey by ID
+*JourneysApi* | [**getJourneyClassificationById**](docs//JourneysApi.md#getjourneyclassificationbyid) | **GET** /journeys/classifications/{classificationId} | Get Journey classification by classification id
 *JourneysApi* | [**listJourneyClassifications**](docs//JourneysApi.md#listjourneyclassifications) | **GET** /journeys/classifications | Return a list of Journey classifications available for a specific user
 *JourneysApi* | [**listJourneyClassificationsByJourneyId**](docs//JourneysApi.md#listjourneyclassificationsbyjourneyid) | **GET** /journeys/{journeyId}/classifications | Return a list of Journey classifications for a specific Journey
+*JourneysApi* | [**updateJourneyClassification**](docs//JourneysApi.md#updatejourneyclassification) | **PUT** /journeys/classifications/{classificationId} | Update a specified Journey classification
+*JourneysApi* | [**updateJourneyClassificationsWithForm**](docs//JourneysApi.md#updatejourneyclassificationswithform) | **POST** /journeys/classifications | Update Journey classifications with form data
 *JourneysApi* | [**updateJourneyWithForm**](docs//JourneysApi.md#updatejourneywithform) | **POST** /journeys/{journeyId} | Updates a Journey with form data
 *UsersApi* | [**createUser**](docs//UsersApi.md#createuser) | **POST** /users | Create user
 *UsersApi* | [**deleteUser**](docs//UsersApi.md#deleteuser) | **DELETE** /users/{userId} | Delete user
 *UsersApi* | [**exportUser**](docs//UsersApi.md#exportuser) | **GET** /users/{userId}/export | Exports all data about current user in CSV format
 *UsersApi* | [**getUserById**](docs//UsersApi.md#getuserbyid) | **GET** /users/{userId} | Get user by user id
-*UsersApi* | [**loginUser**](docs//UsersApi.md#loginuser) | **POST** /users/login | Logs user into the system
+*UsersApi* | [**loginUser**](docs//UsersApi.md#loginuser) | **POST** /users/login | Logs user into the system and returns an authentication token.
 *UsersApi* | [**logoutUser**](docs//UsersApi.md#logoutuser) | **GET** /users/logout | Logs out current logged in user session
 *UsersApi* | [**refreshToken**](docs//UsersApi.md#refreshtoken) | **GET** /users/refresh | Refreshes the session token for a logged-in user
 *UsersApi* | [**updateUser**](docs//UsersApi.md#updateuser) | **PUT** /users/{userId} | Updated user
@@ -119,6 +127,12 @@ Class | Method | HTTP request | Description
 ## bearerAuth
 
 - **Type**: HTTP basic authentication
+
+## cookieAuth
+
+- **Type**: API key
+- **API key parameter name**: token
+- **Location**: 
 
 
 ## Author

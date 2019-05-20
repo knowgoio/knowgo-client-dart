@@ -29,7 +29,7 @@ class VehiclesApi {
     List<String> contentTypes = ["application/json"];
 
     String contentType = contentTypes.isNotEmpty ? contentTypes[0] : "application/json";
-    List<String> authNames = ["app_id", "bearerAuth"];
+    List<String> authNames = ["app_id", "bearerAuth", "cookieAuth"];
 
     if(contentType.startsWith("multipart/form-data")) {
       bool hasFields = false;
@@ -79,7 +79,7 @@ class VehiclesApi {
     List<String> contentTypes = [];
 
     String contentType = contentTypes.isNotEmpty ? contentTypes[0] : "application/json";
-    List<String> authNames = ["app_id", "bearerAuth"];
+    List<String> authNames = ["app_id", "bearerAuth", "cookieAuth"];
 
     if(contentType.startsWith("multipart/form-data")) {
       bool hasFields = false;
@@ -128,7 +128,7 @@ class VehiclesApi {
     List<String> contentTypes = [];
 
     String contentType = contentTypes.isNotEmpty ? contentTypes[0] : "application/json";
-    List<String> authNames = ["app_id", "bearerAuth"];
+    List<String> authNames = ["app_id", "bearerAuth", "cookieAuth"];
 
     if(contentType.startsWith("multipart/form-data")) {
       bool hasFields = false;
@@ -175,7 +175,7 @@ class VehiclesApi {
     List<String> contentTypes = [];
 
     String contentType = contentTypes.isNotEmpty ? contentTypes[0] : "application/json";
-    List<String> authNames = ["app_id", "bearerAuth"];
+    List<String> authNames = ["app_id", "bearerAuth", "cookieAuth"];
 
     if(contentType.startsWith("multipart/form-data")) {
       bool hasFields = false;
@@ -225,7 +225,7 @@ class VehiclesApi {
     List<String> contentTypes = [];
 
     String contentType = contentTypes.isNotEmpty ? contentTypes[0] : "application/json";
-    List<String> authNames = ["app_id", "bearerAuth"];
+    List<String> authNames = ["app_id", "bearerAuth", "cookieAuth"];
 
     if(contentType.startsWith("multipart/form-data")) {
       bool hasFields = false;
@@ -275,7 +275,7 @@ class VehiclesApi {
     List<String> contentTypes = ["application/json"];
 
     String contentType = contentTypes.isNotEmpty ? contentTypes[0] : "application/json";
-    List<String> authNames = ["app_id", "bearerAuth"];
+    List<String> authNames = ["app_id", "bearerAuth", "cookieAuth"];
 
     if(contentType.startsWith("multipart/form-data")) {
       bool hasFields = false;
@@ -327,7 +327,7 @@ class VehiclesApi {
     List<String> contentTypes = ["application/json"];
 
     String contentType = contentTypes.isNotEmpty ? contentTypes[0] : "application/json";
-    List<String> authNames = ["app_id", "bearerAuth"];
+    List<String> authNames = ["app_id", "bearerAuth", "cookieAuth"];
 
     if(contentType.startsWith("multipart/form-data")) {
       bool hasFields = false;

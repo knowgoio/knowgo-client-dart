@@ -32,6 +32,10 @@ import 'package:openapi/api.dart';
 // TODO Configure HTTP basic authorization: bearerAuth
 //defaultApiClient.getAuthentication<HttpBasicAuth>('bearerAuth').username = 'YOUR_USERNAME'
 //defaultApiClient.getAuthentication<HttpBasicAuth>('bearerAuth').password = 'YOUR_PASSWORD';
+// TODO Configure API key authorization: cookieAuth
+//defaultApiClient.getAuthentication<ApiKeyAuth>('cookieAuth').apiKey = 'YOUR_API_KEY';
+// uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+//defaultApiClient.getAuthentication<ApiKeyAuth>('cookieAuth').apiKeyPrefix = 'Bearer';
 
 var api_instance = new EventsApi();
 var event = new Event(); // Event | Event object to operate on
@@ -56,7 +60,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[app_id](../README.md#app_id), [bearerAuth](../README.md#bearerAuth)
+[app_id](../README.md#app_id), [bearerAuth](../README.md#bearerAuth), [cookieAuth](../README.md#cookieAuth)
 
 ### HTTP request headers
 
@@ -82,6 +86,10 @@ import 'package:openapi/api.dart';
 // TODO Configure HTTP basic authorization: bearerAuth
 //defaultApiClient.getAuthentication<HttpBasicAuth>('bearerAuth').username = 'YOUR_USERNAME'
 //defaultApiClient.getAuthentication<HttpBasicAuth>('bearerAuth').password = 'YOUR_PASSWORD';
+// TODO Configure API key authorization: cookieAuth
+//defaultApiClient.getAuthentication<ApiKeyAuth>('cookieAuth').apiKey = 'YOUR_API_KEY';
+// uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+//defaultApiClient.getAuthentication<ApiKeyAuth>('cookieAuth').apiKeyPrefix = 'Bearer';
 
 var api_instance = new EventsApi();
 var eventId = 789; // int | ID of the Event to delete
@@ -105,7 +113,7 @@ void (empty response body)
 
 ### Authorization
 
-[app_id](../README.md#app_id), [bearerAuth](../README.md#bearerAuth)
+[app_id](../README.md#app_id), [bearerAuth](../README.md#bearerAuth), [cookieAuth](../README.md#cookieAuth)
 
 ### HTTP request headers
 
@@ -129,6 +137,10 @@ import 'package:openapi/api.dart';
 // TODO Configure HTTP basic authorization: bearerAuth
 //defaultApiClient.getAuthentication<HttpBasicAuth>('bearerAuth').username = 'YOUR_USERNAME'
 //defaultApiClient.getAuthentication<HttpBasicAuth>('bearerAuth').password = 'YOUR_PASSWORD';
+// TODO Configure API key authorization: cookieAuth
+//defaultApiClient.getAuthentication<ApiKeyAuth>('cookieAuth').apiKey = 'YOUR_API_KEY';
+// uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+//defaultApiClient.getAuthentication<ApiKeyAuth>('cookieAuth').apiKeyPrefix = 'Bearer';
 
 var api_instance = new EventsApi();
 var eventId = 789; // int | ID of Event that needs to be fetched
@@ -153,7 +165,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[app_id](../README.md#app_id), [bearerAuth](../README.md#bearerAuth)
+[app_id](../README.md#app_id), [bearerAuth](../README.md#bearerAuth), [cookieAuth](../README.md#cookieAuth)
 
 ### HTTP request headers
 
@@ -177,6 +189,10 @@ import 'package:openapi/api.dart';
 // TODO Configure HTTP basic authorization: bearerAuth
 //defaultApiClient.getAuthentication<HttpBasicAuth>('bearerAuth').username = 'YOUR_USERNAME'
 //defaultApiClient.getAuthentication<HttpBasicAuth>('bearerAuth').password = 'YOUR_PASSWORD';
+// TODO Configure API key authorization: cookieAuth
+//defaultApiClient.getAuthentication<ApiKeyAuth>('cookieAuth').apiKey = 'YOUR_API_KEY';
+// uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+//defaultApiClient.getAuthentication<ApiKeyAuth>('cookieAuth').apiKeyPrefix = 'Bearer';
 
 var api_instance = new EventsApi();
 var eventId = 789; // int | ID of Event that needs to be updated
@@ -202,7 +218,7 @@ void (empty response body)
 
 ### Authorization
 
-[app_id](../README.md#app_id), [bearerAuth](../README.md#bearerAuth)
+[app_id](../README.md#app_id), [bearerAuth](../README.md#bearerAuth), [cookieAuth](../README.md#cookieAuth)
 
 ### HTTP request headers
 

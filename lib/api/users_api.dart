@@ -79,7 +79,7 @@ class UsersApi {
     List<String> contentTypes = [];
 
     String contentType = contentTypes.isNotEmpty ? contentTypes[0] : "application/json";
-    List<String> authNames = ["app_id", "bearerAuth"];
+    List<String> authNames = ["app_id", "bearerAuth", "cookieAuth"];
 
     if(contentType.startsWith("multipart/form-data")) {
       bool hasFields = false;
@@ -128,7 +128,7 @@ class UsersApi {
     List<String> contentTypes = [];
 
     String contentType = contentTypes.isNotEmpty ? contentTypes[0] : "application/json";
-    List<String> authNames = ["app_id", "bearerAuth"];
+    List<String> authNames = ["app_id", "bearerAuth", "cookieAuth"];
 
     if(contentType.startsWith("multipart/form-data")) {
       bool hasFields = false;
@@ -177,7 +177,7 @@ class UsersApi {
     List<String> contentTypes = [];
 
     String contentType = contentTypes.isNotEmpty ? contentTypes[0] : "application/json";
-    List<String> authNames = ["app_id", "bearerAuth"];
+    List<String> authNames = ["app_id", "bearerAuth", "cookieAuth"];
 
     if(contentType.startsWith("multipart/form-data")) {
       bool hasFields = false;
@@ -205,7 +205,7 @@ class UsersApi {
       return null;
     }
   }
-  /// Logs user into the system
+  /// Logs user into the system and returns an authentication token.
   ///
   /// 
   Future<String> loginUser({ String username, String password, BasicAuthCredentials basicAuthCredentials }) async {
@@ -277,7 +277,7 @@ class UsersApi {
     List<String> contentTypes = [];
 
     String contentType = contentTypes.isNotEmpty ? contentTypes[0] : "application/json";
-    List<String> authNames = ["app_id", "bearerAuth"];
+    List<String> authNames = ["app_id", "bearerAuth", "cookieAuth"];
 
     if(contentType.startsWith("multipart/form-data")) {
       bool hasFields = false;
@@ -323,7 +323,7 @@ class UsersApi {
     List<String> contentTypes = [];
 
     String contentType = contentTypes.isNotEmpty ? contentTypes[0] : "application/json";
-    List<String> authNames = ["app_id", "bearerAuth"];
+    List<String> authNames = ["app_id", "bearerAuth", "cookieAuth"];
 
     if(contentType.startsWith("multipart/form-data")) {
       bool hasFields = false;
@@ -375,7 +375,7 @@ class UsersApi {
     List<String> contentTypes = ["application/json"];
 
     String contentType = contentTypes.isNotEmpty ? contentTypes[0] : "application/json";
-    List<String> authNames = ["app_id", "bearerAuth"];
+    List<String> authNames = ["app_id", "bearerAuth", "cookieAuth"];
 
     if(contentType.startsWith("multipart/form-data")) {
       bool hasFields = false;

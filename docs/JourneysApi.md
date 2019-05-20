@@ -11,9 +11,13 @@ Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**addJourney**](JourneysApi.md#addJourney) | **POST** /journeys | Add a new Journey
 [**deleteJourney**](JourneysApi.md#deleteJourney) | **DELETE** /journeys/{journeyId} | Delete Journey by ID
+[**deleteJourneyClassification**](JourneysApi.md#deleteJourneyClassification) | **DELETE** /journeys/classifications/{classificationId} | Delete specified Journey classification
 [**getJourneyById**](JourneysApi.md#getJourneyById) | **GET** /journeys/{journeyId} | Find journey by ID
+[**getJourneyClassificationById**](JourneysApi.md#getJourneyClassificationById) | **GET** /journeys/classifications/{classificationId} | Get Journey classification by classification id
 [**listJourneyClassifications**](JourneysApi.md#listJourneyClassifications) | **GET** /journeys/classifications | Return a list of Journey classifications available for a specific user
 [**listJourneyClassificationsByJourneyId**](JourneysApi.md#listJourneyClassificationsByJourneyId) | **GET** /journeys/{journeyId}/classifications | Return a list of Journey classifications for a specific Journey
+[**updateJourneyClassification**](JourneysApi.md#updateJourneyClassification) | **PUT** /journeys/classifications/{classificationId} | Update a specified Journey classification
+[**updateJourneyClassificationsWithForm**](JourneysApi.md#updateJourneyClassificationsWithForm) | **POST** /journeys/classifications | Update Journey classifications with form data
 [**updateJourneyWithForm**](JourneysApi.md#updateJourneyWithForm) | **POST** /journeys/{journeyId} | Updates a Journey with form data
 
 
@@ -34,6 +38,10 @@ import 'package:openapi/api.dart';
 // TODO Configure HTTP basic authorization: bearerAuth
 //defaultApiClient.getAuthentication<HttpBasicAuth>('bearerAuth').username = 'YOUR_USERNAME'
 //defaultApiClient.getAuthentication<HttpBasicAuth>('bearerAuth').password = 'YOUR_PASSWORD';
+// TODO Configure API key authorization: cookieAuth
+//defaultApiClient.getAuthentication<ApiKeyAuth>('cookieAuth').apiKey = 'YOUR_API_KEY';
+// uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+//defaultApiClient.getAuthentication<ApiKeyAuth>('cookieAuth').apiKeyPrefix = 'Bearer';
 
 var api_instance = new JourneysApi();
 var journey = new Journey(); // Journey | Journey object to operate on
@@ -58,7 +66,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[app_id](../README.md#app_id), [bearerAuth](../README.md#bearerAuth)
+[app_id](../README.md#app_id), [bearerAuth](../README.md#bearerAuth), [cookieAuth](../README.md#cookieAuth)
 
 ### HTTP request headers
 
@@ -84,6 +92,10 @@ import 'package:openapi/api.dart';
 // TODO Configure HTTP basic authorization: bearerAuth
 //defaultApiClient.getAuthentication<HttpBasicAuth>('bearerAuth').username = 'YOUR_USERNAME'
 //defaultApiClient.getAuthentication<HttpBasicAuth>('bearerAuth').password = 'YOUR_PASSWORD';
+// TODO Configure API key authorization: cookieAuth
+//defaultApiClient.getAuthentication<ApiKeyAuth>('cookieAuth').apiKey = 'YOUR_API_KEY';
+// uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+//defaultApiClient.getAuthentication<ApiKeyAuth>('cookieAuth').apiKeyPrefix = 'Bearer';
 
 var api_instance = new JourneysApi();
 var journeyId = journeyId_example; // String | ID of the journey to delete
@@ -107,7 +119,58 @@ void (empty response body)
 
 ### Authorization
 
-[app_id](../README.md#app_id), [bearerAuth](../README.md#bearerAuth)
+[app_id](../README.md#app_id), [bearerAuth](../README.md#bearerAuth), [cookieAuth](../README.md#cookieAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: Not defined
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **deleteJourneyClassification**
+> deleteJourneyClassification(classificationId)
+
+Delete specified Journey classification
+
+### Example 
+```dart
+import 'package:openapi/api.dart';
+// TODO Configure API key authorization: app_id
+//defaultApiClient.getAuthentication<ApiKeyAuth>('app_id').apiKey = 'YOUR_API_KEY';
+// uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+//defaultApiClient.getAuthentication<ApiKeyAuth>('app_id').apiKeyPrefix = 'Bearer';
+// TODO Configure HTTP basic authorization: bearerAuth
+//defaultApiClient.getAuthentication<HttpBasicAuth>('bearerAuth').username = 'YOUR_USERNAME'
+//defaultApiClient.getAuthentication<HttpBasicAuth>('bearerAuth').password = 'YOUR_PASSWORD';
+// TODO Configure API key authorization: cookieAuth
+//defaultApiClient.getAuthentication<ApiKeyAuth>('cookieAuth').apiKey = 'YOUR_API_KEY';
+// uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+//defaultApiClient.getAuthentication<ApiKeyAuth>('cookieAuth').apiKeyPrefix = 'Bearer';
+
+var api_instance = new JourneysApi();
+var classificationId = 789; // int | ID of Journey Classification that needs to be fetched
+
+try { 
+    api_instance.deleteJourneyClassification(classificationId);
+} catch (e) {
+    print("Exception when calling JourneysApi->deleteJourneyClassification: $e\n");
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **classificationId** | **int**| ID of Journey Classification that needs to be fetched | [default to null]
+
+### Return type
+
+void (empty response body)
+
+### Authorization
+
+[app_id](../README.md#app_id), [bearerAuth](../README.md#bearerAuth), [cookieAuth](../README.md#cookieAuth)
 
 ### HTTP request headers
 
@@ -131,6 +194,10 @@ import 'package:openapi/api.dart';
 // TODO Configure HTTP basic authorization: bearerAuth
 //defaultApiClient.getAuthentication<HttpBasicAuth>('bearerAuth').username = 'YOUR_USERNAME'
 //defaultApiClient.getAuthentication<HttpBasicAuth>('bearerAuth').password = 'YOUR_PASSWORD';
+// TODO Configure API key authorization: cookieAuth
+//defaultApiClient.getAuthentication<ApiKeyAuth>('cookieAuth').apiKey = 'YOUR_API_KEY';
+// uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+//defaultApiClient.getAuthentication<ApiKeyAuth>('cookieAuth').apiKeyPrefix = 'Bearer';
 
 var api_instance = new JourneysApi();
 var journeyId = journeyId_example; // String | ID of journey that needs to be fetched
@@ -155,7 +222,59 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[app_id](../README.md#app_id), [bearerAuth](../README.md#bearerAuth)
+[app_id](../README.md#app_id), [bearerAuth](../README.md#bearerAuth), [cookieAuth](../README.md#cookieAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **getJourneyClassificationById**
+> JourneyClassifications getJourneyClassificationById(classificationId)
+
+Get Journey classification by classification id
+
+### Example 
+```dart
+import 'package:openapi/api.dart';
+// TODO Configure API key authorization: app_id
+//defaultApiClient.getAuthentication<ApiKeyAuth>('app_id').apiKey = 'YOUR_API_KEY';
+// uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+//defaultApiClient.getAuthentication<ApiKeyAuth>('app_id').apiKeyPrefix = 'Bearer';
+// TODO Configure HTTP basic authorization: bearerAuth
+//defaultApiClient.getAuthentication<HttpBasicAuth>('bearerAuth').username = 'YOUR_USERNAME'
+//defaultApiClient.getAuthentication<HttpBasicAuth>('bearerAuth').password = 'YOUR_PASSWORD';
+// TODO Configure API key authorization: cookieAuth
+//defaultApiClient.getAuthentication<ApiKeyAuth>('cookieAuth').apiKey = 'YOUR_API_KEY';
+// uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+//defaultApiClient.getAuthentication<ApiKeyAuth>('cookieAuth').apiKeyPrefix = 'Bearer';
+
+var api_instance = new JourneysApi();
+var classificationId = 789; // int | ID of Journey Classification that needs to be fetched
+
+try { 
+    var result = api_instance.getJourneyClassificationById(classificationId);
+    print(result);
+} catch (e) {
+    print("Exception when calling JourneysApi->getJourneyClassificationById: $e\n");
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **classificationId** | **int**| ID of Journey Classification that needs to be fetched | [default to null]
+
+### Return type
+
+[**JourneyClassifications**](JourneyClassifications.md)
+
+### Authorization
+
+[app_id](../README.md#app_id), [bearerAuth](../README.md#bearerAuth), [cookieAuth](../README.md#cookieAuth)
 
 ### HTTP request headers
 
@@ -181,6 +300,10 @@ import 'package:openapi/api.dart';
 // TODO Configure HTTP basic authorization: bearerAuth
 //defaultApiClient.getAuthentication<HttpBasicAuth>('bearerAuth').username = 'YOUR_USERNAME'
 //defaultApiClient.getAuthentication<HttpBasicAuth>('bearerAuth').password = 'YOUR_PASSWORD';
+// TODO Configure API key authorization: cookieAuth
+//defaultApiClient.getAuthentication<ApiKeyAuth>('cookieAuth').apiKey = 'YOUR_API_KEY';
+// uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+//defaultApiClient.getAuthentication<ApiKeyAuth>('cookieAuth').apiKeyPrefix = 'Bearer';
 
 var api_instance = new JourneysApi();
 
@@ -201,7 +324,7 @@ This endpoint does not need any parameter.
 
 ### Authorization
 
-[app_id](../README.md#app_id), [bearerAuth](../README.md#bearerAuth)
+[app_id](../README.md#app_id), [bearerAuth](../README.md#bearerAuth), [cookieAuth](../README.md#cookieAuth)
 
 ### HTTP request headers
 
@@ -227,6 +350,10 @@ import 'package:openapi/api.dart';
 // TODO Configure HTTP basic authorization: bearerAuth
 //defaultApiClient.getAuthentication<HttpBasicAuth>('bearerAuth').username = 'YOUR_USERNAME'
 //defaultApiClient.getAuthentication<HttpBasicAuth>('bearerAuth').password = 'YOUR_PASSWORD';
+// TODO Configure API key authorization: cookieAuth
+//defaultApiClient.getAuthentication<ApiKeyAuth>('cookieAuth').apiKey = 'YOUR_API_KEY';
+// uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+//defaultApiClient.getAuthentication<ApiKeyAuth>('cookieAuth').apiKeyPrefix = 'Bearer';
 
 var api_instance = new JourneysApi();
 var journeyId = journeyId_example; // String | ID of Journey that needs to be fetched
@@ -251,12 +378,116 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[app_id](../README.md#app_id), [bearerAuth](../README.md#bearerAuth)
+[app_id](../README.md#app_id), [bearerAuth](../README.md#bearerAuth), [cookieAuth](../README.md#cookieAuth)
 
 ### HTTP request headers
 
  - **Content-Type**: Not defined
  - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **updateJourneyClassification**
+> updateJourneyClassification(classificationId, journeyClassifications)
+
+Update a specified Journey classification
+
+### Example 
+```dart
+import 'package:openapi/api.dart';
+// TODO Configure API key authorization: app_id
+//defaultApiClient.getAuthentication<ApiKeyAuth>('app_id').apiKey = 'YOUR_API_KEY';
+// uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+//defaultApiClient.getAuthentication<ApiKeyAuth>('app_id').apiKeyPrefix = 'Bearer';
+// TODO Configure HTTP basic authorization: bearerAuth
+//defaultApiClient.getAuthentication<HttpBasicAuth>('bearerAuth').username = 'YOUR_USERNAME'
+//defaultApiClient.getAuthentication<HttpBasicAuth>('bearerAuth').password = 'YOUR_PASSWORD';
+// TODO Configure API key authorization: cookieAuth
+//defaultApiClient.getAuthentication<ApiKeyAuth>('cookieAuth').apiKey = 'YOUR_API_KEY';
+// uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+//defaultApiClient.getAuthentication<ApiKeyAuth>('cookieAuth').apiKeyPrefix = 'Bearer';
+
+var api_instance = new JourneysApi();
+var classificationId = 789; // int | ID of Journey Classification that needs to be fetched
+var journeyClassifications = new JourneyClassifications(); // JourneyClassifications | Updated Journey classification object
+
+try { 
+    api_instance.updateJourneyClassification(classificationId, journeyClassifications);
+} catch (e) {
+    print("Exception when calling JourneysApi->updateJourneyClassification: $e\n");
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **classificationId** | **int**| ID of Journey Classification that needs to be fetched | [default to null]
+ **journeyClassifications** | [**JourneyClassifications**](JourneyClassifications.md)| Updated Journey classification object | 
+
+### Return type
+
+void (empty response body)
+
+### Authorization
+
+[app_id](../README.md#app_id), [bearerAuth](../README.md#bearerAuth), [cookieAuth](../README.md#cookieAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: Not defined
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **updateJourneyClassificationsWithForm**
+> updateJourneyClassificationsWithForm(journeyClassifications)
+
+Update Journey classifications with form data
+
+### Example 
+```dart
+import 'package:openapi/api.dart';
+// TODO Configure API key authorization: app_id
+//defaultApiClient.getAuthentication<ApiKeyAuth>('app_id').apiKey = 'YOUR_API_KEY';
+// uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+//defaultApiClient.getAuthentication<ApiKeyAuth>('app_id').apiKeyPrefix = 'Bearer';
+// TODO Configure HTTP basic authorization: bearerAuth
+//defaultApiClient.getAuthentication<HttpBasicAuth>('bearerAuth').username = 'YOUR_USERNAME'
+//defaultApiClient.getAuthentication<HttpBasicAuth>('bearerAuth').password = 'YOUR_PASSWORD';
+// TODO Configure API key authorization: cookieAuth
+//defaultApiClient.getAuthentication<ApiKeyAuth>('cookieAuth').apiKey = 'YOUR_API_KEY';
+// uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+//defaultApiClient.getAuthentication<ApiKeyAuth>('cookieAuth').apiKeyPrefix = 'Bearer';
+
+var api_instance = new JourneysApi();
+var journeyClassifications = new JourneyClassifications(); // JourneyClassifications | 
+
+try { 
+    api_instance.updateJourneyClassificationsWithForm(journeyClassifications);
+} catch (e) {
+    print("Exception when calling JourneysApi->updateJourneyClassificationsWithForm: $e\n");
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **journeyClassifications** | [**JourneyClassifications**](JourneyClassifications.md)|  | [optional] 
+
+### Return type
+
+void (empty response body)
+
+### Authorization
+
+[app_id](../README.md#app_id), [bearerAuth](../README.md#bearerAuth), [cookieAuth](../README.md#cookieAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: Not defined
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -275,6 +506,10 @@ import 'package:openapi/api.dart';
 // TODO Configure HTTP basic authorization: bearerAuth
 //defaultApiClient.getAuthentication<HttpBasicAuth>('bearerAuth').username = 'YOUR_USERNAME'
 //defaultApiClient.getAuthentication<HttpBasicAuth>('bearerAuth').password = 'YOUR_PASSWORD';
+// TODO Configure API key authorization: cookieAuth
+//defaultApiClient.getAuthentication<ApiKeyAuth>('cookieAuth').apiKey = 'YOUR_API_KEY';
+// uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+//defaultApiClient.getAuthentication<ApiKeyAuth>('cookieAuth').apiKeyPrefix = 'Bearer';
 
 var api_instance = new JourneysApi();
 var journeyId = journeyId_example; // String | ID of journey that needs to be updated
@@ -300,7 +535,7 @@ void (empty response body)
 
 ### Authorization
 
-[app_id](../README.md#app_id), [bearerAuth](../README.md#bearerAuth)
+[app_id](../README.md#app_id), [bearerAuth](../README.md#bearerAuth), [cookieAuth](../README.md#cookieAuth)
 
 ### HTTP request headers
 
