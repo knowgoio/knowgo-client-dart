@@ -10,6 +10,7 @@ All URIs are relative to *https://api.adaptant.io/payd/v1*
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**addJourney**](JourneysApi.md#addJourney) | **POST** /journeys | Add a new Journey
+[**createJourneyClassification**](JourneysApi.md#createJourneyClassification) | **POST** /journeys/classifications | Create a Journey classification
 [**deleteJourney**](JourneysApi.md#deleteJourney) | **DELETE** /journeys/{journeyId} | Delete Journey by ID
 [**deleteJourneyClassification**](JourneysApi.md#deleteJourneyClassification) | **DELETE** /journeys/classifications/{classificationId} | Delete specified Journey classification
 [**getJourneyById**](JourneysApi.md#getJourneyById) | **GET** /journeys/{journeyId} | Find journey by ID
@@ -17,7 +18,6 @@ Method | HTTP request | Description
 [**listJourneyClassifications**](JourneysApi.md#listJourneyClassifications) | **GET** /journeys/classifications | Return a list of Journey classifications available for a specific user
 [**listJourneyClassificationsByJourneyId**](JourneysApi.md#listJourneyClassificationsByJourneyId) | **GET** /journeys/{journeyId}/classifications | Return a list of Journey classifications for a specific Journey
 [**updateJourneyClassification**](JourneysApi.md#updateJourneyClassification) | **PUT** /journeys/classifications/{classificationId} | Update a specified Journey classification
-[**updateJourneyClassificationsWithForm**](JourneysApi.md#updateJourneyClassificationsWithForm) | **POST** /journeys/classifications | Update Journey classifications with form data
 [**updateJourneyWithForm**](JourneysApi.md#updateJourneyWithForm) | **POST** /journeys/{journeyId} | Updates a Journey with form data
 
 
@@ -63,6 +63,58 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**Journey**](Journey.md)
+
+### Authorization
+
+[app_id](../README.md#app_id), [bearerAuth](../README.md#bearerAuth), [cookieAuth](../README.md#cookieAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **createJourneyClassification**
+> JourneyClassifications createJourneyClassification(journeyClassifications)
+
+Create a Journey classification
+
+### Example 
+```dart
+import 'package:openapi/api.dart';
+// TODO Configure API key authorization: app_id
+//defaultApiClient.getAuthentication<ApiKeyAuth>('app_id').apiKey = 'YOUR_API_KEY';
+// uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+//defaultApiClient.getAuthentication<ApiKeyAuth>('app_id').apiKeyPrefix = 'Bearer';
+// TODO Configure HTTP basic authorization: bearerAuth
+//defaultApiClient.getAuthentication<HttpBasicAuth>('bearerAuth').username = 'YOUR_USERNAME'
+//defaultApiClient.getAuthentication<HttpBasicAuth>('bearerAuth').password = 'YOUR_PASSWORD';
+// TODO Configure API key authorization: cookieAuth
+//defaultApiClient.getAuthentication<ApiKeyAuth>('cookieAuth').apiKey = 'YOUR_API_KEY';
+// uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+//defaultApiClient.getAuthentication<ApiKeyAuth>('cookieAuth').apiKeyPrefix = 'Bearer';
+
+var api_instance = new JourneysApi();
+var journeyClassifications = new JourneyClassifications(); // JourneyClassifications | 
+
+try { 
+    var result = api_instance.createJourneyClassification(journeyClassifications);
+    print(result);
+} catch (e) {
+    print("Exception when calling JourneysApi->createJourneyClassification: $e\n");
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **journeyClassifications** | [**JourneyClassifications**](JourneyClassifications.md)|  | [optional] 
+
+### Return type
+
+[**JourneyClassifications**](JourneyClassifications.md)
 
 ### Authorization
 
@@ -424,57 +476,6 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **classificationId** | **int**| ID of Journey Classification that needs to be fetched | [default to null]
  **journeyClassifications** | [**JourneyClassifications**](JourneyClassifications.md)| Updated Journey classification object | 
-
-### Return type
-
-void (empty response body)
-
-### Authorization
-
-[app_id](../README.md#app_id), [bearerAuth](../README.md#bearerAuth), [cookieAuth](../README.md#cookieAuth)
-
-### HTTP request headers
-
- - **Content-Type**: application/json
- - **Accept**: Not defined
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-# **updateJourneyClassificationsWithForm**
-> updateJourneyClassificationsWithForm(journeyClassifications)
-
-Update Journey classifications with form data
-
-### Example 
-```dart
-import 'package:openapi/api.dart';
-// TODO Configure API key authorization: app_id
-//defaultApiClient.getAuthentication<ApiKeyAuth>('app_id').apiKey = 'YOUR_API_KEY';
-// uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-//defaultApiClient.getAuthentication<ApiKeyAuth>('app_id').apiKeyPrefix = 'Bearer';
-// TODO Configure HTTP basic authorization: bearerAuth
-//defaultApiClient.getAuthentication<HttpBasicAuth>('bearerAuth').username = 'YOUR_USERNAME'
-//defaultApiClient.getAuthentication<HttpBasicAuth>('bearerAuth').password = 'YOUR_PASSWORD';
-// TODO Configure API key authorization: cookieAuth
-//defaultApiClient.getAuthentication<ApiKeyAuth>('cookieAuth').apiKey = 'YOUR_API_KEY';
-// uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-//defaultApiClient.getAuthentication<ApiKeyAuth>('cookieAuth').apiKeyPrefix = 'Bearer';
-
-var api_instance = new JourneysApi();
-var journeyClassifications = new JourneyClassifications(); // JourneyClassifications | 
-
-try { 
-    api_instance.updateJourneyClassificationsWithForm(journeyClassifications);
-} catch (e) {
-    print("Exception when calling JourneysApi->updateJourneyClassificationsWithForm: $e\n");
-}
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **journeyClassifications** | [**JourneyClassifications**](JourneyClassifications.md)|  | [optional] 
 
 ### Return type
 
