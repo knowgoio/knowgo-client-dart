@@ -402,7 +402,7 @@ class JourneysApi {
   /// Update a specified Journey classification
   ///
   /// 
-  Future updateJourneyClassification(int classificationId, JourneyClassifications journeyClassifications) async {
+  Future updateJourneyClassificationById(int classificationId, JourneyClassifications journeyClassifications) async {
     Object postBody = journeyClassifications;
 
     // verify required params are set

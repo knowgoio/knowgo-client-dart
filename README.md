@@ -86,7 +86,7 @@ Class | Method | HTTP request | Description
 *JourneysApi* | [**getJourneyClassificationById**](docs//JourneysApi.md#getjourneyclassificationbyid) | **GET** /journeys/classifications/{classificationId} | Get Journey classification by classification id
 *JourneysApi* | [**listJourneyClassifications**](docs//JourneysApi.md#listjourneyclassifications) | **GET** /journeys/classifications | Return a list of Journey classifications available for a specific user
 *JourneysApi* | [**listJourneyClassificationsByJourneyId**](docs//JourneysApi.md#listjourneyclassificationsbyjourneyid) | **GET** /journeys/{journeyId}/classifications | Return a list of Journey classifications for a specific Journey
-*JourneysApi* | [**updateJourneyClassification**](docs//JourneysApi.md#updatejourneyclassification) | **PUT** /journeys/classifications/{classificationId} | Update a specified Journey classification
+*JourneysApi* | [**updateJourneyClassificationById**](docs//JourneysApi.md#updatejourneyclassificationbyid) | **PUT** /journeys/classifications/{classificationId} | Update a specified Journey classification
 *JourneysApi* | [**updateJourneyWithForm**](docs//JourneysApi.md#updatejourneywithform) | **POST** /journeys/{journeyId} | Updates a Journey with form data
 *UsersApi* | [**createUser**](docs//UsersApi.md#createuser) | **POST** /users | Create user
 *UsersApi* | [**deleteUser**](docs//UsersApi.md#deleteuser) | **DELETE** /users/{userId} | Delete user

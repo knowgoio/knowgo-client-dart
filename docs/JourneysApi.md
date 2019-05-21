@@ -17,7 +17,7 @@ Method | HTTP request | Description
 [**getJourneyClassificationById**](JourneysApi.md#getJourneyClassificationById) | **GET** /journeys/classifications/{classificationId} | Get Journey classification by classification id
 [**listJourneyClassifications**](JourneysApi.md#listJourneyClassifications) | **GET** /journeys/classifications | Return a list of Journey classifications available for a specific user
 [**listJourneyClassificationsByJourneyId**](JourneysApi.md#listJourneyClassificationsByJourneyId) | **GET** /journeys/{journeyId}/classifications | Return a list of Journey classifications for a specific Journey
-[**updateJourneyClassification**](JourneysApi.md#updateJourneyClassification) | **PUT** /journeys/classifications/{classificationId} | Update a specified Journey classification
+[**updateJourneyClassificationById**](JourneysApi.md#updateJourneyClassificationById) | **PUT** /journeys/classifications/{classificationId} | Update a specified Journey classification
 [**updateJourneyWithForm**](JourneysApi.md#updateJourneyWithForm) | **POST** /journeys/{journeyId} | Updates a Journey with form data
 
 
@@ -439,8 +439,8 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **updateJourneyClassification**
-> updateJourneyClassification(classificationId, journeyClassifications)
+# **updateJourneyClassificationById**
+> updateJourneyClassificationById(classificationId, journeyClassifications)
 
 Update a specified Journey classification
 
@@ -464,9 +464,9 @@ var classificationId = 789; // int | ID of Journey Classification that needs to 
 var journeyClassifications = new JourneyClassifications(); // JourneyClassifications | Updated Journey classification object
 
 try { 
-    api_instance.updateJourneyClassification(classificationId, journeyClassifications);
+    api_instance.updateJourneyClassificationById(classificationId, journeyClassifications);
 } catch (e) {
-    print("Exception when calling JourneysApi->updateJourneyClassification: $e\n");
+    print("Exception when calling JourneysApi->updateJourneyClassificationById: $e\n");
 }
 ```
 
