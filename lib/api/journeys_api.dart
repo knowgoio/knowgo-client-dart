@@ -399,6 +399,103 @@ class JourneysApi {
       return null;
     }
   }
+  /// Return a list of journeys available for a specific user
+  ///
+  /// Given an authenticated user, return a list of journeys that are available to them.
+  Future<List<Journey>> listJourneys() async {
+    Object postBody;
+
+    // verify required params are set
+
+    // create path and map variables
+    String path = "/journeys".replaceAll("{format}","json");
+
+    // query params
+    List<QueryParam> queryParams = [];
+    Map<String, String> headerParams = {};
+    Map<String, String> formParams = {};
+
+    List<String> contentTypes = [];
+
+    String contentType = contentTypes.isNotEmpty ? contentTypes[0] : "application/json";
+    List<String> authNames = ["app_id", "bearerAuth", "cookieAuth"];
+
+    if(contentType.startsWith("multipart/form-data")) {
+      bool hasFields = false;
+      MultipartRequest mp = new MultipartRequest(null, null);
+      if(hasFields)
+        postBody = mp;
+    }
+    else {
+    }
+
+    var response = await apiClient.invokeAPI(path,
+                                             'GET',
+                                             queryParams,
+                                             postBody,
+                                             headerParams,
+                                             formParams,
+                                             contentType,
+                                             authNames);
+
+    if(response.statusCode >= 400) {
+      throw new ApiException(response.statusCode, _decodeBodyBytes(response));
+    } else if(response.body != null) {
+      return (apiClient.deserialize(_decodeBodyBytes(response), 'List<Journey>') as List).map((item) => item as Journey).toList();
+    } else {
+      return null;
+    }
+  }
+  /// Return a list of journeys available for a specific user
+  ///
+  /// Given an authenticated user, return a list of journeys that are available to them.
+  Future<List<Journey>> listJourneysByUserId(int userId) async {
+    Object postBody;
+
+    // verify required params are set
+    if(userId == null) {
+     throw new ApiException(400, "Missing required param: userId");
+    }
+
+    // create path and map variables
+    String path = "/users/{userId}/journeys".replaceAll("{format}","json").replaceAll("{" + "userId" + "}", userId.toString());
+
+    // query params
+    List<QueryParam> queryParams = [];
+    Map<String, String> headerParams = {};
+    Map<String, String> formParams = {};
+
+    List<String> contentTypes = [];
+
+    String contentType = contentTypes.isNotEmpty ? contentTypes[0] : "application/json";
+    List<String> authNames = ["app_id", "bearerAuth", "cookieAuth"];
+
+    if(contentType.startsWith("multipart/form-data")) {
+      bool hasFields = false;
+      MultipartRequest mp = new MultipartRequest(null, null);
+      if(hasFields)
+        postBody = mp;
+    }
+    else {
+    }
+
+    var response = await apiClient.invokeAPI(path,
+                                             'GET',
+                                             queryParams,
+                                             postBody,
+                                             headerParams,
+                                             formParams,
+                                             contentType,
+                                             authNames);
+
+    if(response.statusCode >= 400) {
+      throw new ApiException(response.statusCode, _decodeBodyBytes(response));
+    } else if(response.body != null) {
+      return (apiClient.deserialize(_decodeBodyBytes(response), 'List<Journey>') as List).map((item) => item as Journey).toList();
+    } else {
+      return null;
+    }
+  }
   /// Update a specified Journey classification
   ///
   /// 
