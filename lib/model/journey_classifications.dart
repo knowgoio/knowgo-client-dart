@@ -41,12 +41,16 @@ class JourneyClassifications {
   }
 
   Map<String, dynamic> toJson() {
-    return {
-      'DriverID': driverID,
-      'ClassificationID': classificationID,
-      'ClassificationName': classificationName,
-      'JourneyID': journeyID
-    };
+    Map <String, dynamic> json = {};
+    if (driverID != null)
+      json['DriverID'] = driverID;
+    if (classificationID != null)
+      json['ClassificationID'] = classificationID;
+    if (classificationName != null)
+      json['ClassificationName'] = classificationName;
+    if (journeyID != null)
+      json['JourneyID'] = journeyID;
+    return json;
   }
 
   static List<JourneyClassifications> listFromJson(List<dynamic> json) {

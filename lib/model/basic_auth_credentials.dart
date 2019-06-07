@@ -27,10 +27,12 @@ class BasicAuthCredentials {
   }
 
   Map<String, dynamic> toJson() {
-    return {
-      'EmailAddress': emailAddress,
-      'Password': password
-    };
+    Map <String, dynamic> json = {};
+    if (emailAddress != null)
+      json['EmailAddress'] = emailAddress;
+    if (password != null)
+      json['Password'] = password;
+    return json;
   }
 
   static List<BasicAuthCredentials> listFromJson(List<dynamic> json) {

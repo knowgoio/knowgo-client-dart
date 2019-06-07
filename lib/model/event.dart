@@ -190,32 +190,56 @@ class Event {
   }
 
   Map<String, dynamic> toJson() {
-    return {
-      'EventID': eventID,
-      'JourneyID': journeyID,
-      'AutoID': autoID,
-      'EventCategoryID': eventCategoryID,
-      'steering_wheel_angle': steeringWheelAngle,
-      'torque_at_transmission': torqueAtTransmission,
-      'engine_speed': engineSpeed,
-      'vehicle_speed': vehicleSpeed,
-      'accelerator_pedal_position': acceleratorPedalPosition,
-      'parking_brake_status': parkingBrakeStatus,
-      'brake_pedal_status': brakePedalStatus,
-      'transmission_gear_position': transmissionGearPosition,
-      'gear_lever_position': gearLeverPosition,
-      'odometer': odometer,
-      'ignition_status': ignitionStatus,
-      'fuel_level': fuelLevel,
-      'fuel_consumed_since_restart': fuelConsumedSinceRestart,
-      'door_status': doorStatus,
-      'headlamp_status': headlampStatus,
-      'high_beam_status': highBeamStatus,
-      'windshield_wiper_status': windshieldWiperStatus,
-      'latitude': latitude,
-      'longitude': longitude,
-      'timestamp': timestamp == null ? '' : timestamp.toUtc().toIso8601String()
-    };
+    Map <String, dynamic> json = {};
+    if (eventID != null)
+      json['EventID'] = eventID;
+    if (journeyID != null)
+      json['JourneyID'] = journeyID;
+    if (autoID != null)
+      json['AutoID'] = autoID;
+    if (eventCategoryID != null)
+      json['EventCategoryID'] = eventCategoryID;
+    if (steeringWheelAngle != null)
+      json['steering_wheel_angle'] = steeringWheelAngle;
+    if (torqueAtTransmission != null)
+      json['torque_at_transmission'] = torqueAtTransmission;
+    if (engineSpeed != null)
+      json['engine_speed'] = engineSpeed;
+    if (vehicleSpeed != null)
+      json['vehicle_speed'] = vehicleSpeed;
+    if (acceleratorPedalPosition != null)
+      json['accelerator_pedal_position'] = acceleratorPedalPosition;
+    if (parkingBrakeStatus != null)
+      json['parking_brake_status'] = parkingBrakeStatus;
+    if (brakePedalStatus != null)
+      json['brake_pedal_status'] = brakePedalStatus;
+    if (transmissionGearPosition != null)
+      json['transmission_gear_position'] = transmissionGearPosition;
+    if (gearLeverPosition != null)
+      json['gear_lever_position'] = gearLeverPosition;
+    if (odometer != null)
+      json['odometer'] = odometer;
+    if (ignitionStatus != null)
+      json['ignition_status'] = ignitionStatus;
+    if (fuelLevel != null)
+      json['fuel_level'] = fuelLevel;
+    if (fuelConsumedSinceRestart != null)
+      json['fuel_consumed_since_restart'] = fuelConsumedSinceRestart;
+    if (doorStatus != null)
+      json['door_status'] = doorStatus;
+    if (headlampStatus != null)
+      json['headlamp_status'] = headlampStatus;
+    if (highBeamStatus != null)
+      json['high_beam_status'] = highBeamStatus;
+    if (windshieldWiperStatus != null)
+      json['windshield_wiper_status'] = windshieldWiperStatus;
+    if (latitude != null)
+      json['latitude'] = latitude;
+    if (longitude != null)
+      json['longitude'] = longitude;
+    if (timestamp != null)
+      json['timestamp'] = timestamp == null ? null : timestamp.toUtc().toIso8601String();
+    return json;
   }
 
   static List<Event> listFromJson(List<dynamic> json) {

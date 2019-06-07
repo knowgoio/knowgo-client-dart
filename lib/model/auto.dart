@@ -153,28 +153,48 @@ class Auto {
   }
 
   Map<String, dynamic> toJson() {
-    return {
-      'AutoID': autoID,
-      'DriverID': driverID,
-      'OwnerID': ownerID,
-      'Name': name,
-      'Make': make,
-      'Model': model,
-      'Year': year,
-      'VIN': VIN,
-      'LicensePlate': licensePlate,
-      'RegistrationExpiry': registrationExpiry == null ? '' : registrationExpiry.toUtc().toIso8601String(),
-      'FuelCapacity': fuelCapacity,
-      'Odometer': odometer,
-      'PolicyID': policyID,
-      'Notes': notes,
-      'PhotoUrls': photoUrls,
-      'DriveTrain': driveTrain,
-      'EngineType': engineType,
-      'ExteriorColor': exteriorColor,
-      'InteriorColor': interiorColor,
-      'Transmission': transmission
-    };
+    Map <String, dynamic> json = {};
+    if (autoID != null)
+      json['AutoID'] = autoID;
+    if (driverID != null)
+      json['DriverID'] = driverID;
+    if (ownerID != null)
+      json['OwnerID'] = ownerID;
+    if (name != null)
+      json['Name'] = name;
+    if (make != null)
+      json['Make'] = make;
+    if (model != null)
+      json['Model'] = model;
+    if (year != null)
+      json['Year'] = year;
+    if (VIN != null)
+      json['VIN'] = VIN;
+    if (licensePlate != null)
+      json['LicensePlate'] = licensePlate;
+    if (registrationExpiry != null)
+      json['RegistrationExpiry'] = registrationExpiry == null ? null : registrationExpiry.toUtc().toIso8601String();
+    if (fuelCapacity != null)
+      json['FuelCapacity'] = fuelCapacity;
+    if (odometer != null)
+      json['Odometer'] = odometer;
+    if (policyID != null)
+      json['PolicyID'] = policyID;
+    if (notes != null)
+      json['Notes'] = notes;
+    if (photoUrls != null)
+      json['PhotoUrls'] = photoUrls;
+    if (driveTrain != null)
+      json['DriveTrain'] = driveTrain;
+    if (engineType != null)
+      json['EngineType'] = engineType;
+    if (exteriorColor != null)
+      json['ExteriorColor'] = exteriorColor;
+    if (interiorColor != null)
+      json['InteriorColor'] = interiorColor;
+    if (transmission != null)
+      json['Transmission'] = transmission;
+    return json;
   }
 
   static List<Auto> listFromJson(List<dynamic> json) {

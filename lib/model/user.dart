@@ -70,16 +70,24 @@ class User {
   }
 
   Map<String, dynamic> toJson() {
-    return {
-      'PersonID': personID,
-      'FullName': fullName,
-      'EmailAddress': emailAddress,
-      'Password': password,
-      'PreferredName': preferredName,
-      'Gender': gender,
-      'DateOfBirth': dateOfBirth == null ? '' : dateOfBirth.toUtc().toIso8601String(),
-      'PhoneNumber': phoneNumber
-    };
+    Map <String, dynamic> json = {};
+    if (personID != null)
+      json['PersonID'] = personID;
+    if (fullName != null)
+      json['FullName'] = fullName;
+    if (emailAddress != null)
+      json['EmailAddress'] = emailAddress;
+    if (password != null)
+      json['Password'] = password;
+    if (preferredName != null)
+      json['PreferredName'] = preferredName;
+    if (gender != null)
+      json['Gender'] = gender;
+    if (dateOfBirth != null)
+      json['DateOfBirth'] = dateOfBirth == null ? null : dateOfBirth.toUtc().toIso8601String();
+    if (phoneNumber != null)
+      json['PhoneNumber'] = phoneNumber;
+    return json;
   }
 
   static List<User> listFromJson(List<dynamic> json) {

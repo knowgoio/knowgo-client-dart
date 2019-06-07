@@ -83,18 +83,28 @@ class Journey {
   }
 
   Map<String, dynamic> toJson() {
-    return {
-      'JourneyID': journeyID,
-      'DriverID': driverID,
-      'AutoID': autoID,
-      'Name': name,
-      'JourneyType': journeyType,
-      'JourneyBegin': journeyBegin == null ? '' : journeyBegin.toUtc().toIso8601String(),
-      'JourneyEnd': journeyEnd == null ? '' : journeyEnd.toUtc().toIso8601String(),
-      'OdometerBegin': odometerBegin,
-      'OdometerEnd': odometerEnd,
-      'Events': events
-    };
+    Map <String, dynamic> json = {};
+    if (journeyID != null)
+      json['JourneyID'] = journeyID;
+    if (driverID != null)
+      json['DriverID'] = driverID;
+    if (autoID != null)
+      json['AutoID'] = autoID;
+    if (name != null)
+      json['Name'] = name;
+    if (journeyType != null)
+      json['JourneyType'] = journeyType;
+    if (journeyBegin != null)
+      json['JourneyBegin'] = journeyBegin == null ? null : journeyBegin.toUtc().toIso8601String();
+    if (journeyEnd != null)
+      json['JourneyEnd'] = journeyEnd == null ? null : journeyEnd.toUtc().toIso8601String();
+    if (odometerBegin != null)
+      json['OdometerBegin'] = odometerBegin;
+    if (odometerEnd != null)
+      json['OdometerEnd'] = odometerEnd;
+    if (events != null)
+      json['Events'] = events;
+    return json;
   }
 
   static List<Journey> listFromJson(List<dynamic> json) {
