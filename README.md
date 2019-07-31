@@ -78,6 +78,7 @@ Class | Method | HTTP request | Description
 *EventsApi* | [**deleteEvent**](docs//EventsApi.md#deleteevent) | **DELETE** /events/{eventId} | Delete Event by ID
 *EventsApi* | [**getEventById**](docs//EventsApi.md#geteventbyid) | **GET** /events/{eventId} | Find Event by ID
 *EventsApi* | [**updateEventWithForm**](docs//EventsApi.md#updateeventwithform) | **POST** /events/{eventId} | Updates an Event with form data
+*JourneysApi* | [**addClassificationToJourney**](docs//JourneysApi.md#addclassificationtojourney) | **POST** /journeys/{journeyId}/classifications/{classificationId} | Add a new Journey classification for a specific Journey
 *JourneysApi* | [**addJourney**](docs//JourneysApi.md#addjourney) | **POST** /journeys | Add a new Journey
 *JourneysApi* | [**createJourneyClassification**](docs//JourneysApi.md#createjourneyclassification) | **POST** /journeys/classifications | Create a Journey classification
 *JourneysApi* | [**deleteJourney**](docs//JourneysApi.md#deletejourney) | **DELETE** /journeys/{journeyId} | Delete Journey by ID
@@ -88,6 +89,7 @@ Class | Method | HTTP request | Description
 *JourneysApi* | [**listJourneyClassificationsByJourneyId**](docs//JourneysApi.md#listjourneyclassificationsbyjourneyid) | **GET** /journeys/{journeyId}/classifications | Return a list of Journey classifications for a specific Journey
 *JourneysApi* | [**listJourneys**](docs//JourneysApi.md#listjourneys) | **GET** /journeys | Return a list of journeys available for a specific user
 *JourneysApi* | [**listJourneysByUserId**](docs//JourneysApi.md#listjourneysbyuserid) | **GET** /users/{userId}/journeys | Return a list of journeys available for a specific user
+*JourneysApi* | [**removeClassificationFromJourney**](docs//JourneysApi.md#removeclassificationfromjourney) | **DELETE** /journeys/{journeyId}/classifications/{classificationId} | Remove a specific classification from a Journey
 *JourneysApi* | [**updateJourneyClassificationById**](docs//JourneysApi.md#updatejourneyclassificationbyid) | **PUT** /journeys/classifications/{classificationId} | Update a specified Journey classification
 *JourneysApi* | [**updateJourneyWithForm**](docs//JourneysApi.md#updatejourneywithform) | **POST** /journeys/{journeyId} | Updates a Journey with form data
 *UsersApi* | [**createUser**](docs//UsersApi.md#createuser) | **POST** /users | Create user

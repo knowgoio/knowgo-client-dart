@@ -11,7 +11,7 @@ void main() {
     //
     // Adds a new Event to the system. The EventID as input is ignored, as it is dynamically allocated at insertion time. Auto details may be as complete or as incomplete as needed, with later updates possible via the PUT method. The complete new Event record with allocated EventID are returned upon successful record creation.
     //
-    //Future<Event> addEvent({ Event event }) async 
+    //Future<Event> addEvent(Event event) async 
     test('test addEvent', () async {
       // TODO
     });
@@ -34,7 +34,7 @@ void main() {
 
     // Updates an Event with form data
     //
-    //Future updateEventWithForm(int eventId, { Event event }) async 
+    //Future updateEventWithForm(int eventId, Event event) async 
     test('test updateEventWithForm', () async {
       // TODO
     });

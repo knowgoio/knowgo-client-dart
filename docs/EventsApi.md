@@ -52,7 +52,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **event** | [**Event**](Event.md)| Event object to operate on | [optional] 
+ **event** | [**Event**](Event.md)| Event object to operate on | 
 
 ### Return type
 
@@ -210,7 +210,7 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **eventId** | **int**| ID of Event that needs to be updated | [default to null]
- **event** | [**Event**](Event.md)| Event object to operate on | [optional] 
+ **event** | [**Event**](Event.md)| Event object to operate on | 
 
 ### Return type
 

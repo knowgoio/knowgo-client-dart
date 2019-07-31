@@ -7,6 +7,58 @@ class JourneysApi {
 
   JourneysApi([ApiClient apiClient]) : apiClient = apiClient ?? defaultApiClient;
 
+  /// Add a new Journey classification for a specific Journey
+  ///
+  /// 
+  Future addClassificationToJourney(String journeyId, int classificationId) async {
+    Object postBody;
+
+    // verify required params are set
+    if(journeyId == null) {
+     throw new ApiException(400, "Missing required param: journeyId");
+    }
+    if(classificationId == null) {
+     throw new ApiException(400, "Missing required param: classificationId");
+    }
+
+    // create path and map variables
+    String path = "/journeys/{journeyId}/classifications/{classificationId}".replaceAll("{format}","json").replaceAll("{" + "journeyId" + "}", journeyId.toString()).replaceAll("{" + "classificationId" + "}", classificationId.toString());
+
+    // query params
+    List<QueryParam> queryParams = [];
+    Map<String, String> headerParams = {};
+    Map<String, String> formParams = {};
+
+    List<String> contentTypes = [];
+
+    String contentType = contentTypes.isNotEmpty ? contentTypes[0] : "application/json";
+    List<String> authNames = ["app_id", "bearerAuth", "cookieAuth"];
+
+    if(contentType.startsWith("multipart/form-data")) {
+      bool hasFields = false;
+      MultipartRequest mp = new MultipartRequest(null, null);
+      if(hasFields)
+        postBody = mp;
+    }
+    else {
+    }
+
+    var response = await apiClient.invokeAPI(path,
+                                             'POST',
+                                             queryParams,
+                                             postBody,
+                                             headerParams,
+                                             formParams,
+                                             contentType,
+                                             authNames);
+
+    if(response.statusCode >= 400) {
+      throw new ApiException(response.statusCode, _decodeBodyBytes(response));
+    } else if(response.body != null) {
+    } else {
+      return;
+    }
+  }
   /// Add a new Journey
   ///
   /// Adds a new Journey to the system. The JourneyID as input is ignored, as it is dynamically allocated at insertion time. Journey details may be as complete or as incomplete as needed, with later updates possible via the PUT method. The complete new Journey record with allocated JourneyID are returned upon successful record creation.
@@ -60,10 +112,13 @@ class JourneysApi {
   /// Create a Journey classification
   ///
   /// 
-  Future<JourneyClassifications> createJourneyClassification({ JourneyClassifications journeyClassifications }) async {
+  Future<JourneyClassifications> createJourneyClassification(JourneyClassifications journeyClassifications) async {
     Object postBody = journeyClassifications;
 
     // verify required params are set
+    if(journeyClassifications == null) {
+     throw new ApiException(400, "Missing required param: journeyClassifications");
+    }
 
     // create path and map variables
     String path = "/journeys/classifications".replaceAll("{format}","json");
@@ -494,6 +549,58 @@ class JourneysApi {
       return (apiClient.deserialize(_decodeBodyBytes(response), 'List<Journey>') as List).map((item) => item as Journey).toList();
     } else {
       return null;
+    }
+  }
+  /// Remove a specific classification from a Journey
+  ///
+  /// 
+  Future removeClassificationFromJourney(String journeyId, int classificationId) async {
+    Object postBody;
+
+    // verify required params are set
+    if(journeyId == null) {
+     throw new ApiException(400, "Missing required param: journeyId");
+    }
+    if(classificationId == null) {
+     throw new ApiException(400, "Missing required param: classificationId");
+    }
+
+    // create path and map variables
+    String path = "/journeys/{journeyId}/classifications/{classificationId}".replaceAll("{format}","json").replaceAll("{" + "journeyId" + "}", journeyId.toString()).replaceAll("{" + "classificationId" + "}", classificationId.toString());
+
+    // query params
+    List<QueryParam> queryParams = [];
+    Map<String, String> headerParams = {};
+    Map<String, String> formParams = {};
+
+    List<String> contentTypes = [];
+
+    String contentType = contentTypes.isNotEmpty ? contentTypes[0] : "application/json";
+    List<String> authNames = ["app_id", "bearerAuth", "cookieAuth"];
+
+    if(contentType.startsWith("multipart/form-data")) {
+      bool hasFields = false;
+      MultipartRequest mp = new MultipartRequest(null, null);
+      if(hasFields)
+        postBody = mp;
+    }
+    else {
+    }
+
+    var response = await apiClient.invokeAPI(path,
+                                             'DELETE',
+                                             queryParams,
+                                             postBody,
+                                             headerParams,
+                                             formParams,
+                                             contentType,
+                                             authNames);
+
+    if(response.statusCode >= 400) {
+      throw new ApiException(response.statusCode, _decodeBodyBytes(response));
+    } else if(response.body != null) {
+    } else {
+      return;
     }
   }
   /// Update a specified Journey classification

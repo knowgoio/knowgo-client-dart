@@ -7,6 +7,13 @@ void main() {
   var instance = new JourneysApi();
 
   group('tests for JourneysApi', () {
+    // Add a new Journey classification for a specific Journey
+    //
+    //Future addClassificationToJourney(String journeyId, int classificationId) async 
+    test('test addClassificationToJourney', () async {
+      // TODO
+    });
+
     // Add a new Journey
     //
     // Adds a new Journey to the system. The JourneyID as input is ignored, as it is dynamically allocated at insertion time. Journey details may be as complete or as incomplete as needed, with later updates possible via the PUT method. The complete new Journey record with allocated JourneyID are returned upon successful record creation.
@@ -18,7 +25,7 @@ void main() {
 
     // Create a Journey classification
     //
-    //Future<JourneyClassifications> createJourneyClassification({ JourneyClassifications journeyClassifications }) async 
+    //Future<JourneyClassifications> createJourneyClassification(JourneyClassifications journeyClassifications) async 
     test('test createJourneyClassification', () async {
       // TODO
     });
@@ -86,6 +93,13 @@ void main() {
     //
     //Future<List<Journey>> listJourneysByUserId(int userId) async 
     test('test listJourneysByUserId', () async {
+      // TODO
+    });
+
+    // Remove a specific classification from a Journey
+    //
+    //Future removeClassificationFromJourney(String journeyId, int classificationId) async 
+    test('test removeClassificationFromJourney', () async {
       // TODO
     });
 

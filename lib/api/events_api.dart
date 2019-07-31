@@ -10,10 +10,13 @@ class EventsApi {
   /// Add a new Event
   ///
   /// Adds a new Event to the system. The EventID as input is ignored, as it is dynamically allocated at insertion time. Auto details may be as complete or as incomplete as needed, with later updates possible via the PUT method. The complete new Event record with allocated EventID are returned upon successful record creation.
-  Future<Event> addEvent({ Event event }) async {
+  Future<Event> addEvent(Event event) async {
     Object postBody = event;
 
     // verify required params are set
+    if(event == null) {
+     throw new ApiException(400, "Missing required param: event");
+    }
 
     // create path and map variables
     String path = "/events".replaceAll("{format}","json");
@@ -156,12 +159,15 @@ class EventsApi {
   /// Updates an Event with form data
   ///
   /// 
-  Future updateEventWithForm(int eventId, { Event event }) async {
+  Future updateEventWithForm(int eventId, Event event) async {
     Object postBody = event;
 
     // verify required params are set
     if(eventId == null) {
      throw new ApiException(400, "Missing required param: eventId");
+    }
+    if(event == null) {
+     throw new ApiException(400, "Missing required param: event");
     }
 
     // create path and map variables

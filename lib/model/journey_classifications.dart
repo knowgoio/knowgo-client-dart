@@ -7,13 +7,11 @@ class JourneyClassifications {
   int classificationID = null;
   
   String classificationName = null;
-  
-  String journeyID = null;
   JourneyClassifications();
 
   @override
   String toString() {
-    return 'JourneyClassifications[driverID=$driverID, classificationID=$classificationID, classificationName=$classificationName, journeyID=$journeyID, ]';
+    return 'JourneyClassifications[driverID=$driverID, classificationID=$classificationID, classificationName=$classificationName, ]';
   }
 
   JourneyClassifications.fromJson(Map<String, dynamic> json) {
@@ -33,11 +31,6 @@ class JourneyClassifications {
     } else {
           classificationName = json['ClassificationName'];
     }
-    if (json['JourneyID'] == null) {
-      journeyID = null;
-    } else {
-          journeyID = json['JourneyID'];
-    }
   }
 
   Map<String, dynamic> toJson() {
@@ -48,8 +41,6 @@ class JourneyClassifications {
       json['ClassificationID'] = classificationID;
     if (classificationName != null)
       json['ClassificationName'] = classificationName;
-    if (journeyID != null)
-      json['JourneyID'] = journeyID;
     return json;
   }
 

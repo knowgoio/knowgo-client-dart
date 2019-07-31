@@ -9,6 +9,7 @@ All URIs are relative to *https://api.adaptant.io/payd/v1*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
+[**addClassificationToJourney**](JourneysApi.md#addClassificationToJourney) | **POST** /journeys/{journeyId}/classifications/{classificationId} | Add a new Journey classification for a specific Journey
 [**addJourney**](JourneysApi.md#addJourney) | **POST** /journeys | Add a new Journey
 [**createJourneyClassification**](JourneysApi.md#createJourneyClassification) | **POST** /journeys/classifications | Create a Journey classification
 [**deleteJourney**](JourneysApi.md#deleteJourney) | **DELETE** /journeys/{journeyId} | Delete Journey by ID
@@ -19,9 +20,63 @@ Method | HTTP request | Description
 [**listJourneyClassificationsByJourneyId**](JourneysApi.md#listJourneyClassificationsByJourneyId) | **GET** /journeys/{journeyId}/classifications | Return a list of Journey classifications for a specific Journey
 [**listJourneys**](JourneysApi.md#listJourneys) | **GET** /journeys | Return a list of journeys available for a specific user
 [**listJourneysByUserId**](JourneysApi.md#listJourneysByUserId) | **GET** /users/{userId}/journeys | Return a list of journeys available for a specific user
+[**removeClassificationFromJourney**](JourneysApi.md#removeClassificationFromJourney) | **DELETE** /journeys/{journeyId}/classifications/{classificationId} | Remove a specific classification from a Journey
 [**updateJourneyClassificationById**](JourneysApi.md#updateJourneyClassificationById) | **PUT** /journeys/classifications/{classificationId} | Update a specified Journey classification
 [**updateJourneyWithForm**](JourneysApi.md#updateJourneyWithForm) | **POST** /journeys/{journeyId} | Updates a Journey with form data
 
+
+# **addClassificationToJourney**
+> addClassificationToJourney(journeyId, classificationId)
+
+Add a new Journey classification for a specific Journey
+
+### Example 
+```dart
+import 'package:openapi/api.dart';
+// TODO Configure API key authorization: app_id
+//defaultApiClient.getAuthentication<ApiKeyAuth>('app_id').apiKey = 'YOUR_API_KEY';
+// uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+//defaultApiClient.getAuthentication<ApiKeyAuth>('app_id').apiKeyPrefix = 'Bearer';
+// TODO Configure HTTP basic authorization: bearerAuth
+//defaultApiClient.getAuthentication<HttpBasicAuth>('bearerAuth').username = 'YOUR_USERNAME'
+//defaultApiClient.getAuthentication<HttpBasicAuth>('bearerAuth').password = 'YOUR_PASSWORD';
+// TODO Configure API key authorization: cookieAuth
+//defaultApiClient.getAuthentication<ApiKeyAuth>('cookieAuth').apiKey = 'YOUR_API_KEY';
+// uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+//defaultApiClient.getAuthentication<ApiKeyAuth>('cookieAuth').apiKeyPrefix = 'Bearer';
+
+var api_instance = new JourneysApi();
+var journeyId = journeyId_example; // String | ID of Journey that needs to be fetched
+var classificationId = 56; // int | ID of classification that needs to be added
+
+try { 
+    api_instance.addClassificationToJourney(journeyId, classificationId);
+} catch (e) {
+    print("Exception when calling JourneysApi->addClassificationToJourney: $e\n");
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **journeyId** | **String**| ID of Journey that needs to be fetched | [default to null]
+ **classificationId** | **int**| ID of classification that needs to be added | [default to null]
+
+### Return type
+
+void (empty response body)
+
+### Authorization
+
+[app_id](../README.md#app_id), [bearerAuth](../README.md#bearerAuth), [cookieAuth](../README.md#cookieAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: Not defined
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **addJourney**
 > Journey addJourney(journey)
@@ -112,7 +167,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **journeyClassifications** | [**JourneyClassifications**](JourneyClassifications.md)|  | [optional] 
+ **journeyClassifications** | [**JourneyClassifications**](JourneyClassifications.md)|  | 
 
 ### Return type
 
@@ -542,6 +597,59 @@ Name | Type | Description  | Notes
 
  - **Content-Type**: Not defined
  - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **removeClassificationFromJourney**
+> removeClassificationFromJourney(journeyId, classificationId)
+
+Remove a specific classification from a Journey
+
+### Example 
+```dart
+import 'package:openapi/api.dart';
+// TODO Configure API key authorization: app_id
+//defaultApiClient.getAuthentication<ApiKeyAuth>('app_id').apiKey = 'YOUR_API_KEY';
+// uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+//defaultApiClient.getAuthentication<ApiKeyAuth>('app_id').apiKeyPrefix = 'Bearer';
+// TODO Configure HTTP basic authorization: bearerAuth
+//defaultApiClient.getAuthentication<HttpBasicAuth>('bearerAuth').username = 'YOUR_USERNAME'
+//defaultApiClient.getAuthentication<HttpBasicAuth>('bearerAuth').password = 'YOUR_PASSWORD';
+// TODO Configure API key authorization: cookieAuth
+//defaultApiClient.getAuthentication<ApiKeyAuth>('cookieAuth').apiKey = 'YOUR_API_KEY';
+// uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+//defaultApiClient.getAuthentication<ApiKeyAuth>('cookieAuth').apiKeyPrefix = 'Bearer';
+
+var api_instance = new JourneysApi();
+var journeyId = journeyId_example; // String | ID of Journey that needs to be fetched
+var classificationId = 56; // int | ID of classification that needs to be removed
+
+try { 
+    api_instance.removeClassificationFromJourney(journeyId, classificationId);
+} catch (e) {
+    print("Exception when calling JourneysApi->removeClassificationFromJourney: $e\n");
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **journeyId** | **String**| ID of Journey that needs to be fetched | [default to null]
+ **classificationId** | **int**| ID of classification that needs to be removed | [default to null]
+
+### Return type
+
+void (empty response body)
+
+### Authorization
+
+[app_id](../README.md#app_id), [bearerAuth](../README.md#bearerAuth), [cookieAuth](../README.md#cookieAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: Not defined
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 

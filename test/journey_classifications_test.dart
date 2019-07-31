@@ -21,11 +21,6 @@ void main() {
       // TODO
     });
 
-    // String journeyID (default value: null)
-    test('to test the property `journeyID`', () async {
-      // TODO
-    });
-
 
   });
 
