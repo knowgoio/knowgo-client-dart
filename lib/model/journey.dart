@@ -68,12 +68,12 @@ class Journey {
     if (json['OdometerBegin'] == null) {
       odometerBegin = null;
     } else {
-          odometerBegin = json['OdometerBegin'];
+          odometerBegin = json['OdometerBegin'].toDouble();
     }
     if (json['OdometerEnd'] == null) {
       odometerEnd = null;
     } else {
-          odometerEnd = json['OdometerEnd'];
+          odometerEnd = json['OdometerEnd'].toDouble();
     }
     if (json['Events'] == null) {
       events = null;

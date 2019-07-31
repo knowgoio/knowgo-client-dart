@@ -3,7 +3,7 @@ import 'package:test/test.dart';
 
 // tests for BasicAuthCredentials
 void main() {
-  var instance = new Pet();
+  var instance = new BasicAuthCredentials();
 
   group('test BasicAuthCredentials', () {
     // String emailAddress (default value: null)

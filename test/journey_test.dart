@@ -3,7 +3,7 @@ import 'package:test/test.dart';
 
 // tests for Journey
 void main() {
-  var instance = new Pet();
+  var instance = new Journey();
 
   group('test Journey', () {
     // String journeyID (default value: null)

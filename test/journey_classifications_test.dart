@@ -3,7 +3,7 @@ import 'package:test/test.dart';
 
 // tests for JourneyClassifications
 void main() {
-  var instance = new Pet();
+  var instance = new JourneyClassifications();
 
   group('test JourneyClassifications', () {
     // int driverID (default value: null)

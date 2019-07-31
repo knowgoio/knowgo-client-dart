@@ -3,7 +3,7 @@ import 'package:test/test.dart';
 
 // tests for Event
 void main() {
-  var instance = new Pet();
+  var instance = new Event();
 
   group('test Event', () {
     // int eventID (default value: null)
@@ -123,8 +123,48 @@ void main() {
       // TODO
     });
 
+    // double bearing (default value: null)
+    test('to test the property `bearing`', () async {
+      // TODO
+    });
+
+    // double accuracy (default value: null)
+    test('to test the property `accuracy`', () async {
+      // TODO
+    });
+
     // DateTime timestamp (default value: null)
     test('to test the property `timestamp`', () async {
+      // TODO
+    });
+
+    // double accelX (default value: null)
+    test('to test the property `accelX`', () async {
+      // TODO
+    });
+
+    // double accelY (default value: null)
+    test('to test the property `accelY`', () async {
+      // TODO
+    });
+
+    // double accelZ (default value: null)
+    test('to test the property `accelZ`', () async {
+      // TODO
+    });
+
+    // double gyroX (default value: null)
+    test('to test the property `gyroX`', () async {
+      // TODO
+    });
+
+    // double gyroY (default value: null)
+    test('to test the property `gyroY`', () async {
+      // TODO
+    });
+
+    // double gyroZ (default value: null)
+    test('to test the property `gyroZ`', () async {
       // TODO
     });
 

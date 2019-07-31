@@ -57,12 +57,28 @@ class Event {
   
   double longitude = null;
   
+  double bearing = null;
+  
+  double accuracy = null;
+  
   DateTime timestamp = null;
+  
+  double accelX = null;
+  
+  double accelY = null;
+  
+  double accelZ = null;
+  
+  double gyroX = null;
+  
+  double gyroY = null;
+  
+  double gyroZ = null;
   Event();
 
   @override
   String toString() {
-    return 'Event[eventID=$eventID, journeyID=$journeyID, autoID=$autoID, eventCategoryID=$eventCategoryID, steeringWheelAngle=$steeringWheelAngle, torqueAtTransmission=$torqueAtTransmission, engineSpeed=$engineSpeed, vehicleSpeed=$vehicleSpeed, acceleratorPedalPosition=$acceleratorPedalPosition, parkingBrakeStatus=$parkingBrakeStatus, brakePedalStatus=$brakePedalStatus, transmissionGearPosition=$transmissionGearPosition, gearLeverPosition=$gearLeverPosition, odometer=$odometer, ignitionStatus=$ignitionStatus, fuelLevel=$fuelLevel, fuelConsumedSinceRestart=$fuelConsumedSinceRestart, doorStatus=$doorStatus, headlampStatus=$headlampStatus, highBeamStatus=$highBeamStatus, windshieldWiperStatus=$windshieldWiperStatus, latitude=$latitude, longitude=$longitude, timestamp=$timestamp, ]';
+    return 'Event[eventID=$eventID, journeyID=$journeyID, autoID=$autoID, eventCategoryID=$eventCategoryID, steeringWheelAngle=$steeringWheelAngle, torqueAtTransmission=$torqueAtTransmission, engineSpeed=$engineSpeed, vehicleSpeed=$vehicleSpeed, acceleratorPedalPosition=$acceleratorPedalPosition, parkingBrakeStatus=$parkingBrakeStatus, brakePedalStatus=$brakePedalStatus, transmissionGearPosition=$transmissionGearPosition, gearLeverPosition=$gearLeverPosition, odometer=$odometer, ignitionStatus=$ignitionStatus, fuelLevel=$fuelLevel, fuelConsumedSinceRestart=$fuelConsumedSinceRestart, doorStatus=$doorStatus, headlampStatus=$headlampStatus, highBeamStatus=$highBeamStatus, windshieldWiperStatus=$windshieldWiperStatus, latitude=$latitude, longitude=$longitude, bearing=$bearing, accuracy=$accuracy, timestamp=$timestamp, accelX=$accelX, accelY=$accelY, accelZ=$accelZ, gyroX=$gyroX, gyroY=$gyroY, gyroZ=$gyroZ, ]';
   }
 
   Event.fromJson(Map<String, dynamic> json) {
@@ -135,7 +151,7 @@ class Event {
     if (json['odometer'] == null) {
       odometer = null;
     } else {
-          odometer = json['odometer'];
+          odometer = json['odometer'].toDouble();
     }
     if (json['ignition_status'] == null) {
       ignitionStatus = null;
@@ -150,7 +166,7 @@ class Event {
     if (json['fuel_consumed_since_restart'] == null) {
       fuelConsumedSinceRestart = null;
     } else {
-          fuelConsumedSinceRestart = json['fuel_consumed_since_restart'];
+          fuelConsumedSinceRestart = json['fuel_consumed_since_restart'].toDouble();
     }
     if (json['door_status'] == null) {
       doorStatus = null;
@@ -182,10 +198,50 @@ class Event {
     } else {
           longitude = json['longitude'];
     }
+    if (json['bearing'] == null) {
+      bearing = null;
+    } else {
+          bearing = json['bearing'];
+    }
+    if (json['accuracy'] == null) {
+      accuracy = null;
+    } else {
+          accuracy = json['accuracy'];
+    }
     if (json['timestamp'] == null) {
       timestamp = null;
     } else {
       timestamp = DateTime.parse(json['timestamp']);
+    }
+    if (json['accel_x'] == null) {
+      accelX = null;
+    } else {
+          accelX = json['accel_x'];
+    }
+    if (json['accel_y'] == null) {
+      accelY = null;
+    } else {
+          accelY = json['accel_y'];
+    }
+    if (json['accel_z'] == null) {
+      accelZ = null;
+    } else {
+          accelZ = json['accel_z'];
+    }
+    if (json['gyro_x'] == null) {
+      gyroX = null;
+    } else {
+          gyroX = json['gyro_x'];
+    }
+    if (json['gyro_y'] == null) {
+      gyroY = null;
+    } else {
+          gyroY = json['gyro_y'];
+    }
+    if (json['gyro_z'] == null) {
+      gyroZ = null;
+    } else {
+          gyroZ = json['gyro_z'];
     }
   }
 
@@ -237,8 +293,24 @@ class Event {
       json['latitude'] = latitude;
     if (longitude != null)
       json['longitude'] = longitude;
+    if (bearing != null)
+      json['bearing'] = bearing;
+    if (accuracy != null)
+      json['accuracy'] = accuracy;
     if (timestamp != null)
       json['timestamp'] = timestamp == null ? null : timestamp.toUtc().toIso8601String();
+    if (accelX != null)
+      json['accel_x'] = accelX;
+    if (accelY != null)
+      json['accel_y'] = accelY;
+    if (accelZ != null)
+      json['accel_z'] = accelZ;
+    if (gyroX != null)
+      json['gyro_x'] = gyroX;
+    if (gyroY != null)
+      json['gyro_y'] = gyroY;
+    if (gyroZ != null)
+      json['gyro_z'] = gyroZ;
     return json;
   }
 

@@ -31,7 +31,15 @@ Name | Type | Description | Notes
 **windshieldWiperStatus** | **String** |  | [optional] [default to null]
 **latitude** | **double** |  | [optional] [default to null]
 **longitude** | **double** |  | [optional] [default to null]
+**bearing** | **double** |  | [optional] [default to null]
+**accuracy** | **double** |  | [optional] [default to null]
 **timestamp** | [**DateTime**](DateTime.md) |  | [optional] [default to null]
+**accelX** | **double** |  | [optional] [default to null]
+**accelY** | **double** |  | [optional] [default to null]
+**accelZ** | **double** |  | [optional] [default to null]
+**gyroX** | **double** |  | [optional] [default to null]
+**gyroY** | **double** |  | [optional] [default to null]
+**gyroZ** | **double** |  | [optional] [default to null]
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 
