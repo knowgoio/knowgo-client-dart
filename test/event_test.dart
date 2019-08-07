@@ -3,7 +3,7 @@ import 'package:test/test.dart';
 
 // tests for Event
 void main() {
-  var instance = new Event();
+  var instance = Event();
 
   group('test Event', () {
     // int eventID (default value: null)

@@ -15,10 +15,10 @@ class JourneysApi {
 
     // verify required params are set
     if(journeyId == null) {
-     throw new ApiException(400, "Missing required param: journeyId");
+     throw ApiException(400, "Missing required param: journeyId");
     }
     if(classificationId == null) {
-     throw new ApiException(400, "Missing required param: classificationId");
+     throw ApiException(400, "Missing required param: classificationId");
     }
 
     // create path and map variables
@@ -36,7 +36,7 @@ class JourneysApi {
 
     if(contentType.startsWith("multipart/form-data")) {
       bool hasFields = false;
-      MultipartRequest mp = new MultipartRequest(null, null);
+      MultipartRequest mp = MultipartRequest(null, null);
       if(hasFields)
         postBody = mp;
     }
@@ -53,7 +53,7 @@ class JourneysApi {
                                              authNames);
 
     if(response.statusCode >= 400) {
-      throw new ApiException(response.statusCode, _decodeBodyBytes(response));
+      throw ApiException(response.statusCode, _decodeBodyBytes(response));
     } else if(response.body != null) {
     } else {
       return;
@@ -67,7 +67,7 @@ class JourneysApi {
 
     // verify required params are set
     if(journey == null) {
-     throw new ApiException(400, "Missing required param: journey");
+     throw ApiException(400, "Missing required param: journey");
     }
 
     // create path and map variables
@@ -85,7 +85,7 @@ class JourneysApi {
 
     if(contentType.startsWith("multipart/form-data")) {
       bool hasFields = false;
-      MultipartRequest mp = new MultipartRequest(null, null);
+      MultipartRequest mp = MultipartRequest(null, null);
       if(hasFields)
         postBody = mp;
     }
@@ -102,7 +102,7 @@ class JourneysApi {
                                              authNames);
 
     if(response.statusCode >= 400) {
-      throw new ApiException(response.statusCode, _decodeBodyBytes(response));
+      throw ApiException(response.statusCode, _decodeBodyBytes(response));
     } else if(response.body != null) {
       return apiClient.deserialize(_decodeBodyBytes(response), 'Journey') as Journey;
     } else {
@@ -117,7 +117,7 @@ class JourneysApi {
 
     // verify required params are set
     if(journeyClassifications == null) {
-     throw new ApiException(400, "Missing required param: journeyClassifications");
+     throw ApiException(400, "Missing required param: journeyClassifications");
     }
 
     // create path and map variables
@@ -135,7 +135,7 @@ class JourneysApi {
 
     if(contentType.startsWith("multipart/form-data")) {
       bool hasFields = false;
-      MultipartRequest mp = new MultipartRequest(null, null);
+      MultipartRequest mp = MultipartRequest(null, null);
       if(hasFields)
         postBody = mp;
     }
@@ -152,7 +152,7 @@ class JourneysApi {
                                              authNames);
 
     if(response.statusCode >= 400) {
-      throw new ApiException(response.statusCode, _decodeBodyBytes(response));
+      throw ApiException(response.statusCode, _decodeBodyBytes(response));
     } else if(response.body != null) {
       return apiClient.deserialize(_decodeBodyBytes(response), 'JourneyClassifications') as JourneyClassifications;
     } else {
@@ -167,7 +167,7 @@ class JourneysApi {
 
     // verify required params are set
     if(journeyId == null) {
-     throw new ApiException(400, "Missing required param: journeyId");
+     throw ApiException(400, "Missing required param: journeyId");
     }
 
     // create path and map variables
@@ -185,7 +185,7 @@ class JourneysApi {
 
     if(contentType.startsWith("multipart/form-data")) {
       bool hasFields = false;
-      MultipartRequest mp = new MultipartRequest(null, null);
+      MultipartRequest mp = MultipartRequest(null, null);
       if(hasFields)
         postBody = mp;
     }
@@ -202,7 +202,7 @@ class JourneysApi {
                                              authNames);
 
     if(response.statusCode >= 400) {
-      throw new ApiException(response.statusCode, _decodeBodyBytes(response));
+      throw ApiException(response.statusCode, _decodeBodyBytes(response));
     } else if(response.body != null) {
     } else {
       return;
@@ -216,7 +216,7 @@ class JourneysApi {
 
     // verify required params are set
     if(classificationId == null) {
-     throw new ApiException(400, "Missing required param: classificationId");
+     throw ApiException(400, "Missing required param: classificationId");
     }
 
     // create path and map variables
@@ -234,7 +234,7 @@ class JourneysApi {
 
     if(contentType.startsWith("multipart/form-data")) {
       bool hasFields = false;
-      MultipartRequest mp = new MultipartRequest(null, null);
+      MultipartRequest mp = MultipartRequest(null, null);
       if(hasFields)
         postBody = mp;
     }
@@ -251,7 +251,7 @@ class JourneysApi {
                                              authNames);
 
     if(response.statusCode >= 400) {
-      throw new ApiException(response.statusCode, _decodeBodyBytes(response));
+      throw ApiException(response.statusCode, _decodeBodyBytes(response));
     } else if(response.body != null) {
     } else {
       return;
@@ -265,7 +265,7 @@ class JourneysApi {
 
     // verify required params are set
     if(journeyId == null) {
-     throw new ApiException(400, "Missing required param: journeyId");
+     throw ApiException(400, "Missing required param: journeyId");
     }
 
     // create path and map variables
@@ -283,7 +283,7 @@ class JourneysApi {
 
     if(contentType.startsWith("multipart/form-data")) {
       bool hasFields = false;
-      MultipartRequest mp = new MultipartRequest(null, null);
+      MultipartRequest mp = MultipartRequest(null, null);
       if(hasFields)
         postBody = mp;
     }
@@ -300,7 +300,7 @@ class JourneysApi {
                                              authNames);
 
     if(response.statusCode >= 400) {
-      throw new ApiException(response.statusCode, _decodeBodyBytes(response));
+      throw ApiException(response.statusCode, _decodeBodyBytes(response));
     } else if(response.body != null) {
       return apiClient.deserialize(_decodeBodyBytes(response), 'Journey') as Journey;
     } else {
@@ -315,7 +315,7 @@ class JourneysApi {
 
     // verify required params are set
     if(classificationId == null) {
-     throw new ApiException(400, "Missing required param: classificationId");
+     throw ApiException(400, "Missing required param: classificationId");
     }
 
     // create path and map variables
@@ -333,7 +333,7 @@ class JourneysApi {
 
     if(contentType.startsWith("multipart/form-data")) {
       bool hasFields = false;
-      MultipartRequest mp = new MultipartRequest(null, null);
+      MultipartRequest mp = MultipartRequest(null, null);
       if(hasFields)
         postBody = mp;
     }
@@ -350,7 +350,7 @@ class JourneysApi {
                                              authNames);
 
     if(response.statusCode >= 400) {
-      throw new ApiException(response.statusCode, _decodeBodyBytes(response));
+      throw ApiException(response.statusCode, _decodeBodyBytes(response));
     } else if(response.body != null) {
       return apiClient.deserialize(_decodeBodyBytes(response), 'JourneyClassifications') as JourneyClassifications;
     } else {
@@ -380,7 +380,7 @@ class JourneysApi {
 
     if(contentType.startsWith("multipart/form-data")) {
       bool hasFields = false;
-      MultipartRequest mp = new MultipartRequest(null, null);
+      MultipartRequest mp = MultipartRequest(null, null);
       if(hasFields)
         postBody = mp;
     }
@@ -397,7 +397,7 @@ class JourneysApi {
                                              authNames);
 
     if(response.statusCode >= 400) {
-      throw new ApiException(response.statusCode, _decodeBodyBytes(response));
+      throw ApiException(response.statusCode, _decodeBodyBytes(response));
     } else if(response.body != null) {
       return (apiClient.deserialize(_decodeBodyBytes(response), 'List<JourneyClassifications>') as List).map((item) => item as JourneyClassifications).toList();
     } else {
@@ -412,7 +412,7 @@ class JourneysApi {
 
     // verify required params are set
     if(journeyId == null) {
-     throw new ApiException(400, "Missing required param: journeyId");
+     throw ApiException(400, "Missing required param: journeyId");
     }
 
     // create path and map variables
@@ -430,7 +430,7 @@ class JourneysApi {
 
     if(contentType.startsWith("multipart/form-data")) {
       bool hasFields = false;
-      MultipartRequest mp = new MultipartRequest(null, null);
+      MultipartRequest mp = MultipartRequest(null, null);
       if(hasFields)
         postBody = mp;
     }
@@ -447,7 +447,7 @@ class JourneysApi {
                                              authNames);
 
     if(response.statusCode >= 400) {
-      throw new ApiException(response.statusCode, _decodeBodyBytes(response));
+      throw ApiException(response.statusCode, _decodeBodyBytes(response));
     } else if(response.body != null) {
       return (apiClient.deserialize(_decodeBodyBytes(response), 'List<JourneyClassifications>') as List).map((item) => item as JourneyClassifications).toList();
     } else {
@@ -477,7 +477,7 @@ class JourneysApi {
 
     if(contentType.startsWith("multipart/form-data")) {
       bool hasFields = false;
-      MultipartRequest mp = new MultipartRequest(null, null);
+      MultipartRequest mp = MultipartRequest(null, null);
       if(hasFields)
         postBody = mp;
     }
@@ -494,7 +494,7 @@ class JourneysApi {
                                              authNames);
 
     if(response.statusCode >= 400) {
-      throw new ApiException(response.statusCode, _decodeBodyBytes(response));
+      throw ApiException(response.statusCode, _decodeBodyBytes(response));
     } else if(response.body != null) {
       return (apiClient.deserialize(_decodeBodyBytes(response), 'List<Journey>') as List).map((item) => item as Journey).toList();
     } else {
@@ -509,7 +509,7 @@ class JourneysApi {
 
     // verify required params are set
     if(userId == null) {
-     throw new ApiException(400, "Missing required param: userId");
+     throw ApiException(400, "Missing required param: userId");
     }
 
     // create path and map variables
@@ -527,7 +527,7 @@ class JourneysApi {
 
     if(contentType.startsWith("multipart/form-data")) {
       bool hasFields = false;
-      MultipartRequest mp = new MultipartRequest(null, null);
+      MultipartRequest mp = MultipartRequest(null, null);
       if(hasFields)
         postBody = mp;
     }
@@ -544,7 +544,7 @@ class JourneysApi {
                                              authNames);
 
     if(response.statusCode >= 400) {
-      throw new ApiException(response.statusCode, _decodeBodyBytes(response));
+      throw ApiException(response.statusCode, _decodeBodyBytes(response));
     } else if(response.body != null) {
       return (apiClient.deserialize(_decodeBodyBytes(response), 'List<Journey>') as List).map((item) => item as Journey).toList();
     } else {
@@ -559,10 +559,10 @@ class JourneysApi {
 
     // verify required params are set
     if(journeyId == null) {
-     throw new ApiException(400, "Missing required param: journeyId");
+     throw ApiException(400, "Missing required param: journeyId");
     }
     if(classificationId == null) {
-     throw new ApiException(400, "Missing required param: classificationId");
+     throw ApiException(400, "Missing required param: classificationId");
     }
 
     // create path and map variables
@@ -580,7 +580,7 @@ class JourneysApi {
 
     if(contentType.startsWith("multipart/form-data")) {
       bool hasFields = false;
-      MultipartRequest mp = new MultipartRequest(null, null);
+      MultipartRequest mp = MultipartRequest(null, null);
       if(hasFields)
         postBody = mp;
     }
@@ -597,7 +597,7 @@ class JourneysApi {
                                              authNames);
 
     if(response.statusCode >= 400) {
-      throw new ApiException(response.statusCode, _decodeBodyBytes(response));
+      throw ApiException(response.statusCode, _decodeBodyBytes(response));
     } else if(response.body != null) {
     } else {
       return;
@@ -611,10 +611,10 @@ class JourneysApi {
 
     // verify required params are set
     if(classificationId == null) {
-     throw new ApiException(400, "Missing required param: classificationId");
+     throw ApiException(400, "Missing required param: classificationId");
     }
     if(journeyClassifications == null) {
-     throw new ApiException(400, "Missing required param: journeyClassifications");
+     throw ApiException(400, "Missing required param: journeyClassifications");
     }
 
     // create path and map variables
@@ -632,7 +632,7 @@ class JourneysApi {
 
     if(contentType.startsWith("multipart/form-data")) {
       bool hasFields = false;
-      MultipartRequest mp = new MultipartRequest(null, null);
+      MultipartRequest mp = MultipartRequest(null, null);
       if(hasFields)
         postBody = mp;
     }
@@ -649,7 +649,7 @@ class JourneysApi {
                                              authNames);
 
     if(response.statusCode >= 400) {
-      throw new ApiException(response.statusCode, _decodeBodyBytes(response));
+      throw ApiException(response.statusCode, _decodeBodyBytes(response));
     } else if(response.body != null) {
     } else {
       return;
@@ -663,10 +663,10 @@ class JourneysApi {
 
     // verify required params are set
     if(journeyId == null) {
-     throw new ApiException(400, "Missing required param: journeyId");
+     throw ApiException(400, "Missing required param: journeyId");
     }
     if(journey == null) {
-     throw new ApiException(400, "Missing required param: journey");
+     throw ApiException(400, "Missing required param: journey");
     }
 
     // create path and map variables
@@ -684,7 +684,7 @@ class JourneysApi {
 
     if(contentType.startsWith("multipart/form-data")) {
       bool hasFields = false;
-      MultipartRequest mp = new MultipartRequest(null, null);
+      MultipartRequest mp = MultipartRequest(null, null);
       if(hasFields)
         postBody = mp;
     }
@@ -701,7 +701,7 @@ class JourneysApi {
                                              authNames);
 
     if(response.statusCode >= 400) {
-      throw new ApiException(response.statusCode, _decodeBodyBytes(response));
+      throw ApiException(response.statusCode, _decodeBodyBytes(response));
     } else if(response.body != null) {
     } else {
       return;

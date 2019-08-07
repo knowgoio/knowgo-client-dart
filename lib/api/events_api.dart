@@ -15,7 +15,7 @@ class EventsApi {
 
     // verify required params are set
     if(event == null) {
-     throw new ApiException(400, "Missing required param: event");
+     throw ApiException(400, "Missing required param: event");
     }
 
     // create path and map variables
@@ -33,7 +33,7 @@ class EventsApi {
 
     if(contentType.startsWith("multipart/form-data")) {
       bool hasFields = false;
-      MultipartRequest mp = new MultipartRequest(null, null);
+      MultipartRequest mp = MultipartRequest(null, null);
       if(hasFields)
         postBody = mp;
     }
@@ -50,7 +50,7 @@ class EventsApi {
                                              authNames);
 
     if(response.statusCode >= 400) {
-      throw new ApiException(response.statusCode, _decodeBodyBytes(response));
+      throw ApiException(response.statusCode, _decodeBodyBytes(response));
     } else if(response.body != null) {
       return apiClient.deserialize(_decodeBodyBytes(response), 'Event') as Event;
     } else {
@@ -65,7 +65,7 @@ class EventsApi {
 
     // verify required params are set
     if(eventId == null) {
-     throw new ApiException(400, "Missing required param: eventId");
+     throw ApiException(400, "Missing required param: eventId");
     }
 
     // create path and map variables
@@ -83,7 +83,7 @@ class EventsApi {
 
     if(contentType.startsWith("multipart/form-data")) {
       bool hasFields = false;
-      MultipartRequest mp = new MultipartRequest(null, null);
+      MultipartRequest mp = MultipartRequest(null, null);
       if(hasFields)
         postBody = mp;
     }
@@ -100,7 +100,7 @@ class EventsApi {
                                              authNames);
 
     if(response.statusCode >= 400) {
-      throw new ApiException(response.statusCode, _decodeBodyBytes(response));
+      throw ApiException(response.statusCode, _decodeBodyBytes(response));
     } else if(response.body != null) {
     } else {
       return;
@@ -114,7 +114,7 @@ class EventsApi {
 
     // verify required params are set
     if(eventId == null) {
-     throw new ApiException(400, "Missing required param: eventId");
+     throw ApiException(400, "Missing required param: eventId");
     }
 
     // create path and map variables
@@ -132,7 +132,7 @@ class EventsApi {
 
     if(contentType.startsWith("multipart/form-data")) {
       bool hasFields = false;
-      MultipartRequest mp = new MultipartRequest(null, null);
+      MultipartRequest mp = MultipartRequest(null, null);
       if(hasFields)
         postBody = mp;
     }
@@ -149,7 +149,7 @@ class EventsApi {
                                              authNames);
 
     if(response.statusCode >= 400) {
-      throw new ApiException(response.statusCode, _decodeBodyBytes(response));
+      throw ApiException(response.statusCode, _decodeBodyBytes(response));
     } else if(response.body != null) {
       return apiClient.deserialize(_decodeBodyBytes(response), 'Event') as Event;
     } else {
@@ -164,10 +164,10 @@ class EventsApi {
 
     // verify required params are set
     if(eventId == null) {
-     throw new ApiException(400, "Missing required param: eventId");
+     throw ApiException(400, "Missing required param: eventId");
     }
     if(event == null) {
-     throw new ApiException(400, "Missing required param: event");
+     throw ApiException(400, "Missing required param: event");
     }
 
     // create path and map variables
@@ -185,7 +185,7 @@ class EventsApi {
 
     if(contentType.startsWith("multipart/form-data")) {
       bool hasFields = false;
-      MultipartRequest mp = new MultipartRequest(null, null);
+      MultipartRequest mp = MultipartRequest(null, null);
       if(hasFields)
         postBody = mp;
     }
@@ -202,7 +202,7 @@ class EventsApi {
                                              authNames);
 
     if(response.statusCode >= 400) {
-      throw new ApiException(response.statusCode, _decodeBodyBytes(response));
+      throw ApiException(response.statusCode, _decodeBodyBytes(response));
     } else if(response.body != null) {
     } else {
       return;

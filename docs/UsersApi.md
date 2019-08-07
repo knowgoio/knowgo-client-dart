@@ -9,15 +9,57 @@ All URIs are relative to *https://api.adaptant.io/payd/v1*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
+[**confirmUserPasswordChangeByRecovery**](UsersApi.md#confirmUserPasswordChangeByRecovery) | **POST** /users/password/confirm | Confirm the change in user password via the recovery mechanism
 [**createUser**](UsersApi.md#createUser) | **POST** /users | Create user
 [**deleteUser**](UsersApi.md#deleteUser) | **DELETE** /users/{userId} | Delete user
 [**exportUser**](UsersApi.md#exportUser) | **GET** /users/{userId}/export | Exports all data about current user in CSV format
 [**getUserById**](UsersApi.md#getUserById) | **GET** /users/{userId} | Get user by user id
 [**loginUser**](UsersApi.md#loginUser) | **POST** /users/login | Logs user into the system and returns an authentication token.
 [**logoutUser**](UsersApi.md#logoutUser) | **GET** /users/logout | Logs out current logged in user session
+[**recoverUserPassword**](UsersApi.md#recoverUserPassword) | **POST** /users/password/recover | Initiaties a password recovery operation for the designated user.
 [**refreshToken**](UsersApi.md#refreshToken) | **GET** /users/refresh | Refreshes the session token for a logged-in user
 [**updateUser**](UsersApi.md#updateUser) | **PUT** /users/{userId} | Updated user
 
+
+# **confirmUserPasswordChangeByRecovery**
+> confirmUserPasswordChangeByRecovery(passwordRecoveryConfirmation)
+
+Confirm the change in user password via the recovery mechanism
+
+### Example 
+```dart
+import 'package:openapi/api.dart';
+
+var api_instance = UsersApi();
+var passwordRecoveryConfirmation = PasswordRecoveryConfirmation(); // PasswordRecoveryConfirmation | User email, new password and reset token to initiate password change
+
+try { 
+    api_instance.confirmUserPasswordChangeByRecovery(passwordRecoveryConfirmation);
+} catch (e) {
+    print("Exception when calling UsersApi->confirmUserPasswordChangeByRecovery: $e\n");
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **passwordRecoveryConfirmation** | [**PasswordRecoveryConfirmation**](PasswordRecoveryConfirmation.md)| User email, new password and reset token to initiate password change | 
+
+### Return type
+
+void (empty response body)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: Not defined
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **createUser**
 > User createUser(user)
@@ -30,8 +72,8 @@ Create a new user within the system
 ```dart
 import 'package:openapi/api.dart';
 
-var api_instance = new UsersApi();
-var user = new User(); // User | User object to operate on
+var api_instance = UsersApi();
+var user = User(); // User | User object to operate on
 
 try { 
     var result = api_instance.createUser(user);
@@ -84,7 +126,7 @@ import 'package:openapi/api.dart';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('cookieAuth').apiKeyPrefix = 'Bearer';
 
-var api_instance = new UsersApi();
+var api_instance = UsersApi();
 var userId = 789; // int | ID of user that needs to be fetched
 
 try { 
@@ -137,7 +179,7 @@ import 'package:openapi/api.dart';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('cookieAuth').apiKeyPrefix = 'Bearer';
 
-var api_instance = new UsersApi();
+var api_instance = UsersApi();
 var userId = 789; // int | ID of user that needs to be fetched
 
 try { 
@@ -188,7 +230,7 @@ import 'package:openapi/api.dart';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('cookieAuth').apiKeyPrefix = 'Bearer';
 
-var api_instance = new UsersApi();
+var api_instance = UsersApi();
 var userId = 789; // int | ID of user that needs to be fetched
 
 try { 
@@ -229,10 +271,10 @@ Logs user into the system and returns an authentication token.
 ```dart
 import 'package:openapi/api.dart';
 
-var api_instance = new UsersApi();
+var api_instance = UsersApi();
 var username = username_example; // String | The user's username or email address for login
 var password = password_example; // String | The password for login in clear text
-var basicAuthCredentials = new BasicAuthCredentials(); // BasicAuthCredentials | Basic Auth credentials for user authentication
+var basicAuthCredentials = BasicAuthCredentials(); // BasicAuthCredentials | Basic Auth credentials for user authentication
 
 try { 
     var result = api_instance.loginUser(username, password, basicAuthCredentials);
@@ -285,7 +327,7 @@ import 'package:openapi/api.dart';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('cookieAuth').apiKeyPrefix = 'Bearer';
 
-var api_instance = new UsersApi();
+var api_instance = UsersApi();
 
 try { 
     api_instance.logoutUser();
@@ -312,6 +354,48 @@ void (empty response body)
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+# **recoverUserPassword**
+> recoverUserPassword(email, body)
+
+Initiaties a password recovery operation for the designated user.
+
+### Example 
+```dart
+import 'package:openapi/api.dart';
+
+var api_instance = UsersApi();
+var email = ; // String | The user's email address to recover the password for.
+var body = String(); // String | User email address to initiate password recovery procedure for
+
+try { 
+    api_instance.recoverUserPassword(email, body);
+} catch (e) {
+    print("Exception when calling UsersApi->recoverUserPassword: $e\n");
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **email** | [**String**](.md)| The user&#39;s email address to recover the password for. | [default to null]
+ **body** | **String**| User email address to initiate password recovery procedure for | 
+
+### Return type
+
+void (empty response body)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: Not defined
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 # **refreshToken**
 > refreshToken()
 
@@ -332,7 +416,7 @@ import 'package:openapi/api.dart';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('cookieAuth').apiKeyPrefix = 'Bearer';
 
-var api_instance = new UsersApi();
+var api_instance = UsersApi();
 
 try { 
     api_instance.refreshToken();
@@ -381,9 +465,9 @@ import 'package:openapi/api.dart';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('cookieAuth').apiKeyPrefix = 'Bearer';
 
-var api_instance = new UsersApi();
+var api_instance = UsersApi();
 var userId = 789; // int | ID of user that needs to be fetched
-var user = new User(); // User | Updated user object
+var user = User(); // User | Updated user object
 
 try { 
     api_instance.updateUser(userId, user);

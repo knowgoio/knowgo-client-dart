@@ -45,13 +45,13 @@ class JourneyClassifications {
   }
 
   static List<JourneyClassifications> listFromJson(List<dynamic> json) {
-    return json == null ? new List<JourneyClassifications>() : json.map((value) => new JourneyClassifications.fromJson(value)).toList();
+    return json == null ? List<JourneyClassifications>() : json.map((value) => JourneyClassifications.fromJson(value)).toList();
   }
 
   static Map<String, JourneyClassifications> mapFromJson(Map<String, dynamic> json) {
-    var map = new Map<String, JourneyClassifications>();
+    var map = Map<String, JourneyClassifications>();
     if (json != null && json.isNotEmpty) {
-      json.forEach((String key, dynamic value) => map[key] = new JourneyClassifications.fromJson(value));
+      json.forEach((String key, dynamic value) => map[key] = JourneyClassifications.fromJson(value));
     }
     return map;
   }

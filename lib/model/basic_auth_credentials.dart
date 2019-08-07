@@ -36,13 +36,13 @@ class BasicAuthCredentials {
   }
 
   static List<BasicAuthCredentials> listFromJson(List<dynamic> json) {
-    return json == null ? new List<BasicAuthCredentials>() : json.map((value) => new BasicAuthCredentials.fromJson(value)).toList();
+    return json == null ? List<BasicAuthCredentials>() : json.map((value) => BasicAuthCredentials.fromJson(value)).toList();
   }
 
   static Map<String, BasicAuthCredentials> mapFromJson(Map<String, dynamic> json) {
-    var map = new Map<String, BasicAuthCredentials>();
+    var map = Map<String, BasicAuthCredentials>();
     if (json != null && json.isNotEmpty) {
-      json.forEach((String key, dynamic value) => map[key] = new BasicAuthCredentials.fromJson(value));
+      json.forEach((String key, dynamic value) => map[key] = BasicAuthCredentials.fromJson(value));
     }
     return map;
   }

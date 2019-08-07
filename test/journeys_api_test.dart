@@ -4,7 +4,7 @@ import 'package:test/test.dart';
 
 /// tests for JourneysApi
 void main() {
-  var instance = new JourneysApi();
+  var instance = JourneysApi();
 
   group('tests for JourneysApi', () {
     // Add a new Journey classification for a specific Journey

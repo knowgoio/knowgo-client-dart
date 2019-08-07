@@ -198,13 +198,13 @@ class Auto {
   }
 
   static List<Auto> listFromJson(List<dynamic> json) {
-    return json == null ? new List<Auto>() : json.map((value) => new Auto.fromJson(value)).toList();
+    return json == null ? List<Auto>() : json.map((value) => Auto.fromJson(value)).toList();
   }
 
   static Map<String, Auto> mapFromJson(Map<String, dynamic> json) {
-    var map = new Map<String, Auto>();
+    var map = Map<String, Auto>();
     if (json != null && json.isNotEmpty) {
-      json.forEach((String key, dynamic value) => map[key] = new Auto.fromJson(value));
+      json.forEach((String key, dynamic value) => map[key] = Auto.fromJson(value));
     }
     return map;
   }

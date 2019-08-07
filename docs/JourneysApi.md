@@ -45,7 +45,7 @@ import 'package:openapi/api.dart';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('cookieAuth').apiKeyPrefix = 'Bearer';
 
-var api_instance = new JourneysApi();
+var api_instance = JourneysApi();
 var journeyId = journeyId_example; // String | ID of Journey that needs to be fetched
 var classificationId = 56; // int | ID of classification that needs to be added
 
@@ -100,8 +100,8 @@ import 'package:openapi/api.dart';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('cookieAuth').apiKeyPrefix = 'Bearer';
 
-var api_instance = new JourneysApi();
-var journey = new Journey(); // Journey | Journey object to operate on
+var api_instance = JourneysApi();
+var journey = Journey(); // Journey | Journey object to operate on
 
 try { 
     var result = api_instance.addJourney(journey);
@@ -152,8 +152,8 @@ import 'package:openapi/api.dart';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('cookieAuth').apiKeyPrefix = 'Bearer';
 
-var api_instance = new JourneysApi();
-var journeyClassifications = new JourneyClassifications(); // JourneyClassifications | 
+var api_instance = JourneysApi();
+var journeyClassifications = JourneyClassifications(); // JourneyClassifications | 
 
 try { 
     var result = api_instance.createJourneyClassification(journeyClassifications);
@@ -206,7 +206,7 @@ import 'package:openapi/api.dart';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('cookieAuth').apiKeyPrefix = 'Bearer';
 
-var api_instance = new JourneysApi();
+var api_instance = JourneysApi();
 var journeyId = journeyId_example; // String | ID of the journey to delete
 
 try { 
@@ -257,7 +257,7 @@ import 'package:openapi/api.dart';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('cookieAuth').apiKeyPrefix = 'Bearer';
 
-var api_instance = new JourneysApi();
+var api_instance = JourneysApi();
 var classificationId = 789; // int | ID of Journey Classification that needs to be fetched
 
 try { 
@@ -308,7 +308,7 @@ import 'package:openapi/api.dart';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('cookieAuth').apiKeyPrefix = 'Bearer';
 
-var api_instance = new JourneysApi();
+var api_instance = JourneysApi();
 var journeyId = journeyId_example; // String | ID of journey that needs to be fetched
 
 try { 
@@ -360,7 +360,7 @@ import 'package:openapi/api.dart';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('cookieAuth').apiKeyPrefix = 'Bearer';
 
-var api_instance = new JourneysApi();
+var api_instance = JourneysApi();
 var classificationId = 789; // int | ID of Journey Classification that needs to be fetched
 
 try { 
@@ -414,7 +414,7 @@ import 'package:openapi/api.dart';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('cookieAuth').apiKeyPrefix = 'Bearer';
 
-var api_instance = new JourneysApi();
+var api_instance = JourneysApi();
 
 try { 
     var result = api_instance.listJourneyClassifications();
@@ -464,7 +464,7 @@ import 'package:openapi/api.dart';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('cookieAuth').apiKeyPrefix = 'Bearer';
 
-var api_instance = new JourneysApi();
+var api_instance = JourneysApi();
 var journeyId = journeyId_example; // String | ID of Journey that needs to be fetched
 
 try { 
@@ -518,7 +518,7 @@ import 'package:openapi/api.dart';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('cookieAuth').apiKeyPrefix = 'Bearer';
 
-var api_instance = new JourneysApi();
+var api_instance = JourneysApi();
 
 try { 
     var result = api_instance.listJourneys();
@@ -568,7 +568,7 @@ import 'package:openapi/api.dart';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('cookieAuth').apiKeyPrefix = 'Bearer';
 
-var api_instance = new JourneysApi();
+var api_instance = JourneysApi();
 var userId = 789; // int | ID of user that needs to be fetched
 
 try { 
@@ -620,7 +620,7 @@ import 'package:openapi/api.dart';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('cookieAuth').apiKeyPrefix = 'Bearer';
 
-var api_instance = new JourneysApi();
+var api_instance = JourneysApi();
 var journeyId = journeyId_example; // String | ID of Journey that needs to be fetched
 var classificationId = 56; // int | ID of classification that needs to be removed
 
@@ -673,9 +673,9 @@ import 'package:openapi/api.dart';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('cookieAuth').apiKeyPrefix = 'Bearer';
 
-var api_instance = new JourneysApi();
+var api_instance = JourneysApi();
 var classificationId = 789; // int | ID of Journey Classification that needs to be fetched
-var journeyClassifications = new JourneyClassifications(); // JourneyClassifications | Updated Journey classification object
+var journeyClassifications = JourneyClassifications(); // JourneyClassifications | Updated Journey classification object
 
 try { 
     api_instance.updateJourneyClassificationById(classificationId, journeyClassifications);
@@ -726,9 +726,9 @@ import 'package:openapi/api.dart';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('cookieAuth').apiKeyPrefix = 'Bearer';
 
-var api_instance = new JourneysApi();
+var api_instance = JourneysApi();
 var journeyId = journeyId_example; // String | ID of journey that needs to be updated
-var journey = new Journey(); // Journey | Journey object to operate on
+var journey = Journey(); // Journey | Journey object to operate on
 
 try { 
     api_instance.updateJourneyWithForm(journeyId, journey);

@@ -4,9 +4,16 @@ import 'package:test/test.dart';
 
 /// tests for UsersApi
 void main() {
-  var instance = new UsersApi();
+  var instance = UsersApi();
 
   group('tests for UsersApi', () {
+    // Confirm the change in user password via the recovery mechanism
+    //
+    //Future confirmUserPasswordChangeByRecovery(PasswordRecoveryConfirmation passwordRecoveryConfirmation) async 
+    test('test confirmUserPasswordChangeByRecovery', () async {
+      // TODO
+    });
+
     // Create user
     //
     // Create a new user within the system
@@ -52,6 +59,13 @@ void main() {
     //
     //Future logoutUser() async 
     test('test logoutUser', () async {
+      // TODO
+    });
+
+    // Initiaties a password recovery operation for the designated user.
+    //
+    //Future recoverUserPassword(String email, String body) async 
+    test('test recoverUserPassword', () async {
       // TODO
     });
 

@@ -40,8 +40,8 @@ import 'package:openapi/api.dart';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('cookieAuth').apiKeyPrefix = 'Bearer';
 
-var api_instance = new VehiclesApi();
-var auto = new Auto(); // Auto | Auto object to operate on
+var api_instance = VehiclesApi();
+var auto = Auto(); // Auto | Auto object to operate on
 
 try { 
     var result = api_instance.addAuto(auto);
@@ -92,7 +92,7 @@ import 'package:openapi/api.dart';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('cookieAuth').apiKeyPrefix = 'Bearer';
 
-var api_instance = new VehiclesApi();
+var api_instance = VehiclesApi();
 var autoId = 789; // int | Auto id to delete
 
 try { 
@@ -145,7 +145,7 @@ import 'package:openapi/api.dart';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('cookieAuth').apiKeyPrefix = 'Bearer';
 
-var api_instance = new VehiclesApi();
+var api_instance = VehiclesApi();
 var autoId = 789; // int | ID of auto to return
 
 try { 
@@ -199,7 +199,7 @@ import 'package:openapi/api.dart';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('cookieAuth').apiKeyPrefix = 'Bearer';
 
-var api_instance = new VehiclesApi();
+var api_instance = VehiclesApi();
 
 try { 
     var result = api_instance.listVehicles();
@@ -249,7 +249,7 @@ import 'package:openapi/api.dart';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('cookieAuth').apiKeyPrefix = 'Bearer';
 
-var api_instance = new VehiclesApi();
+var api_instance = VehiclesApi();
 var userId = 789; // int | ID of user that needs to be fetched
 
 try { 
@@ -301,8 +301,8 @@ import 'package:openapi/api.dart';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('cookieAuth').apiKeyPrefix = 'Bearer';
 
-var api_instance = new VehiclesApi();
-var auto = new Auto(); // Auto | Auto object to operate on
+var api_instance = VehiclesApi();
+var auto = Auto(); // Auto | Auto object to operate on
 
 try { 
     api_instance.updateAuto(auto);
@@ -352,9 +352,9 @@ import 'package:openapi/api.dart';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('cookieAuth').apiKeyPrefix = 'Bearer';
 
-var api_instance = new VehiclesApi();
+var api_instance = VehiclesApi();
 var autoId = 789; // int | ID of auto that needs to be updated
-var auto = new Auto(); // Auto | Auto object to operate on
+var auto = Auto(); // Auto | Auto object to operate on
 
 try { 
     api_instance.updateAutoWithForm(autoId, auto);

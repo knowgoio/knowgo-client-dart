@@ -15,7 +15,7 @@ class VehiclesApi {
 
     // verify required params are set
     if(auto == null) {
-     throw new ApiException(400, "Missing required param: auto");
+     throw ApiException(400, "Missing required param: auto");
     }
 
     // create path and map variables
@@ -33,7 +33,7 @@ class VehiclesApi {
 
     if(contentType.startsWith("multipart/form-data")) {
       bool hasFields = false;
-      MultipartRequest mp = new MultipartRequest(null, null);
+      MultipartRequest mp = MultipartRequest(null, null);
       if(hasFields)
         postBody = mp;
     }
@@ -50,7 +50,7 @@ class VehiclesApi {
                                              authNames);
 
     if(response.statusCode >= 400) {
-      throw new ApiException(response.statusCode, _decodeBodyBytes(response));
+      throw ApiException(response.statusCode, _decodeBodyBytes(response));
     } else if(response.body != null) {
       return apiClient.deserialize(_decodeBodyBytes(response), 'Auto') as Auto;
     } else {
@@ -65,7 +65,7 @@ class VehiclesApi {
 
     // verify required params are set
     if(autoId == null) {
-     throw new ApiException(400, "Missing required param: autoId");
+     throw ApiException(400, "Missing required param: autoId");
     }
 
     // create path and map variables
@@ -83,7 +83,7 @@ class VehiclesApi {
 
     if(contentType.startsWith("multipart/form-data")) {
       bool hasFields = false;
-      MultipartRequest mp = new MultipartRequest(null, null);
+      MultipartRequest mp = MultipartRequest(null, null);
       if(hasFields)
         postBody = mp;
     }
@@ -100,7 +100,7 @@ class VehiclesApi {
                                              authNames);
 
     if(response.statusCode >= 400) {
-      throw new ApiException(response.statusCode, _decodeBodyBytes(response));
+      throw ApiException(response.statusCode, _decodeBodyBytes(response));
     } else if(response.body != null) {
     } else {
       return;
@@ -114,7 +114,7 @@ class VehiclesApi {
 
     // verify required params are set
     if(autoId == null) {
-     throw new ApiException(400, "Missing required param: autoId");
+     throw ApiException(400, "Missing required param: autoId");
     }
 
     // create path and map variables
@@ -132,7 +132,7 @@ class VehiclesApi {
 
     if(contentType.startsWith("multipart/form-data")) {
       bool hasFields = false;
-      MultipartRequest mp = new MultipartRequest(null, null);
+      MultipartRequest mp = MultipartRequest(null, null);
       if(hasFields)
         postBody = mp;
     }
@@ -149,7 +149,7 @@ class VehiclesApi {
                                              authNames);
 
     if(response.statusCode >= 400) {
-      throw new ApiException(response.statusCode, _decodeBodyBytes(response));
+      throw ApiException(response.statusCode, _decodeBodyBytes(response));
     } else if(response.body != null) {
       return apiClient.deserialize(_decodeBodyBytes(response), 'Auto') as Auto;
     } else {
@@ -179,7 +179,7 @@ class VehiclesApi {
 
     if(contentType.startsWith("multipart/form-data")) {
       bool hasFields = false;
-      MultipartRequest mp = new MultipartRequest(null, null);
+      MultipartRequest mp = MultipartRequest(null, null);
       if(hasFields)
         postBody = mp;
     }
@@ -196,7 +196,7 @@ class VehiclesApi {
                                              authNames);
 
     if(response.statusCode >= 400) {
-      throw new ApiException(response.statusCode, _decodeBodyBytes(response));
+      throw ApiException(response.statusCode, _decodeBodyBytes(response));
     } else if(response.body != null) {
       return (apiClient.deserialize(_decodeBodyBytes(response), 'List<Auto>') as List).map((item) => item as Auto).toList();
     } else {
@@ -211,7 +211,7 @@ class VehiclesApi {
 
     // verify required params are set
     if(userId == null) {
-     throw new ApiException(400, "Missing required param: userId");
+     throw ApiException(400, "Missing required param: userId");
     }
 
     // create path and map variables
@@ -229,7 +229,7 @@ class VehiclesApi {
 
     if(contentType.startsWith("multipart/form-data")) {
       bool hasFields = false;
-      MultipartRequest mp = new MultipartRequest(null, null);
+      MultipartRequest mp = MultipartRequest(null, null);
       if(hasFields)
         postBody = mp;
     }
@@ -246,7 +246,7 @@ class VehiclesApi {
                                              authNames);
 
     if(response.statusCode >= 400) {
-      throw new ApiException(response.statusCode, _decodeBodyBytes(response));
+      throw ApiException(response.statusCode, _decodeBodyBytes(response));
     } else if(response.body != null) {
       return (apiClient.deserialize(_decodeBodyBytes(response), 'List<Auto>') as List).map((item) => item as Auto).toList();
     } else {
@@ -261,7 +261,7 @@ class VehiclesApi {
 
     // verify required params are set
     if(auto == null) {
-     throw new ApiException(400, "Missing required param: auto");
+     throw ApiException(400, "Missing required param: auto");
     }
 
     // create path and map variables
@@ -279,7 +279,7 @@ class VehiclesApi {
 
     if(contentType.startsWith("multipart/form-data")) {
       bool hasFields = false;
-      MultipartRequest mp = new MultipartRequest(null, null);
+      MultipartRequest mp = MultipartRequest(null, null);
       if(hasFields)
         postBody = mp;
     }
@@ -296,7 +296,7 @@ class VehiclesApi {
                                              authNames);
 
     if(response.statusCode >= 400) {
-      throw new ApiException(response.statusCode, _decodeBodyBytes(response));
+      throw ApiException(response.statusCode, _decodeBodyBytes(response));
     } else if(response.body != null) {
     } else {
       return;
@@ -310,10 +310,10 @@ class VehiclesApi {
 
     // verify required params are set
     if(autoId == null) {
-     throw new ApiException(400, "Missing required param: autoId");
+     throw ApiException(400, "Missing required param: autoId");
     }
     if(auto == null) {
-     throw new ApiException(400, "Missing required param: auto");
+     throw ApiException(400, "Missing required param: auto");
     }
 
     // create path and map variables
@@ -331,7 +331,7 @@ class VehiclesApi {
 
     if(contentType.startsWith("multipart/form-data")) {
       bool hasFields = false;
-      MultipartRequest mp = new MultipartRequest(null, null);
+      MultipartRequest mp = MultipartRequest(null, null);
       if(hasFields)
         postBody = mp;
     }
@@ -348,7 +348,7 @@ class VehiclesApi {
                                              authNames);
 
     if(response.statusCode >= 400) {
-      throw new ApiException(response.statusCode, _decodeBodyBytes(response));
+      throw ApiException(response.statusCode, _decodeBodyBytes(response));
     } else if(response.body != null) {
     } else {
       return;

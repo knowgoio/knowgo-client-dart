@@ -315,13 +315,13 @@ class Event {
   }
 
   static List<Event> listFromJson(List<dynamic> json) {
-    return json == null ? new List<Event>() : json.map((value) => new Event.fromJson(value)).toList();
+    return json == null ? List<Event>() : json.map((value) => Event.fromJson(value)).toList();
   }
 
   static Map<String, Event> mapFromJson(Map<String, dynamic> json) {
-    var map = new Map<String, Event>();
+    var map = Map<String, Event>();
     if (json != null && json.isNotEmpty) {
-      json.forEach((String key, dynamic value) => map[key] = new Event.fromJson(value));
+      json.forEach((String key, dynamic value) => map[key] = Event.fromJson(value));
     }
     return map;
   }

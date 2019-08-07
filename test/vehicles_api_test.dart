@@ -4,7 +4,7 @@ import 'package:test/test.dart';
 
 /// tests for VehiclesApi
 void main() {
-  var instance = new VehiclesApi();
+  var instance = VehiclesApi();
 
   group('tests for VehiclesApi', () {
     // Add a new auto

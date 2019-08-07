@@ -22,6 +22,7 @@ part 'model/basic_auth_credentials.dart';
 part 'model/event.dart';
 part 'model/journey.dart';
 part 'model/journey_classifications.dart';
+part 'model/password_recovery_confirmation.dart';
 part 'model/user.dart';
 
 

@@ -3,7 +3,7 @@ import 'package:test/test.dart';
 
 // tests for Auto
 void main() {
-  var instance = new Auto();
+  var instance = Auto();
 
   group('test Auto', () {
     // int autoID (default value: null)

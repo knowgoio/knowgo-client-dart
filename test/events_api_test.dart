@@ -4,7 +4,7 @@ import 'package:test/test.dart';
 
 /// tests for EventsApi
 void main() {
-  var instance = new EventsApi();
+  var instance = EventsApi();
 
   group('tests for EventsApi', () {
     // Add a new Event

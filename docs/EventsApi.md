@@ -37,8 +37,8 @@ import 'package:openapi/api.dart';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('cookieAuth').apiKeyPrefix = 'Bearer';
 
-var api_instance = new EventsApi();
-var event = new Event(); // Event | Event object to operate on
+var api_instance = EventsApi();
+var event = Event(); // Event | Event object to operate on
 
 try { 
     var result = api_instance.addEvent(event);
@@ -91,7 +91,7 @@ import 'package:openapi/api.dart';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('cookieAuth').apiKeyPrefix = 'Bearer';
 
-var api_instance = new EventsApi();
+var api_instance = EventsApi();
 var eventId = 789; // int | ID of the Event to delete
 
 try { 
@@ -142,7 +142,7 @@ import 'package:openapi/api.dart';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('cookieAuth').apiKeyPrefix = 'Bearer';
 
-var api_instance = new EventsApi();
+var api_instance = EventsApi();
 var eventId = 789; // int | ID of Event that needs to be fetched
 
 try { 
@@ -194,9 +194,9 @@ import 'package:openapi/api.dart';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('cookieAuth').apiKeyPrefix = 'Bearer';
 
-var api_instance = new EventsApi();
+var api_instance = EventsApi();
 var eventId = 789; // int | ID of Event that needs to be updated
-var event = new Event(); // Event | Event object to operate on
+var event = Event(); // Event | Event object to operate on
 
 try { 
     api_instance.updateEventWithForm(eventId, event);
