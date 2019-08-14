@@ -10,7 +10,7 @@ class QueryParam {
 class ApiClient {
 
   String basePath;
-  var client = Client();
+  Client client = Client();
 
   Map<String, String> _defaultHeaderMap = {};
   Map<String, Authentication> _authentications = {};
@@ -54,6 +54,12 @@ class ApiClient {
           return PasswordRecoveryConfirmation.fromJson(value);
         case 'ServiceDefinition':
           return ServiceDefinition.fromJson(value);
+        case 'DataSource':
+          return DataSource.fromJson(value);
+        case 'Purposes':
+          return Purposes.fromJson(value);
+        case 'Endpoints':
+          return Endpoints.fromJson(value);
         case 'User':
           return User.fromJson(value);
         default:
