@@ -92,11 +92,28 @@ Class | Method | HTTP request | Description
 *JourneysApi* | [**removeClassificationFromJourney**](docs//JourneysApi.md#removeclassificationfromjourney) | **DELETE** /journeys/{journeyId}/classifications/{classificationId} | Remove a specific classification from a Journey
 *JourneysApi* | [**updateJourneyClassificationById**](docs//JourneysApi.md#updatejourneyclassificationbyid) | **PUT** /journeys/classifications/{classificationId} | Update a specified Journey classification
 *JourneysApi* | [**updateJourneyWithForm**](docs//JourneysApi.md#updatejourneywithform) | **POST** /journeys/{journeyId} | Updates a Journey with form data
+*ServicesApi* | [**addService**](docs//ServicesApi.md#addservice) | **POST** /services | Register a new KnowGo platform service
+*ServicesApi* | [**deleteServiceEndpoint**](docs//ServicesApi.md#deleteserviceendpoint) | **DELETE** /services/{serviceName}/{endpoint} | DELETE pass-through for service-specific endpoint
+*ServicesApi* | [**disableServiceByUserId**](docs//ServicesApi.md#disableservicebyuserid) | **DELETE** /users/{userId}/services/{serviceName} | Disable a service for a specific user
+*ServicesApi* | [**enableServiceByUserId**](docs//ServicesApi.md#enableservicebyuserid) | **POST** /users/{userId}/services/{serviceName} | Enable a service for a specific user
+*ServicesApi* | [**getServiceDefinition**](docs//ServicesApi.md#getservicedefinition) | **GET** /services/{serviceName} | Lookup the service definition for a specific service
+*ServicesApi* | [**getServiceEndpoint**](docs//ServicesApi.md#getserviceendpoint) | **GET** /services/{serviceName}/{endpoint} | GET pass-through for service-specific endpoint
+*ServicesApi* | [**listServices**](docs//ServicesApi.md#listservices) | **GET** /services | Return a list of available KnowGo platform services
+*ServicesApi* | [**listServicesByUserId**](docs//ServicesApi.md#listservicesbyuserid) | **GET** /users/{userId}/services | Return a list of services for a specific user
+*ServicesApi* | [**postServiceEndpoint**](docs//ServicesApi.md#postserviceendpoint) | **POST** /services/{serviceName}/{endpoint} | POST pass-through for service-specific endpoint
+*ServicesApi* | [**removeServiceDefinition**](docs//ServicesApi.md#removeservicedefinition) | **DELETE** /services/{serviceName} | Deregister a KnowGo platform service
+*ServicesApi* | [**updateServiceDefinition**](docs//ServicesApi.md#updateservicedefinition) | **PUT** /services/{serviceName} | Update the service definition for a specific service
+*ServicesApi* | [**updateServiceEndpoint**](docs//ServicesApi.md#updateserviceendpoint) | **PUT** /services/{serviceName}/{endpoint} | PUT pass-through for service-specific endpoint
 *UsersApi* | [**confirmUserPasswordChangeByRecovery**](docs//UsersApi.md#confirmuserpasswordchangebyrecovery) | **POST** /users/password/confirm | Confirm the change in user password via the recovery mechanism
 *UsersApi* | [**createUser**](docs//UsersApi.md#createuser) | **POST** /users | Create user
 *UsersApi* | [**deleteUser**](docs//UsersApi.md#deleteuser) | **DELETE** /users/{userId} | Delete user
+*UsersApi* | [**disableServiceByUserId**](docs//UsersApi.md#disableservicebyuserid) | **DELETE** /users/{userId}/services/{serviceName} | Disable a service for a specific user
+*UsersApi* | [**enableServiceByUserId**](docs//UsersApi.md#enableservicebyuserid) | **POST** /users/{userId}/services/{serviceName} | Enable a service for a specific user
 *UsersApi* | [**exportUser**](docs//UsersApi.md#exportuser) | **GET** /users/{userId}/export | Exports all data about current user in CSV format
 *UsersApi* | [**getUserById**](docs//UsersApi.md#getuserbyid) | **GET** /users/{userId} | Get user by user id
+*UsersApi* | [**listJourneysByUserId**](docs//UsersApi.md#listjourneysbyuserid) | **GET** /users/{userId}/journeys | Return a list of journeys available for a specific user
+*UsersApi* | [**listServicesByUserId**](docs//UsersApi.md#listservicesbyuserid) | **GET** /users/{userId}/services | Return a list of services for a specific user
+*UsersApi* | [**listVehiclesByUserId**](docs//UsersApi.md#listvehiclesbyuserid) | **GET** /users/{userId}/vehicles | Return a list of vehicles available for a specific user
 *UsersApi* | [**loginUser**](docs//UsersApi.md#loginuser) | **POST** /users/login | Logs user into the system and returns an authentication token.
 *UsersApi* | [**logoutUser**](docs//UsersApi.md#logoutuser) | **GET** /users/logout | Logs out current logged in user session
 *UsersApi* | [**recoverUserPassword**](docs//UsersApi.md#recoveruserpassword) | **POST** /users/password/recover | Initiaties a password recovery operation for the designated user.

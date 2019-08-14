@@ -14,6 +14,7 @@ part 'auth/http_basic_auth.dart';
 
 part 'api/events_api.dart';
 part 'api/journeys_api.dart';
+part 'api/services_api.dart';
 part 'api/users_api.dart';
 part 'api/vehicles_api.dart';
 
@@ -23,6 +24,7 @@ part 'model/event.dart';
 part 'model/journey.dart';
 part 'model/journey_classifications.dart';
 part 'model/password_recovery_confirmation.dart';
+part 'model/service_definition.dart';
 part 'model/user.dart';
 
 

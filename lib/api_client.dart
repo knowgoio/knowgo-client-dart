@@ -52,6 +52,8 @@ class ApiClient {
           return JourneyClassifications.fromJson(value);
         case 'PasswordRecoveryConfirmation':
           return PasswordRecoveryConfirmation.fromJson(value);
+        case 'ServiceDefinition':
+          return ServiceDefinition.fromJson(value);
         case 'User':
           return User.fromJson(value);
         default:

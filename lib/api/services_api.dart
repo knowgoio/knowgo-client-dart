@@ -2,34 +2,34 @@ part of openapi.api;
 
 
 
-class UsersApi {
+class ServicesApi {
   final ApiClient apiClient;
 
-  UsersApi([ApiClient apiClient]) : apiClient = apiClient ?? defaultApiClient;
+  ServicesApi([ApiClient apiClient]) : apiClient = apiClient ?? defaultApiClient;
 
-  /// Confirm the change in user password via the recovery mechanism
+  /// Register a new KnowGo platform service
   ///
   /// 
-  Future confirmUserPasswordChangeByRecovery(PasswordRecoveryConfirmation passwordRecoveryConfirmation) async {
-    Object postBody = passwordRecoveryConfirmation;
+  Future addService(ServiceDefinition serviceDefinition) async {
+    Object postBody = serviceDefinition;
 
     // verify required params are set
-    if(passwordRecoveryConfirmation == null) {
-     throw ApiException(400, "Missing required param: passwordRecoveryConfirmation");
+    if(serviceDefinition == null) {
+     throw ApiException(400, "Missing required param: serviceDefinition");
     }
 
     // create path and map variables
-    String path = "/users/password/confirm".replaceAll("{format}","json");
+    String path = "/services".replaceAll("{format}","json");
 
     // query params
     List<QueryParam> queryParams = [];
     Map<String, String> headerParams = {};
     Map<String, String> formParams = {};
 
-    List<String> contentTypes = ["application/json"];
+    List<String> contentTypes = ["application/json","application/xml"];
 
     String contentType = contentTypes.isNotEmpty ? contentTypes[0] : "application/json";
-    List<String> authNames = [];
+    List<String> authNames = ["app_id", "bearerAuth", "cookieAuth"];
 
     if(contentType.startsWith("multipart/form-data")) {
       bool hasFields = false;
@@ -56,69 +56,22 @@ class UsersApi {
       return;
     }
   }
-  /// Create user
+  /// DELETE pass-through for service-specific endpoint
   ///
-  /// Create a new user within the system
-  Future<User> createUser(User user) async {
-    Object postBody = user;
-
-    // verify required params are set
-    if(user == null) {
-     throw ApiException(400, "Missing required param: user");
-    }
-
-    // create path and map variables
-    String path = "/users".replaceAll("{format}","json");
-
-    // query params
-    List<QueryParam> queryParams = [];
-    Map<String, String> headerParams = {};
-    Map<String, String> formParams = {};
-
-    List<String> contentTypes = ["application/json"];
-
-    String contentType = contentTypes.isNotEmpty ? contentTypes[0] : "application/json";
-    List<String> authNames = [];
-
-    if(contentType.startsWith("multipart/form-data")) {
-      bool hasFields = false;
-      MultipartRequest mp = MultipartRequest(null, null);
-      if(hasFields)
-        postBody = mp;
-    }
-    else {
-    }
-
-    var response = await apiClient.invokeAPI(path,
-                                             'POST',
-                                             queryParams,
-                                             postBody,
-                                             headerParams,
-                                             formParams,
-                                             contentType,
-                                             authNames);
-
-    if(response.statusCode >= 400) {
-      throw ApiException(response.statusCode, _decodeBodyBytes(response));
-    } else if(response.body != null) {
-      return apiClient.deserialize(_decodeBodyBytes(response), 'User') as User;
-    } else {
-      return null;
-    }
-  }
-  /// Delete user
-  ///
-  /// This can only be done by the logged in user.
-  Future deleteUser(int userId) async {
+  /// Passes through a DELETE request to dynamically created service endpoints. A list of endpoints provided by a specific service are available through the Service Definition, returned by performing a GET on the service endpoint &#39;/services/{serviceName}&#39;.
+  Future deleteServiceEndpoint(String serviceName, String endpoint) async {
     Object postBody;
 
     // verify required params are set
-    if(userId == null) {
-     throw ApiException(400, "Missing required param: userId");
+    if(serviceName == null) {
+     throw ApiException(400, "Missing required param: serviceName");
+    }
+    if(endpoint == null) {
+     throw ApiException(400, "Missing required param: endpoint");
     }
 
     // create path and map variables
-    String path = "/users/{userId}".replaceAll("{format}","json").replaceAll("{" + "userId" + "}", userId.toString());
+    String path = "/services/{serviceName}/{endpoint}".replaceAll("{format}","json").replaceAll("{" + "serviceName" + "}", serviceName.toString()).replaceAll("{" + "endpoint" + "}", endpoint.toString());
 
     // query params
     List<QueryParam> queryParams = [];
@@ -259,19 +212,72 @@ class UsersApi {
       return;
     }
   }
-  /// Exports all data about current user in CSV format
+  /// Lookup the service definition for a specific service
   ///
-  /// This endpoint allows a logged in user to export all of the data pertaining to their userId from across the system in a simple CSV format, facilitating their right to data and service portability. This includes not only the personal information about the individual, but also all vehicles they are (or have been) associated with, journeys taken, and all events recorded.
-  Future exportUser(int userId) async {
+  /// 
+  Future<ServiceDefinition> getServiceDefinition(String serviceName) async {
     Object postBody;
 
     // verify required params are set
-    if(userId == null) {
-     throw ApiException(400, "Missing required param: userId");
+    if(serviceName == null) {
+     throw ApiException(400, "Missing required param: serviceName");
     }
 
     // create path and map variables
-    String path = "/users/{userId}/export".replaceAll("{format}","json").replaceAll("{" + "userId" + "}", userId.toString());
+    String path = "/services/{serviceName}".replaceAll("{format}","json").replaceAll("{" + "serviceName" + "}", serviceName.toString());
+
+    // query params
+    List<QueryParam> queryParams = [];
+    Map<String, String> headerParams = {};
+    Map<String, String> formParams = {};
+
+    List<String> contentTypes = [];
+
+    String contentType = contentTypes.isNotEmpty ? contentTypes[0] : "application/json";
+    List<String> authNames = ["app_id", "bearerAuth", "cookieAuth"];
+
+    if(contentType.startsWith("multipart/form-data")) {
+      bool hasFields = false;
+      MultipartRequest mp = MultipartRequest(null, null);
+      if(hasFields)
+        postBody = mp;
+    }
+    else {
+    }
+
+    var response = await apiClient.invokeAPI(path,
+                                             'GET',
+                                             queryParams,
+                                             postBody,
+                                             headerParams,
+                                             formParams,
+                                             contentType,
+                                             authNames);
+
+    if(response.statusCode >= 400) {
+      throw ApiException(response.statusCode, _decodeBodyBytes(response));
+    } else if(response.body != null) {
+      return apiClient.deserialize(_decodeBodyBytes(response), 'ServiceDefinition') as ServiceDefinition;
+    } else {
+      return null;
+    }
+  }
+  /// GET pass-through for service-specific endpoint
+  ///
+  /// Passes through a GET request to dynamically created service endpoints. A list of endpoints provided by a specific service are available through the Service Definition, returned by performing a GET on the service endpoint &#39;/services/{serviceName}&#39;.
+  Future getServiceEndpoint(String serviceName, String endpoint) async {
+    Object postBody;
+
+    // verify required params are set
+    if(serviceName == null) {
+     throw ApiException(400, "Missing required param: serviceName");
+    }
+    if(endpoint == null) {
+     throw ApiException(400, "Missing required param: endpoint");
+    }
+
+    // create path and map variables
+    String path = "/services/{serviceName}/{endpoint}".replaceAll("{format}","json").replaceAll("{" + "serviceName" + "}", serviceName.toString()).replaceAll("{" + "endpoint" + "}", endpoint.toString());
 
     // query params
     List<QueryParam> queryParams = [];
@@ -308,19 +314,16 @@ class UsersApi {
       return;
     }
   }
-  /// Get user by user id
+  /// Return a list of available KnowGo platform services
   ///
   /// 
-  Future<User> getUserById(int userId) async {
+  Future<List<String>> listServices() async {
     Object postBody;
 
     // verify required params are set
-    if(userId == null) {
-     throw ApiException(400, "Missing required param: userId");
-    }
 
     // create path and map variables
-    String path = "/users/{userId}".replaceAll("{format}","json").replaceAll("{" + "userId" + "}", userId.toString());
+    String path = "/services".replaceAll("{format}","json");
 
     // query params
     List<QueryParam> queryParams = [];
@@ -353,57 +356,7 @@ class UsersApi {
     if(response.statusCode >= 400) {
       throw ApiException(response.statusCode, _decodeBodyBytes(response));
     } else if(response.body != null) {
-      return apiClient.deserialize(_decodeBodyBytes(response), 'User') as User;
-    } else {
-      return null;
-    }
-  }
-  /// Return a list of journeys available for a specific user
-  ///
-  /// Given an authenticated user, return a list of journeys that are available to them.
-  Future<List<Journey>> listJourneysByUserId(int userId) async {
-    Object postBody;
-
-    // verify required params are set
-    if(userId == null) {
-     throw ApiException(400, "Missing required param: userId");
-    }
-
-    // create path and map variables
-    String path = "/users/{userId}/journeys".replaceAll("{format}","json").replaceAll("{" + "userId" + "}", userId.toString());
-
-    // query params
-    List<QueryParam> queryParams = [];
-    Map<String, String> headerParams = {};
-    Map<String, String> formParams = {};
-
-    List<String> contentTypes = [];
-
-    String contentType = contentTypes.isNotEmpty ? contentTypes[0] : "application/json";
-    List<String> authNames = ["app_id", "bearerAuth", "cookieAuth"];
-
-    if(contentType.startsWith("multipart/form-data")) {
-      bool hasFields = false;
-      MultipartRequest mp = MultipartRequest(null, null);
-      if(hasFields)
-        postBody = mp;
-    }
-    else {
-    }
-
-    var response = await apiClient.invokeAPI(path,
-                                             'GET',
-                                             queryParams,
-                                             postBody,
-                                             headerParams,
-                                             formParams,
-                                             contentType,
-                                             authNames);
-
-    if(response.statusCode >= 400) {
-      throw ApiException(response.statusCode, _decodeBodyBytes(response));
-    } else if(response.body != null) {
-      return (apiClient.deserialize(_decodeBodyBytes(response), 'List<Journey>') as List).map((item) => item as Journey).toList();
+      return (apiClient.deserialize(_decodeBodyBytes(response), 'List<String>') as List).map((item) => item as String).toList();
     } else {
       return null;
     }
@@ -458,19 +411,22 @@ class UsersApi {
       return null;
     }
   }
-  /// Return a list of vehicles available for a specific user
+  /// POST pass-through for service-specific endpoint
   ///
-  /// Given an authenticated user, return a list of vehicles that are available to them.
-  Future<List<Auto>> listVehiclesByUserId(int userId) async {
+  /// Passes through a POST request to dynamically created service endpoints. A list of endpoints provided by a specific service are available through the Service Definition, returned by performing a GET on the service endpoint &#39;/services/{serviceName}&#39;.
+  Future postServiceEndpoint(String serviceName, String endpoint) async {
     Object postBody;
 
     // verify required params are set
-    if(userId == null) {
-     throw ApiException(400, "Missing required param: userId");
+    if(serviceName == null) {
+     throw ApiException(400, "Missing required param: serviceName");
+    }
+    if(endpoint == null) {
+     throw ApiException(400, "Missing required param: endpoint");
     }
 
     // create path and map variables
-    String path = "/users/{userId}/vehicles".replaceAll("{format}","json").replaceAll("{" + "userId" + "}", userId.toString());
+    String path = "/services/{serviceName}/{endpoint}".replaceAll("{format}","json").replaceAll("{" + "serviceName" + "}", serviceName.toString()).replaceAll("{" + "endpoint" + "}", endpoint.toString());
 
     // query params
     List<QueryParam> queryParams = [];
@@ -481,155 +437,6 @@ class UsersApi {
 
     String contentType = contentTypes.isNotEmpty ? contentTypes[0] : "application/json";
     List<String> authNames = ["app_id", "bearerAuth", "cookieAuth"];
-
-    if(contentType.startsWith("multipart/form-data")) {
-      bool hasFields = false;
-      MultipartRequest mp = MultipartRequest(null, null);
-      if(hasFields)
-        postBody = mp;
-    }
-    else {
-    }
-
-    var response = await apiClient.invokeAPI(path,
-                                             'GET',
-                                             queryParams,
-                                             postBody,
-                                             headerParams,
-                                             formParams,
-                                             contentType,
-                                             authNames);
-
-    if(response.statusCode >= 400) {
-      throw ApiException(response.statusCode, _decodeBodyBytes(response));
-    } else if(response.body != null) {
-      return (apiClient.deserialize(_decodeBodyBytes(response), 'List<Auto>') as List).map((item) => item as Auto).toList();
-    } else {
-      return null;
-    }
-  }
-  /// Logs user into the system and returns an authentication token.
-  ///
-  /// 
-  Future<String> loginUser({ String username, String password, BasicAuthCredentials basicAuthCredentials }) async {
-    Object postBody = basicAuthCredentials;
-
-    // verify required params are set
-
-    // create path and map variables
-    String path = "/users/login".replaceAll("{format}","json");
-
-    // query params
-    List<QueryParam> queryParams = [];
-    Map<String, String> headerParams = {};
-    Map<String, String> formParams = {};
-    if(username != null) {
-      queryParams.addAll(_convertParametersForCollectionFormat("", "username", username));
-    }
-    if(password != null) {
-      queryParams.addAll(_convertParametersForCollectionFormat("", "password", password));
-    }
-
-    List<String> contentTypes = ["application/json"];
-
-    String contentType = contentTypes.isNotEmpty ? contentTypes[0] : "application/json";
-    List<String> authNames = [];
-
-    if(contentType.startsWith("multipart/form-data")) {
-      bool hasFields = false;
-      MultipartRequest mp = MultipartRequest(null, null);
-      if(hasFields)
-        postBody = mp;
-    }
-    else {
-    }
-
-    var response = await apiClient.invokeAPI(path,
-                                             'POST',
-                                             queryParams,
-                                             postBody,
-                                             headerParams,
-                                             formParams,
-                                             contentType,
-                                             authNames);
-
-    if(response.statusCode >= 400) {
-      throw ApiException(response.statusCode, _decodeBodyBytes(response));
-    } else if(response.body != null) {
-      return apiClient.deserialize(_decodeBodyBytes(response), 'String') as String;
-    } else {
-      return null;
-    }
-  }
-  /// Logs out current logged in user session
-  ///
-  /// 
-  Future logoutUser() async {
-    Object postBody;
-
-    // verify required params are set
-
-    // create path and map variables
-    String path = "/users/logout".replaceAll("{format}","json");
-
-    // query params
-    List<QueryParam> queryParams = [];
-    Map<String, String> headerParams = {};
-    Map<String, String> formParams = {};
-
-    List<String> contentTypes = [];
-
-    String contentType = contentTypes.isNotEmpty ? contentTypes[0] : "application/json";
-    List<String> authNames = ["app_id", "bearerAuth", "cookieAuth"];
-
-    if(contentType.startsWith("multipart/form-data")) {
-      bool hasFields = false;
-      MultipartRequest mp = MultipartRequest(null, null);
-      if(hasFields)
-        postBody = mp;
-    }
-    else {
-    }
-
-    var response = await apiClient.invokeAPI(path,
-                                             'GET',
-                                             queryParams,
-                                             postBody,
-                                             headerParams,
-                                             formParams,
-                                             contentType,
-                                             authNames);
-
-    if(response.statusCode >= 400) {
-      throw ApiException(response.statusCode, _decodeBodyBytes(response));
-    } else if(response.body != null) {
-    } else {
-      return;
-    }
-  }
-  /// Initiaties a password recovery operation for the designated user.
-  ///
-  /// 
-  Future recoverUserPassword({ String email, String body }) async {
-    Object postBody = body;
-
-    // verify required params are set
-
-    // create path and map variables
-    String path = "/users/password/recover".replaceAll("{format}","json");
-
-    // query params
-    List<QueryParam> queryParams = [];
-    Map<String, String> headerParams = {};
-    Map<String, String> formParams = {};
-    if(email != null) {
-      queryParams.addAll(_convertParametersForCollectionFormat("", "email", email));
-    }
-
-    List<String> contentTypes = ["application/json"];
-
-    String contentType = contentTypes.isNotEmpty ? contentTypes[0] : "application/json";
-    List<String> authNames = [];
 
     if(contentType.startsWith("multipart/form-data")) {
       bool hasFields = false;
@@ -656,16 +463,19 @@ class UsersApi {
       return;
     }
   }
-  /// Refreshes the session token for a logged-in user
+  /// Deregister a KnowGo platform service
   ///
   /// 
-  Future refreshToken() async {
+  Future removeServiceDefinition(String serviceName) async {
     Object postBody;
 
     // verify required params are set
+    if(serviceName == null) {
+     throw ApiException(400, "Missing required param: serviceName");
+    }
 
     // create path and map variables
-    String path = "/users/refresh".replaceAll("{format}","json");
+    String path = "/services/{serviceName}".replaceAll("{format}","json").replaceAll("{" + "serviceName" + "}", serviceName.toString());
 
     // query params
     List<QueryParam> queryParams = [];
@@ -687,7 +497,7 @@ class UsersApi {
     }
 
     var response = await apiClient.invokeAPI(path,
-                                             'GET',
+                                             'DELETE',
                                              queryParams,
                                              postBody,
                                              headerParams,
@@ -702,29 +512,81 @@ class UsersApi {
       return;
     }
   }
-  /// Updated user
+  /// Update the service definition for a specific service
   ///
-  /// This can only be done by the logged in user.
-  Future updateUser(int userId, User user) async {
-    Object postBody = user;
+  /// 
+  Future updateServiceDefinition(String serviceName, ServiceDefinition serviceDefinition) async {
+    Object postBody = serviceDefinition;
 
     // verify required params are set
-    if(userId == null) {
-     throw ApiException(400, "Missing required param: userId");
+    if(serviceName == null) {
+     throw ApiException(400, "Missing required param: serviceName");
     }
-    if(user == null) {
-     throw ApiException(400, "Missing required param: user");
+    if(serviceDefinition == null) {
+     throw ApiException(400, "Missing required param: serviceDefinition");
     }
 
     // create path and map variables
-    String path = "/users/{userId}".replaceAll("{format}","json").replaceAll("{" + "userId" + "}", userId.toString());
+    String path = "/services/{serviceName}".replaceAll("{format}","json").replaceAll("{" + "serviceName" + "}", serviceName.toString());
 
     // query params
     List<QueryParam> queryParams = [];
     Map<String, String> headerParams = {};
     Map<String, String> formParams = {};
 
-    List<String> contentTypes = ["application/json"];
+    List<String> contentTypes = ["application/json","application/xml"];
+
+    String contentType = contentTypes.isNotEmpty ? contentTypes[0] : "application/json";
+    List<String> authNames = ["app_id", "bearerAuth", "cookieAuth"];
+
+    if(contentType.startsWith("multipart/form-data")) {
+      bool hasFields = false;
+      MultipartRequest mp = MultipartRequest(null, null);
+      if(hasFields)
+        postBody = mp;
+    }
+    else {
+    }
+
+    var response = await apiClient.invokeAPI(path,
+                                             'PUT',
+                                             queryParams,
+                                             postBody,
+                                             headerParams,
+                                             formParams,
+                                             contentType,
+                                             authNames);
+
+    if(response.statusCode >= 400) {
+      throw ApiException(response.statusCode, _decodeBodyBytes(response));
+    } else if(response.body != null) {
+    } else {
+      return;
+    }
+  }
+  /// PUT pass-through for service-specific endpoint
+  ///
+  /// Passes through a PUT request to dynamically created service endpoints. A list of endpoints provided by a specific service are available through the Service Definition, returned by performing a GET on the service endpoint &#39;/services/{serviceName}&#39;.
+  Future updateServiceEndpoint(String serviceName, String endpoint) async {
+    Object postBody;
+
+    // verify required params are set
+    if(serviceName == null) {
+     throw ApiException(400, "Missing required param: serviceName");
+    }
+    if(endpoint == null) {
+     throw ApiException(400, "Missing required param: endpoint");
+    }
+
+    // create path and map variables
+    String path = "/services/{serviceName}/{endpoint}".replaceAll("{format}","json").replaceAll("{" + "serviceName" + "}", serviceName.toString()).replaceAll("{" + "endpoint" + "}", endpoint.toString());
+
+    // query params
+    List<QueryParam> queryParams = [];
+    Map<String, String> headerParams = {};
+    Map<String, String> formParams = {};
+
+    List<String> contentTypes = [];
 
     String contentType = contentTypes.isNotEmpty ? contentTypes[0] : "application/json";
     List<String> authNames = ["app_id", "bearerAuth", "cookieAuth"];
