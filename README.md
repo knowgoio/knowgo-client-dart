@@ -92,6 +92,7 @@ Class | Method | HTTP request | Description
 *JourneysApi* | [**removeClassificationFromJourney**](docs//JourneysApi.md#removeclassificationfromjourney) | **DELETE** /journeys/{journeyId}/classifications/{classificationId} | Remove a specific classification from a Journey
 *JourneysApi* | [**updateJourneyClassificationById**](docs//JourneysApi.md#updatejourneyclassificationbyid) | **PUT** /journeys/classifications/{classificationId} | Update a specified Journey classification
 *JourneysApi* | [**updateJourneyWithForm**](docs//JourneysApi.md#updatejourneywithform) | **POST** /journeys/{journeyId} | Updates a Journey with form data
+*ServerApi* | [**currentConfig**](docs//ServerApi.md#currentconfig) | **GET** /config | Obtain configuration information about the current KnowGo instance
 *ServicesApi* | [**addService**](docs//ServicesApi.md#addservice) | **POST** /services | Register a new KnowGo platform service
 *ServicesApi* | [**deleteServiceEndpoint**](docs//ServicesApi.md#deleteserviceendpoint) | **DELETE** /services/{serviceName}/{endpoint} | DELETE pass-through for service-specific endpoint
 *ServicesApi* | [**disableServiceByUserId**](docs//ServicesApi.md#disableservicebyuserid) | **DELETE** /users/{userId}/services/{serviceName} | Disable a service for a specific user
@@ -132,10 +133,14 @@ Class | Method | HTTP request | Description
 
  - [Auto](docs//Auto.md)
  - [BasicAuthCredentials](docs//BasicAuthCredentials.md)
+ - [Config](docs//Config.md)
  - [Event](docs//Event.md)
  - [Journey](docs//Journey.md)
  - [JourneyClassifications](docs//JourneyClassifications.md)
  - [PasswordRecoveryConfirmation](docs//PasswordRecoveryConfirmation.md)
+ - [ServiceDefinition](docs//ServiceDefinition.md)
+ - [ServiceDefinitionDataNeeded](docs//ServiceDefinitionDataNeeded.md)
+ - [ServiceDefinitionPurposes](docs//ServiceDefinitionPurposes.md)
  - [User](docs//User.md)
 
 

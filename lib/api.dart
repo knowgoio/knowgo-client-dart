@@ -14,12 +14,14 @@ part 'auth/http_basic_auth.dart';
 
 part 'api/events_api.dart';
 part 'api/journeys_api.dart';
+part 'api/server_api.dart';
 part 'api/services_api.dart';
 part 'api/users_api.dart';
 part 'api/vehicles_api.dart';
 
 part 'model/auto.dart';
 part 'model/basic_auth_credentials.dart';
+part 'model/config.dart';
 part 'model/event.dart';
 part 'model/journey.dart';
 part 'model/journey_classifications.dart';

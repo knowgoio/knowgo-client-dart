@@ -44,6 +44,8 @@ class ApiClient {
           return Auto.fromJson(value);
         case 'BasicAuthCredentials':
           return BasicAuthCredentials.fromJson(value);
+        case 'Config':
+          return Config.fromJson(value);
         case 'Event':
           return Event.fromJson(value);
         case 'Journey':
