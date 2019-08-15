@@ -19,8 +19,8 @@ void main() {
     });
 
     // Address of the MQTT Proxy clients should connect to
-    // String mQTTProxyHost (default value: null)
-    test('to test the property `mQTTProxyHost`', () async {
+    // String mqttProxyHost (default value: null)
+    test('to test the property `mqttProxyHost`', () async {
       // TODO
     });
 

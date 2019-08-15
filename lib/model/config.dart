@@ -6,12 +6,12 @@ class Config {
   /* Region served */
   String region = null;
   /* Address of the MQTT Proxy clients should connect to */
-  String mQTTProxyHost = null;
+  String mqttProxyHost = null;
   Config();
 
   @override
   String toString() {
-    return 'Config[country=$country, region=$region, mQTTProxyHost=$mQTTProxyHost, ]';
+    return 'Config[country=$country, region=$region, mqttProxyHost=$mqttProxyHost, ]';
   }
 
   Config.fromJson(Map<String, dynamic> json) {
@@ -27,9 +27,9 @@ class Config {
           region = json['Region'];
     }
     if (json['MQTTProxyHost'] == null) {
-      mQTTProxyHost = null;
+      mqttProxyHost = null;
     } else {
-          mQTTProxyHost = json['MQTTProxyHost'];
+          mqttProxyHost = json['MQTTProxyHost'];
     }
   }
 
@@ -39,8 +39,8 @@ class Config {
       json['Country'] = country;
     if (region != null)
       json['Region'] = region;
-    if (mQTTProxyHost != null)
-      json['MQTTProxyHost'] = mQTTProxyHost;
+    if (mqttProxyHost != null)
+      json['MQTTProxyHost'] = mqttProxyHost;
     return json;
   }
 
