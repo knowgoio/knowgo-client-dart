@@ -1,10 +1,7 @@
-import 'package:openapi/api.dart';
 import 'package:test/test.dart';
 
 // tests for Config
 void main() {
-  var instance = Config();
-
   group('test Config', () {
     // ISO 3166-1 alpha-2 country code designation
     // String country (default value: null)
@@ -23,8 +20,5 @@ void main() {
     test('to test the property `mqttProxyHost`', () async {
       // TODO
     });
-
-
   });
-
 }

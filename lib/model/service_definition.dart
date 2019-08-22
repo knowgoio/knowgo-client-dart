@@ -171,17 +171,17 @@ class DataSource {
   }
 }
 
-class Config {
+class ServiceConfig {
   String host;
 
-  Config({this.host});
+  ServiceConfig({this.host});
 
   @override
   String toString() {
-    return 'Config[host=$host, ]';
+    return 'ServiceConfig[host=$host, ]';
   }
 
-  Config.fromJson(Map<String, dynamic> json) {
+  ServiceConfig.fromJson(Map<String, dynamic> json) {
     host = json['Host'];
   }
 
@@ -211,7 +211,7 @@ class ServiceDefinition {
 
   Purposes purposes = null;
 
-  Config config = null;
+  ServiceConfig config = null;
 
   ServiceDefinition();
 
@@ -267,10 +267,10 @@ class ServiceDefinition {
     } else {
       purposes = Purposes.fromJson(json['Purposes']);
     }
-    if (json['Config'] == null) {
+    if (json['ServiceConfig'] == null) {
       config = null;
     } else {
-      config = Config.fromJson(json['Config']);
+      config = ServiceConfig.fromJson(json['ServiceConfig']);
     }
   }
 
@@ -295,7 +295,7 @@ class ServiceDefinition {
     if (purposes != null)
       json['Purposes'] = purposes.toJson();
     if (config != null)
-      json['Config'] = config.toJson();
+      json['ServiceConfig'] = config.toJson();
 
     return json;
   }

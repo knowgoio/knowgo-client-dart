@@ -29,6 +29,10 @@ class ApiClient {
      _defaultHeaderMap[key] = value;
   }
 
+  void removeDefaultHeader(String key) {
+    _defaultHeaderMap[key] = null;
+  }
+
   dynamic _deserialize(dynamic value, String targetType) {
     try {
       switch (targetType) {
@@ -54,6 +58,8 @@ class ApiClient {
           return JourneyClassifications.fromJson(value);
         case 'PasswordRecoveryConfirmation':
           return PasswordRecoveryConfirmation.fromJson(value);
+	case 'ServiceConfig':
+	  return ServiceConfig.fromJson(value);
         case 'ServiceDefinition':
           return ServiceDefinition.fromJson(value);
         case 'DataSource':

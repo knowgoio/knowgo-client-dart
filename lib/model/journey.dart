@@ -28,6 +28,13 @@ class Journey {
     return 'Journey[journeyID=$journeyID, driverID=$driverID, autoID=$autoID, name=$name, journeyType=$journeyType, journeyBegin=$journeyBegin, journeyEnd=$journeyEnd, odometerBegin=$odometerBegin, odometerEnd=$odometerEnd, events=$events, ]';
   }
 
+  double calculateDistance() {
+    if (odometerBegin != null && odometerEnd != null)
+      return odometerEnd - odometerBegin;
+
+    return 0;
+  }
+
   Journey.fromJson(Map<String, dynamic> json) {
     if (json == null) return;
     if (json['JourneyID'] == null) {
