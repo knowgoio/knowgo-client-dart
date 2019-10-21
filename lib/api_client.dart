@@ -10,6 +10,7 @@ class QueryParam {
 class ApiClient {
 
   String basePath;
+  String prefix;
   Client client = Client();
 
   Map<String, String> _defaultHeaderMap = {};
@@ -18,7 +19,7 @@ class ApiClient {
   final _regList = RegExp(r'^List<(.*)>$');
   final _regMap = RegExp(r'^Map<String,(.*)>$');
 
-  ApiClient({this.basePath = "https://api.adaptant.io/payd/v1"}) {
+  ApiClient({this.basePath = "https://api.knowgo.io/payd/v1", this.prefix = ''}) {
     // Setup authentications (key: authentication name, value: authentication).
     _authentications['app_id'] = ApiKeyAuth("header", "X-API-Key");
     _authentications['bearerAuth'] = HttpBasicAuth();
@@ -58,6 +59,10 @@ class ApiClient {
           return JourneyClassifications.fromJson(value);
         case 'PasswordRecoveryConfirmation':
           return PasswordRecoveryConfirmation.fromJson(value);
+	case 'Score':
+	  return Score.fromJson(value);
+	case 'ScoreClassification':
+	  return ScoreClassification.fromJson(value);
 	case 'ServiceConfig':
 	  return ServiceConfig.fromJson(value);
         case 'ServiceDefinition':
@@ -132,7 +137,7 @@ class ApiClient {
                          '?' + ps.join('&') :
                          '';
 
-    String url = basePath + path + queryString;
+    String url = basePath + prefix + path + queryString;
 
     headerParams.addAll(_defaultHeaderMap);
     headerParams['Content-Type'] = contentType;
