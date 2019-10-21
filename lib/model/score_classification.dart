@@ -4,11 +4,11 @@ class ScoreClassification {
   /* Name of Classifier run */
   String classifier = null;
   /* Score provided by the Classifier */
-  num score = null;
+  double score = null;
   /* Weighting applied for the Classifier */
   int weight = null;
   /* Confidence score returned by the Classifier */
-  num confidence = null;
+  double confidence = null;
   ScoreClassification();
 
   @override
@@ -26,7 +26,7 @@ class ScoreClassification {
     if (json['score'] == null) {
       score = null;
     } else {
-          score = json['score'];
+          score = double.parse(json['score']);
     }
     if (json['weight'] == null) {
       weight = null;
@@ -36,7 +36,7 @@ class ScoreClassification {
     if (json['confidence'] == null) {
       confidence = null;
     } else {
-          confidence = json['confidence'];
+          confidence = double.parse(json['confidence']);
     }
   }
 

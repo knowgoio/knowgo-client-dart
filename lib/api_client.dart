@@ -59,12 +59,12 @@ class ApiClient {
           return JourneyClassifications.fromJson(value);
         case 'PasswordRecoveryConfirmation':
           return PasswordRecoveryConfirmation.fromJson(value);
-	case 'Score':
-	  return Score.fromJson(value);
-	case 'ScoreClassification':
-	  return ScoreClassification.fromJson(value);
-	case 'ServiceConfig':
-	  return ServiceConfig.fromJson(value);
+        case 'Score':
+          return Score.fromJson(value);
+        case 'ScoreClassification':
+          return ScoreClassification.fromJson(value);
+        case 'ServiceConfig':
+          return ServiceConfig.fromJson(value);
         case 'ServiceDefinition':
           return ServiceDefinition.fromJson(value);
         case 'DataSource':
@@ -181,5 +181,10 @@ class ApiClient {
     var authentication = _authentications[name];
 
     return authentication is T ? authentication : null;
+  }
+
+  @override
+  String toString() {
+    return 'ApiClient=[basePath=$basePath, prefix=$prefix, headers=$_defaultHeaderMap, authentications=${_authentications.keys}]';
   }
 }
