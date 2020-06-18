@@ -1,6 +1,6 @@
-name: openapi
+name: knowgo
 version: 1.0.0
-description: OpenAPI API client
+description: KnowGo API client
 environment:
   sdk: '>=2.0.0 <3.0.0'
 dependencies:
