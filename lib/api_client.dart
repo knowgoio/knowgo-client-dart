@@ -19,7 +19,7 @@ class ApiClient {
   final _regMap = RegExp(r'^Map<String,(.*)>$');
 
   ApiClient(
-      {this.basePath = "https://api.knowgo.io/payd/v1", this.prefix = ''}) {
+      {this.basePath = "https://api.knowgo.io/v1", this.prefix = ''}) {
     // Setup authentications (key: authentication name, value: authentication).
     _authentications['app_id'] = ApiKeyAuth("header", "X-API-Key");
     _authentications['bearerAuth'] = HttpBasicAuth();

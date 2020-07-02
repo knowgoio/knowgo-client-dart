@@ -70,7 +70,7 @@ try {
 
 ## Documentation for API Endpoints
 
-All URIs are relative to *https://api.adaptant.io/payd/v1*
+All URIs are relative to *https://api.adaptant.io/v1*
 
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
