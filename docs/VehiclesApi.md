@@ -1,8 +1,8 @@
-# openapi.api.VehiclesApi
+# knowgo.api.VehiclesApi
 
 ## Load the API package
 ```dart
-import 'package:openapi/api.dart';
+import 'package:knowgo/api.dart';
 ```
 
 All URIs are relative to *https://api.adaptant.io/payd/v1*
@@ -27,7 +27,7 @@ Adds a new Auto to the system. The AutoID as input is ignored, as it is dynamica
 
 ### Example 
 ```dart
-import 'package:openapi/api.dart';
+import 'package:knowgo/api.dart';
 // TODO Configure API key authorization: app_id
 //defaultApiClient.getAuthentication<ApiKeyAuth>('app_id').apiKey = 'YOUR_API_KEY';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
@@ -79,7 +79,7 @@ Deletes an Auto
 
 ### Example 
 ```dart
-import 'package:openapi/api.dart';
+import 'package:knowgo/api.dart';
 // TODO Configure API key authorization: app_id
 //defaultApiClient.getAuthentication<ApiKeyAuth>('app_id').apiKey = 'YOUR_API_KEY';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
@@ -132,7 +132,7 @@ Returns a single auto
 
 ### Example 
 ```dart
-import 'package:openapi/api.dart';
+import 'package:knowgo/api.dart';
 // TODO Configure API key authorization: app_id
 //defaultApiClient.getAuthentication<ApiKeyAuth>('app_id').apiKey = 'YOUR_API_KEY';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
@@ -186,7 +186,7 @@ Given an authenticated user, return a list of vehicles that are available to the
 
 ### Example 
 ```dart
-import 'package:openapi/api.dart';
+import 'package:knowgo/api.dart';
 // TODO Configure API key authorization: app_id
 //defaultApiClient.getAuthentication<ApiKeyAuth>('app_id').apiKey = 'YOUR_API_KEY';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
@@ -236,7 +236,7 @@ Given an authenticated user, return a list of vehicles that are available to the
 
 ### Example 
 ```dart
-import 'package:openapi/api.dart';
+import 'package:knowgo/api.dart';
 // TODO Configure API key authorization: app_id
 //defaultApiClient.getAuthentication<ApiKeyAuth>('app_id').apiKey = 'YOUR_API_KEY';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
@@ -288,7 +288,7 @@ Update an existing auto
 
 ### Example 
 ```dart
-import 'package:openapi/api.dart';
+import 'package:knowgo/api.dart';
 // TODO Configure API key authorization: app_id
 //defaultApiClient.getAuthentication<ApiKeyAuth>('app_id').apiKey = 'YOUR_API_KEY';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
@@ -339,7 +339,7 @@ Updates an auto with form data
 
 ### Example 
 ```dart
-import 'package:openapi/api.dart';
+import 'package:knowgo/api.dart';
 // TODO Configure API key authorization: app_id
 //defaultApiClient.getAuthentication<ApiKeyAuth>('app_id').apiKey = 'YOUR_API_KEY';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed

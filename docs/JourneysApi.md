@@ -1,8 +1,8 @@
-# openapi.api.JourneysApi
+# knowgo.api.JourneysApi
 
 ## Load the API package
 ```dart
-import 'package:openapi/api.dart';
+import 'package:knowgo/api.dart';
 ```
 
 All URIs are relative to *https://api.adaptant.io/payd/v1*
@@ -32,7 +32,7 @@ Add a new Journey classification for a specific Journey
 
 ### Example 
 ```dart
-import 'package:openapi/api.dart';
+import 'package:knowgo/api.dart';
 // TODO Configure API key authorization: app_id
 //defaultApiClient.getAuthentication<ApiKeyAuth>('app_id').apiKey = 'YOUR_API_KEY';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
@@ -87,7 +87,7 @@ Adds a new Journey to the system. The JourneyID as input is ignored, as it is dy
 
 ### Example 
 ```dart
-import 'package:openapi/api.dart';
+import 'package:knowgo/api.dart';
 // TODO Configure API key authorization: app_id
 //defaultApiClient.getAuthentication<ApiKeyAuth>('app_id').apiKey = 'YOUR_API_KEY';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
@@ -139,7 +139,7 @@ Create a Journey classification
 
 ### Example 
 ```dart
-import 'package:openapi/api.dart';
+import 'package:knowgo/api.dart';
 // TODO Configure API key authorization: app_id
 //defaultApiClient.getAuthentication<ApiKeyAuth>('app_id').apiKey = 'YOUR_API_KEY';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
@@ -193,7 +193,7 @@ Manual deletion of a defined Journey based on its journeyId.
 
 ### Example 
 ```dart
-import 'package:openapi/api.dart';
+import 'package:knowgo/api.dart';
 // TODO Configure API key authorization: app_id
 //defaultApiClient.getAuthentication<ApiKeyAuth>('app_id').apiKey = 'YOUR_API_KEY';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
@@ -244,7 +244,7 @@ Delete specified Journey classification
 
 ### Example 
 ```dart
-import 'package:openapi/api.dart';
+import 'package:knowgo/api.dart';
 // TODO Configure API key authorization: app_id
 //defaultApiClient.getAuthentication<ApiKeyAuth>('app_id').apiKey = 'YOUR_API_KEY';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
@@ -295,7 +295,7 @@ Find journey by ID
 
 ### Example 
 ```dart
-import 'package:openapi/api.dart';
+import 'package:knowgo/api.dart';
 // TODO Configure API key authorization: app_id
 //defaultApiClient.getAuthentication<ApiKeyAuth>('app_id').apiKey = 'YOUR_API_KEY';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
@@ -347,7 +347,7 @@ Get Journey classification by classification id
 
 ### Example 
 ```dart
-import 'package:openapi/api.dart';
+import 'package:knowgo/api.dart';
 // TODO Configure API key authorization: app_id
 //defaultApiClient.getAuthentication<ApiKeyAuth>('app_id').apiKey = 'YOUR_API_KEY';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
@@ -401,7 +401,7 @@ Given an authenticated user, return a list of Journey classifications that are a
 
 ### Example 
 ```dart
-import 'package:openapi/api.dart';
+import 'package:knowgo/api.dart';
 // TODO Configure API key authorization: app_id
 //defaultApiClient.getAuthentication<ApiKeyAuth>('app_id').apiKey = 'YOUR_API_KEY';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
@@ -451,7 +451,7 @@ Given an authenticated user, return a list of Journey classificiations that are 
 
 ### Example 
 ```dart
-import 'package:openapi/api.dart';
+import 'package:knowgo/api.dart';
 // TODO Configure API key authorization: app_id
 //defaultApiClient.getAuthentication<ApiKeyAuth>('app_id').apiKey = 'YOUR_API_KEY';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
@@ -505,7 +505,7 @@ Given an authenticated user, return a list of journeys that are available to the
 
 ### Example 
 ```dart
-import 'package:openapi/api.dart';
+import 'package:knowgo/api.dart';
 // TODO Configure API key authorization: app_id
 //defaultApiClient.getAuthentication<ApiKeyAuth>('app_id').apiKey = 'YOUR_API_KEY';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
@@ -555,7 +555,7 @@ Given an authenticated user, return a list of journeys that are available to the
 
 ### Example 
 ```dart
-import 'package:openapi/api.dart';
+import 'package:knowgo/api.dart';
 // TODO Configure API key authorization: app_id
 //defaultApiClient.getAuthentication<ApiKeyAuth>('app_id').apiKey = 'YOUR_API_KEY';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
@@ -607,7 +607,7 @@ Remove a specific classification from a Journey
 
 ### Example 
 ```dart
-import 'package:openapi/api.dart';
+import 'package:knowgo/api.dart';
 // TODO Configure API key authorization: app_id
 //defaultApiClient.getAuthentication<ApiKeyAuth>('app_id').apiKey = 'YOUR_API_KEY';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
@@ -660,7 +660,7 @@ Update a specified Journey classification
 
 ### Example 
 ```dart
-import 'package:openapi/api.dart';
+import 'package:knowgo/api.dart';
 // TODO Configure API key authorization: app_id
 //defaultApiClient.getAuthentication<ApiKeyAuth>('app_id').apiKey = 'YOUR_API_KEY';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
@@ -713,7 +713,7 @@ Updates a Journey with form data
 
 ### Example 
 ```dart
-import 'package:openapi/api.dart';
+import 'package:knowgo/api.dart';
 // TODO Configure API key authorization: app_id
 //defaultApiClient.getAuthentication<ApiKeyAuth>('app_id').apiKey = 'YOUR_API_KEY';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed

@@ -1,5 +1,5 @@
 import 'dart:convert';
-import 'package:openapi/api.dart';
+import 'package:knowgo/api.dart';
 import 'package:http/http.dart';
 import 'package:http/testing.dart';
 import 'package:test/test.dart';

@@ -1,8 +1,8 @@
-# openapi.model.JourneyClassifications
+# knowgo.model.JourneyClassifications
 
 ## Load the model package
 ```dart
-import 'package:openapi/api.dart';
+import 'package:knowgo/api.dart';
 ```
 
 ## Properties

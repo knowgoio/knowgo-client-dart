@@ -1,8 +1,8 @@
-# openapi.api.ServerApi
+# knowgo.api.ServerApi
 
 ## Load the API package
 ```dart
-import 'package:openapi/api.dart';
+import 'package:knowgo/api.dart';
 ```
 
 All URIs are relative to *https://api.adaptant.io/payd/v1*
@@ -19,7 +19,7 @@ Obtain configuration information about the current KnowGo instance
 
 ### Example 
 ```dart
-import 'package:openapi/api.dart';
+import 'package:knowgo/api.dart';
 // TODO Configure API key authorization: app_id
 //defaultApiClient.getAuthentication<ApiKeyAuth>('app_id').apiKey = 'YOUR_API_KEY';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed

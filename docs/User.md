@@ -1,8 +1,8 @@
-# openapi.model.User
+# knowgo.model.User
 
 ## Load the model package
 ```dart
-import 'package:openapi/api.dart';
+import 'package:knowgo/api.dart';
 ```
 
 ## Properties

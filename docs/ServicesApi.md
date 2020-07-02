@@ -1,8 +1,8 @@
-# openapi.api.ServicesApi
+# knowgo.api.ServicesApi
 
 ## Load the API package
 ```dart
-import 'package:openapi/api.dart';
+import 'package:knowgo/api.dart';
 ```
 
 All URIs are relative to *https://api.adaptant.io/payd/v1*
@@ -30,7 +30,7 @@ Register a new KnowGo platform service
 
 ### Example 
 ```dart
-import 'package:openapi/api.dart';
+import 'package:knowgo/api.dart';
 // TODO Configure API key authorization: app_id
 //defaultApiClient.getAuthentication<ApiKeyAuth>('app_id').apiKey = 'YOUR_API_KEY';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
@@ -83,7 +83,7 @@ Passes through a DELETE request to dynamically created service endpoints. A list
 
 ### Example 
 ```dart
-import 'package:openapi/api.dart';
+import 'package:knowgo/api.dart';
 // TODO Configure API key authorization: app_id
 //defaultApiClient.getAuthentication<ApiKeyAuth>('app_id').apiKey = 'YOUR_API_KEY';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
@@ -138,7 +138,7 @@ Given an authenticated user, disable a specific service that the user no longer 
 
 ### Example 
 ```dart
-import 'package:openapi/api.dart';
+import 'package:knowgo/api.dart';
 // TODO Configure API key authorization: app_id
 //defaultApiClient.getAuthentication<ApiKeyAuth>('app_id').apiKey = 'YOUR_API_KEY';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
@@ -193,7 +193,7 @@ Given an authenticated user, enable a specific service that the user wishes to u
 
 ### Example 
 ```dart
-import 'package:openapi/api.dart';
+import 'package:knowgo/api.dart';
 // TODO Configure API key authorization: app_id
 //defaultApiClient.getAuthentication<ApiKeyAuth>('app_id').apiKey = 'YOUR_API_KEY';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
@@ -246,7 +246,7 @@ Lookup the service definition for a specific service
 
 ### Example 
 ```dart
-import 'package:openapi/api.dart';
+import 'package:knowgo/api.dart';
 // TODO Configure API key authorization: app_id
 //defaultApiClient.getAuthentication<ApiKeyAuth>('app_id').apiKey = 'YOUR_API_KEY';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
@@ -300,7 +300,7 @@ Passes through a GET request to dynamically created service endpoints. A list of
 
 ### Example 
 ```dart
-import 'package:openapi/api.dart';
+import 'package:knowgo/api.dart';
 // TODO Configure API key authorization: app_id
 //defaultApiClient.getAuthentication<ApiKeyAuth>('app_id').apiKey = 'YOUR_API_KEY';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
@@ -353,7 +353,7 @@ Return a list of available KnowGo platform services
 
 ### Example 
 ```dart
-import 'package:openapi/api.dart';
+import 'package:knowgo/api.dart';
 // TODO Configure API key authorization: app_id
 //defaultApiClient.getAuthentication<ApiKeyAuth>('app_id').apiKey = 'YOUR_API_KEY';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
@@ -403,7 +403,7 @@ Given an authenticated user, return a list of services that they have opted in t
 
 ### Example 
 ```dart
-import 'package:openapi/api.dart';
+import 'package:knowgo/api.dart';
 // TODO Configure API key authorization: app_id
 //defaultApiClient.getAuthentication<ApiKeyAuth>('app_id').apiKey = 'YOUR_API_KEY';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
@@ -457,7 +457,7 @@ Passes through a POST request to dynamically created service endpoints. A list o
 
 ### Example 
 ```dart
-import 'package:openapi/api.dart';
+import 'package:knowgo/api.dart';
 // TODO Configure API key authorization: app_id
 //defaultApiClient.getAuthentication<ApiKeyAuth>('app_id').apiKey = 'YOUR_API_KEY';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
@@ -510,7 +510,7 @@ Deregister a KnowGo platform service
 
 ### Example 
 ```dart
-import 'package:openapi/api.dart';
+import 'package:knowgo/api.dart';
 // TODO Configure API key authorization: app_id
 //defaultApiClient.getAuthentication<ApiKeyAuth>('app_id').apiKey = 'YOUR_API_KEY';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
@@ -561,7 +561,7 @@ Update the service definition for a specific service
 
 ### Example 
 ```dart
-import 'package:openapi/api.dart';
+import 'package:knowgo/api.dart';
 // TODO Configure API key authorization: app_id
 //defaultApiClient.getAuthentication<ApiKeyAuth>('app_id').apiKey = 'YOUR_API_KEY';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
@@ -616,7 +616,7 @@ Passes through a PUT request to dynamically created service endpoints. A list of
 
 ### Example 
 ```dart
-import 'package:openapi/api.dart';
+import 'package:knowgo/api.dart';
 // TODO Configure API key authorization: app_id
 //defaultApiClient.getAuthentication<ApiKeyAuth>('app_id').apiKey = 'YOUR_API_KEY';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed

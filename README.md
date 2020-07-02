@@ -16,9 +16,9 @@ Dart 1.20.0 or later OR Flutter 0.0.20 or later
 ### Github
 If this Dart package is published to Github, please include the following in pubspec.yaml
 ```
-name: openapi
+name: knowgo
 version: 1.0.0
-description: OpenAPI API client
+description: KnowGo API client
 dependencies:
   openapi:
     git: https://github.com/GIT_USER_ID/GIT_REPO_ID.git
@@ -29,8 +29,8 @@ dependencies:
 To use the package in your local drive, please include the following in pubspec.yaml
 ```
 dependencies:
-  openapi:
-    path: /path/to/openapi
+  knowgo:
+    path: /path/to/knowgo-client-dart
 ```
 
 ## Tests
@@ -42,7 +42,7 @@ TODO
 Please follow the [installation procedure](#installation--usage) and then run the following:
 
 ```dart
-import 'package:openapi/api.dart';
+import 'package:knowgo/api.dart';
 
 // TODO Configure API key authorization: app_id
 //defaultApiClient.getAuthentication<ApiKeyAuth>('app_id').apiKey = 'YOUR_API_KEY';

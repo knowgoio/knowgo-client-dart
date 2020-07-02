@@ -1,4 +1,4 @@
-part of openapi.api;
+part of knowgo.api;
 
 class Config {
   /* ISO 3166-1 alpha-2 country code designation */

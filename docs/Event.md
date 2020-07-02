@@ -1,8 +1,8 @@
-# openapi.model.Event
+# knowgo.model.Event
 
 ## Load the model package
 ```dart
-import 'package:openapi/api.dart';
+import 'package:knowgo/api.dart';
 ```
 
 ## Properties

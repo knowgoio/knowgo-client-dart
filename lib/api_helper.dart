@@ -1,4 +1,4 @@
-part of openapi.api;
+part of knowgo.api;
 
 const _delimiters = const {'csv': ',', 'ssv': ' ', 'tsv': '\t', 'pipes': '|'};
 

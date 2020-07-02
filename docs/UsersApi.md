@@ -1,8 +1,8 @@
-# openapi.api.UsersApi
+# knowgo.api.UsersApi
 
 ## Load the API package
 ```dart
-import 'package:openapi/api.dart';
+import 'package:knowgo/api.dart';
 ```
 
 All URIs are relative to *https://api.adaptant.io/payd/v1*
@@ -33,7 +33,7 @@ Confirm the change in user password via the recovery mechanism
 
 ### Example 
 ```dart
-import 'package:openapi/api.dart';
+import 'package:knowgo/api.dart';
 
 var api_instance = UsersApi();
 var passwordRecoveryConfirmation = PasswordRecoveryConfirmation(); // PasswordRecoveryConfirmation | User email, new password and reset token to initiate password change
@@ -75,7 +75,7 @@ Create a new user within the system
 
 ### Example 
 ```dart
-import 'package:openapi/api.dart';
+import 'package:knowgo/api.dart';
 
 var api_instance = UsersApi();
 var user = User(); // User | User object to operate on
@@ -118,7 +118,7 @@ This can only be done by the logged in user.
 
 ### Example 
 ```dart
-import 'package:openapi/api.dart';
+import 'package:knowgo/api.dart';
 // TODO Configure API key authorization: app_id
 //defaultApiClient.getAuthentication<ApiKeyAuth>('app_id').apiKey = 'YOUR_API_KEY';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
@@ -171,7 +171,7 @@ Given an authenticated user, disable a specific service that the user no longer 
 
 ### Example 
 ```dart
-import 'package:openapi/api.dart';
+import 'package:knowgo/api.dart';
 // TODO Configure API key authorization: app_id
 //defaultApiClient.getAuthentication<ApiKeyAuth>('app_id').apiKey = 'YOUR_API_KEY';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
@@ -226,7 +226,7 @@ Given an authenticated user, enable a specific service that the user wishes to u
 
 ### Example 
 ```dart
-import 'package:openapi/api.dart';
+import 'package:knowgo/api.dart';
 // TODO Configure API key authorization: app_id
 //defaultApiClient.getAuthentication<ApiKeyAuth>('app_id').apiKey = 'YOUR_API_KEY';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
@@ -281,7 +281,7 @@ This endpoint allows a logged in user to export all of the data pertaining to th
 
 ### Example 
 ```dart
-import 'package:openapi/api.dart';
+import 'package:knowgo/api.dart';
 // TODO Configure API key authorization: app_id
 //defaultApiClient.getAuthentication<ApiKeyAuth>('app_id').apiKey = 'YOUR_API_KEY';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
@@ -332,7 +332,7 @@ Get user by user id
 
 ### Example 
 ```dart
-import 'package:openapi/api.dart';
+import 'package:knowgo/api.dart';
 // TODO Configure API key authorization: app_id
 //defaultApiClient.getAuthentication<ApiKeyAuth>('app_id').apiKey = 'YOUR_API_KEY';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
@@ -386,7 +386,7 @@ Given an authenticated user, return a list of journeys that are available to the
 
 ### Example 
 ```dart
-import 'package:openapi/api.dart';
+import 'package:knowgo/api.dart';
 // TODO Configure API key authorization: app_id
 //defaultApiClient.getAuthentication<ApiKeyAuth>('app_id').apiKey = 'YOUR_API_KEY';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
@@ -440,7 +440,7 @@ Given an authenticated user, return a list of services that they have opted in t
 
 ### Example 
 ```dart
-import 'package:openapi/api.dart';
+import 'package:knowgo/api.dart';
 // TODO Configure API key authorization: app_id
 //defaultApiClient.getAuthentication<ApiKeyAuth>('app_id').apiKey = 'YOUR_API_KEY';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
@@ -494,7 +494,7 @@ Given an authenticated user, return a list of vehicles that are available to the
 
 ### Example 
 ```dart
-import 'package:openapi/api.dart';
+import 'package:knowgo/api.dart';
 // TODO Configure API key authorization: app_id
 //defaultApiClient.getAuthentication<ApiKeyAuth>('app_id').apiKey = 'YOUR_API_KEY';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
@@ -546,7 +546,7 @@ Logs user into the system and returns an authentication token.
 
 ### Example 
 ```dart
-import 'package:openapi/api.dart';
+import 'package:knowgo/api.dart';
 
 var api_instance = UsersApi();
 var username = username_example; // String | The user's username or email address for login
@@ -591,7 +591,7 @@ Logs out current logged in user session
 
 ### Example 
 ```dart
-import 'package:openapi/api.dart';
+import 'package:knowgo/api.dart';
 // TODO Configure API key authorization: app_id
 //defaultApiClient.getAuthentication<ApiKeyAuth>('app_id').apiKey = 'YOUR_API_KEY';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
@@ -638,7 +638,7 @@ Initiaties a password recovery operation for the designated user.
 
 ### Example 
 ```dart
-import 'package:openapi/api.dart';
+import 'package:knowgo/api.dart';
 
 var api_instance = UsersApi();
 var email = ; // String | The user's email address to recover the password for.
@@ -680,7 +680,7 @@ Refreshes the session token for a logged-in user
 
 ### Example 
 ```dart
-import 'package:openapi/api.dart';
+import 'package:knowgo/api.dart';
 // TODO Configure API key authorization: app_id
 //defaultApiClient.getAuthentication<ApiKeyAuth>('app_id').apiKey = 'YOUR_API_KEY';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
@@ -729,7 +729,7 @@ This can only be done by the logged in user.
 
 ### Example 
 ```dart
-import 'package:openapi/api.dart';
+import 'package:knowgo/api.dart';
 // TODO Configure API key authorization: app_id
 //defaultApiClient.getAuthentication<ApiKeyAuth>('app_id').apiKey = 'YOUR_API_KEY';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed

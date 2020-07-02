@@ -1,4 +1,4 @@
-part of openapi.api;
+part of knowgo.api;
 
 class JourneysApi {
   final ApiClient apiClient;

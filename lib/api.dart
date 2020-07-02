@@ -1,4 +1,4 @@
-library openapi.api;
+library knowgo.api;
 
 import 'dart:async';
 import 'dart:convert';

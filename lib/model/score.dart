@@ -1,4 +1,4 @@
-part of openapi.api;
+part of knowgo.api;
 
 class Score {
   /* ID of Journey scored */

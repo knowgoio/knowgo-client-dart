@@ -1,7 +1,7 @@
 import 'dart:convert';
 import 'package:http/http.dart';
 import 'package:http/testing.dart';
-import 'package:openapi/api.dart';
+import 'package:knowgo/api.dart';
 import 'package:test/test.dart';
 
 /// tests for VehiclesApi

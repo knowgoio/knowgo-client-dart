@@ -1,8 +1,8 @@
-# openapi.model.BasicAuthCredentials
+# knowgo.model.BasicAuthCredentials
 
 ## Load the model package
 ```dart
-import 'package:openapi/api.dart';
+import 'package:knowgo/api.dart';
 ```
 
 ## Properties

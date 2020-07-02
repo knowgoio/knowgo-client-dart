@@ -1,4 +1,4 @@
-part of openapi.api;
+part of knowgo.api;
 
 abstract class Authentication {
   /// Apply authentication settings to header and query params.
