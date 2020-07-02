@@ -13,7 +13,7 @@ void main() {
     //
     // Create a new user within the system
     //
-    //Future<User> createUser(User user) async 
+    //Future<User> createUser(User user) async
     test('test createUser', () async {
       List<User> users = List<User>();
       User user = User();
@@ -39,7 +39,7 @@ void main() {
     //
     // This can only be done by the logged in user.
     //
-    //Future deleteUser(int userId) async 
+    //Future deleteUser(int userId) async
     test('test deleteUser', () async {
       List<User> users = List<User>();
       User user1 = User();
@@ -65,7 +65,7 @@ void main() {
 
     // Get user by user id
     //
-    //Future<User> getUserById(int userId) async 
+    //Future<User> getUserById(int userId) async
     test('test getUserById', () async {
       apiClient.client = MockClient((request) async {
         User user = User();
@@ -83,7 +83,7 @@ void main() {
     //
     // This can only be done by the logged in user.
     //
-    //Future updateUser(int userId, User user) async 
+    //Future updateUser(int userId, User user) async
     test('test updateUser', () async {
       User user = User();
       User updatedUser = user;

@@ -21,48 +21,47 @@ class ScoreClassification {
     if (json['classifier'] == null) {
       classifier = null;
     } else {
-          classifier = json['classifier'];
+      classifier = json['classifier'];
     }
     if (json['score'] == null) {
       score = null;
     } else {
-          score = double.parse(json['score']);
+      score = double.parse(json['score']);
     }
     if (json['weight'] == null) {
       weight = null;
     } else {
-          weight = json['weight'];
+      weight = json['weight'];
     }
     if (json['confidence'] == null) {
       confidence = null;
     } else {
-          confidence = double.parse(json['confidence']);
+      confidence = double.parse(json['confidence']);
     }
   }
 
   Map<String, dynamic> toJson() {
-    Map <String, dynamic> json = {};
-    if (classifier != null)
-      json['classifier'] = classifier;
-    if (score != null)
-      json['score'] = score;
-    if (weight != null)
-      json['weight'] = weight;
-    if (confidence != null)
-      json['confidence'] = confidence;
+    Map<String, dynamic> json = {};
+    if (classifier != null) json['classifier'] = classifier;
+    if (score != null) json['score'] = score;
+    if (weight != null) json['weight'] = weight;
+    if (confidence != null) json['confidence'] = confidence;
     return json;
   }
 
   static List<ScoreClassification> listFromJson(List<dynamic> json) {
-    return json == null ? List<ScoreClassification>() : json.map((value) => ScoreClassification.fromJson(value)).toList();
+    return json == null
+        ? List<ScoreClassification>()
+        : json.map((value) => ScoreClassification.fromJson(value)).toList();
   }
 
-  static Map<String, ScoreClassification> mapFromJson(Map<String, dynamic> json) {
+  static Map<String, ScoreClassification> mapFromJson(
+      Map<String, dynamic> json) {
     var map = Map<String, ScoreClassification>();
     if (json != null && json.isNotEmpty) {
-      json.forEach((String key, dynamic value) => map[key] = ScoreClassification.fromJson(value));
+      json.forEach((String key, dynamic value) =>
+          map[key] = ScoreClassification.fromJson(value));
     }
     return map;
   }
 }
-

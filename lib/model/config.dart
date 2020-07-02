@@ -19,41 +19,40 @@ class Config {
     if (json['Country'] == null) {
       country = null;
     } else {
-          country = json['Country'];
+      country = json['Country'];
     }
     if (json['Region'] == null) {
       region = null;
     } else {
-          region = json['Region'];
+      region = json['Region'];
     }
     if (json['MQTTProxyHost'] == null) {
       mqttProxyHost = null;
     } else {
-          mqttProxyHost = json['MQTTProxyHost'];
+      mqttProxyHost = json['MQTTProxyHost'];
     }
   }
 
   Map<String, dynamic> toJson() {
-    Map <String, dynamic> json = {};
-    if (country != null)
-      json['Country'] = country;
-    if (region != null)
-      json['Region'] = region;
-    if (mqttProxyHost != null)
-      json['MQTTProxyHost'] = mqttProxyHost;
+    Map<String, dynamic> json = {};
+    if (country != null) json['Country'] = country;
+    if (region != null) json['Region'] = region;
+    if (mqttProxyHost != null) json['MQTTProxyHost'] = mqttProxyHost;
     return json;
   }
 
   static List<Config> listFromJson(List<dynamic> json) {
-    return json == null ? List<Config>() : json.map((value) => Config.fromJson(value)).toList();
+    return json == null
+        ? List<Config>()
+        : json.map((value) => Config.fromJson(value)).toList();
   }
 
   static Map<String, Config> mapFromJson(Map<String, dynamic> json) {
     var map = Map<String, Config>();
     if (json != null && json.isNotEmpty) {
-      json.forEach((String key, dynamic value) => map[key] = Config.fromJson(value));
+      json.forEach(
+          (String key, dynamic value) => map[key] = Config.fromJson(value));
     }
     return map;
   }
 }
-

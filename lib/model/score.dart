@@ -16,7 +16,7 @@ class Score {
   DateTime fromDate = null;
   /* End date of data to score */
   DateTime untilDate = null;
-  
+
   List<ScoreClassification> results = [];
   Score();
 
@@ -30,27 +30,27 @@ class Score {
     if (json['id'] == null) {
       id = null;
     } else {
-          id = json['id'];
+      id = json['id'];
     }
     if (json['score'] == null) {
       score = null;
     } else {
-          score = double.parse(json['score']);
+      score = double.parse(json['score']);
     }
     if (json['level'] == null) {
       level = null;
     } else {
-          level = json['level'];
+      level = json['level'];
     }
     if (json['num_journeys'] == null) {
       numJourneys = null;
     } else {
-          numJourneys = json['num_journeys'];
+      numJourneys = json['num_journeys'];
     }
     if (json['confidence'] == null) {
       confidence = null;
     } else {
-          confidence = double.parse(json['confidence']);
+      confidence = double.parse(json['confidence']);
     }
     if (json['fromDate'] == null) {
       fromDate = null;
@@ -70,36 +70,34 @@ class Score {
   }
 
   Map<String, dynamic> toJson() {
-    Map <String, dynamic> json = {};
-    if (id != null)
-      json['id'] = id;
-    if (score != null)
-      json['score'] = score;
-    if (level != null)
-      json['level'] = level;
-    if (numJourneys != null)
-      json['num_journeys'] = numJourneys;
-    if (confidence != null)
-      json['confidence'] = confidence;
+    Map<String, dynamic> json = {};
+    if (id != null) json['id'] = id;
+    if (score != null) json['score'] = score;
+    if (level != null) json['level'] = level;
+    if (numJourneys != null) json['num_journeys'] = numJourneys;
+    if (confidence != null) json['confidence'] = confidence;
     if (fromDate != null)
-      json['fromDate'] = fromDate == null ? null : fromDate.toUtc().toIso8601String();
+      json['fromDate'] =
+          fromDate == null ? null : fromDate.toUtc().toIso8601String();
     if (untilDate != null)
-      json['untilDate'] = untilDate == null ? null : untilDate.toUtc().toIso8601String();
-    if (results != null)
-      json['results'] = results;
+      json['untilDate'] =
+          untilDate == null ? null : untilDate.toUtc().toIso8601String();
+    if (results != null) json['results'] = results;
     return json;
   }
 
   static List<Score> listFromJson(List<dynamic> json) {
-    return json == null ? List<Score>() : json.map((value) => Score.fromJson(value)).toList();
+    return json == null
+        ? List<Score>()
+        : json.map((value) => Score.fromJson(value)).toList();
   }
 
   static Map<String, Score> mapFromJson(Map<String, dynamic> json) {
     var map = Map<String, Score>();
     if (json != null && json.isNotEmpty) {
-      json.forEach((String key, dynamic value) => map[key] = Score.fromJson(value));
+      json.forEach(
+          (String key, dynamic value) => map[key] = Score.fromJson(value));
     }
     return map;
   }
 }
-

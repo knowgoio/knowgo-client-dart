@@ -1,7 +1,5 @@
 part of openapi.api;
 
-
-
 class EventsApi {
   final ApiClient apiClient;
 
@@ -14,12 +12,12 @@ class EventsApi {
     Object postBody = event;
 
     // verify required params are set
-    if(event == null) {
-     throw ApiException(400, "Missing required param: event");
+    if (event == null) {
+      throw ApiException(400, "Missing required param: event");
     }
 
     // create path and map variables
-    String path = "/events".replaceAll("{format}","json");
+    String path = "/events".replaceAll("{format}", "json");
 
     // query params
     List<QueryParam> queryParams = [];
@@ -28,35 +26,29 @@ class EventsApi {
 
     List<String> contentTypes = ["application/json"];
 
-    String contentType = contentTypes.isNotEmpty ? contentTypes[0] : "application/json";
+    String contentType =
+        contentTypes.isNotEmpty ? contentTypes[0] : "application/json";
     List<String> authNames = ["app_id", "bearerAuth", "cookieAuth"];
 
-    if(contentType.startsWith("multipart/form-data")) {
+    if (contentType.startsWith("multipart/form-data")) {
       bool hasFields = false;
       MultipartRequest mp = MultipartRequest(null, null);
-      if(hasFields)
-        postBody = mp;
-    }
-    else {
-    }
+      if (hasFields) postBody = mp;
+    } else {}
 
-    var response = await apiClient.invokeAPI(path,
-                                             'POST',
-                                             queryParams,
-                                             postBody,
-                                             headerParams,
-                                             formParams,
-                                             contentType,
-                                             authNames);
+    var response = await apiClient.invokeAPI(path, 'POST', queryParams,
+        postBody, headerParams, formParams, contentType, authNames);
 
-    if(response.statusCode >= 400) {
+    if (response.statusCode >= 400) {
       throw ApiException(response.statusCode, _decodeBodyBytes(response));
-    } else if(response.body != null) {
-      return apiClient.deserialize(_decodeBodyBytes(response), 'Event') as Event;
+    } else if (response.body != null) {
+      return apiClient.deserialize(_decodeBodyBytes(response), 'Event')
+          as Event;
     } else {
       return null;
     }
   }
+
   /// Delete Event by ID
   ///
   /// For valid response try integer IDs with positive integer value. Negative or non-integer values will generate API errors
@@ -64,12 +56,14 @@ class EventsApi {
     Object postBody;
 
     // verify required params are set
-    if(eventId == null) {
-     throw ApiException(400, "Missing required param: eventId");
+    if (eventId == null) {
+      throw ApiException(400, "Missing required param: eventId");
     }
 
     // create path and map variables
-    String path = "/events/{eventId}".replaceAll("{format}","json").replaceAll("{" + "eventId" + "}", eventId.toString());
+    String path = "/events/{eventId}"
+        .replaceAll("{format}", "json")
+        .replaceAll("{" + "eventId" + "}", eventId.toString());
 
     // query params
     List<QueryParam> queryParams = [];
@@ -78,47 +72,42 @@ class EventsApi {
 
     List<String> contentTypes = [];
 
-    String contentType = contentTypes.isNotEmpty ? contentTypes[0] : "application/json";
+    String contentType =
+        contentTypes.isNotEmpty ? contentTypes[0] : "application/json";
     List<String> authNames = ["app_id", "bearerAuth", "cookieAuth"];
 
-    if(contentType.startsWith("multipart/form-data")) {
+    if (contentType.startsWith("multipart/form-data")) {
       bool hasFields = false;
       MultipartRequest mp = MultipartRequest(null, null);
-      if(hasFields)
-        postBody = mp;
-    }
-    else {
-    }
+      if (hasFields) postBody = mp;
+    } else {}
 
-    var response = await apiClient.invokeAPI(path,
-                                             'DELETE',
-                                             queryParams,
-                                             postBody,
-                                             headerParams,
-                                             formParams,
-                                             contentType,
-                                             authNames);
+    var response = await apiClient.invokeAPI(path, 'DELETE', queryParams,
+        postBody, headerParams, formParams, contentType, authNames);
 
-    if(response.statusCode >= 400) {
+    if (response.statusCode >= 400) {
       throw ApiException(response.statusCode, _decodeBodyBytes(response));
-    } else if(response.body != null) {
+    } else if (response.body != null) {
     } else {
       return;
     }
   }
+
   /// Find Event by ID
   ///
-  /// 
+  ///
   Future<Event> getEventById(int eventId) async {
     Object postBody;
 
     // verify required params are set
-    if(eventId == null) {
-     throw ApiException(400, "Missing required param: eventId");
+    if (eventId == null) {
+      throw ApiException(400, "Missing required param: eventId");
     }
 
     // create path and map variables
-    String path = "/events/{eventId}".replaceAll("{format}","json").replaceAll("{" + "eventId" + "}", eventId.toString());
+    String path = "/events/{eventId}"
+        .replaceAll("{format}", "json")
+        .replaceAll("{" + "eventId" + "}", eventId.toString());
 
     // query params
     List<QueryParam> queryParams = [];
@@ -127,51 +116,47 @@ class EventsApi {
 
     List<String> contentTypes = [];
 
-    String contentType = contentTypes.isNotEmpty ? contentTypes[0] : "application/json";
+    String contentType =
+        contentTypes.isNotEmpty ? contentTypes[0] : "application/json";
     List<String> authNames = ["app_id", "bearerAuth", "cookieAuth"];
 
-    if(contentType.startsWith("multipart/form-data")) {
+    if (contentType.startsWith("multipart/form-data")) {
       bool hasFields = false;
       MultipartRequest mp = MultipartRequest(null, null);
-      if(hasFields)
-        postBody = mp;
-    }
-    else {
-    }
+      if (hasFields) postBody = mp;
+    } else {}
 
-    var response = await apiClient.invokeAPI(path,
-                                             'GET',
-                                             queryParams,
-                                             postBody,
-                                             headerParams,
-                                             formParams,
-                                             contentType,
-                                             authNames);
+    var response = await apiClient.invokeAPI(path, 'GET', queryParams, postBody,
+        headerParams, formParams, contentType, authNames);
 
-    if(response.statusCode >= 400) {
+    if (response.statusCode >= 400) {
       throw ApiException(response.statusCode, _decodeBodyBytes(response));
-    } else if(response.body != null) {
-      return apiClient.deserialize(_decodeBodyBytes(response), 'Event') as Event;
+    } else if (response.body != null) {
+      return apiClient.deserialize(_decodeBodyBytes(response), 'Event')
+          as Event;
     } else {
       return null;
     }
   }
+
   /// Updates an Event with form data
   ///
-  /// 
+  ///
   Future updateEventWithForm(int eventId, Event event) async {
     Object postBody = event;
 
     // verify required params are set
-    if(eventId == null) {
-     throw ApiException(400, "Missing required param: eventId");
+    if (eventId == null) {
+      throw ApiException(400, "Missing required param: eventId");
     }
-    if(event == null) {
-     throw ApiException(400, "Missing required param: event");
+    if (event == null) {
+      throw ApiException(400, "Missing required param: event");
     }
 
     // create path and map variables
-    String path = "/events/{eventId}".replaceAll("{format}","json").replaceAll("{" + "eventId" + "}", eventId.toString());
+    String path = "/events/{eventId}"
+        .replaceAll("{format}", "json")
+        .replaceAll("{" + "eventId" + "}", eventId.toString());
 
     // query params
     List<QueryParam> queryParams = [];
@@ -180,30 +165,22 @@ class EventsApi {
 
     List<String> contentTypes = ["application/json"];
 
-    String contentType = contentTypes.isNotEmpty ? contentTypes[0] : "application/json";
+    String contentType =
+        contentTypes.isNotEmpty ? contentTypes[0] : "application/json";
     List<String> authNames = ["app_id", "bearerAuth", "cookieAuth"];
 
-    if(contentType.startsWith("multipart/form-data")) {
+    if (contentType.startsWith("multipart/form-data")) {
       bool hasFields = false;
       MultipartRequest mp = MultipartRequest(null, null);
-      if(hasFields)
-        postBody = mp;
-    }
-    else {
-    }
+      if (hasFields) postBody = mp;
+    } else {}
 
-    var response = await apiClient.invokeAPI(path,
-                                             'POST',
-                                             queryParams,
-                                             postBody,
-                                             headerParams,
-                                             formParams,
-                                             contentType,
-                                             authNames);
+    var response = await apiClient.invokeAPI(path, 'POST', queryParams,
+        postBody, headerParams, formParams, contentType, authNames);
 
-    if(response.statusCode >= 400) {
+    if (response.statusCode >= 400) {
       throw ApiException(response.statusCode, _decodeBodyBytes(response));
-    } else if(response.body != null) {
+    } else if (response.body != null) {
     } else {
       return;
     }

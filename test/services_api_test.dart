@@ -11,7 +11,7 @@ void main() {
   group('tests for ServicesApi', () {
     // Register a new KnowGo platform service
     //
-    //Future addService(ServiceDefinition serviceDefinition) async 
+    //Future addService(ServiceDefinition serviceDefinition) async
     test('test addService', () async {
       List<ServiceDefinition> services = List<ServiceDefinition>();
       ServiceDefinition service = ServiceDefinition();
@@ -34,7 +34,7 @@ void main() {
 
     // Lookup the service definition for a specific service
     //
-    //Future<ServiceDefinition> getServiceDefinition(String serviceName) async 
+    //Future<ServiceDefinition> getServiceDefinition(String serviceName) async
     test('test getServiceDefinition', () async {
       final serviceName = "knowgo-score";
 
@@ -52,10 +52,12 @@ void main() {
 
     // Return a list of available KnowGo platform services
     //
-    //Future<List<String>> listServices() async 
+    //Future<List<String>> listServices() async
     test('test listServices', () async {
       apiClient.client = MockClient((request) async {
-        List<String> services = [ "knowgo-score", ];
+        List<String> services = [
+          "knowgo-score",
+        ];
         return Response(json.encode(services), 200);
       });
       final instance = ServicesApi(apiClient);
@@ -66,7 +68,7 @@ void main() {
 
     // Deregister a KnowGo platform service
     //
-    //Future removeServiceDefinition(String serviceName) async 
+    //Future removeServiceDefinition(String serviceName) async
     test('test removeServiceDefinition', () async {
       List<ServiceDefinition> services = List<ServiceDefinition>();
       ServiceDefinition service1 = ServiceDefinition();
@@ -92,7 +94,7 @@ void main() {
 
     // Update the service definition for a specific service
     //
-    //Future updateServiceDefinition(String serviceName, ServiceDefinition serviceDefinition) async 
+    //Future updateServiceDefinition(String serviceName, ServiceDefinition serviceDefinition) async
     test('test updateServiceDefinition', () async {
       final oldServiceName = "old-service";
       final newServiceName = "new-service";

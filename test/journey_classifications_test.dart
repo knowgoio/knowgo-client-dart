@@ -20,8 +20,5 @@ void main() {
     test('to test the property `classificationName`', () async {
       // TODO
     });
-
-
   });
-
 }

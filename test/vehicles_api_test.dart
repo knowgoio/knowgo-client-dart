@@ -13,7 +13,7 @@ void main() {
     //
     // Adds a new Auto to the system. The AutoID as input is ignored, as it is dynamically allocated at insertion time. Auto details may be as complete or as incomplete as needed, with later updates possible via the PUT method. The complete new Auto record with allocated AutoID are returned upon successful record creation.
     //
-    //Future<Auto> addAuto(Auto auto) async 
+    //Future<Auto> addAuto(Auto auto) async
     test('test addAuto', () async {
       List<Auto> vehicles = List<Auto>();
       Auto auto = Auto(), updatedAuto;
@@ -38,7 +38,7 @@ void main() {
 
     // Deletes an Auto
     //
-    //Future deleteAuto(int autoId) async 
+    //Future deleteAuto(int autoId) async
     test('test deleteAuto', () async {
       List<Auto> vehicles = List<Auto>();
       Auto auto1 = Auto();
@@ -67,7 +67,7 @@ void main() {
     //
     // Returns a single auto
     //
-    //Future<Auto> getAutoById(int autoId) async 
+    //Future<Auto> getAutoById(int autoId) async
     test('test getAutoById', () async {
       List<Auto> vehicles = List<Auto>();
       Auto auto1 = Auto();
@@ -95,7 +95,7 @@ void main() {
     //
     // Given an authenticated user, return a list of vehicles that are available to them.
     //
-    //Future<List<Auto>> listVehicles() async 
+    //Future<List<Auto>> listVehicles() async
     test('test listVehicles', () async {
       apiClient.client = MockClient((request) async {
         List<Auto> vehicles = List<Auto>();
@@ -122,7 +122,7 @@ void main() {
     //
     // Given an authenticated user, return a list of vehicles that are available to them.
     //
-    //Future<List<Auto>> listVehiclesByUserId(int userId) async 
+    //Future<List<Auto>> listVehiclesByUserId(int userId) async
     test('test listVehiclesByUserId', () async {
       List<Auto> vehicles = List<Auto>();
       Auto auto1 = Auto();
@@ -142,7 +142,8 @@ void main() {
 
       apiClient.client = MockClient((request) async {
         final userId = int.parse(request.url.pathSegments.elementAt(3));
-        List<Auto> userAutos = vehicles.where((e) => e.driverID == userId).toList();
+        List<Auto> userAutos =
+            vehicles.where((e) => e.driverID == userId).toList();
         return Response(json.encode(userAutos), 200);
       });
 
@@ -158,7 +159,7 @@ void main() {
 
     // Update an existing auto
     //
-    //Future updateAuto(Auto auto) async 
+    //Future updateAuto(Auto auto) async
     test('test updateAuto', () async {
       Auto auto = Auto();
       Auto updatedAuto = auto;
@@ -181,7 +182,7 @@ void main() {
 
     // Updates an auto with form data
     //
-    //Future updateAutoWithForm(int autoId, Auto auto) async 
+    //Future updateAutoWithForm(int autoId, Auto auto) async
     test('test updateAutoWithForm', () async {
       Auto auto = Auto();
       Auto updatedAuto = auto;

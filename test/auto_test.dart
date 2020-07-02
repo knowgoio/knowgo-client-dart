@@ -107,8 +107,5 @@ void main() {
     test('to test the property `transmission`', () async {
       // TODO
     });
-
-
   });
-
 }

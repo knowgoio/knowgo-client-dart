@@ -4,7 +4,6 @@ import 'package:http/http.dart';
 import 'package:http/testing.dart';
 import 'package:test/test.dart';
 
-
 /// tests for ServerApi
 void main() {
   ApiClient apiClient = defaultApiClient;
@@ -12,7 +11,7 @@ void main() {
   group('tests for ServerApi', () {
     // Obtain configuration information about the current KnowGo instance
     //
-    //Future<Config> currentConfig() async 
+    //Future<Config> currentConfig() async
     test('test currentConfig', () async {
       apiClient.client = MockClient((request) async {
         Config config = Config();

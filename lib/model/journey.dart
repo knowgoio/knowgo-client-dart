@@ -1,25 +1,24 @@
 part of openapi.api;
 
 class Journey {
-  
   String journeyID = null;
-  
+
   int driverID = null;
-  
+
   int autoID = null;
-  
+
   String name = null;
-  
+
   List<String> journeyType = [];
-  
+
   DateTime journeyBegin = null;
-  
+
   DateTime journeyEnd = null;
-  
+
   double odometerBegin = null;
-  
+
   double odometerEnd = null;
-  
+
   List<Event> events = [];
   Journey();
 
@@ -40,22 +39,22 @@ class Journey {
     if (json['JourneyID'] == null) {
       journeyID = null;
     } else {
-          journeyID = json['JourneyID'];
+      journeyID = json['JourneyID'];
     }
     if (json['DriverID'] == null) {
       driverID = null;
     } else {
-          driverID = json['DriverID'];
+      driverID = json['DriverID'];
     }
     if (json['AutoID'] == null) {
       autoID = null;
     } else {
-          autoID = json['AutoID'];
+      autoID = json['AutoID'];
     }
     if (json['Name'] == null) {
       name = null;
     } else {
-          name = json['Name'];
+      name = json['Name'];
     }
     if (json['JourneyType'] == null) {
       journeyType = null;
@@ -75,12 +74,12 @@ class Journey {
     if (json['OdometerBegin'] == null) {
       odometerBegin = null;
     } else {
-          odometerBegin = json['OdometerBegin'].toDouble();
+      odometerBegin = json['OdometerBegin'].toDouble();
     }
     if (json['OdometerEnd'] == null) {
       odometerEnd = null;
     } else {
-          odometerEnd = json['OdometerEnd'].toDouble();
+      odometerEnd = json['OdometerEnd'].toDouble();
     }
     if (json['Events'] == null) {
       events = null;
@@ -90,40 +89,36 @@ class Journey {
   }
 
   Map<String, dynamic> toJson() {
-    Map <String, dynamic> json = {};
-    if (journeyID != null)
-      json['JourneyID'] = journeyID;
-    if (driverID != null)
-      json['DriverID'] = driverID;
-    if (autoID != null)
-      json['AutoID'] = autoID;
-    if (name != null)
-      json['Name'] = name;
-    if (journeyType != null)
-      json['JourneyType'] = journeyType;
+    Map<String, dynamic> json = {};
+    if (journeyID != null) json['JourneyID'] = journeyID;
+    if (driverID != null) json['DriverID'] = driverID;
+    if (autoID != null) json['AutoID'] = autoID;
+    if (name != null) json['Name'] = name;
+    if (journeyType != null) json['JourneyType'] = journeyType;
     if (journeyBegin != null)
-      json['JourneyBegin'] = journeyBegin == null ? null : journeyBegin.toUtc().toIso8601String();
+      json['JourneyBegin'] =
+          journeyBegin == null ? null : journeyBegin.toUtc().toIso8601String();
     if (journeyEnd != null)
-      json['JourneyEnd'] = journeyEnd == null ? null : journeyEnd.toUtc().toIso8601String();
-    if (odometerBegin != null)
-      json['OdometerBegin'] = odometerBegin;
-    if (odometerEnd != null)
-      json['OdometerEnd'] = odometerEnd;
-    if (events != null)
-      json['Events'] = events;
+      json['JourneyEnd'] =
+          journeyEnd == null ? null : journeyEnd.toUtc().toIso8601String();
+    if (odometerBegin != null) json['OdometerBegin'] = odometerBegin;
+    if (odometerEnd != null) json['OdometerEnd'] = odometerEnd;
+    if (events != null) json['Events'] = events;
     return json;
   }
 
   static List<Journey> listFromJson(List<dynamic> json) {
-    return json == null ? List<Journey>() : json.map((value) => Journey.fromJson(value)).toList();
+    return json == null
+        ? List<Journey>()
+        : json.map((value) => Journey.fromJson(value)).toList();
   }
 
   static Map<String, Journey> mapFromJson(Map<String, dynamic> json) {
     var map = Map<String, Journey>();
     if (json != null && json.isNotEmpty) {
-      json.forEach((String key, dynamic value) => map[key] = Journey.fromJson(value));
+      json.forEach(
+          (String key, dynamic value) => map[key] = Journey.fromJson(value));
     }
     return map;
   }
 }
-

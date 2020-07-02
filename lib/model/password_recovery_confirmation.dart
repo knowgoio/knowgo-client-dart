@@ -1,9 +1,8 @@
 part of openapi.api;
 
 class PasswordRecoveryConfirmation {
-  
   String newPassword = null;
-  
+
   String token = null;
   PasswordRecoveryConfirmation();
 
@@ -17,34 +16,37 @@ class PasswordRecoveryConfirmation {
     if (json['NewPassword'] == null) {
       newPassword = null;
     } else {
-          newPassword = json['NewPassword'];
+      newPassword = json['NewPassword'];
     }
     if (json['Token'] == null) {
       token = null;
     } else {
-          token = json['Token'];
+      token = json['Token'];
     }
   }
 
   Map<String, dynamic> toJson() {
-    Map <String, dynamic> json = {};
-    if (newPassword != null)
-      json['NewPassword'] = newPassword;
-    if (token != null)
-      json['Token'] = token;
+    Map<String, dynamic> json = {};
+    if (newPassword != null) json['NewPassword'] = newPassword;
+    if (token != null) json['Token'] = token;
     return json;
   }
 
   static List<PasswordRecoveryConfirmation> listFromJson(List<dynamic> json) {
-    return json == null ? List<PasswordRecoveryConfirmation>() : json.map((value) => PasswordRecoveryConfirmation.fromJson(value)).toList();
+    return json == null
+        ? List<PasswordRecoveryConfirmation>()
+        : json
+            .map((value) => PasswordRecoveryConfirmation.fromJson(value))
+            .toList();
   }
 
-  static Map<String, PasswordRecoveryConfirmation> mapFromJson(Map<String, dynamic> json) {
+  static Map<String, PasswordRecoveryConfirmation> mapFromJson(
+      Map<String, dynamic> json) {
     var map = Map<String, PasswordRecoveryConfirmation>();
     if (json != null && json.isNotEmpty) {
-      json.forEach((String key, dynamic value) => map[key] = PasswordRecoveryConfirmation.fromJson(value));
+      json.forEach((String key, dynamic value) =>
+          map[key] = PasswordRecoveryConfirmation.fromJson(value));
     }
     return map;
   }
 }
-

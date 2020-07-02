@@ -275,27 +275,17 @@ class ServiceDefinition {
   }
 
   Map<String, dynamic> toJson() {
-    Map <String, dynamic> json = {};
-    if (title != null)
-      json['Title'] = title;
-    if (serviceName != null)
-      json['ServiceName'] = serviceName;
-    if (description != null)
-      json['Description'] = description;
-    if (creationDate != null)
-      json['CreationDate'] = creationDate;
-    if (creationUser != null)
-      json['CreationUser'] = creationUser;
-    if (modificationDate != null)
-      json['ModificationDate'] = modificationDate;
-    if (modificationUser != null)
-      json['ModificationUser'] = modificationUser;
-    if (endpoints != null)
-      json['Endpoints'] = endpoints.toJson();
-    if (purposes != null)
-      json['Purposes'] = purposes.toJson();
-    if (config != null)
-      json['ServiceConfig'] = config.toJson();
+    Map<String, dynamic> json = {};
+    if (title != null) json['Title'] = title;
+    if (serviceName != null) json['ServiceName'] = serviceName;
+    if (description != null) json['Description'] = description;
+    if (creationDate != null) json['CreationDate'] = creationDate;
+    if (creationUser != null) json['CreationUser'] = creationUser;
+    if (modificationDate != null) json['ModificationDate'] = modificationDate;
+    if (modificationUser != null) json['ModificationUser'] = modificationUser;
+    if (endpoints != null) json['Endpoints'] = endpoints.toJson();
+    if (purposes != null) json['Purposes'] = purposes.toJson();
+    if (config != null) json['ServiceConfig'] = config.toJson();
 
     return json;
   }

@@ -1,9 +1,8 @@
 part of openapi.api;
 
 class BasicAuthCredentials {
-  
   String emailAddress = null;
-  
+
   String password = null;
   BasicAuthCredentials();
 
@@ -17,34 +16,35 @@ class BasicAuthCredentials {
     if (json['EmailAddress'] == null) {
       emailAddress = null;
     } else {
-          emailAddress = json['EmailAddress'];
+      emailAddress = json['EmailAddress'];
     }
     if (json['Password'] == null) {
       password = null;
     } else {
-          password = json['Password'];
+      password = json['Password'];
     }
   }
 
   Map<String, dynamic> toJson() {
-    Map <String, dynamic> json = {};
-    if (emailAddress != null)
-      json['EmailAddress'] = emailAddress;
-    if (password != null)
-      json['Password'] = password;
+    Map<String, dynamic> json = {};
+    if (emailAddress != null) json['EmailAddress'] = emailAddress;
+    if (password != null) json['Password'] = password;
     return json;
   }
 
   static List<BasicAuthCredentials> listFromJson(List<dynamic> json) {
-    return json == null ? List<BasicAuthCredentials>() : json.map((value) => BasicAuthCredentials.fromJson(value)).toList();
+    return json == null
+        ? List<BasicAuthCredentials>()
+        : json.map((value) => BasicAuthCredentials.fromJson(value)).toList();
   }
 
-  static Map<String, BasicAuthCredentials> mapFromJson(Map<String, dynamic> json) {
+  static Map<String, BasicAuthCredentials> mapFromJson(
+      Map<String, dynamic> json) {
     var map = Map<String, BasicAuthCredentials>();
     if (json != null && json.isNotEmpty) {
-      json.forEach((String key, dynamic value) => map[key] = BasicAuthCredentials.fromJson(value));
+      json.forEach((String key, dynamic value) =>
+          map[key] = BasicAuthCredentials.fromJson(value));
     }
     return map;
   }
 }
-

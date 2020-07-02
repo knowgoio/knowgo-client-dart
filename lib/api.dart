@@ -33,6 +33,6 @@ part 'model/score_classification.dart';
 part 'model/service_definition.dart';
 part 'model/user.dart';
 
-
 ApiClient defaultApiClient = ApiClient();
-ApiClient defaultScoreServiceApiClient = ApiClient(prefix: '/services/knowgo-score');
+ApiClient defaultScoreServiceApiClient =
+    ApiClient(prefix: '/services/knowgo-score');
