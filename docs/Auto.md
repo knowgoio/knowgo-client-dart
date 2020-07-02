@@ -19,7 +19,7 @@ Name | Type | Description | Notes
 **licensePlate** | **String** |  | [optional] [default to null]
 **registrationExpiry** | [**DateTime**](DateTime.md) |  | [optional] [default to null]
 **fuelCapacity** | **String** |  | [optional] [default to null]
-**odometer** | **int** |  | [optional] [default to null]
+**odometer** | **double** |  | [optional] [default to null]
 **policyID** | **String** |  | [optional] [default to null]
 **notes** | **String** | Optional field to enter owner notes about the vehicle | [optional] [default to null]
 **photoUrls** | **List&lt;String&gt;** |  | [optional] [default to []]

@@ -23,7 +23,7 @@ class Auto {
 
   String fuelCapacity = null;
 
-  int odometer = null;
+  double odometer = null;
 
   String policyID = null;
   /* Optional field to enter owner notes about the vehicle */
@@ -107,7 +107,7 @@ class Auto {
     if (json['Odometer'] == null) {
       odometer = null;
     } else {
-      odometer = json['Odometer'];
+      odometer = json['Odometer'].toDouble();
     }
     if (json['PolicyID'] == null) {
       policyID = null;
