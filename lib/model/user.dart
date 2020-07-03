@@ -17,11 +17,16 @@ class User {
   DateTime dateOfBirth = null;
 
   String phoneNumber = null;
+
+  String photoUrl = null;
+
+  String accountType = null;
+
   User();
 
   @override
   String toString() {
-    return 'User[personID=$personID, fullName=$fullName, emailAddress=$emailAddress, password=$password, preferredName=$preferredName, gender=$gender, dateOfBirth=$dateOfBirth, phoneNumber=$phoneNumber, ]';
+    return 'User[personID=$personID, fullName=$fullName, emailAddress=$emailAddress, password=$password, preferredName=$preferredName, gender=$gender, dateOfBirth=$dateOfBirth, phoneNumber=$phoneNumber, photoUrl=$photoUrl, accountType=$accountType]';
   }
 
   User.fromJson(Map<String, dynamic> json) {
@@ -66,6 +71,16 @@ class User {
     } else {
       phoneNumber = json['PhoneNumber'];
     }
+    if (json['PhotoUrl'] == null) {
+      photoUrl = null;
+    } else {
+      photoUrl = json['PhotoUrl'];
+    }
+    if (json['AccountType'] == null) {
+      accountType = null;
+    } else {
+      accountType = json['AccountType'];
+    }
   }
 
   Map<String, dynamic> toJson() {
@@ -77,9 +92,13 @@ class User {
     if (preferredName != null) json['PreferredName'] = preferredName;
     if (gender != null) json['Gender'] = gender;
     if (dateOfBirth != null)
-      json['DateOfBirth'] =
-          dateOfBirth == null ? null : dateOfBirth.toUtc().toIso8601String();
-    if (phoneNumber != null) json['PhoneNumber'] = phoneNumber;
+      json['DateOfBirth'] = dateOfBirth == null ? null : dateOfBirth.toUtc().toIso8601String();
+    if (phoneNumber != null)
+      json['PhoneNumber'] = phoneNumber;
+    if (photoUrl != null)
+      json['PhotoUrl'] = photoUrl;
+    if (accountType != null)
+      json['AccountType'] = accountType;
     return json;
   }
 

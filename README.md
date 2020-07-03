@@ -132,7 +132,7 @@ Class | Method | HTTP request | Description
 ## Documentation For Models
 
  - [Auto](docs//Auto.md)
- - [BasicAuthCredentials](docs//BasicAuthCredentials.md)
+ - [AuthCredentials](docs//AuthCredentials.md)
  - [Config](docs//Config.md)
  - [Event](docs//Event.md)
  - [Journey](docs//Journey.md)

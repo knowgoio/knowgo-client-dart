@@ -22,7 +22,7 @@ part 'api/users_api.dart';
 part 'api/vehicles_api.dart';
 
 part 'model/auto.dart';
-part 'model/basic_auth_credentials.dart';
+part 'model/auth_credentials.dart';
 part 'model/config.dart';
 part 'model/event.dart';
 part 'model/journey.dart';

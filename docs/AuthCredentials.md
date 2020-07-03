@@ -1,4 +1,4 @@
-# knowgo.model.BasicAuthCredentials
+# knowgo.model.AuthCredentials
 
 ## Load the model package
 ```dart
