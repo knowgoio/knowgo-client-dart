@@ -2,7 +2,6 @@ part of knowgo.api;
 
 class UsersApi {
   final ApiClient apiClient;
-  final RefreshTimer refreshTimer = RefreshTimer();
 
   UsersApi([ApiClient apiClient]) : apiClient = apiClient ?? defaultApiClient;
 

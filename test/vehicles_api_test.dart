@@ -141,7 +141,7 @@ void main() {
       vehicles.add(auto3);
 
       apiClient.client = MockClient((request) async {
-        final userId = int.parse(request.url.pathSegments.elementAt(3));
+        final userId = int.parse(request.url.pathSegments.elementAt(2));
         List<Auto> userAutos =
             vehicles.where((e) => e.driverID == userId).toList();
         return Response(json.encode(userAutos), 200);
