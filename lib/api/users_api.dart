@@ -466,7 +466,10 @@ class UsersApi {
   }
 
   /// Logs user into the system and returns an authentication token.
-  Future<String> loginUser({ String username, String password, AuthCredentials authCredentials }) async {
+  Future<String> loginUser(
+      {String username,
+      String password,
+      AuthCredentials authCredentials}) async {
     Object postBody = authCredentials;
 
     // verify required params are set
@@ -558,7 +561,7 @@ class UsersApi {
     // verify required params are set
 
     // create path and map variables
-    String path = "/users/refresh".replaceAll("{format}","json");
+    String path = "/users/refresh".replaceAll("{format}", "json");
 
     // query params
     List<QueryParam> queryParams = [];
@@ -567,7 +570,8 @@ class UsersApi {
 
     List<String> contentTypes = [];
 
-    String contentType = contentTypes.isNotEmpty ? contentTypes[0] : "application/json";
+    String contentType =
+        contentTypes.isNotEmpty ? contentTypes[0] : "application/json";
     List<String> authNames = ["app_id", "bearerAuth", "cookieAuth"];
 
     if (contentType.startsWith("multipart/form-data")) {
@@ -576,14 +580,8 @@ class UsersApi {
       if (hasFields) postBody = mp;
     } else {}
 
-    var response = await apiClient.invokeAPI(path,
-                                             'GET',
-                                             queryParams,
-                                             postBody,
-                                             headerParams,
-                                             formParams,
-                                             contentType,
-                                             authNames);
+    var response = await apiClient.invokeAPI(path, 'GET', queryParams, postBody,
+        headerParams, formParams, contentType, authNames);
 
     if (response.statusCode >= 400) {
       throw ApiException(response.statusCode, _decodeBodyBytes(response));
@@ -600,15 +598,17 @@ class UsersApi {
     Object postBody = user;
 
     // verify required params are set
-    if(userId == null) {
-     throw ApiException(400, "Missing required param: userId");
+    if (userId == null) {
+      throw ApiException(400, "Missing required param: userId");
     }
-    if(user == null) {
-     throw ApiException(400, "Missing required param: user");
+    if (user == null) {
+      throw ApiException(400, "Missing required param: user");
     }
 
     // create path and map variables
-    String path = "/users/{userId}".replaceAll("{format}","json").replaceAll("{" + "userId" + "}", userId.toString());
+    String path = "/users/{userId}"
+        .replaceAll("{format}", "json")
+        .replaceAll("{" + "userId" + "}", userId.toString());
 
     // query params
     List<QueryParam> queryParams = [];
@@ -627,14 +627,8 @@ class UsersApi {
       if (hasFields) postBody = mp;
     } else {}
 
-    var response = await apiClient.invokeAPI(path,
-                                             'PUT',
-                                             queryParams,
-                                             postBody,
-                                             headerParams,
-                                             formParams,
-                                             contentType,
-                                             authNames);
+    var response = await apiClient.invokeAPI(path, 'PUT', queryParams, postBody,
+        headerParams, formParams, contentType, authNames);
 
     if (response.statusCode >= 400) {
       throw ApiException(response.statusCode, _decodeBodyBytes(response));
@@ -649,25 +643,26 @@ class UsersApi {
     Object postBody = body;
 
     // verify required params are set
-    if(email == null && body == null) {
-     throw ApiException(400, "Missing required param: one of email or body");
+    if (email == null && body == null) {
+      throw ApiException(400, "Missing required param: one of email or body");
     }
 
     // create path and map variables
-    String path = "/users/password/recover".replaceAll("{format}","json");
+    String path = "/users/password/recover".replaceAll("{format}", "json");
 
     // query params
     List<QueryParam> queryParams = [];
     Map<String, String> headerParams = {};
     Map<String, String> formParams = {};
     if (email != null) {
-      queryParams.addAll(
-          _convertParametersForCollectionFormat("", "email", email));
+      queryParams
+          .addAll(_convertParametersForCollectionFormat("", "email", email));
     }
 
     List<String> contentTypes = ["application/json"];
 
-    String contentType = contentTypes.isNotEmpty ? contentTypes[0] : "application/json";
+    String contentType =
+        contentTypes.isNotEmpty ? contentTypes[0] : "application/json";
     List<String> authNames = [];
 
     if (contentType.startsWith("multipart/form-data")) {
@@ -676,14 +671,8 @@ class UsersApi {
       if (hasFields) postBody = mp;
     } else {}
 
-    var response = await apiClient.invokeAPI(path,
-                                             'POST',
-                                             queryParams,
-                                             postBody,
-                                             headerParams,
-                                             formParams,
-                                             contentType,
-                                             authNames);
+    var response = await apiClient.invokeAPI(path, 'POST', queryParams,
+        postBody, headerParams, formParams, contentType, authNames);
 
     if (response.statusCode >= 400) {
       throw ApiException(response.statusCode, _decodeBodyBytes(response));

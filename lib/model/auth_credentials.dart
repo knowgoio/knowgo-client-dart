@@ -1,9 +1,8 @@
 part of knowgo.api;
 
 class AuthCredentials {
-  
   String emailAddress = null;
-  
+
   String password = null;
 
   String accountType = null;
@@ -22,12 +21,12 @@ class AuthCredentials {
     if (json['EmailAddress'] == null) {
       emailAddress = null;
     } else {
-          emailAddress = json['EmailAddress'];
+      emailAddress = json['EmailAddress'];
     }
     if (json['Password'] == null) {
       password = null;
     } else {
-          password = json['Password'];
+      password = json['Password'];
     }
     if (json['AccountType'] == null) {
       accountType = null;
@@ -42,7 +41,7 @@ class AuthCredentials {
   }
 
   Map<String, dynamic> toJson() {
-    Map <String, dynamic> json = {};
+    Map<String, dynamic> json = {};
     if (emailAddress != null) {
       json['EmailAddress'] = emailAddress;
     }
@@ -59,15 +58,17 @@ class AuthCredentials {
   }
 
   static List<AuthCredentials> listFromJson(List<dynamic> json) {
-    return json == null ? List<AuthCredentials>() : json.map((value) => AuthCredentials.fromJson(value)).toList();
+    return json == null
+        ? List<AuthCredentials>()
+        : json.map((value) => AuthCredentials.fromJson(value)).toList();
   }
 
   static Map<String, AuthCredentials> mapFromJson(Map<String, dynamic> json) {
     var map = Map<String, AuthCredentials>();
     if (json != null && json.isNotEmpty) {
-      json.forEach((String key, dynamic value) => map[key] = AuthCredentials.fromJson(value));
+      json.forEach((String key, dynamic value) =>
+          map[key] = AuthCredentials.fromJson(value));
     }
     return map;
   }
 }
-

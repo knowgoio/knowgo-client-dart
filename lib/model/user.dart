@@ -92,13 +92,11 @@ class User {
     if (preferredName != null) json['PreferredName'] = preferredName;
     if (gender != null) json['Gender'] = gender;
     if (dateOfBirth != null)
-      json['DateOfBirth'] = dateOfBirth == null ? null : dateOfBirth.toUtc().toIso8601String();
-    if (phoneNumber != null)
-      json['PhoneNumber'] = phoneNumber;
-    if (photoUrl != null)
-      json['PhotoUrl'] = photoUrl;
-    if (accountType != null)
-      json['AccountType'] = accountType;
+      json['DateOfBirth'] =
+          dateOfBirth == null ? null : dateOfBirth.toUtc().toIso8601String();
+    if (phoneNumber != null) json['PhoneNumber'] = phoneNumber;
+    if (photoUrl != null) json['PhotoUrl'] = photoUrl;
+    if (accountType != null) json['AccountType'] = accountType;
     return json;
   }
 
