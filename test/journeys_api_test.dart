@@ -1,9 +1,12 @@
+import 'dart:convert';
+import 'package:http/http.dart';
+import 'package:http/testing.dart';
 import 'package:knowgo/api.dart';
 import 'package:test/test.dart';
 
 /// tests for JourneysApi
 void main() {
-  var instance = JourneysApi();
+  ApiClient apiClient = defaultApiClient;
 
   group('tests for JourneysApi', () {
     // Add a new Journey classification for a specific Journey
@@ -19,14 +22,52 @@ void main() {
     //
     //Future<Journey> addJourney(Journey journey) async
     test('test addJourney', () async {
-      // TODO
+      var journeys = List<Journey>();
+      var journey = Journey();
+
+      journey.autoID = 1;
+
+      apiClient.client = MockClient((request) async {
+        final parsed = json.decode(request.body);
+        final newJourney = Journey.fromJson(parsed);
+        newJourney.driverID = 1;
+        journeys.add(newJourney);
+        return Response(json.encode(newJourney), 201);
+      });
+
+      var instance = JourneysApi(apiClient);
+      final result = await instance.addJourney(journey);
+
+      expect(journeys.isNotEmpty, true);
+      expect(result.autoID, 1);
+      expect(result.driverID, 1);
     });
 
     // Create a Journey classification
     //
     //Future<JourneyClassifications> createJourneyClassification(JourneyClassifications journeyClassifications) async
     test('test createJourneyClassification', () async {
-      // TODO
+      var classifications = List<JourneyClassifications>();
+      var classification = JourneyClassifications();
+
+      classification.classificationName = "work";
+      classification.driverID = 1;
+
+      apiClient.client = MockClient((request) async {
+        final parsed = json.decode(request.body);
+        final newClassification = JourneyClassifications.fromJson(parsed);
+        newClassification.classificationID = 1;
+        classifications.add(newClassification);
+        return Response(json.encode(newClassification), 201);
+      });
+
+      var instance = JourneysApi(apiClient);
+      final result = await instance.createJourneyClassification(classification);
+
+      expect(classifications.isNotEmpty, true);
+      expect(result.classificationID, 1);
+      expect(result.classificationName, "work");
+      expect(result.driverID, 1);
     });
 
     // Delete Journey by ID
@@ -35,28 +76,105 @@ void main() {
     //
     //Future deleteJourney(String journeyId) async
     test('test deleteJourney', () async {
-      // TODO
+      var journeys = List<Journey>();
+      var journey1 = Journey();
+      var journey2 = Journey();
+
+      journey1.journeyID = "1";
+      journey2.journeyID = "2";
+
+      journeys.add(journey1);
+      journeys.add(journey2);
+
+      apiClient.client = MockClient((request) async {
+        final journeyId = request.url.pathSegments.last;
+        journeys.removeWhere((j) => j.journeyID == journeyId);
+        return Response("OK", 200);
+      });
+
+      final instance = JourneysApi(apiClient);
+      await instance.deleteJourney("1");
+
+      expect(journeys.where((j) => j.journeyID == "1").isEmpty, true);
+      expect(journeys.where((j) => j.journeyID == "2").isEmpty, false);
     });
 
     // Delete specified Journey classification
     //
     //Future deleteJourneyClassification(int classificationId) async
     test('test deleteJourneyClassification', () async {
-      // TODO
+      var classifications = List<JourneyClassifications>();
+      var classification1 = JourneyClassifications();
+      var classification2 = JourneyClassifications();
+
+      classification1.classificationID = 1;
+      classification1.classificationName = "work";
+      classification2.classificationID = 2;
+      classification2.classificationName = "private";
+
+      classifications
+        ..add(classification1)
+        ..add(classification2);
+
+      apiClient.client = MockClient((request) async {
+        final classificationId = int.parse(request.url.pathSegments.last);
+        classifications.removeWhere((j) => j.classificationID == classificationId);
+        return Response("OK", 200);
+      });
+
+      final instance = JourneysApi(apiClient);
+      await instance.deleteJourneyClassification(1);
+
+      expect(classifications.where((j) => j.classificationID == 1).isEmpty, true);
+      expect(classifications.where((j) => j.classificationID == 2).isEmpty, false);
     });
 
     // Find journey by ID
     //
     //Future<Journey> getJourneyById(String journeyId) async
     test('test getJourneyById', () async {
-      // TODO
+      apiClient.client = MockClient((request) async {
+        var journey = Journey();
+        journey.journeyID = "1";
+        journey.driverID = 1;
+        journey.autoID = 123;
+        return Response(json.encode(journey), 200);
+      });
+      final instance = JourneysApi();
+      final journey = await instance.getJourneyById("1");
+      expect(journey.journeyID, "1");
+      expect(journey.driverID, 1);
+      expect(journey.autoID, 123);
     });
 
     // Get Journey classification by classification id
     //
     //Future<JourneyClassifications> getJourneyClassificationById(int classificationId) async
     test('test getJourneyClassificationById', () async {
-      // TODO
+      var classifications = List<JourneyClassifications>();
+      var classification1 = JourneyClassifications();
+      var classification2 = JourneyClassifications();
+
+      classification1.classificationID = 1;
+      classification1.classificationName = "work";
+      classification2.classificationID = 2;
+      classification2.classificationName = "private";
+
+      classifications
+        ..add(classification1)
+        ..add(classification2);
+
+      apiClient.client = MockClient((request) async {
+        final classificationId = int.parse(request.url.pathSegments.last);
+        final classification = classifications.singleWhere((j) => j.classificationID == classificationId);
+        return Response(json.encode(classification), 200);
+      });
+
+      final instance = JourneysApi(apiClient);
+      final result = await instance.getJourneyClassificationById(1);
+
+      expect(result.classificationID, 1);
+      expect(result.classificationName, "work");
     });
 
     // Return a list of Journey classifications available for a specific user
@@ -65,7 +183,28 @@ void main() {
     //
     //Future<List<JourneyClassifications>> listJourneyClassifications() async
     test('test listJourneyClassifications', () async {
-      // TODO
+      apiClient.client = MockClient((request) async {
+        var classifications = List<JourneyClassifications>();
+        var classification1 = JourneyClassifications();
+        var classification2 = JourneyClassifications();
+
+        classification1.classificationID = 1;
+        classification1.classificationName = "work";
+
+        classification2.classificationID = 2;
+        classification2.classificationName = "private";
+
+        classifications.add(classification1);
+        classifications.add(classification2);
+
+        return Response(json.encode(classifications), 200);
+      });
+      final instance = JourneysApi(apiClient);
+      final classifications = await instance.listJourneyClassifications();
+
+      expect(classifications.length, 2);
+      expect(classifications.first.classificationID, 1);
+      expect(classifications.last.classificationName, "private");
     });
 
     // Return a list of Journey classifications for a specific Journey
@@ -83,7 +222,25 @@ void main() {
     //
     //Future<List<Journey>> listJourneys() async
     test('test listJourneys', () async {
-      // TODO
+      apiClient.client = MockClient((request) async {
+        var journeys = List<Journey>();
+        var journey1 = Journey();
+        var journey2 = Journey();
+
+        journey1.journeyID = "1";
+        journey2.journeyID = "2";
+
+        journeys.add(journey1);
+        journeys.add(journey2);
+
+        return Response(json.encode(journeys), 200);
+      });
+      final instance = JourneysApi(apiClient);
+      final journeys = await instance.listJourneys();
+
+      expect(journeys.length, 2);
+      expect(journeys.elementAt(0).journeyID, "1");
+      expect(journeys.elementAt(1).journeyID, "2");
     });
 
     // Return a list of journeys available for a specific user
@@ -92,7 +249,39 @@ void main() {
     //
     //Future<List<Journey>> listJourneysByUserId(int userId) async
     test('test listJourneysByUserId', () async {
-      // TODO
+      apiClient.client = MockClient((request) async {
+        var userId = int.parse(request.url.pathSegments.elementAt(2));
+        var journeys = List<Journey>();
+        var journey1 = Journey();
+        var journey2 = Journey();
+        var journey3 = Journey();
+
+        journey1.journeyID = "1";
+        journey1.driverID = 1;
+
+        journey2.journeyID = "2";
+        journey2.driverID = 2;
+
+        journey3.journeyID = "3";
+        journey3.driverID = 2;
+
+        journeys.add(journey1);
+        journeys.add(journey2);
+        journeys.add(journey3);
+
+        // Extract a sublist of journeys that match the supplied userId
+        final userJourneys = journeys.where((j) => j.driverID == userId).toList();
+
+        return Response(json.encode(userJourneys), 200);
+      });
+      final instance = JourneysApi(apiClient);
+      final journeys = await instance.listJourneysByUserId(2);
+
+      expect(journeys.length, 2);
+      expect(journeys.elementAt(0).journeyID, "2");
+      expect(journeys.elementAt(0).driverID, 2);
+      expect(journeys.elementAt(1).journeyID, "3");
+      expect(journeys.elementAt(1).driverID, 2);
     });
 
     // Remove a specific classification from a Journey
@@ -106,14 +295,50 @@ void main() {
     //
     //Future updateJourneyClassificationById(int classificationId, JourneyClassifications journeyClassifications) async
     test('test updateJourneyClassificationById', () async {
-      // TODO
+      var classification = JourneyClassifications();
+      var updatedClassification = classification;
+
+      classification.classificationID = 1;
+      classification.classificationName = "work";
+      updatedClassification.classificationName = "private";
+
+      apiClient.client = MockClient((request) async {
+        final parsed = json.decode(request.body);
+        var updated = JourneyClassifications.fromJson(parsed);
+        classification = updated;
+        return Response("OK", 200);
+      });
+
+      final instance = JourneysApi(apiClient);
+      await instance.updateJourneyClassificationById(1, updatedClassification);
+
+      expect(classification.classificationName, updatedClassification.classificationName);
     });
 
     // Updates a Journey with form data
     //
     //Future updateJourneyWithForm(String journeyId, Journey journey) async
     test('test updateJourneyWithForm', () async {
-      // TODO
+      var journey = Journey();
+      var updatedJourney = journey;
+
+      journey.journeyID = "1";
+      journey.driverID = 1;
+      journey.autoID = 123;
+      updatedJourney.driverID = 2;
+
+      apiClient.client = MockClient((request) async {
+        final parsed = json.decode(request.body);
+        var updated = Journey.fromJson(parsed);
+        journey = updated;
+        return Response("OK", 200);
+      });
+
+      final instance = JourneysApi(apiClient);
+      await instance.updateJourneyWithForm("1", updatedJourney);
+
+      expect(journey.driverID, 2);
+      expect(journey.autoID, 123);
     });
   });
 }

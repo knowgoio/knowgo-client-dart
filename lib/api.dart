@@ -2,7 +2,6 @@ library knowgo.api;
 
 import 'dart:async';
 import 'dart:convert';
-import 'dart:io';
 import 'package:http/http.dart';
 part 'api_client.dart';
 part 'api_helper.dart';
