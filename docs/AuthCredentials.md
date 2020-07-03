@@ -1,4 +1,4 @@
-# openapi.model.BasicAuthCredentials
+# openapi.model.AuthCredentials
 
 ## Load the model package
 ```dart

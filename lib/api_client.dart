@@ -19,7 +19,7 @@ class ApiClient {
   final _regList = RegExp(r'^List<(.*)>$');
   final _regMap = RegExp(r'^Map<String,(.*)>$');
 
-  ApiClient({this.basePath = "https://api.knowgo.io/payd/v1", this.prefix = ''}) {
+  ApiClient({this.basePath = "https://api.knowgo.io", this.prefix = '/v1'}) {
     // Setup authentications (key: authentication name, value: authentication).
     _authentications['app_id'] = ApiKeyAuth("header", "X-API-Key");
     _authentications['bearerAuth'] = HttpBasicAuth();
@@ -47,8 +47,8 @@ class ApiClient {
           return value is double ? value : double.parse('$value');
         case 'Auto':
           return Auto.fromJson(value);
-        case 'BasicAuthCredentials':
-          return BasicAuthCredentials.fromJson(value);
+        case 'AuthCredentials':
+          return AuthCredentials.fromJson(value);
         case 'Config':
           return Config.fromJson(value);
         case 'Event':

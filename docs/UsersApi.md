@@ -5,7 +5,7 @@
 import 'package:openapi/api.dart';
 ```
 
-All URIs are relative to *https://api.adaptant.io/payd/v1*
+All URIs are relative to *https://api.adaptant.io/v1*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -540,7 +540,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **loginUser**
-> String loginUser(username, password, basicAuthCredentials)
+> String loginUser(username, password, authCredentials)
 
 Logs user into the system and returns an authentication token.
 
@@ -551,10 +551,10 @@ import 'package:openapi/api.dart';
 var api_instance = UsersApi();
 var username = username_example; // String | The user's username or email address for login
 var password = password_example; // String | The password for login in clear text
-var basicAuthCredentials = BasicAuthCredentials(); // BasicAuthCredentials | Basic Auth credentials for user authentication
+var authCredentials = AuthCredentials(); // AuthCredentials | Basic Auth credentials for user authentication
 
 try { 
-    var result = api_instance.loginUser(username, password, basicAuthCredentials);
+    var result = api_instance.loginUser(username, password, authCredentials);
     print(result);
 } catch (e) {
     print("Exception when calling UsersApi->loginUser: $e\n");
@@ -567,7 +567,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **username** | **String**| The user&#39;s username or email address for login | [optional] [default to null]
  **password** | **String**| The password for login in clear text | [optional] [default to null]
- **basicAuthCredentials** | [**BasicAuthCredentials**](BasicAuthCredentials.md)| Basic Auth credentials for user authentication | [optional] 
+ **authCredentials** | [**AuthCredentials**](AuthCredentials.md)| Basic Auth credentials for user authentication | [optional] 
 
 ### Return type
 

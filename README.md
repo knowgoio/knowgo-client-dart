@@ -70,7 +70,7 @@ try {
 
 ## Documentation for API Endpoints
 
-All URIs are relative to *https://api.adaptant.io/payd/v1*
+All URIs are relative to *https://api.adaptant.io/v1*
 
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
@@ -132,7 +132,7 @@ Class | Method | HTTP request | Description
 ## Documentation For Models
 
  - [Auto](docs//Auto.md)
- - [BasicAuthCredentials](docs//BasicAuthCredentials.md)
+ - [AuthCredentials](docs//AuthCredentials.md)
  - [Config](docs//Config.md)
  - [Event](docs//Event.md)
  - [Journey](docs//Journey.md)
