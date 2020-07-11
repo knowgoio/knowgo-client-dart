@@ -98,10 +98,10 @@ class Event {
       eventStr += 'torqueAtTransmission=$torqueAtTransmission, ';
     }
     if (engineSpeed != null) {
-      eventStr += 'engineSpeed=$engineSpeed, ';
+      eventStr += 'engineSpeed=${engineSpeed.toStringAsFixed(2)}, ';
     }
     if (vehicleSpeed != null) {
-      eventStr += 'vehicleSpeed=$vehicleSpeed, ';
+      eventStr += 'vehicleSpeed=${vehicleSpeed.toStringAsFixed(2)}, ';
     }
     if (acceleratorPedalPosition != null) {
       eventStr += 'acceleratorPedalPosition=$acceleratorPedalPosition, ';
@@ -119,16 +119,16 @@ class Event {
       eventStr += 'gearLeverPosition=$gearLeverPosition, ';
     }
     if (odometer != null) {
-      eventStr += 'odometer=$odometer, ';
+      eventStr += 'odometer=${odometer.toStringAsFixed(2)}, ';
     }
     if (ignitionStatus != null) {
       eventStr += 'ignitionStatus=$ignitionStatus, ';
     }
     if (fuelLevel != null) {
-      eventStr += 'fuelLevel=$fuelLevel, ';
+      eventStr += 'fuelLevel=${fuelLevel.toStringAsFixed(2)}, ';
     }
     if (fuelConsumedSinceRestart != null) {
-      eventStr += 'fuelConsumedSinceRestart=$fuelConsumedSinceRestart, ';
+      eventStr += 'fuelConsumedSinceRestart=${fuelConsumedSinceRestart.toStringAsFixed(2)}, ';
     }
     if (doorStatus != null) {
       eventStr += 'doorStatus=$doorStatus, ';
@@ -143,10 +143,10 @@ class Event {
       eventStr += 'windshieldWiperStatus=$windshieldWiperStatus, ';
     }
     if (latitude != null) {
-      eventStr += 'latitude=$latitude, ';
+      eventStr += 'latitude=${latitude.toStringAsFixed(6)}, ';
     }
     if (longitude != null) {
-      eventStr += 'longitude=$longitude, ';
+      eventStr += 'longitude=${longitude.toStringAsFixed(6)}, ';
     }
     if (bearing != null) {
       eventStr += 'bearing=$bearing, ';
