@@ -95,7 +95,7 @@ class Event {
       eventStr += 'steeringWheelAngle=$steeringWheelAngle, ';
     }
     if (torqueAtTransmission != null) {
-      eventStr += 'torqueAtTransmission=$torqueAtTransmission, ';
+      eventStr += 'torqueAtTransmission=${torqueAtTransmission.toStringAsFixed(2)}, ';
     }
     if (engineSpeed != null) {
       eventStr += 'engineSpeed=${engineSpeed.toStringAsFixed(2)}, ';
