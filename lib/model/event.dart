@@ -77,7 +77,108 @@ class Event {
 
   @override
   String toString() {
-    return 'Event[eventID=$eventID, journeyID=$journeyID, autoID=$autoID, eventCategoryID=$eventCategoryID, steeringWheelAngle=$steeringWheelAngle, torqueAtTransmission=$torqueAtTransmission, engineSpeed=$engineSpeed, vehicleSpeed=$vehicleSpeed, acceleratorPedalPosition=$acceleratorPedalPosition, parkingBrakeStatus=$parkingBrakeStatus, brakePedalStatus=$brakePedalStatus, transmissionGearPosition=$transmissionGearPosition, gearLeverPosition=$gearLeverPosition, odometer=$odometer, ignitionStatus=$ignitionStatus, fuelLevel=$fuelLevel, fuelConsumedSinceRestart=$fuelConsumedSinceRestart, doorStatus=$doorStatus, headlampStatus=$headlampStatus, highBeamStatus=$highBeamStatus, windshieldWiperStatus=$windshieldWiperStatus, latitude=$latitude, longitude=$longitude, bearing=$bearing, accuracy=$accuracy, timestamp=$timestamp, accelX=$accelX, accelY=$accelY, accelZ=$accelZ, gyroX=$gyroX, gyroY=$gyroY, gyroZ=$gyroZ, ]';
+    var eventStr = 'Event[';
+
+    if (eventID != null) {
+      eventStr += 'eventID=$eventID, ';
+    }
+    if (journeyID != null) {
+      eventStr += 'journeyID=$journeyID, ';
+    }
+    if (autoID != null) {
+      eventStr += 'autoID=$autoID, ';
+    }
+    if (eventCategoryID != null) {
+      eventStr += 'eventCategoryID=$eventCategoryID, ';
+    }
+    if (steeringWheelAngle != null) {
+      eventStr += 'steeringWheelAngle=$steeringWheelAngle, ';
+    }
+    if (torqueAtTransmission != null) {
+      eventStr += 'torqueAtTransmission=$torqueAtTransmission, ';
+    }
+    if (engineSpeed != null) {
+      eventStr += 'engineSpeed=$engineSpeed, ';
+    }
+    if (vehicleSpeed != null) {
+      eventStr += 'vehicleSpeed=$vehicleSpeed, ';
+    }
+    if (acceleratorPedalPosition != null) {
+      eventStr += 'acceleratorPedalPosition=$acceleratorPedalPosition, ';
+    }
+    if (parkingBrakeStatus != null) {
+      eventStr += 'parkingBrakeStatus=$parkingBrakeStatus, ';
+    }
+    if (brakePedalStatus != null) {
+      eventStr += 'brakePedalStatus=$brakePedalStatus, ';
+    }
+    if (transmissionGearPosition != null) {
+      eventStr += 'transmissionGearPosition=$transmissionGearPosition, ';
+    }
+    if (gearLeverPosition != null) {
+      eventStr += 'gearLeverPosition=$gearLeverPosition, ';
+    }
+    if (odometer != null) {
+      eventStr += 'odometer=$odometer, ';
+    }
+    if (ignitionStatus != null) {
+      eventStr += 'ignitionStatus=$ignitionStatus, ';
+    }
+    if (fuelLevel != null) {
+      eventStr += 'fuelLevel=$fuelLevel, ';
+    }
+    if (fuelConsumedSinceRestart != null) {
+      eventStr += 'fuelConsumedSinceRestart=$fuelConsumedSinceRestart, ';
+    }
+    if (doorStatus != null) {
+      eventStr += 'doorStatus=$doorStatus, ';
+    }
+    if (headlampStatus != null) {
+      eventStr += 'headlampStatus=$headlampStatus, ';
+    }
+    if (highBeamStatus != null) {
+      eventStr += 'highBeamStatus=$highBeamStatus, ';
+    }
+    if (windshieldWiperStatus != null) {
+      eventStr += 'windshieldWiperStatus=$windshieldWiperStatus, ';
+    }
+    if (latitude != null) {
+      eventStr += 'latitude=$latitude, ';
+    }
+    if (longitude != null) {
+      eventStr += 'longitude=$longitude, ';
+    }
+    if (bearing != null) {
+      eventStr += 'bearing=$bearing, ';
+    }
+    if (accuracy != null) {
+      eventStr += 'accuracy=$accuracy, ';
+    }
+    if (timestamp != null) {
+      eventStr += 'timestamp=$timestamp, ';
+    }
+    if (accelX != null) {
+      eventStr += 'accelX=$accelX, ';
+    }
+    if (accelY != null) {
+      eventStr += 'accelY=$accelY, ';
+    }
+    if (accelZ != null) {
+      eventStr += 'accelZ=$accelZ, ';
+    }
+    if (gyroX != null) {
+      eventStr += 'gyroX=$gyroX, ';
+    }
+    if (gyroY != null) {
+      eventStr += 'gyroY=$gyroY, ';
+    }
+    if (gyroZ != null) {
+      eventStr += 'gyroZ=$gyroZ, ';
+    }
+
+    eventStr += ']';
+
+    return eventStr;
   }
 
   Event.fromJson(Map<String, dynamic> json) {
