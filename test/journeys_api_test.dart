@@ -112,21 +112,22 @@ void main() {
       classification2.classificationID = 2;
       classification2.classificationName = "private";
 
-      classifications
-        ..add(classification1)
-        ..add(classification2);
+      classifications..add(classification1)..add(classification2);
 
       apiClient.client = MockClient((request) async {
         final classificationId = int.parse(request.url.pathSegments.last);
-        classifications.removeWhere((j) => j.classificationID == classificationId);
+        classifications
+            .removeWhere((j) => j.classificationID == classificationId);
         return Response("OK", 200);
       });
 
       final instance = JourneysApi(apiClient);
       await instance.deleteJourneyClassification(1);
 
-      expect(classifications.where((j) => j.classificationID == 1).isEmpty, true);
-      expect(classifications.where((j) => j.classificationID == 2).isEmpty, false);
+      expect(
+          classifications.where((j) => j.classificationID == 1).isEmpty, true);
+      expect(
+          classifications.where((j) => j.classificationID == 2).isEmpty, false);
     });
 
     // Find journey by ID
@@ -160,13 +161,12 @@ void main() {
       classification2.classificationID = 2;
       classification2.classificationName = "private";
 
-      classifications
-        ..add(classification1)
-        ..add(classification2);
+      classifications..add(classification1)..add(classification2);
 
       apiClient.client = MockClient((request) async {
         final classificationId = int.parse(request.url.pathSegments.last);
-        final classification = classifications.singleWhere((j) => j.classificationID == classificationId);
+        final classification = classifications
+            .singleWhere((j) => j.classificationID == classificationId);
         return Response(json.encode(classification), 200);
       });
 
@@ -270,7 +270,8 @@ void main() {
         journeys.add(journey3);
 
         // Extract a sublist of journeys that match the supplied userId
-        final userJourneys = journeys.where((j) => j.driverID == userId).toList();
+        final userJourneys =
+            journeys.where((j) => j.driverID == userId).toList();
 
         return Response(json.encode(userJourneys), 200);
       });
@@ -312,7 +313,8 @@ void main() {
       final instance = JourneysApi(apiClient);
       await instance.updateJourneyClassificationById(1, updatedClassification);
 
-      expect(classification.classificationName, updatedClassification.classificationName);
+      expect(classification.classificationName,
+          updatedClassification.classificationName);
     });
 
     // Updates a Journey with form data
