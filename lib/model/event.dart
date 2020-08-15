@@ -22,8 +22,7 @@ class Event {
   String parkingBrakeStatus = null;
   //enum parkingBrakeStatusEnum {  true,  false,  };{
 
-  String brakePedalStatus = null;
-  //enum brakePedalStatusEnum {  true,  false,  };{
+  double brakePedalPosition = null;
 
   String transmissionGearPosition = null;
   //enum transmissionGearPositionEnum {  first,  second,  third,  fourth,  fifth,  sixth,  seventh,  eighth,  ninth,  tenth,  reverse,  neutral,  };{
@@ -109,8 +108,8 @@ class Event {
     if (parkingBrakeStatus != null) {
       eventStr += 'parkingBrakeStatus=$parkingBrakeStatus, ';
     }
-    if (brakePedalStatus != null) {
-      eventStr += 'brakePedalStatus=$brakePedalStatus, ';
+    if (brakePedalPosition != null) {
+      eventStr += 'brakePedalPosition=$brakePedalPosition, ';
     }
     if (transmissionGearPosition != null) {
       eventStr += 'transmissionGearPosition=$transmissionGearPosition, ';
@@ -233,10 +232,10 @@ class Event {
     } else {
       parkingBrakeStatus = json['parking_brake_status'];
     }
-    if (json['brake_pedal_status'] == null) {
-      brakePedalStatus = null;
+    if (json['brake_pedal_position'] == null) {
+      brakePedalPosition = null;
     } else {
-      brakePedalStatus = json['brake_pedal_status'];
+      brakePedalPosition = json['brake_pedal_position'];
     }
     if (json['transmission_gear_position'] == null) {
       transmissionGearPosition = null;
@@ -361,7 +360,7 @@ class Event {
       json['accelerator_pedal_position'] = acceleratorPedalPosition;
     if (parkingBrakeStatus != null)
       json['parking_brake_status'] = parkingBrakeStatus;
-    if (brakePedalStatus != null) json['brake_pedal_status'] = brakePedalStatus;
+    if (brakePedalPosition != null) json['brake_pedal_position'] = brakePedalPosition;
     if (transmissionGearPosition != null)
       json['transmission_gear_position'] = transmissionGearPosition;
     if (gearLeverPosition != null)

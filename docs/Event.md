@@ -18,7 +18,7 @@ Name | Type | Description | Notes
 **vehicleSpeed** | **double** |  | [optional] [default to null]
 **acceleratorPedalPosition** | **double** |  | [optional] [default to null]
 **parkingBrakeStatus** | **String** |  | [optional] [default to null]
-**brakePedalStatus** | **String** |  | [optional] [default to null]
+**brakePedalPosition** | **double** |  | [optional] [default to null]
 **transmissionGearPosition** | **String** |  | [optional] [default to null]
 **gearLeverPosition** | **String** |  | [optional] [default to null]
 **odometer** | **double** |  | [optional] [default to null]

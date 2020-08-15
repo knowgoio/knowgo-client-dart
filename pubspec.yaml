@@ -1,5 +1,5 @@
 name: knowgo
-version: 1.0.0
+version: 1.0.1
 description: KnowGo Platform REST API client
 environment:
   sdk: '>=2.0.0 <3.0.0'
