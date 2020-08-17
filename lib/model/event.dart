@@ -19,8 +19,7 @@ class Event {
 
   double acceleratorPedalPosition = null;
 
-  String parkingBrakeStatus = null;
-  //enum parkingBrakeStatusEnum {  true,  false,  };{
+  bool parkingBrakeStatus = null;
 
   double brakePedalPosition = null;
 
@@ -42,14 +41,11 @@ class Event {
   String doorStatus = null;
   //enum doorStatusEnum {  driver,  passenger,  rear_left,  rear_right,  };{
 
-  String headlampStatus = null;
-  //enum headlampStatusEnum {  true,  false,  };{
+  bool headlampStatus = null;
 
-  String highBeamStatus = null;
-  //enum highBeamStatusEnum {  true,  false,  };{
+  bool highBeamStatus = null;
 
-  String windshieldWiperStatus = null;
-  //enum windshieldWiperStatusEnum {  true,  false,  };{
+  bool windshieldWiperStatus = null;
 
   double latitude = null;
 
