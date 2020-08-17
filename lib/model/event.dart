@@ -1,5 +1,154 @@
 part of knowgo.api;
 
+enum IgnitionStatus { off, accessory, run, start }
+
+final _ignitionStatusMap = {
+  'off': IgnitionStatus.off,
+  'run': IgnitionStatus.run,
+  'accessory': IgnitionStatus.accessory,
+  'start': IgnitionStatus.start,
+};
+
+IgnitionStatus stringToIgnitionStatus(String statusString) {
+  // Provide a safe default
+  var status = IgnitionStatus.off;
+
+  _ignitionStatusMap.forEach((key, value) {
+    if (key == statusString) {
+      status = value;
+      return;
+    }
+  });
+
+  return status;
+}
+
+enum DoorStatus {
+  all_unlocked,
+  all_locked,
+  driver,
+  passenger,
+  rear_left,
+  rear_right
+}
+
+final _doorStatusMap = {
+  'all_unlocked': DoorStatus.all_unlocked,
+  'all_locked': DoorStatus.all_locked,
+  'driver': DoorStatus.driver,
+  'passenger': DoorStatus.passenger,
+  'rear_left': DoorStatus.rear_left,
+  'rear_right': DoorStatus.rear_right,
+};
+
+DoorStatus stringToDoorStatus(String statusString) {
+  // Provide a safe default
+  var status = DoorStatus.all_unlocked;
+
+  _doorStatusMap.forEach((key, value) {
+    if (key == statusString) {
+      status = value;
+      return;
+    }
+  });
+
+  return status;
+}
+
+enum TransmissionGearPosition {
+  first,
+  second,
+  third,
+  fourth,
+  fifth,
+  sixth,
+  seventh,
+  eighth,
+  ninth,
+  tenth,
+  reverse,
+  neutral
+}
+
+final _transmissionGearPositionMap = {
+  'first': TransmissionGearPosition.first,
+  'second': TransmissionGearPosition.second,
+  'third': TransmissionGearPosition.third,
+  'fourth': TransmissionGearPosition.fourth,
+  'fifth': TransmissionGearPosition.fifth,
+  'sixth': TransmissionGearPosition.sixth,
+  'seventh': TransmissionGearPosition.seventh,
+  'eighth': TransmissionGearPosition.eighth,
+  'ninth': TransmissionGearPosition.ninth,
+  'tenth': TransmissionGearPosition.tenth,
+  'reverse': TransmissionGearPosition.reverse,
+  'neutral': TransmissionGearPosition.neutral,
+};
+
+TransmissionGearPosition stringToTransmissionGearPosition(String statusString) {
+  // Provide a safe default
+  var status = TransmissionGearPosition.neutral;
+
+  _transmissionGearPositionMap.forEach((key, value) {
+    if (key == statusString) {
+      status = value;
+      return;
+    }
+  });
+
+  return status;
+}
+
+enum GearLeverPosition {
+  drive,
+  sport,
+  low,
+  first,
+  second,
+  third,
+  fourth,
+  fifth,
+  sixth,
+  seventh,
+  eighth,
+  ninth,
+  tenth,
+  reverse,
+  neutral
+}
+
+final _gearLevelPositionMap = {
+  'drive': GearLeverPosition.drive,
+  'sport': GearLeverPosition.sport,
+  'low': GearLeverPosition.low,
+  'first': GearLeverPosition.first,
+  'second': GearLeverPosition.second,
+  'third': GearLeverPosition.third,
+  'fourth': GearLeverPosition.fourth,
+  'fifth': GearLeverPosition.fifth,
+  'sixth': GearLeverPosition.sixth,
+  'seventh': GearLeverPosition.seventh,
+  'eighth': GearLeverPosition.eighth,
+  'ninth': GearLeverPosition.ninth,
+  'tenth': GearLeverPosition.tenth,
+  'reverse': GearLeverPosition.reverse,
+  'neutral': GearLeverPosition.neutral,
+};
+
+GearLeverPosition stringToGearLeverPosition(String statusString) {
+  // Provide a safe default
+  var status = GearLeverPosition.neutral;
+
+  _gearLevelPositionMap.forEach((key, value) {
+    if (key == statusString) {
+      status = value;
+      return;
+    }
+  });
+
+  return status;
+}
+
 class Event {
   int eventID = null;
 
@@ -23,23 +172,19 @@ class Event {
 
   double brakePedalPosition = null;
 
-  String transmissionGearPosition = null;
-  //enum transmissionGearPositionEnum {  first,  second,  third,  fourth,  fifth,  sixth,  seventh,  eighth,  ninth,  tenth,  reverse,  neutral,  };{
-
-  String gearLeverPosition = null;
-  //enum gearLeverPositionEnum {  drive,  sport,  low,  first,  second,  third,  fourth,  fifth,  sixth,  seventh,  eighth,  ninth,  tenth,  reverse,  neutral,  };{
+  TransmissionGearPosition transmissionGearPosition = null;
+  GearLeverPosition gearLeverPosition = null;
 
   double odometer = null;
 
-  String ignitionStatus = null;
-  //enum ignitionStatusEnum {  off,  accessory,  run,  start,  };{
+  IgnitionStatus ignitionStatus = null;
+
   /* percentage fuel remaining level */
   double fuelLevel = null;
   /* fuel consumed in litres (this goes to 0 every time the vehicle restarts, like a trip meter) */
   double fuelConsumedSinceRestart = null;
 
-  String doorStatus = null;
-  //enum doorStatusEnum {  driver,  passenger,  rear_left,  rear_right,  };{
+  DoorStatus doorStatus = null;
 
   bool headlampStatus = null;
 
@@ -90,7 +235,8 @@ class Event {
       eventStr += 'steeringWheelAngle=$steeringWheelAngle, ';
     }
     if (torqueAtTransmission != null) {
-      eventStr += 'torqueAtTransmission=${torqueAtTransmission.toStringAsFixed(2)}, ';
+      eventStr +=
+          'torqueAtTransmission=${torqueAtTransmission.toStringAsFixed(2)}, ';
     }
     if (engineSpeed != null) {
       eventStr += 'engineSpeed=${engineSpeed.toStringAsFixed(2)}, ';
@@ -108,25 +254,27 @@ class Event {
       eventStr += 'brakePedalPosition=$brakePedalPosition, ';
     }
     if (transmissionGearPosition != null) {
-      eventStr += 'transmissionGearPosition=$transmissionGearPosition, ';
+      eventStr +=
+          'transmissionGearPosition=${enumString(transmissionGearPosition)}, ';
     }
     if (gearLeverPosition != null) {
-      eventStr += 'gearLeverPosition=$gearLeverPosition, ';
+      eventStr += 'gearLeverPosition=${enumString(gearLeverPosition)}, ';
     }
     if (odometer != null) {
       eventStr += 'odometer=${odometer.toStringAsFixed(2)}, ';
     }
     if (ignitionStatus != null) {
-      eventStr += 'ignitionStatus=$ignitionStatus, ';
+      eventStr += 'ignitionStatus=${enumString(ignitionStatus)}, ';
     }
     if (fuelLevel != null) {
       eventStr += 'fuelLevel=${fuelLevel.toStringAsFixed(2)}, ';
     }
     if (fuelConsumedSinceRestart != null) {
-      eventStr += 'fuelConsumedSinceRestart=${fuelConsumedSinceRestart.toStringAsFixed(2)}, ';
+      eventStr +=
+          'fuelConsumedSinceRestart=${fuelConsumedSinceRestart.toStringAsFixed(2)}, ';
     }
     if (doorStatus != null) {
-      eventStr += 'doorStatus=$doorStatus, ';
+      eventStr += 'doorStatus=${enumString(doorStatus)}, ';
     }
     if (headlampStatus != null) {
       eventStr += 'headlampStatus=$headlampStatus, ';
@@ -236,12 +384,14 @@ class Event {
     if (json['transmission_gear_position'] == null) {
       transmissionGearPosition = null;
     } else {
-      transmissionGearPosition = json['transmission_gear_position'];
+      transmissionGearPosition =
+          stringToTransmissionGearPosition(json['transmission_gear_position']);
     }
     if (json['gear_lever_position'] == null) {
       gearLeverPosition = null;
     } else {
-      gearLeverPosition = json['gear_lever_position'];
+      gearLeverPosition =
+          stringToGearLeverPosition(json['gear_lever_position']);
     }
     if (json['odometer'] == null) {
       odometer = null;
@@ -251,7 +401,7 @@ class Event {
     if (json['ignition_status'] == null) {
       ignitionStatus = null;
     } else {
-      ignitionStatus = json['ignition_status'];
+      ignitionStatus = stringToIgnitionStatus(json['ignition_status']);
     }
     if (json['fuel_level'] == null) {
       fuelLevel = null;
@@ -266,7 +416,7 @@ class Event {
     if (json['door_status'] == null) {
       doorStatus = null;
     } else {
-      doorStatus = json['door_status'];
+      doorStatus = stringToDoorStatus(json['door_status']);
     }
     if (json['headlamp_status'] == null) {
       headlampStatus = null;
@@ -356,17 +506,19 @@ class Event {
       json['accelerator_pedal_position'] = acceleratorPedalPosition;
     if (parkingBrakeStatus != null)
       json['parking_brake_status'] = parkingBrakeStatus;
-    if (brakePedalPosition != null) json['brake_pedal_position'] = brakePedalPosition;
+    if (brakePedalPosition != null)
+      json['brake_pedal_position'] = brakePedalPosition;
     if (transmissionGearPosition != null)
-      json['transmission_gear_position'] = transmissionGearPosition;
+      json['transmission_gear_position'] = enumString(transmissionGearPosition);
     if (gearLeverPosition != null)
-      json['gear_lever_position'] = gearLeverPosition;
+      json['gear_lever_position'] = enumString(gearLeverPosition);
     if (odometer != null) json['odometer'] = odometer;
-    if (ignitionStatus != null) json['ignition_status'] = ignitionStatus;
+    if (ignitionStatus != null)
+      json['ignition_status'] = enumString(ignitionStatus);
     if (fuelLevel != null) json['fuel_level'] = fuelLevel;
     if (fuelConsumedSinceRestart != null)
       json['fuel_consumed_since_restart'] = fuelConsumedSinceRestart;
-    if (doorStatus != null) json['door_status'] = doorStatus;
+    if (doorStatus != null) json['door_status'] = enumString(doorStatus);
     if (headlampStatus != null) json['headlamp_status'] = headlampStatus;
     if (highBeamStatus != null) json['high_beam_status'] = highBeamStatus;
     if (windshieldWiperStatus != null)

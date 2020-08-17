@@ -1,5 +1,11 @@
 part of knowgo.api;
 
+// Provide our own version of describeEnum() - while describeEnum() is available
+// in flutter, it is not included in dart itself.
+String enumString(Object enumEntry) {
+  return enumEntry.toString().split('.')[1];
+}
+
 const _delimiters = const {'csv': ',', 'ssv': ' ', 'tsv': '\t', 'pipes': '|'};
 
 // port from Java version
