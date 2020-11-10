@@ -87,7 +87,19 @@ final _transmissionGearPositionMap = {
 
 extension TransmissionGearNumbering on TransmissionGearPosition {
   int get gearNumber {
-    return _transmissionGearPositionMap.values.toList().indexOf(this);
+    return TransmissionGearPosition.values[this.index].index;
+  }
+
+  TransmissionGearPosition get nextGear {
+    if (this == TransmissionGearPosition.tenth)
+      return TransmissionGearPosition.tenth;
+    return TransmissionGearPosition.values[this.index + 1];
+  }
+
+  TransmissionGearPosition get prevGear {
+    if (this == TransmissionGearPosition.neutral)
+      return TransmissionGearPosition.neutral;
+    return TransmissionGearPosition.values[this.index - 1];
   }
 }
 
@@ -143,7 +155,19 @@ final _gearLeverPositionMap = {
 
 extension GearLeverNumbering on GearLeverPosition {
   int get leverNumber {
-    return _gearLeverPositionMap.values.toList().indexOf(this);
+    return GearLeverPosition.values[this.index].index;
+  }
+
+  GearLeverPosition get nextLeverNumber {
+    if (this.index >= GearLeverPosition.tenth.index)
+      return this;
+    return GearLeverPosition.values[this.index + 1];
+  }
+
+  GearLeverPosition get prevLeverNumber {
+    if (this == GearLeverPosition.neutral)
+      return GearLeverPosition.neutral;
+    return GearLeverPosition.values[this.index - 1];
   }
 }
 
