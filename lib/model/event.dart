@@ -56,6 +56,7 @@ DoorStatus stringToDoorStatus(String statusString) {
 }
 
 enum TransmissionGearPosition {
+  neutral,
   first,
   second,
   third,
@@ -67,10 +68,10 @@ enum TransmissionGearPosition {
   ninth,
   tenth,
   reverse,
-  neutral
 }
 
 final _transmissionGearPositionMap = {
+  'neutral': TransmissionGearPosition.neutral,
   'first': TransmissionGearPosition.first,
   'second': TransmissionGearPosition.second,
   'third': TransmissionGearPosition.third,
@@ -82,8 +83,13 @@ final _transmissionGearPositionMap = {
   'ninth': TransmissionGearPosition.ninth,
   'tenth': TransmissionGearPosition.tenth,
   'reverse': TransmissionGearPosition.reverse,
-  'neutral': TransmissionGearPosition.neutral,
 };
+
+extension TransmissionGearNumbering on TransmissionGearPosition {
+  int get gearNumber {
+    return _transmissionGearPositionMap.values.toList().indexOf(this);
+  }
+}
 
 TransmissionGearPosition stringToTransmissionGearPosition(String statusString) {
   // Provide a safe default
@@ -100,9 +106,7 @@ TransmissionGearPosition stringToTransmissionGearPosition(String statusString) {
 }
 
 enum GearLeverPosition {
-  drive,
-  sport,
-  low,
+  neutral,
   first,
   second,
   third,
@@ -113,14 +117,14 @@ enum GearLeverPosition {
   eighth,
   ninth,
   tenth,
+  drive,
+  sport,
+  low,
   reverse,
-  neutral
 }
 
-final _gearLevelPositionMap = {
-  'drive': GearLeverPosition.drive,
-  'sport': GearLeverPosition.sport,
-  'low': GearLeverPosition.low,
+final _gearLeverPositionMap = {
+  'neutral': GearLeverPosition.neutral,
   'first': GearLeverPosition.first,
   'second': GearLeverPosition.second,
   'third': GearLeverPosition.third,
@@ -131,15 +135,23 @@ final _gearLevelPositionMap = {
   'eighth': GearLeverPosition.eighth,
   'ninth': GearLeverPosition.ninth,
   'tenth': GearLeverPosition.tenth,
+  'drive': GearLeverPosition.drive,
+  'sport': GearLeverPosition.sport,
+  'low': GearLeverPosition.low,
   'reverse': GearLeverPosition.reverse,
-  'neutral': GearLeverPosition.neutral,
 };
+
+extension GearLeverNumbering on GearLeverPosition {
+  int get leverNumber {
+    return _gearLeverPositionMap.values.toList().indexOf(this);
+  }
+}
 
 GearLeverPosition stringToGearLeverPosition(String statusString) {
   // Provide a safe default
   var status = GearLeverPosition.neutral;
 
-  _gearLevelPositionMap.forEach((key, value) {
+  _gearLeverPositionMap.forEach((key, value) {
     if (key == statusString) {
       status = value;
       return;
