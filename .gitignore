@@ -19,8 +19,14 @@ build/
 *.js.map
 *.info.json
 
+# Dart tool
+.dart_tool/
+
 # Directory created by dartdoc
 doc/api/
+
+# IntelliJ IDE
+.idea/
 
 # Don't commit pubspec lock file 
 # (Library packages only! Remove pattern if developing an application package)

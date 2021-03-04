@@ -137,12 +137,13 @@ class ApiClient {
     String queryString = ps.isNotEmpty ? '?' + ps.join('&') : '';
 
     String url = basePath + prefix + path + queryString;
+    Uri uri = Uri.parse(url);
 
     headerParams.addAll(_defaultHeaderMap);
     headerParams['Content-Type'] = contentType;
 
     if (body is MultipartRequest) {
-      var request = MultipartRequest(method, Uri.parse(url));
+      var request = MultipartRequest(method, uri);
       request.fields.addAll(body.fields);
       request.files.addAll(body.files);
       request.headers.addAll(body.headers);
@@ -155,15 +156,15 @@ class ApiClient {
           : serialize(body);
       switch (method) {
         case "POST":
-          return client.post(url, headers: headerParams, body: msgBody);
+          return client.post(uri, headers: headerParams, body: msgBody);
         case "PUT":
-          return client.put(url, headers: headerParams, body: msgBody);
+          return client.put(uri, headers: headerParams, body: msgBody);
         case "DELETE":
-          return client.delete(url, headers: headerParams);
+          return client.delete(uri, headers: headerParams);
         case "PATCH":
-          return client.patch(url, headers: headerParams, body: msgBody);
+          return client.patch(uri, headers: headerParams, body: msgBody);
         default:
-          return client.get(url, headers: headerParams);
+          return client.get(uri, headers: headerParams);
       }
     }
   }
