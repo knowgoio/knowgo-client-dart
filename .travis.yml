@@ -2,8 +2,9 @@
 #
 language: dart
 dart:
-# Install a specific stable release
-- "2.2.0"
+# Install the latest stable release
+- stable
+
 install:
 - pub get
 
