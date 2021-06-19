@@ -194,6 +194,8 @@ class Event {
 
   int eventCategoryID = null;
 
+  int automationLevel = null;
+
   double steeringWheelAngle = null;
 
   double torqueAtTransmission = null;
@@ -263,6 +265,9 @@ class Event {
     }
     if (autoID != null) {
       eventStr += 'autoID=$autoID, ';
+    }
+    if (automationLevel != null) {
+      eventStr += 'automationLevel=$automationLevel, ';
     }
     if (eventCategoryID != null) {
       eventStr += 'eventCategoryID=$eventCategoryID, ';
@@ -381,6 +386,11 @@ class Event {
       eventCategoryID = null;
     } else {
       eventCategoryID = json['EventCategoryID'];
+    }
+    if (json['automation_level'] == null) {
+      automationLevel = null;
+    } else {
+      automationLevel = json['automation_level'];
     }
     if (json['steering_wheel_angle'] == null) {
       steeringWheelAngle = null;
@@ -532,6 +542,8 @@ class Event {
     if (journeyID != null) json['JourneyID'] = journeyID;
     if (autoID != null) json['AutoID'] = autoID;
     if (eventCategoryID != null) json['EventCategoryID'] = eventCategoryID;
+    if (automationLevel != null)
+      json['automation_level'] = automationLevel;
     if (steeringWheelAngle != null)
       json['steering_wheel_angle'] = steeringWheelAngle;
     if (torqueAtTransmission != null)

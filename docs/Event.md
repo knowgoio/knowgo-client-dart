@@ -12,6 +12,7 @@ Name | Type | Description | Notes
 **journeyID** | **String** |  | [optional] [default to null]
 **autoID** | **int** |  | [optional] [default to null]
 **eventCategoryID** | **int** |  | [optional] [default to null]
+**automationLevel** | **int** |  | [optional] [default to null]
 **steeringWheelAngle** | **double** |  | [optional] [default to null]
 **torqueAtTransmission** | **double** |  | [optional] [default to null]
 **engineSpeed** | **double** |  | [optional] [default to null]
