@@ -546,62 +546,70 @@ class Event {
     }
   }
 
-  Map<String, dynamic> toJson() {
+  Map<String, dynamic> toJson({bool omitNull=true}) {
     Map<String, dynamic> json = {};
-    if (eventID != null) json['EventID'] = eventID;
-    if (journeyID != null) json['JourneyID'] = journeyID;
-    if (autoID != null) json['AutoID'] = autoID;
-    if (driverID != null) json['DriverID'] = driverID;
-    if (eventCategoryID != null) json['EventCategoryID'] = eventCategoryID;
-    if (automationLevel != null)
+    if (eventID != null || !omitNull) json['EventID'] = eventID;
+    if (journeyID != null || !omitNull) json['JourneyID'] = journeyID;
+    if (autoID != null || !omitNull) json['AutoID'] = autoID;
+    if (driverID != null || !omitNull) json['DriverID'] = driverID;
+    if (eventCategoryID != null || !omitNull)
+      json['EventCategoryID'] = eventCategoryID;
+    if (automationLevel != null || !omitNull)
       json['automation_level'] = automationLevel;
-    if (steeringWheelAngle != null)
+    if (steeringWheelAngle != null || !omitNull)
       json['steering_wheel_angle'] = steeringWheelAngle;
-    if (torqueAtTransmission != null)
+    if (torqueAtTransmission != null || !omitNull)
       json['torque_at_transmission'] = torqueAtTransmission;
-    if (engineSpeed != null) json['engine_speed'] = engineSpeed;
-    if (vehicleSpeed != null) json['vehicle_speed'] = vehicleSpeed;
-    if (acceleratorPedalPosition != null)
+    if (engineSpeed != null || !omitNull)
+      json['engine_speed'] = engineSpeed;
+    if (vehicleSpeed != null || !omitNull)
+      json['vehicle_speed'] = vehicleSpeed;
+    if (acceleratorPedalPosition != null || !omitNull)
       json['accelerator_pedal_position'] = acceleratorPedalPosition;
-    if (parkingBrakeStatus != null)
+    if (parkingBrakeStatus != null || !omitNull)
       json['parking_brake_status'] = parkingBrakeStatus;
-    if (brakePedalPosition != null)
+    if (brakePedalPosition != null || !omitNull)
       json['brake_pedal_position'] = brakePedalPosition;
-    if (transmissionGearPosition != null)
+    if (transmissionGearPosition != null || !omitNull)
       json['transmission_gear_position'] = enumString(transmissionGearPosition);
-    if (gearLeverPosition != null)
+    if (gearLeverPosition != null || !omitNull)
       json['gear_lever_position'] = enumString(gearLeverPosition);
-    if (odometer != null) json['odometer'] = odometer;
-    if (ignitionStatus != null)
+    if (odometer != null || !omitNull)
+      json['odometer'] = odometer;
+    if (ignitionStatus != null || !omitNull)
       json['ignition_status'] = enumString(ignitionStatus);
-    if (fuelLevel != null) json['fuel_level'] = fuelLevel;
-    if (fuelConsumedSinceRestart != null)
+    if (fuelLevel != null || !omitNull)
+      json['fuel_level'] = fuelLevel;
+    if (fuelConsumedSinceRestart != null || !omitNull)
       json['fuel_consumed_since_restart'] = fuelConsumedSinceRestart;
-    if (doorStatus != null) json['door_status'] = enumString(doorStatus);
-    if (headlampStatus != null) json['headlamp_status'] = headlampStatus;
-    if (highBeamStatus != null) json['high_beam_status'] = highBeamStatus;
-    if (windshieldWiperStatus != null)
+    if (doorStatus != null || !omitNull)
+      json['door_status'] = enumString(doorStatus);
+    if (headlampStatus != null || !omitNull)
+      json['headlamp_status'] = headlampStatus;
+    if (highBeamStatus != null || !omitNull)
+      json['high_beam_status'] = highBeamStatus;
+    if (windshieldWiperStatus != null || !omitNull)
       json['windshield_wiper_status'] = windshieldWiperStatus;
-    if (latitude != null) json['latitude'] = latitude;
-    if (longitude != null) json['longitude'] = longitude;
-    if (bearing != null) json['bearing'] = bearing;
-    if (accuracy != null) json['accuracy'] = accuracy;
-    if (timestamp != null)
+    if (latitude != null || !omitNull)
+      json['latitude'] = latitude;
+    if (longitude != null || !omitNull)
+      json['longitude'] = longitude;
+    if (bearing != null || !omitNull) json['bearing'] = bearing;
+    if (accuracy != null || !omitNull) json['accuracy'] = accuracy;
+    if (timestamp != null || !omitNull)
       json['timestamp'] =
           timestamp == null ? null : timestamp.toUtc().toIso8601String();
-    if (accelX != null) json['accel_x'] = accelX;
-    if (accelY != null) json['accel_y'] = accelY;
-    if (accelZ != null) json['accel_z'] = accelZ;
-    if (gyroX != null) json['gyro_x'] = gyroX;
-    if (gyroY != null) json['gyro_y'] = gyroY;
-    if (gyroZ != null) json['gyro_z'] = gyroZ;
+    if (accelX != null || !omitNull) json['accel_x'] = accelX;
+    if (accelY != null || !omitNull) json['accel_y'] = accelY;
+    if (accelZ != null || !omitNull) json['accel_z'] = accelZ;
+    if (gyroX != null || !omitNull) json['gyro_x'] = gyroX;
+    if (gyroY != null || !omitNull) json['gyro_y'] = gyroY;
+    if (gyroZ != null || !omitNull) json['gyro_z'] = gyroZ;
     return json;
   }
 
   static List<Event> listFromJson(List<dynamic> json) {
-    return json == null
-        ? List<Event>()
-        : json.map((value) => Event.fromJson(value)).toList();
+    return json == null ? [] : json.map((value) => Event.fromJson(value)).toList();
   }
 
   static Map<String, Event> mapFromJson(Map<String, dynamic> json) {
