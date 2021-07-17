@@ -192,6 +192,8 @@ class Event {
 
   int autoID = null;
 
+  int driverID = null;
+
   int eventCategoryID = null;
 
   int automationLevel = null;
@@ -265,6 +267,9 @@ class Event {
     }
     if (autoID != null) {
       eventStr += 'autoID=$autoID, ';
+    }
+    if (driverID != null) {
+      eventStr += 'driverID=$driverID, ';
     }
     if (automationLevel != null) {
       eventStr += 'automationLevel=$automationLevel, ';
@@ -381,6 +386,11 @@ class Event {
       autoID = null;
     } else {
       autoID = json['AutoID'];
+    }
+    if (json['DriverID'] == null) {
+      driverID = null;
+    } else {
+      driverID = json['DriverID'];
     }
     if (json['EventCategoryID'] == null) {
       eventCategoryID = null;
@@ -541,6 +551,7 @@ class Event {
     if (eventID != null) json['EventID'] = eventID;
     if (journeyID != null) json['JourneyID'] = journeyID;
     if (autoID != null) json['AutoID'] = autoID;
+    if (driverID != null) json['DriverID'] = driverID;
     if (eventCategoryID != null) json['EventCategoryID'] = eventCategoryID;
     if (automationLevel != null)
       json['automation_level'] = automationLevel;
