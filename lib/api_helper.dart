@@ -3,6 +3,9 @@ part of knowgo.api;
 // Provide our own version of describeEnum() - while describeEnum() is available
 // in flutter, it is not included in dart itself.
 String enumString(Object enumEntry) {
+  if (enumEntry == null) {
+    return null;
+  }
   return enumEntry.toString().split('.')[1];
 }
 
