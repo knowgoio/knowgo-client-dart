@@ -1,13 +1,13 @@
 part of knowgo.api;
 
 class AuthCredentials {
-  String emailAddress = null;
+  String? emailAddress = null;
 
-  String password = null;
+  String? password = null;
 
-  String accountType = null;
+  String? accountType = null;
 
-  String authToken = null;
+  String? authToken = null;
 
   AuthCredentials();
 
@@ -16,7 +16,7 @@ class AuthCredentials {
     return 'AuthCredentials[emailAddress=$emailAddress, password=$password, accountType=$accountType, authToken=$authToken]';
   }
 
-  AuthCredentials.fromJson(Map<String, dynamic> json) {
+  AuthCredentials.fromJson(Map<String, dynamic>? json) {
     if (json == null) return;
     if (json['EmailAddress'] == null) {
       emailAddress = null;
@@ -58,17 +58,13 @@ class AuthCredentials {
   }
 
   static List<AuthCredentials> listFromJson(List<dynamic> json) {
-    return json == null
-        ? List<AuthCredentials>()
-        : json.map((value) => AuthCredentials.fromJson(value)).toList();
+    return json.map((value) => AuthCredentials.fromJson(value)).toList();
   }
 
   static Map<String, AuthCredentials> mapFromJson(Map<String, dynamic> json) {
     var map = Map<String, AuthCredentials>();
-    if (json != null && json.isNotEmpty) {
-      json.forEach((String key, dynamic value) =>
+    json.forEach((String key, dynamic value) =>
           map[key] = AuthCredentials.fromJson(value));
-    }
     return map;
   }
 }

@@ -1,45 +1,45 @@
 part of knowgo.api;
 
 class Auto {
-  int autoID = null;
+  int? autoID = null;
 
-  int driverID = null;
+  int? driverID = null;
 
-  int ownerID = null;
+  int? ownerID = null;
 
-  String name = null;
+  String? name = null;
 
-  String make = null;
+  String? make = null;
 
-  String model = null;
+  String? model = null;
 
-  int year = null;
+  int? year = null;
   /* Vehicle identification number in accordance with ISO 3779:2009 */
-  String VIN = null;
+  String? VIN = null;
 
-  String licensePlate = null;
+  String? licensePlate = null;
 
-  DateTime registrationExpiry = null;
+  DateTime? registrationExpiry = null;
 
-  String fuelCapacity = null;
+  String? fuelCapacity = null;
 
-  double odometer = null;
+  double? odometer = null;
 
-  String policyID = null;
+  String? policyID = null;
   /* Optional field to enter owner notes about the vehicle */
-  String notes = null;
+  String? notes = null;
 
-  List<String> photoUrls = [];
+  List<String>? photoUrls = [];
 
-  String driveTrain = null;
+  String? driveTrain = null;
 
-  String engineType = null;
+  String? engineType = null;
 
-  String exteriorColor = null;
+  String? exteriorColor = null;
 
-  String interiorColor = null;
+  String? interiorColor = null;
 
-  String transmission = null;
+  String? transmission = null;
   Auto();
 
   @override
@@ -47,7 +47,7 @@ class Auto {
     return 'Auto[autoID=$autoID, driverID=$driverID, ownerID=$ownerID, name=$name, make=$make, model=$model, year=$year, VIN=$VIN, licensePlate=$licensePlate, registrationExpiry=$registrationExpiry, fuelCapacity=$fuelCapacity, odometer=$odometer, policyID=$policyID, notes=$notes, photoUrls=$photoUrls, driveTrain=$driveTrain, engineType=$engineType, exteriorColor=$exteriorColor, interiorColor=$interiorColor, transmission=$transmission, ]';
   }
 
-  Auto.fromJson(Map<String, dynamic> json) {
+  Auto.fromJson(Map<String, dynamic>? json) {
     if (json == null) return;
     if (json['AutoID'] == null) {
       autoID = null;
@@ -165,7 +165,7 @@ class Auto {
     if (registrationExpiry != null)
       json['RegistrationExpiry'] = registrationExpiry == null
           ? null
-          : registrationExpiry.toUtc().toIso8601String();
+          : registrationExpiry!.toUtc().toIso8601String();
     if (fuelCapacity != null) json['FuelCapacity'] = fuelCapacity;
     if (odometer != null) json['Odometer'] = odometer;
     if (policyID != null) json['PolicyID'] = policyID;
@@ -180,17 +180,13 @@ class Auto {
   }
 
   static List<Auto> listFromJson(List<dynamic> json) {
-    return json == null
-        ? List<Auto>()
-        : json.map((value) => Auto.fromJson(value)).toList();
+    return json.map((value) => Auto.fromJson(value)).toList();
   }
 
   static Map<String, Auto> mapFromJson(Map<String, dynamic> json) {
     var map = Map<String, Auto>();
-    if (json != null && json.isNotEmpty) {
-      json.forEach(
+    json.forEach(
           (String key, dynamic value) => map[key] = Auto.fromJson(value));
-    }
     return map;
   }
 }

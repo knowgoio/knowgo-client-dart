@@ -1,7 +1,7 @@
 part of knowgo.api;
 
 class Endpoints {
-  List<String> endpoint;
+  List<String>? endpoint;
 
   Endpoints({this.endpoint});
 
@@ -22,7 +22,7 @@ class Endpoints {
 }
 
 class Purposes {
-  List<Purpose> purpose;
+  List<Purpose>? purpose;
 
   Purposes({this.purpose});
 
@@ -33,9 +33,9 @@ class Purposes {
 
   Purposes.fromJson(Map<String, dynamic> json) {
     if (json['Purpose'] != null) {
-      purpose = List<Purpose>();
+      purpose = [];
       json['Purpose'].forEach((v) {
-        purpose.add(Purpose.fromJson(v));
+        purpose!.add(Purpose.fromJson(v));
       });
     }
   }
@@ -43,17 +43,17 @@ class Purposes {
   Map<String, dynamic> toJson() {
     final Map<String, dynamic> data = Map<String, dynamic>();
     if (this.purpose != null) {
-      data['Purpose'] = this.purpose.map((v) => v.toJson()).toList();
+      data['Purpose'] = this.purpose!.map((v) => v.toJson()).toList();
     }
     return data;
   }
 }
 
 class Purpose {
-  String description;
-  String legalBasis;
-  DataNeeded dataNeeded;
-  DataWanted dataWanted;
+  String? description;
+  String? legalBasis;
+  DataNeeded? dataNeeded;
+  DataWanted? dataWanted;
 
   Purpose(
       {this.description, this.legalBasis, this.dataNeeded, this.dataWanted});
@@ -79,17 +79,17 @@ class Purpose {
     data['Description'] = this.description;
     data['LegalBasis'] = this.legalBasis;
     if (this.dataNeeded != null) {
-      data['DataNeeded'] = this.dataNeeded.toJson();
+      data['DataNeeded'] = this.dataNeeded!.toJson();
     }
     if (this.dataWanted != null) {
-      data['DataWanted'] = this.dataWanted.toJson();
+      data['DataWanted'] = this.dataWanted!.toJson();
     }
     return data;
   }
 }
 
 class DataNeeded {
-  List<DataSource> dataSources;
+  List<DataSource>? dataSources;
 
   DataNeeded({this.dataSources});
 
@@ -100,9 +100,9 @@ class DataNeeded {
 
   DataNeeded.fromJson(Map<String, dynamic> json) {
     if (json['DataSources'] != null) {
-      dataSources = List<DataSource>();
+      dataSources = [];
       json['DataSources'].forEach((v) {
-        dataSources.add(DataSource.fromJson(v));
+        dataSources!.add(DataSource.fromJson(v));
       });
     }
   }
@@ -110,14 +110,14 @@ class DataNeeded {
   Map<String, dynamic> toJson() {
     final Map<String, dynamic> data = Map<String, dynamic>();
     if (this.dataSources != null) {
-      data['DataSources'] = this.dataSources.map((v) => v.toJson()).toList();
+      data['DataSources'] = this.dataSources!.map((v) => v.toJson()).toList();
     }
     return data;
   }
 }
 
 class DataWanted {
-  List<DataSource> dataSources;
+  List<DataSource>? dataSources;
 
   DataWanted({this.dataSources});
 
@@ -128,9 +128,9 @@ class DataWanted {
 
   DataWanted.fromJson(Map<String, dynamic> json) {
     if (json['DataSources'] != null) {
-      dataSources = List<DataSource>();
+      dataSources = [];
       json['DataSources'].forEach((v) {
-        dataSources.add(DataSource.fromJson(v));
+        dataSources!.add(DataSource.fromJson(v));
       });
     }
   }
@@ -138,16 +138,16 @@ class DataWanted {
   Map<String, dynamic> toJson() {
     final Map<String, dynamic> data = Map<String, dynamic>();
     if (this.dataSources != null) {
-      data['DataSources'] = this.dataSources.map((v) => v.toJson()).toList();
+      data['DataSources'] = this.dataSources!.map((v) => v.toJson()).toList();
     }
     return data;
   }
 }
 
 class DataSource {
-  String source;
-  String justification;
-  String linkedService;
+  String? source;
+  String? justification;
+  String? linkedService;
 
   DataSource({this.source, this.justification, this.linkedService});
 
@@ -172,7 +172,7 @@ class DataSource {
 }
 
 class ServiceConfig {
-  String host;
+  String? host;
 
   ServiceConfig({this.host});
 
@@ -193,25 +193,25 @@ class ServiceConfig {
 }
 
 class ServiceDefinition {
-  String title = null;
+  String? title = null;
 
-  String serviceName = null;
+  String? serviceName = null;
 
-  String description = null;
+  String? description = null;
 
-  String creationDate = null;
+  String? creationDate = null;
 
-  String creationUser = null;
+  String? creationUser = null;
 
-  String modificationDate = null;
+  String? modificationDate = null;
 
-  String modificationUser = null;
+  String? modificationUser = null;
 
-  Endpoints endpoints = null;
+  Endpoints? endpoints = null;
 
-  Purposes purposes = null;
+  Purposes? purposes = null;
 
-  ServiceConfig config = null;
+  ServiceConfig? config = null;
 
   ServiceDefinition();
 
@@ -220,7 +220,7 @@ class ServiceDefinition {
     return 'ServiceDefinition[title=$title, serviceName=$serviceName, description=$description, creationDate=$creationDate, creationUser=$creationUser, modificationDate=$modificationDate, modificationUser=$modificationUser, endpoints=$endpoints, purposes=$purposes, config=$config, ]';
   }
 
-  ServiceDefinition.fromJson(Map<String, dynamic> json) {
+  ServiceDefinition.fromJson(Map<String, dynamic>? json) {
     if (json == null) return;
     if (json['Title'] == null) {
       title = null;
@@ -283,25 +283,21 @@ class ServiceDefinition {
     if (creationUser != null) json['CreationUser'] = creationUser;
     if (modificationDate != null) json['ModificationDate'] = modificationDate;
     if (modificationUser != null) json['ModificationUser'] = modificationUser;
-    if (endpoints != null) json['Endpoints'] = endpoints.toJson();
-    if (purposes != null) json['Purposes'] = purposes.toJson();
-    if (config != null) json['ServiceConfig'] = config.toJson();
+    if (endpoints != null) json['Endpoints'] = endpoints!.toJson();
+    if (purposes != null) json['Purposes'] = purposes!.toJson();
+    if (config != null) json['ServiceConfig'] = config!.toJson();
 
     return json;
   }
 
   static List<ServiceDefinition> listFromJson(List<dynamic> json) {
-    return json == null
-        ? List<ServiceDefinition>()
-        : json.map((value) => ServiceDefinition.fromJson(value)).toList();
+    return json.map((value) => ServiceDefinition.fromJson(value)).toList();
   }
 
   static Map<String, ServiceDefinition> mapFromJson(Map<String, dynamic> json) {
     var map = Map<String, ServiceDefinition>();
-    if (json != null && json.isNotEmpty) {
-      json.forEach((String key, dynamic value) =>
+    json.forEach((String key, dynamic value) =>
           map[key] = ServiceDefinition.fromJson(value));
-    }
     return map;
   }
 }

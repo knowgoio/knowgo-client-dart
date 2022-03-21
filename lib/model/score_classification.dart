@@ -2,13 +2,13 @@ part of knowgo.api;
 
 class ScoreClassification {
   /* Name of Classifier run */
-  String classifier = null;
+  String? classifier = null;
   /* Score provided by the Classifier */
-  double score = null;
+  double? score = null;
   /* Weighting applied for the Classifier */
-  int weight = null;
+  int? weight = null;
   /* Confidence score returned by the Classifier */
-  double confidence = null;
+  double? confidence = null;
   ScoreClassification();
 
   @override
@@ -16,7 +16,7 @@ class ScoreClassification {
     return 'ScoreClassification[classifier=$classifier, score=$score, weight=$weight, confidence=$confidence, ]';
   }
 
-  ScoreClassification.fromJson(Map<String, dynamic> json) {
+  ScoreClassification.fromJson(Map<String, dynamic>? json) {
     if (json == null) return;
     if (json['classifier'] == null) {
       classifier = null;
@@ -50,18 +50,14 @@ class ScoreClassification {
   }
 
   static List<ScoreClassification> listFromJson(List<dynamic> json) {
-    return json == null
-        ? List<ScoreClassification>()
-        : json.map((value) => ScoreClassification.fromJson(value)).toList();
+    return json.map((value) => ScoreClassification.fromJson(value)).toList();
   }
 
   static Map<String, ScoreClassification> mapFromJson(
       Map<String, dynamic> json) {
     var map = Map<String, ScoreClassification>();
-    if (json != null && json.isNotEmpty) {
-      json.forEach((String key, dynamic value) =>
+    json.forEach((String key, dynamic value) =>
           map[key] = ScoreClassification.fromJson(value));
-    }
     return map;
   }
 }

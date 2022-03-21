@@ -1,26 +1,26 @@
 part of knowgo.api;
 
 class User {
-  int personID = null;
+  int? personID = null;
 
-  String fullName = null;
+  String? fullName = null;
 
-  String emailAddress = null;
+  String? emailAddress = null;
 
-  String password = null;
+  String? password = null;
 
-  String preferredName = null;
+  String? preferredName = null;
 
-  String gender = null;
+  String? gender = null;
   //enum genderEnum {  Male,  Female,  Other,  Undisclosed,  };{
 
-  DateTime dateOfBirth = null;
+  DateTime? dateOfBirth = null;
 
-  String phoneNumber = null;
+  String? phoneNumber = null;
 
-  String photoUrl = null;
+  String? photoUrl = null;
 
-  String accountType = null;
+  String? accountType = null;
 
   User();
 
@@ -29,7 +29,7 @@ class User {
     return 'User[personID=$personID, fullName=$fullName, emailAddress=$emailAddress, password=$password, preferredName=$preferredName, gender=$gender, dateOfBirth=$dateOfBirth, phoneNumber=$phoneNumber, photoUrl=$photoUrl, accountType=$accountType]';
   }
 
-  User.fromJson(Map<String, dynamic> json) {
+  User.fromJson(Map<String, dynamic>? json) {
     if (json == null) return;
     if (json['PersonID'] == null) {
       personID = null;
@@ -93,7 +93,7 @@ class User {
     if (gender != null) json['Gender'] = gender;
     if (dateOfBirth != null)
       json['DateOfBirth'] =
-          dateOfBirth == null ? null : dateOfBirth.toUtc().toIso8601String();
+          dateOfBirth == null ? null : dateOfBirth!.toUtc().toIso8601String();
     if (phoneNumber != null) json['PhoneNumber'] = phoneNumber;
     if (photoUrl != null) json['PhotoUrl'] = photoUrl;
     if (accountType != null) json['AccountType'] = accountType;
@@ -101,14 +101,12 @@ class User {
   }
 
   static List<User> listFromJson(List<dynamic> json) {
-    return json == null
-        ? List<User>()
-        : json.map((value) => User.fromJson(value)).toList();
+    return json.map((value) => User.fromJson(value)).toList();
   }
 
   static Map<String, User> mapFromJson(Map<String, dynamic> json) {
     var map = Map<String, User>();
-    if (json != null && json.isNotEmpty) {
+    if (json.isNotEmpty) {
       json.forEach(
           (String key, dynamic value) => map[key] = User.fromJson(value));
     }

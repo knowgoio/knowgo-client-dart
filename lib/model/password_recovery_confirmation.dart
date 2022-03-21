@@ -1,9 +1,9 @@
 part of knowgo.api;
 
 class PasswordRecoveryConfirmation {
-  String newPassword = null;
+  String? newPassword = null;
 
-  String token = null;
+  String? token = null;
   PasswordRecoveryConfirmation();
 
   @override
@@ -11,7 +11,7 @@ class PasswordRecoveryConfirmation {
     return 'PasswordRecoveryConfirmation[newPassword=$newPassword, token=$token, ]';
   }
 
-  PasswordRecoveryConfirmation.fromJson(Map<String, dynamic> json) {
+  PasswordRecoveryConfirmation.fromJson(Map<String, dynamic>? json) {
     if (json == null) return;
     if (json['NewPassword'] == null) {
       newPassword = null;
@@ -33,9 +33,7 @@ class PasswordRecoveryConfirmation {
   }
 
   static List<PasswordRecoveryConfirmation> listFromJson(List<dynamic> json) {
-    return json == null
-        ? List<PasswordRecoveryConfirmation>()
-        : json
+    return json
             .map((value) => PasswordRecoveryConfirmation.fromJson(value))
             .toList();
   }
@@ -43,10 +41,8 @@ class PasswordRecoveryConfirmation {
   static Map<String, PasswordRecoveryConfirmation> mapFromJson(
       Map<String, dynamic> json) {
     var map = Map<String, PasswordRecoveryConfirmation>();
-    if (json != null && json.isNotEmpty) {
-      json.forEach((String key, dynamic value) =>
+    json.forEach((String key, dynamic value) =>
           map[key] = PasswordRecoveryConfirmation.fromJson(value));
-    }
     return map;
   }
 }

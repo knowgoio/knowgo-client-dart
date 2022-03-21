@@ -2,7 +2,7 @@ part of knowgo.api;
 
 class QueryParam {
   String name;
-  String value;
+  String? value;
 
   QueryParam(this.name, this.value);
 }
@@ -12,7 +12,7 @@ class ApiClient {
   String prefix;
   Client client = Client();
 
-  Map<String, String> _defaultHeaderMap = {};
+  Map<String, String?> _defaultHeaderMap = {};
   Map<String, Authentication> _authentications = {};
 
   final _regList = RegExp(r'^List<(.*)>$');
@@ -33,7 +33,7 @@ class ApiClient {
     _defaultHeaderMap[key] = null;
   }
 
-  dynamic _deserialize(dynamic value, String targetType) {
+  dynamic _deserialize(dynamic value, String? targetType) {
     try {
       switch (targetType) {
         case 'String':
@@ -76,14 +76,14 @@ class ApiClient {
           return User.fromJson(value);
         default:
           {
-            Match match;
+            Match? match;
             if (value is List &&
-                (match = _regList.firstMatch(targetType)) != null) {
-              var newTargetType = match[1];
+                (match = _regList.firstMatch(targetType!)) != null) {
+              var newTargetType = match![1];
               return value.map((v) => _deserialize(v, newTargetType)).toList();
             } else if (value is Map &&
-                (match = _regMap.firstMatch(targetType)) != null) {
-              var newTargetType = match[1];
+                (match = _regMap.firstMatch(targetType!)) != null) {
+              var newTargetType = match![1];
               return Map.fromIterables(value.keys,
                   value.values.map((v) => _deserialize(v, newTargetType)));
             }
@@ -107,7 +107,7 @@ class ApiClient {
     return _deserialize(decodedJson, targetType);
   }
 
-  String serialize(Object obj) {
+  String serialize(Object? obj) {
     String serialized = '';
     if (obj == null) {
       serialized = '';
@@ -123,16 +123,16 @@ class ApiClient {
       String path,
       String method,
       Iterable<QueryParam> queryParams,
-      Object body,
-      Map<String, String> headerParams,
-      Map<String, String> formParams,
+      Object? body,
+      Map<String, String?> headerParams,
+      Map<String, String?> formParams,
       String contentType,
       List<String> authNames) async {
-    _updateParamsForAuth(authNames, queryParams, headerParams);
+    _updateParamsForAuth(authNames, queryParams as List<QueryParam>, headerParams);
 
     var ps = queryParams
         .where((p) => p.value != null)
-        .map((p) => '${p.name}=${Uri.encodeQueryComponent(p.value)}');
+        .map((p) => '${p.name}=${Uri.encodeQueryComponent(p.value!)}');
 
     String queryString = ps.isNotEmpty ? '?' + ps.join('&') : '';
 
@@ -142,12 +142,19 @@ class ApiClient {
     headerParams.addAll(_defaultHeaderMap);
     headerParams['Content-Type'] = contentType;
 
+    Map<String, String> headers = {};
+    headerParams.forEach((key, value) {
+      if (value != null) {
+        headers[key] = value;
+      }
+    });
+
     if (body is MultipartRequest) {
       var request = MultipartRequest(method, uri);
       request.fields.addAll(body.fields);
       request.files.addAll(body.files);
       request.headers.addAll(body.headers);
-      request.headers.addAll(headerParams);
+      request.headers.addAll(headers);
       var response = await client.send(request);
       return Response.fromStream(response);
     } else {
@@ -156,15 +163,15 @@ class ApiClient {
           : serialize(body);
       switch (method) {
         case "POST":
-          return client.post(uri, headers: headerParams, body: msgBody);
+          return client.post(uri, headers: headers, body: msgBody);
         case "PUT":
-          return client.put(uri, headers: headerParams, body: msgBody);
+          return client.put(uri, headers: headers, body: msgBody);
         case "DELETE":
-          return client.delete(uri, headers: headerParams);
+          return client.delete(uri, headers: headers);
         case "PATCH":
-          return client.patch(uri, headers: headerParams, body: msgBody);
+          return client.patch(uri, headers: headers, body: msgBody);
         default:
-          return client.get(uri, headers: headerParams);
+          return client.get(uri, headers: headers);
       }
     }
   }
@@ -172,16 +179,16 @@ class ApiClient {
   /// Update query and header parameters based on authentication settings.
   /// @param authNames The authentications to apply
   void _updateParamsForAuth(List<String> authNames,
-      List<QueryParam> queryParams, Map<String, String> headerParams) {
+      List<QueryParam> queryParams, Map<String, String?> headerParams) {
     authNames.forEach((authName) {
-      Authentication auth = _authentications[authName];
+      Authentication? auth = _authentications[authName];
       if (auth == null)
         throw ArgumentError("Authentication undefined: " + authName);
       auth.applyToParams(queryParams, headerParams);
     });
   }
 
-  T getAuthentication<T extends Authentication>(String name) {
+  T? getAuthentication<T extends Authentication>(String name) {
     var authentication = _authentications[name];
 
     return authentication is T ? authentication : null;

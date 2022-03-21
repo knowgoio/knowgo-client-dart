@@ -2,22 +2,22 @@ part of knowgo.api;
 
 class Score {
   /* ID of Journey scored */
-  String id = null;
+  String? id = null;
   /* Score */
-  double score = null;
+  double? score = null;
   /* Score Level */
-  String level = null;
+  String? level = null;
   //enum levelEnum {  Unscorable,  Negligible,  Minor,  Moderate,  High,  };{
   /* Number of Journeys included in calculation */
-  int numJourneys = null;
+  int? numJourneys = null;
   /* Overall confidence score */
-  double confidence = null;
+  double? confidence = null;
   /* Start date of data to score */
-  DateTime fromDate = null;
+  DateTime? fromDate = null;
   /* End date of data to score */
-  DateTime untilDate = null;
+  DateTime? untilDate = null;
 
-  List<ScoreClassification> results = [];
+  List<ScoreClassification>? results = [];
   Score();
 
   @override
@@ -25,7 +25,7 @@ class Score {
     return 'Score[id=$id, score=$score, level=$level, numJourneys=$numJourneys, confidence=$confidence, fromDate=$fromDate, untilDate=$untilDate, results=$results, ]';
   }
 
-  Score.fromJson(Map<String, dynamic> json) {
+  Score.fromJson(Map<String, dynamic>? json) {
     if (json == null) return;
     if (json['id'] == null) {
       id = null;
@@ -78,26 +78,21 @@ class Score {
     if (confidence != null) json['confidence'] = confidence;
     if (fromDate != null)
       json['fromDate'] =
-          fromDate == null ? null : fromDate.toUtc().toIso8601String();
+          fromDate == null ? null : fromDate!.toUtc().toIso8601String();
     if (untilDate != null)
       json['untilDate'] =
-          untilDate == null ? null : untilDate.toUtc().toIso8601String();
+          untilDate == null ? null : untilDate!.toUtc().toIso8601String();
     if (results != null) json['results'] = results;
     return json;
   }
 
   static List<Score> listFromJson(List<dynamic> json) {
-    return json == null
-        ? List<Score>()
-        : json.map((value) => Score.fromJson(value)).toList();
+    return json.map((value) => Score.fromJson(value)).toList();
   }
 
   static Map<String, Score> mapFromJson(Map<String, dynamic> json) {
     var map = Map<String, Score>();
-    if (json != null && json.isNotEmpty) {
-      json.forEach(
-          (String key, dynamic value) => map[key] = Score.fromJson(value));
-    }
+    json.forEach((String key, dynamic value) => map[key] = Score.fromJson(value));
     return map;
   }
 }

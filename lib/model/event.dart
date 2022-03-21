@@ -9,7 +9,7 @@ final _ignitionStatusMap = {
   'start': IgnitionStatus.start,
 };
 
-IgnitionStatus stringToIgnitionStatus(String statusString) {
+IgnitionStatus stringToIgnitionStatus(String? statusString) {
   // Provide a safe default
   var status = IgnitionStatus.off;
 
@@ -41,7 +41,7 @@ final _doorStatusMap = {
   'rear_right': DoorStatus.rear_right,
 };
 
-DoorStatus stringToDoorStatus(String statusString) {
+DoorStatus stringToDoorStatus(String? statusString) {
   // Provide a safe default
   var status = DoorStatus.all_unlocked;
 
@@ -103,7 +103,7 @@ extension TransmissionGearNumbering on TransmissionGearPosition {
   }
 }
 
-TransmissionGearPosition stringToTransmissionGearPosition(String statusString) {
+TransmissionGearPosition stringToTransmissionGearPosition(String? statusString) {
   // Provide a safe default
   var status = TransmissionGearPosition.neutral;
 
@@ -171,7 +171,7 @@ extension GearLeverNumbering on GearLeverPosition {
   }
 }
 
-GearLeverPosition stringToGearLeverPosition(String statusString) {
+GearLeverPosition stringToGearLeverPosition(String? statusString) {
   // Provide a safe default
   var status = GearLeverPosition.neutral;
 
@@ -186,73 +186,73 @@ GearLeverPosition stringToGearLeverPosition(String statusString) {
 }
 
 class Event {
-  int eventID = null;
+  int? eventID = null;
 
-  String journeyID = null;
+  String? journeyID = null;
 
-  int autoID = null;
+  int? autoID = null;
 
-  int driverID = null;
+  int? driverID = null;
 
-  int eventCategoryID = null;
+  int? eventCategoryID = null;
 
-  int automationLevel = null;
+  int? automationLevel = null;
 
-  double steeringWheelAngle = null;
+  double? steeringWheelAngle = null;
 
-  double torqueAtTransmission = null;
+  double? torqueAtTransmission = null;
 
-  double engineSpeed = null;
+  double? engineSpeed = null;
 
-  double vehicleSpeed = null;
+  double? vehicleSpeed = null;
 
-  double acceleratorPedalPosition = null;
+  double? acceleratorPedalPosition = null;
 
-  bool parkingBrakeStatus = null;
+  bool? parkingBrakeStatus = null;
 
-  double brakePedalPosition = null;
+  double? brakePedalPosition = null;
 
-  TransmissionGearPosition transmissionGearPosition = null;
-  GearLeverPosition gearLeverPosition = null;
+  TransmissionGearPosition? transmissionGearPosition = null;
+  GearLeverPosition? gearLeverPosition = null;
 
-  double odometer = null;
+  double? odometer = null;
 
-  IgnitionStatus ignitionStatus = null;
+  IgnitionStatus? ignitionStatus = null;
 
   /* percentage fuel remaining level */
-  double fuelLevel = null;
+  double? fuelLevel = null;
   /* fuel consumed in litres (this goes to 0 every time the vehicle restarts, like a trip meter) */
-  double fuelConsumedSinceRestart = null;
+  double? fuelConsumedSinceRestart = null;
 
-  DoorStatus doorStatus = null;
+  DoorStatus? doorStatus = null;
 
-  bool headlampStatus = null;
+  bool? headlampStatus = null;
 
-  bool highBeamStatus = null;
+  bool? highBeamStatus = null;
 
-  bool windshieldWiperStatus = null;
+  bool? windshieldWiperStatus = null;
 
-  double latitude = null;
+  double? latitude = null;
 
-  double longitude = null;
+  double? longitude = null;
 
-  double bearing = null;
+  double? bearing = null;
 
-  double accuracy = null;
+  double? accuracy = null;
 
-  DateTime timestamp = null;
+  DateTime? timestamp = null;
 
-  double accelX = null;
+  double? accelX = null;
 
-  double accelY = null;
+  double? accelY = null;
 
-  double accelZ = null;
+  double? accelZ = null;
 
-  double gyroX = null;
+  double? gyroX = null;
 
-  double gyroY = null;
+  double? gyroY = null;
 
-  double gyroZ = null;
+  double? gyroZ = null;
   Event();
 
   @override
@@ -282,13 +282,13 @@ class Event {
     }
     if (torqueAtTransmission != null) {
       eventStr +=
-          'torqueAtTransmission=${torqueAtTransmission.toStringAsFixed(2)}, ';
+          'torqueAtTransmission=${torqueAtTransmission!.toStringAsFixed(2)}, ';
     }
     if (engineSpeed != null) {
-      eventStr += 'engineSpeed=${engineSpeed.toStringAsFixed(2)}, ';
+      eventStr += 'engineSpeed=${engineSpeed!.toStringAsFixed(2)}, ';
     }
     if (vehicleSpeed != null) {
-      eventStr += 'vehicleSpeed=${vehicleSpeed.toStringAsFixed(2)}, ';
+      eventStr += 'vehicleSpeed=${vehicleSpeed!.toStringAsFixed(2)}, ';
     }
     if (acceleratorPedalPosition != null) {
       eventStr += 'acceleratorPedalPosition=$acceleratorPedalPosition, ';
@@ -307,17 +307,17 @@ class Event {
       eventStr += 'gearLeverPosition=${enumString(gearLeverPosition)}, ';
     }
     if (odometer != null) {
-      eventStr += 'odometer=${odometer.toStringAsFixed(2)}, ';
+      eventStr += 'odometer=${odometer!.toStringAsFixed(2)}, ';
     }
     if (ignitionStatus != null) {
       eventStr += 'ignitionStatus=${enumString(ignitionStatus)}, ';
     }
     if (fuelLevel != null) {
-      eventStr += 'fuelLevel=${fuelLevel.toStringAsFixed(2)}, ';
+      eventStr += 'fuelLevel=${fuelLevel!.toStringAsFixed(2)}, ';
     }
     if (fuelConsumedSinceRestart != null) {
       eventStr +=
-          'fuelConsumedSinceRestart=${fuelConsumedSinceRestart.toStringAsFixed(2)}, ';
+          'fuelConsumedSinceRestart=${fuelConsumedSinceRestart!.toStringAsFixed(2)}, ';
     }
     if (doorStatus != null) {
       eventStr += 'doorStatus=${enumString(doorStatus)}, ';
@@ -332,10 +332,10 @@ class Event {
       eventStr += 'windshieldWiperStatus=$windshieldWiperStatus, ';
     }
     if (latitude != null) {
-      eventStr += 'latitude=${latitude.toStringAsFixed(6)}, ';
+      eventStr += 'latitude=${latitude!.toStringAsFixed(6)}, ';
     }
     if (longitude != null) {
-      eventStr += 'longitude=${longitude.toStringAsFixed(6)}, ';
+      eventStr += 'longitude=${longitude!.toStringAsFixed(6)}, ';
     }
     if (bearing != null) {
       eventStr += 'bearing=$bearing, ';
@@ -370,7 +370,7 @@ class Event {
     return eventStr;
   }
 
-  Event.fromJson(Map<String, dynamic> json) {
+  Event.fromJson(Map<String, dynamic>? json) {
     if (json == null) return;
     if (json['EventID'] == null) {
       eventID = null;
@@ -598,7 +598,7 @@ class Event {
     if (accuracy != null || !omitNull) json['accuracy'] = accuracy;
     if (timestamp != null || !omitNull)
       json['timestamp'] =
-          timestamp == null ? null : timestamp.toUtc().toIso8601String();
+          timestamp == null ? null : timestamp!.toUtc().toIso8601String();
     if (accelX != null || !omitNull) json['accel_x'] = accelX;
     if (accelY != null || !omitNull) json['accel_y'] = accelY;
     if (accelZ != null || !omitNull) json['accel_z'] = accelZ;
@@ -609,15 +609,12 @@ class Event {
   }
 
   static List<Event> listFromJson(List<dynamic> json) {
-    return json == null ? [] : json.map((value) => Event.fromJson(value)).toList();
+    return json.map((value) => Event.fromJson(value)).toList();
   }
 
   static Map<String, Event> mapFromJson(Map<String, dynamic> json) {
     var map = Map<String, Event>();
-    if (json != null && json.isNotEmpty) {
-      json.forEach(
-          (String key, dynamic value) => map[key] = Event.fromJson(value));
-    }
+    json.forEach((String key, dynamic value) => map[key] = Event.fromJson(value));
     return map;
   }
 }

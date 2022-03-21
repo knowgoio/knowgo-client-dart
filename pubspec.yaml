@@ -4,7 +4,7 @@ description: KnowGo Platform REST API client
 repository: https://github.com/knowgoio/knowgo-client-dart
 issue_tracker: https://github.com/knowgoio/knowgo-client-dart/issues
 environment:
-  sdk: '>=2.10.0 <3.0.0'
+  sdk: '>=2.12.0 <3.0.0'
 dependencies:
   http: ^0.13.4
 dev_dependencies:

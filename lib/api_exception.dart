@@ -2,9 +2,9 @@ part of knowgo.api;
 
 class ApiException implements Exception {
   int code = 0;
-  String message;
-  Exception innerException;
-  StackTrace stackTrace;
+  String? message;
+  Exception? innerException;
+  StackTrace? stackTrace;
 
   ApiException(this.code, this.message);
 

@@ -15,7 +15,7 @@ void main() {
     //
     //Future<Event> addEvent(Event event) async
     test('test addEvent', () async {
-      var events = List<Event>();
+      var events = [];
       var event = Event();
 
       event.vehicleSpeed = 100;
@@ -32,8 +32,8 @@ void main() {
       final result = await instance.addEvent(event);
 
       expect(events.isNotEmpty, true);
-      expect(result.eventID, 123);
-      expect(result.vehicleSpeed, 100);
+      expect(result?.eventID, 123);
+      expect(result?.vehicleSpeed, 100);
     });
 
     // Delete Event by ID
@@ -42,7 +42,7 @@ void main() {
     //
     //Future deleteEvent(int eventId) async
     test('test deleteEvent', () async {
-      var events = List<Event>();
+      var events = [];
       var event1 = Event();
       var event2 = Event();
 
@@ -76,8 +76,8 @@ void main() {
       });
       final instance = EventsApi();
       final event = await instance.getEventById(1);
-      expect(event.eventID, 1);
-      expect(event.vehicleSpeed, 100);
+      expect(event?.eventID, 1);
+      expect(event?.vehicleSpeed, 100);
     });
 
     // Updates an Event with form data

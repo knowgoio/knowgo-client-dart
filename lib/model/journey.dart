@@ -1,25 +1,25 @@
 part of knowgo.api;
 
 class Journey {
-  String journeyID = null;
+  String? journeyID = null;
 
-  int driverID = null;
+  int? driverID = null;
 
-  int autoID = null;
+  int? autoID = null;
 
-  String name = null;
+  String? name = null;
 
-  List<String> journeyType = [];
+  List<String>? journeyType = [];
 
-  DateTime journeyBegin = null;
+  DateTime? journeyBegin = null;
 
-  DateTime journeyEnd = null;
+  DateTime? journeyEnd = null;
 
-  double odometerBegin = null;
+  double? odometerBegin = null;
 
-  double odometerEnd = null;
+  double? odometerEnd = null;
 
-  List<Event> events = [];
+  List<Event>? events = [];
   Journey();
 
   @override
@@ -29,12 +29,12 @@ class Journey {
 
   double calculateDistance() {
     if (odometerBegin != null && odometerEnd != null)
-      return odometerEnd - odometerBegin;
+      return odometerEnd! - odometerBegin!;
 
     return 0;
   }
 
-  Journey.fromJson(Map<String, dynamic> json) {
+  Journey.fromJson(Map<String, dynamic>? json) {
     if (json == null) return;
     if (json['JourneyID'] == null) {
       journeyID = null;
@@ -97,10 +97,10 @@ class Journey {
     if (journeyType != null) json['JourneyType'] = journeyType;
     if (journeyBegin != null)
       json['JourneyBegin'] =
-          journeyBegin == null ? null : journeyBegin.toUtc().toIso8601String();
+          journeyBegin == null ? null : journeyBegin!.toUtc().toIso8601String();
     if (journeyEnd != null)
       json['JourneyEnd'] =
-          journeyEnd == null ? null : journeyEnd.toUtc().toIso8601String();
+          journeyEnd == null ? null : journeyEnd!.toUtc().toIso8601String();
     if (odometerBegin != null) json['OdometerBegin'] = odometerBegin;
     if (odometerEnd != null) json['OdometerEnd'] = odometerEnd;
     if (events != null) json['Events'] = events;
@@ -108,17 +108,13 @@ class Journey {
   }
 
   static List<Journey> listFromJson(List<dynamic> json) {
-    return json == null
-        ? List<Journey>()
-        : json.map((value) => Journey.fromJson(value)).toList();
+    return json.map((value) => Journey.fromJson(value)).toList();
   }
 
   static Map<String, Journey> mapFromJson(Map<String, dynamic> json) {
     var map = Map<String, Journey>();
-    if (json != null && json.isNotEmpty) {
-      json.forEach(
+    json.forEach(
           (String key, dynamic value) => map[key] = Journey.fromJson(value));
-    }
     return map;
   }
 }

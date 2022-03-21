@@ -3,26 +3,21 @@ part of knowgo.api;
 class VehiclesApi {
   final ApiClient apiClient;
 
-  VehiclesApi([ApiClient apiClient])
+  VehiclesApi([ApiClient? apiClient])
       : apiClient = apiClient ?? defaultApiClient;
 
   /// Add a new auto
   ///
   /// Adds a new Auto to the system. The AutoID as input is ignored, as it is dynamically allocated at insertion time. Auto details may be as complete or as incomplete as needed, with later updates possible via the PUT method. The complete new Auto record with allocated AutoID are returned upon successful record creation.
-  Future<Auto> addAuto(Auto auto) async {
+  Future<Auto?> addAuto(Auto auto) async {
     Object postBody = auto;
-
-    // verify required params are set
-    if (auto == null) {
-      throw ApiException(400, "Missing required param: auto");
-    }
 
     // create path and map variables
     String path = "/autos".replaceAll("{format}", "json");
 
     // query params
     List<QueryParam> queryParams = [];
-    Map<String, String> headerParams = {};
+    Map<String, String?> headerParams = {};
     Map<String, String> formParams = {};
 
     List<String> contentTypes = ["application/json"];
@@ -30,19 +25,12 @@ class VehiclesApi {
     String contentType =
         contentTypes.isNotEmpty ? contentTypes[0] : "application/json";
     List<String> authNames = ["app_id", "bearerAuth", "cookieAuth"];
-
-    if (contentType.startsWith("multipart/form-data")) {
-      bool hasFields = false;
-      MultipartRequest mp = MultipartRequest(null, null);
-      if (hasFields) postBody = mp;
-    } else {}
-
     var response = await apiClient.invokeAPI(path, 'POST', queryParams,
         postBody, headerParams, formParams, contentType, authNames);
 
     if (response.statusCode >= 400) {
       throw ApiException(response.statusCode, _decodeBodyBytes(response));
-    } else if (response.body != null) {
+    } else if (response.body.isNotEmpty) {
       return apiClient.deserialize(_decodeBodyBytes(response), 'Auto') as Auto;
     } else {
       return null;
@@ -53,12 +41,7 @@ class VehiclesApi {
   ///
   ///
   Future deleteAuto(int autoId) async {
-    Object postBody;
-
-    // verify required params are set
-    if (autoId == null) {
-      throw ApiException(400, "Missing required param: autoId");
-    }
+    Object? postBody;
 
     // create path and map variables
     String path = "/autos/{autoId}"
@@ -67,7 +50,7 @@ class VehiclesApi {
 
     // query params
     List<QueryParam> queryParams = [];
-    Map<String, String> headerParams = {};
+    Map<String, String?> headerParams = {};
     Map<String, String> formParams = {};
 
     List<String> contentTypes = [];
@@ -75,34 +58,19 @@ class VehiclesApi {
     String contentType =
         contentTypes.isNotEmpty ? contentTypes[0] : "application/json";
     List<String> authNames = ["app_id", "bearerAuth", "cookieAuth"];
-
-    if (contentType.startsWith("multipart/form-data")) {
-      bool hasFields = false;
-      MultipartRequest mp = MultipartRequest(null, null);
-      if (hasFields) postBody = mp;
-    } else {}
-
     var response = await apiClient.invokeAPI(path, 'DELETE', queryParams,
         postBody, headerParams, formParams, contentType, authNames);
 
     if (response.statusCode >= 400) {
       throw ApiException(response.statusCode, _decodeBodyBytes(response));
-    } else if (response.body != null) {
-    } else {
-      return;
     }
   }
 
   /// Find auto by ID
   ///
   /// Returns a single auto
-  Future<Auto> getAutoById(int autoId) async {
-    Object postBody;
-
-    // verify required params are set
-    if (autoId == null) {
-      throw ApiException(400, "Missing required param: autoId");
-    }
+  Future<Auto?> getAutoById(int autoId) async {
+    Object? postBody;
 
     // create path and map variables
     String path = "/autos/{autoId}"
@@ -111,7 +79,7 @@ class VehiclesApi {
 
     // query params
     List<QueryParam> queryParams = [];
-    Map<String, String> headerParams = {};
+    Map<String, String?> headerParams = {};
     Map<String, String> formParams = {};
 
     List<String> contentTypes = [];
@@ -120,18 +88,12 @@ class VehiclesApi {
         contentTypes.isNotEmpty ? contentTypes[0] : "application/json";
     List<String> authNames = ["app_id", "bearerAuth", "cookieAuth"];
 
-    if (contentType.startsWith("multipart/form-data")) {
-      bool hasFields = false;
-      MultipartRequest mp = MultipartRequest(null, null);
-      if (hasFields) postBody = mp;
-    } else {}
-
     var response = await apiClient.invokeAPI(path, 'GET', queryParams, postBody,
         headerParams, formParams, contentType, authNames);
 
     if (response.statusCode >= 400) {
       throw ApiException(response.statusCode, _decodeBodyBytes(response));
-    } else if (response.body != null) {
+    } else if (response.body.isNotEmpty) {
       return apiClient.deserialize(_decodeBodyBytes(response), 'Auto') as Auto;
     } else {
       return null;
@@ -142,7 +104,7 @@ class VehiclesApi {
   ///
   /// Given an authenticated user, return a list of vehicles that are available to them.
   Future<List<Auto>> listVehicles() async {
-    Object postBody;
+    Object? postBody;
 
     // verify required params are set
 
@@ -151,7 +113,7 @@ class VehiclesApi {
 
     // query params
     List<QueryParam> queryParams = [];
-    Map<String, String> headerParams = {};
+    Map<String, String?> headerParams = {};
     Map<String, String> formParams = {};
 
     List<String> contentTypes = [];
@@ -160,24 +122,16 @@ class VehiclesApi {
         contentTypes.isNotEmpty ? contentTypes[0] : "application/json";
     List<String> authNames = ["app_id", "bearerAuth", "cookieAuth"];
 
-    if (contentType.startsWith("multipart/form-data")) {
-      bool hasFields = false;
-      MultipartRequest mp = MultipartRequest(null, null);
-      if (hasFields) postBody = mp;
-    } else {}
-
     var response = await apiClient.invokeAPI(path, 'GET', queryParams, postBody,
         headerParams, formParams, contentType, authNames);
 
     if (response.statusCode >= 400) {
       throw ApiException(response.statusCode, _decodeBodyBytes(response));
-    } else if (response.body != null) {
+    } else {
       return (apiClient.deserialize(_decodeBodyBytes(response), 'List<Auto>')
               as List)
           .map((item) => item as Auto)
           .toList();
-    } else {
-      return null;
     }
   }
 
@@ -185,12 +139,7 @@ class VehiclesApi {
   ///
   /// Given an authenticated user, return a list of vehicles that are available to them.
   Future<List<Auto>> listVehiclesByUserId(int userId) async {
-    Object postBody;
-
-    // verify required params are set
-    if (userId == null) {
-      throw ApiException(400, "Missing required param: userId");
-    }
+    Object? postBody;
 
     // create path and map variables
     String path = "/users/{userId}/vehicles"
@@ -199,7 +148,7 @@ class VehiclesApi {
 
     // query params
     List<QueryParam> queryParams = [];
-    Map<String, String> headerParams = {};
+    Map<String, String?> headerParams = {};
     Map<String, String> formParams = {};
 
     List<String> contentTypes = [];
@@ -208,44 +157,38 @@ class VehiclesApi {
         contentTypes.isNotEmpty ? contentTypes[0] : "application/json";
     List<String> authNames = ["app_id", "bearerAuth", "cookieAuth"];
 
-    if (contentType.startsWith("multipart/form-data")) {
-      bool hasFields = false;
-      MultipartRequest mp = MultipartRequest(null, null);
-      if (hasFields) postBody = mp;
-    } else {}
-
     var response = await apiClient.invokeAPI(path, 'GET', queryParams, postBody,
         headerParams, formParams, contentType, authNames);
 
     if (response.statusCode >= 400) {
       throw ApiException(response.statusCode, _decodeBodyBytes(response));
-    } else if (response.body != null) {
+    } else if (response.body.isNotEmpty) {
       return (apiClient.deserialize(_decodeBodyBytes(response), 'List<Auto>')
               as List)
           .map((item) => item as Auto)
           .toList();
     } else {
-      return null;
+      return [];
     }
   }
 
   /// Update an existing auto
   ///
   ///
-  Future updateAuto(Auto auto) async {
-    Object postBody = auto;
-
+  Future updateAuto(Auto? auto) async {
     // verify required params are set
     if (auto == null) {
       throw ApiException(400, "Missing required param: auto");
     }
+
+    Object postBody = auto;
 
     // create path and map variables
     String path = "/autos".replaceAll("{format}", "json");
 
     // query params
     List<QueryParam> queryParams = [];
-    Map<String, String> headerParams = {};
+    Map<String, String?> headerParams = {};
     Map<String, String> formParams = {};
 
     List<String> contentTypes = ["application/json"];
@@ -254,29 +197,18 @@ class VehiclesApi {
         contentTypes.isNotEmpty ? contentTypes[0] : "application/json";
     List<String> authNames = ["app_id", "bearerAuth", "cookieAuth"];
 
-    if (contentType.startsWith("multipart/form-data")) {
-      bool hasFields = false;
-      MultipartRequest mp = MultipartRequest(null, null);
-      if (hasFields) postBody = mp;
-    } else {}
-
     var response = await apiClient.invokeAPI(path, 'PUT', queryParams, postBody,
         headerParams, formParams, contentType, authNames);
 
     if (response.statusCode >= 400) {
       throw ApiException(response.statusCode, _decodeBodyBytes(response));
-    } else if (response.body != null) {
-    } else {
-      return;
     }
   }
 
   /// Updates an auto with form data
   ///
   ///
-  Future updateAutoWithForm(int autoId, Auto auto) async {
-    Object postBody = auto;
-
+  Future updateAutoWithForm(int? autoId, Auto? auto) async {
     // verify required params are set
     if (autoId == null) {
       throw ApiException(400, "Missing required param: autoId");
@@ -285,6 +217,8 @@ class VehiclesApi {
       throw ApiException(400, "Missing required param: auto");
     }
 
+    Object postBody = auto;
+
     // create path and map variables
     String path = "/autos/{autoId}"
         .replaceAll("{format}", "json")
@@ -292,7 +226,7 @@ class VehiclesApi {
 
     // query params
     List<QueryParam> queryParams = [];
-    Map<String, String> headerParams = {};
+    Map<String, String?> headerParams = {};
     Map<String, String> formParams = {};
 
     List<String> contentTypes = ["application/json"];
@@ -301,20 +235,11 @@ class VehiclesApi {
         contentTypes.isNotEmpty ? contentTypes[0] : "application/json";
     List<String> authNames = ["app_id", "bearerAuth", "cookieAuth"];
 
-    if (contentType.startsWith("multipart/form-data")) {
-      bool hasFields = false;
-      MultipartRequest mp = MultipartRequest(null, null);
-      if (hasFields) postBody = mp;
-    } else {}
-
     var response = await apiClient.invokeAPI(path, 'POST', queryParams,
         postBody, headerParams, formParams, contentType, authNames);
 
     if (response.statusCode >= 400) {
       throw ApiException(response.statusCode, _decodeBodyBytes(response));
-    } else if (response.body != null) {
-    } else {
-      return;
     }
   }
 }

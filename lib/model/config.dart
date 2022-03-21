@@ -2,11 +2,11 @@ part of knowgo.api;
 
 class Config {
   /* ISO 3166-1 alpha-2 country code designation */
-  String country = null;
+  String? country = null;
   /* Region served */
-  String region = null;
+  String? region = null;
   /* Address of the MQTT Proxy clients should connect to */
-  String mqttProxyHost = null;
+  String? mqttProxyHost = null;
   Config();
 
   @override
@@ -14,7 +14,7 @@ class Config {
     return 'Config[country=$country, region=$region, mqttProxyHost=$mqttProxyHost, ]';
   }
 
-  Config.fromJson(Map<String, dynamic> json) {
+  Config.fromJson(Map<String, dynamic>? json) {
     if (json == null) return;
     if (json['Country'] == null) {
       country = null;
@@ -42,17 +42,13 @@ class Config {
   }
 
   static List<Config> listFromJson(List<dynamic> json) {
-    return json == null
-        ? List<Config>()
-        : json.map((value) => Config.fromJson(value)).toList();
+    return json.map((value) => Config.fromJson(value)).toList();
   }
 
   static Map<String, Config> mapFromJson(Map<String, dynamic> json) {
     var map = Map<String, Config>();
-    if (json != null && json.isNotEmpty) {
-      json.forEach(
+    json.forEach(
           (String key, dynamic value) => map[key] = Config.fromJson(value));
-    }
     return map;
   }
 }

@@ -3,7 +3,7 @@ part of knowgo.api;
 class UsersApi {
   final ApiClient apiClient;
 
-  UsersApi([ApiClient apiClient]) : apiClient = apiClient ?? defaultApiClient;
+  UsersApi([ApiClient? apiClient]) : apiClient = apiClient ?? defaultApiClient;
 
   /// Confirm the change in user password via the recovery mechanism
   ///
@@ -12,18 +12,12 @@ class UsersApi {
       PasswordRecoveryConfirmation passwordRecoveryConfirmation) async {
     Object postBody = passwordRecoveryConfirmation;
 
-    // verify required params are set
-    if (passwordRecoveryConfirmation == null) {
-      throw ApiException(
-          400, "Missing required param: passwordRecoveryConfirmation");
-    }
-
     // create path and map variables
     String path = "/users/password/confirm".replaceAll("{format}", "json");
 
     // query params
     List<QueryParam> queryParams = [];
-    Map<String, String> headerParams = {};
+    Map<String, String?> headerParams = {};
     Map<String, String> formParams = {};
 
     List<String> contentTypes = ["application/json"];
@@ -31,41 +25,26 @@ class UsersApi {
     String contentType =
         contentTypes.isNotEmpty ? contentTypes[0] : "application/json";
     List<String> authNames = [];
-
-    if (contentType.startsWith("multipart/form-data")) {
-      bool hasFields = false;
-      MultipartRequest mp = MultipartRequest(null, null);
-      if (hasFields) postBody = mp;
-    } else {}
-
     var response = await apiClient.invokeAPI(path, 'POST', queryParams,
         postBody, headerParams, formParams, contentType, authNames);
 
     if (response.statusCode >= 400) {
       throw ApiException(response.statusCode, _decodeBodyBytes(response));
-    } else if (response.body != null) {
-    } else {
-      return;
     }
   }
 
   /// Create user
   ///
   /// Create a new user within the system
-  Future<User> createUser(User user) async {
+  Future<User?> createUser(User user) async {
     Object postBody = user;
-
-    // verify required params are set
-    if (user == null) {
-      throw ApiException(400, "Missing required param: user");
-    }
 
     // create path and map variables
     String path = "/users".replaceAll("{format}", "json");
 
     // query params
     List<QueryParam> queryParams = [];
-    Map<String, String> headerParams = {};
+    Map<String, String?> headerParams = {};
     Map<String, String> formParams = {};
 
     List<String> contentTypes = ["application/json"];
@@ -73,19 +52,12 @@ class UsersApi {
     String contentType =
         contentTypes.isNotEmpty ? contentTypes[0] : "application/json";
     List<String> authNames = [];
-
-    if (contentType.startsWith("multipart/form-data")) {
-      bool hasFields = false;
-      MultipartRequest mp = MultipartRequest(null, null);
-      if (hasFields) postBody = mp;
-    } else {}
-
     var response = await apiClient.invokeAPI(path, 'POST', queryParams,
         postBody, headerParams, formParams, contentType, authNames);
 
     if (response.statusCode >= 400) {
       throw ApiException(response.statusCode, _decodeBodyBytes(response));
-    } else if (response.body != null) {
+    } else if (response.body.isNotEmpty) {
       return apiClient.deserialize(_decodeBodyBytes(response), 'User') as User;
     } else {
       return null;
@@ -96,12 +68,7 @@ class UsersApi {
   ///
   /// This can only be done by the logged in user.
   Future deleteUser(int userId) async {
-    Object postBody;
-
-    // verify required params are set
-    if (userId == null) {
-      throw ApiException(400, "Missing required param: userId");
-    }
+    Object? postBody;
 
     // create path and map variables
     String path = "/users/{userId}"
@@ -110,7 +77,7 @@ class UsersApi {
 
     // query params
     List<QueryParam> queryParams = [];
-    Map<String, String> headerParams = {};
+    Map<String, String?> headerParams = {};
     Map<String, String> formParams = {};
 
     List<String> contentTypes = [];
@@ -118,21 +85,11 @@ class UsersApi {
     String contentType =
         contentTypes.isNotEmpty ? contentTypes[0] : "application/json";
     List<String> authNames = ["app_id", "bearerAuth", "cookieAuth"];
-
-    if (contentType.startsWith("multipart/form-data")) {
-      bool hasFields = false;
-      MultipartRequest mp = MultipartRequest(null, null);
-      if (hasFields) postBody = mp;
-    } else {}
-
     var response = await apiClient.invokeAPI(path, 'DELETE', queryParams,
         postBody, headerParams, formParams, contentType, authNames);
 
     if (response.statusCode >= 400) {
       throw ApiException(response.statusCode, _decodeBodyBytes(response));
-    } else if (response.body != null) {
-    } else {
-      return;
     }
   }
 
@@ -140,15 +97,7 @@ class UsersApi {
   ///
   /// Given an authenticated user, disable a specific service that the user no longer wishes to use.
   Future disableServiceByUserId(int userId, String serviceName) async {
-    Object postBody;
-
-    // verify required params are set
-    if (userId == null) {
-      throw ApiException(400, "Missing required param: userId");
-    }
-    if (serviceName == null) {
-      throw ApiException(400, "Missing required param: serviceName");
-    }
+    Object? postBody;
 
     // create path and map variables
     String path = "/users/{userId}/services/{serviceName}"
@@ -158,7 +107,7 @@ class UsersApi {
 
     // query params
     List<QueryParam> queryParams = [];
-    Map<String, String> headerParams = {};
+    Map<String, String?> headerParams = {};
     Map<String, String> formParams = {};
 
     List<String> contentTypes = [];
@@ -166,21 +115,11 @@ class UsersApi {
     String contentType =
         contentTypes.isNotEmpty ? contentTypes[0] : "application/json";
     List<String> authNames = ["app_id", "bearerAuth", "cookieAuth"];
-
-    if (contentType.startsWith("multipart/form-data")) {
-      bool hasFields = false;
-      MultipartRequest mp = MultipartRequest(null, null);
-      if (hasFields) postBody = mp;
-    } else {}
-
     var response = await apiClient.invokeAPI(path, 'DELETE', queryParams,
         postBody, headerParams, formParams, contentType, authNames);
 
     if (response.statusCode >= 400) {
       throw ApiException(response.statusCode, _decodeBodyBytes(response));
-    } else if (response.body != null) {
-    } else {
-      return;
     }
   }
 
@@ -188,15 +127,7 @@ class UsersApi {
   ///
   /// Given an authenticated user, enable a specific service that the user wishes to use.
   Future enableServiceByUserId(int userId, String serviceName) async {
-    Object postBody;
-
-    // verify required params are set
-    if (userId == null) {
-      throw ApiException(400, "Missing required param: userId");
-    }
-    if (serviceName == null) {
-      throw ApiException(400, "Missing required param: serviceName");
-    }
+    Object? postBody;
 
     // create path and map variables
     String path = "/users/{userId}/services/{serviceName}"
@@ -206,7 +137,7 @@ class UsersApi {
 
     // query params
     List<QueryParam> queryParams = [];
-    Map<String, String> headerParams = {};
+    Map<String, String?> headerParams = {};
     Map<String, String> formParams = {};
 
     List<String> contentTypes = [];
@@ -214,21 +145,11 @@ class UsersApi {
     String contentType =
         contentTypes.isNotEmpty ? contentTypes[0] : "application/json";
     List<String> authNames = ["app_id", "bearerAuth", "cookieAuth"];
-
-    if (contentType.startsWith("multipart/form-data")) {
-      bool hasFields = false;
-      MultipartRequest mp = MultipartRequest(null, null);
-      if (hasFields) postBody = mp;
-    } else {}
-
     var response = await apiClient.invokeAPI(path, 'POST', queryParams,
         postBody, headerParams, formParams, contentType, authNames);
 
     if (response.statusCode >= 400) {
       throw ApiException(response.statusCode, _decodeBodyBytes(response));
-    } else if (response.body != null) {
-    } else {
-      return;
     }
   }
 
@@ -236,12 +157,7 @@ class UsersApi {
   ///
   /// This endpoint allows a logged in user to export all of the data pertaining to their userId from across the system in a simple CSV format, facilitating their right to data and service portability. This includes not only the personal information about the individual, but also all vehicles they are (or have been) associated with, journeys taken, and all events recorded.
   Future exportUser(int userId) async {
-    Object postBody;
-
-    // verify required params are set
-    if (userId == null) {
-      throw ApiException(400, "Missing required param: userId");
-    }
+    Object? postBody;
 
     // create path and map variables
     String path = "/users/{userId}/export"
@@ -250,7 +166,7 @@ class UsersApi {
 
     // query params
     List<QueryParam> queryParams = [];
-    Map<String, String> headerParams = {};
+    Map<String, String?> headerParams = {};
     Map<String, String> formParams = {};
 
     List<String> contentTypes = [];
@@ -258,34 +174,19 @@ class UsersApi {
     String contentType =
         contentTypes.isNotEmpty ? contentTypes[0] : "application/json";
     List<String> authNames = ["app_id", "bearerAuth", "cookieAuth"];
-
-    if (contentType.startsWith("multipart/form-data")) {
-      bool hasFields = false;
-      MultipartRequest mp = MultipartRequest(null, null);
-      if (hasFields) postBody = mp;
-    } else {}
-
     var response = await apiClient.invokeAPI(path, 'GET', queryParams, postBody,
         headerParams, formParams, contentType, authNames);
 
     if (response.statusCode >= 400) {
       throw ApiException(response.statusCode, _decodeBodyBytes(response));
-    } else if (response.body != null) {
-    } else {
-      return;
     }
   }
 
   /// Get user by user id
   ///
   ///
-  Future<User> getUserById(int userId) async {
-    Object postBody;
-
-    // verify required params are set
-    if (userId == null) {
-      throw ApiException(400, "Missing required param: userId");
-    }
+  Future<User?> getUserById(int userId) async {
+    Object? postBody;
 
     // create path and map variables
     String path = "/users/{userId}"
@@ -294,27 +195,19 @@ class UsersApi {
 
     // query params
     List<QueryParam> queryParams = [];
-    Map<String, String> headerParams = {};
+    Map<String, String?> headerParams = {};
     Map<String, String> formParams = {};
-
     List<String> contentTypes = [];
 
     String contentType =
         contentTypes.isNotEmpty ? contentTypes[0] : "application/json";
     List<String> authNames = ["app_id", "bearerAuth", "cookieAuth"];
-
-    if (contentType.startsWith("multipart/form-data")) {
-      bool hasFields = false;
-      MultipartRequest mp = MultipartRequest(null, null);
-      if (hasFields) postBody = mp;
-    } else {}
-
     var response = await apiClient.invokeAPI(path, 'GET', queryParams, postBody,
         headerParams, formParams, contentType, authNames);
 
     if (response.statusCode >= 400) {
       throw ApiException(response.statusCode, _decodeBodyBytes(response));
-    } else if (response.body != null) {
+    } else if (response.body.isNotEmpty) {
       return apiClient.deserialize(_decodeBodyBytes(response), 'User') as User;
     } else {
       return null;
@@ -325,12 +218,7 @@ class UsersApi {
   ///
   /// Given an authenticated user, return a list of journeys that are available to them.
   Future<List<Journey>> listJourneysByUserId(int userId) async {
-    Object postBody;
-
-    // verify required params are set
-    if (userId == null) {
-      throw ApiException(400, "Missing required param: userId");
-    }
+    Object? postBody;
 
     // create path and map variables
     String path = "/users/{userId}/journeys"
@@ -339,33 +227,25 @@ class UsersApi {
 
     // query params
     List<QueryParam> queryParams = [];
-    Map<String, String> headerParams = {};
+    Map<String, String?> headerParams = {};
     Map<String, String> formParams = {};
-
     List<String> contentTypes = [];
 
     String contentType =
         contentTypes.isNotEmpty ? contentTypes[0] : "application/json";
     List<String> authNames = ["app_id", "bearerAuth", "cookieAuth"];
-
-    if (contentType.startsWith("multipart/form-data")) {
-      bool hasFields = false;
-      MultipartRequest mp = MultipartRequest(null, null);
-      if (hasFields) postBody = mp;
-    } else {}
-
     var response = await apiClient.invokeAPI(path, 'GET', queryParams, postBody,
         headerParams, formParams, contentType, authNames);
 
     if (response.statusCode >= 400) {
       throw ApiException(response.statusCode, _decodeBodyBytes(response));
-    } else if (response.body != null) {
+    } else if (response.body.isNotEmpty) {
       return (apiClient.deserialize(_decodeBodyBytes(response), 'List<Journey>')
               as List)
           .map((item) => item as Journey)
           .toList();
     } else {
-      return null;
+      return [];
     }
   }
 
@@ -373,12 +253,7 @@ class UsersApi {
   ///
   /// Given an authenticated user, return a list of services that they have opted in to. This will include a subset of the &#39;/services&#39; result, and will persist regardless of the availability or lack of availability of a given service.
   Future<List<String>> listServicesByUserId(int userId) async {
-    Object postBody;
-
-    // verify required params are set
-    if (userId == null) {
-      throw ApiException(400, "Missing required param: userId");
-    }
+    Object? postBody;
 
     // create path and map variables
     String path = "/users/{userId}/services"
@@ -387,33 +262,25 @@ class UsersApi {
 
     // query params
     List<QueryParam> queryParams = [];
-    Map<String, String> headerParams = {};
+    Map<String, String?> headerParams = {};
     Map<String, String> formParams = {};
-
     List<String> contentTypes = [];
 
     String contentType =
         contentTypes.isNotEmpty ? contentTypes[0] : "application/json";
     List<String> authNames = ["app_id", "bearerAuth", "cookieAuth"];
-
-    if (contentType.startsWith("multipart/form-data")) {
-      bool hasFields = false;
-      MultipartRequest mp = MultipartRequest(null, null);
-      if (hasFields) postBody = mp;
-    } else {}
-
     var response = await apiClient.invokeAPI(path, 'GET', queryParams, postBody,
         headerParams, formParams, contentType, authNames);
 
     if (response.statusCode >= 400) {
       throw ApiException(response.statusCode, _decodeBodyBytes(response));
-    } else if (response.body != null) {
+    } else if (response.body.isNotEmpty) {
       return (apiClient.deserialize(_decodeBodyBytes(response), 'List<String>')
               as List)
           .map((item) => item as String)
           .toList();
     } else {
-      return null;
+      return [];
     }
   }
 
@@ -421,12 +288,7 @@ class UsersApi {
   ///
   /// Given an authenticated user, return a list of vehicles that are available to them.
   Future<List<Auto>> listVehiclesByUserId(int userId) async {
-    Object postBody;
-
-    // verify required params are set
-    if (userId == null) {
-      throw ApiException(400, "Missing required param: userId");
-    }
+    Object? postBody;
 
     // create path and map variables
     String path = "/users/{userId}/vehicles"
@@ -435,7 +297,7 @@ class UsersApi {
 
     // query params
     List<QueryParam> queryParams = [];
-    Map<String, String> headerParams = {};
+    Map<String, String?> headerParams = {};
     Map<String, String> formParams = {};
 
     List<String> contentTypes = [];
@@ -443,34 +305,27 @@ class UsersApi {
     String contentType =
         contentTypes.isNotEmpty ? contentTypes[0] : "application/json";
     List<String> authNames = ["app_id", "bearerAuth", "cookieAuth"];
-
-    if (contentType.startsWith("multipart/form-data")) {
-      bool hasFields = false;
-      MultipartRequest mp = MultipartRequest(null, null);
-      if (hasFields) postBody = mp;
-    } else {}
-
     var response = await apiClient.invokeAPI(path, 'GET', queryParams, postBody,
         headerParams, formParams, contentType, authNames);
 
     if (response.statusCode >= 400) {
       throw ApiException(response.statusCode, _decodeBodyBytes(response));
-    } else if (response.body != null) {
+    } else if (response.body.isNotEmpty) {
       return (apiClient.deserialize(_decodeBodyBytes(response), 'List<Auto>')
               as List)
           .map((item) => item as Auto)
           .toList();
     } else {
-      return null;
+      return [];
     }
   }
 
   /// Logs user into the system and returns an authentication token.
-  Future<String> loginUser(
-      {String username,
-      String password,
-      AuthCredentials authCredentials}) async {
-    Object postBody = authCredentials;
+  Future<String?> loginUser(
+      {String? username,
+      String? password,
+      AuthCredentials? authCredentials}) async {
+    Object? postBody = authCredentials;
 
     // verify required params are set
 
@@ -479,7 +334,7 @@ class UsersApi {
 
     // query params
     List<QueryParam> queryParams = [];
-    Map<String, String> headerParams = {};
+    Map<String, String?> headerParams = {};
     Map<String, String> formParams = {};
     if (username != null) {
       queryParams.addAll(
@@ -495,19 +350,12 @@ class UsersApi {
     String contentType =
         contentTypes.isNotEmpty ? contentTypes[0] : "application/json";
     List<String> authNames = [];
-
-    if (contentType.startsWith("multipart/form-data")) {
-      bool hasFields = false;
-      MultipartRequest mp = MultipartRequest(null, null);
-      if (hasFields) postBody = mp;
-    } else {}
-
     var response = await apiClient.invokeAPI(path, 'POST', queryParams,
         postBody, headerParams, formParams, contentType, authNames);
 
     if (response.statusCode >= 400) {
       throw ApiException(response.statusCode, _decodeBodyBytes(response));
-    } else if (response.body != null) {
+    } else if (response.body.isNotEmpty) {
       return apiClient.deserialize(_decodeBodyBytes(response), 'String')
           as String;
     } else {
@@ -519,7 +367,7 @@ class UsersApi {
   ///
   ///
   Future logoutUser() async {
-    Object postBody;
+    Object? postBody;
 
     // verify required params are set
 
@@ -528,7 +376,7 @@ class UsersApi {
 
     // query params
     List<QueryParam> queryParams = [];
-    Map<String, String> headerParams = {};
+    Map<String, String?> headerParams = {};
     Map<String, String> formParams = {};
 
     List<String> contentTypes = [];
@@ -536,27 +384,17 @@ class UsersApi {
     String contentType =
         contentTypes.isNotEmpty ? contentTypes[0] : "application/json";
     List<String> authNames = ["app_id", "bearerAuth", "cookieAuth"];
-
-    if (contentType.startsWith("multipart/form-data")) {
-      bool hasFields = false;
-      MultipartRequest mp = MultipartRequest(null, null);
-      if (hasFields) postBody = mp;
-    } else {}
-
     var response = await apiClient.invokeAPI(path, 'GET', queryParams, postBody,
         headerParams, formParams, contentType, authNames);
 
     if (response.statusCode >= 400) {
       throw ApiException(response.statusCode, _decodeBodyBytes(response));
-    } else if (response.body != null) {
-    } else {
-      return;
     }
   }
 
   /// Refreshes the session token for a logged-in user
   Future refreshToken() async {
-    Object postBody;
+    Object? postBody;
 
     // verify required params are set
 
@@ -565,7 +403,7 @@ class UsersApi {
 
     // query params
     List<QueryParam> queryParams = [];
-    Map<String, String> headerParams = {};
+    Map<String, String?> headerParams = {};
     Map<String, String> formParams = {};
 
     List<String> contentTypes = [];
@@ -573,21 +411,11 @@ class UsersApi {
     String contentType =
         contentTypes.isNotEmpty ? contentTypes[0] : "application/json";
     List<String> authNames = ["app_id", "bearerAuth", "cookieAuth"];
-
-    if (contentType.startsWith("multipart/form-data")) {
-      bool hasFields = false;
-      MultipartRequest mp = MultipartRequest(null, null);
-      if (hasFields) postBody = mp;
-    } else {}
-
     var response = await apiClient.invokeAPI(path, 'GET', queryParams, postBody,
         headerParams, formParams, contentType, authNames);
 
     if (response.statusCode >= 400) {
       throw ApiException(response.statusCode, _decodeBodyBytes(response));
-    } else if (response.body != null) {
-    } else {
-      return;
     }
   }
 
@@ -597,14 +425,6 @@ class UsersApi {
   Future updateUser(int userId, User user) async {
     Object postBody = user;
 
-    // verify required params are set
-    if (userId == null) {
-      throw ApiException(400, "Missing required param: userId");
-    }
-    if (user == null) {
-      throw ApiException(400, "Missing required param: user");
-    }
-
     // create path and map variables
     String path = "/users/{userId}"
         .replaceAll("{format}", "json")
@@ -612,7 +432,7 @@ class UsersApi {
 
     // query params
     List<QueryParam> queryParams = [];
-    Map<String, String> headerParams = {};
+    Map<String, String?> headerParams = {};
     Map<String, String> formParams = {};
 
     List<String> contentTypes = ["application/json"];
@@ -620,27 +440,17 @@ class UsersApi {
     String contentType =
         contentTypes.isNotEmpty ? contentTypes[0] : "application/json";
     List<String> authNames = ["app_id", "bearerAuth", "cookieAuth"];
-
-    if (contentType.startsWith("multipart/form-data")) {
-      bool hasFields = false;
-      MultipartRequest mp = MultipartRequest(null, null);
-      if (hasFields) postBody = mp;
-    } else {}
-
     var response = await apiClient.invokeAPI(path, 'PUT', queryParams, postBody,
         headerParams, formParams, contentType, authNames);
 
     if (response.statusCode >= 400) {
       throw ApiException(response.statusCode, _decodeBodyBytes(response));
-    } else if (response.body != null) {
-    } else {
-      return;
     }
   }
 
   /// Initiaties a password recovery operation for the designated user.
-  Future recoverUserPassword({String email, String body}) async {
-    Object postBody = body;
+  Future recoverUserPassword({String? email, String? body}) async {
+    Object? postBody = body;
 
     // verify required params are set
     if (email == null && body == null) {
@@ -652,7 +462,7 @@ class UsersApi {
 
     // query params
     List<QueryParam> queryParams = [];
-    Map<String, String> headerParams = {};
+    Map<String, String?> headerParams = {};
     Map<String, String> formParams = {};
     if (email != null) {
       queryParams
@@ -665,20 +475,11 @@ class UsersApi {
         contentTypes.isNotEmpty ? contentTypes[0] : "application/json";
     List<String> authNames = [];
 
-    if (contentType.startsWith("multipart/form-data")) {
-      bool hasFields = false;
-      MultipartRequest mp = MultipartRequest(null, null);
-      if (hasFields) postBody = mp;
-    } else {}
-
     var response = await apiClient.invokeAPI(path, 'POST', queryParams,
         postBody, headerParams, formParams, contentType, authNames);
 
     if (response.statusCode >= 400) {
       throw ApiException(response.statusCode, _decodeBodyBytes(response));
-    } else if (response.body != null) {
-    } else {
-      return;
     }
   }
 }

@@ -2,7 +2,7 @@ part of knowgo.api;
 
 // Provide our own version of describeEnum() - while describeEnum() is available
 // in flutter, it is not included in dart itself.
-String enumString(Object enumEntry) {
+String? enumString(Object? enumEntry) {
   if (enumEntry == null) {
     return null;
   }
@@ -13,7 +13,7 @@ const _delimiters = const {'csv': ',', 'ssv': ' ', 'tsv': '\t', 'pipes': '|'};
 
 // port from Java version
 Iterable<QueryParam> _convertParametersForCollectionFormat(
-    String collectionFormat, String name, dynamic value) {
+    String? collectionFormat, String? name, dynamic value) {
   var params = <QueryParam>[];
 
   // preconditions
@@ -24,7 +24,7 @@ Iterable<QueryParam> _convertParametersForCollectionFormat(
     return params;
   }
 
-  List values = value as List;
+  List values = value;
 
   // get the collection format
   collectionFormat = (collectionFormat == null || collectionFormat.isEmpty)

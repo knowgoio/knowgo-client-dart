@@ -15,7 +15,7 @@ void main() {
     //
     //Future<Auto> addAuto(Auto auto) async
     test('test addAuto', () async {
-      List<Auto> vehicles = List<Auto>();
+      List<Auto> vehicles = [];
       Auto auto = Auto(), updatedAuto;
 
       auto.driverID = 1;
@@ -29,7 +29,7 @@ void main() {
       });
 
       final instance = VehiclesApi(apiClient);
-      updatedAuto = await instance.addAuto(auto);
+      updatedAuto = (await instance.addAuto(auto))!;
 
       expect(vehicles.isNotEmpty, true);
       expect(updatedAuto.driverID, 1);
@@ -40,7 +40,7 @@ void main() {
     //
     //Future deleteAuto(int autoId) async
     test('test deleteAuto', () async {
-      List<Auto> vehicles = List<Auto>();
+      List<Auto> vehicles = [];
       Auto auto1 = Auto();
       Auto auto2 = Auto();
 
@@ -69,7 +69,7 @@ void main() {
     //
     //Future<Auto> getAutoById(int autoId) async
     test('test getAutoById', () async {
-      List<Auto> vehicles = List<Auto>();
+      List<Auto> vehicles = [];
       Auto auto1 = Auto();
       Auto auto2 = Auto();
 
@@ -88,7 +88,7 @@ void main() {
       final instance = VehiclesApi(apiClient);
       final auto = await instance.getAutoById(2);
 
-      expect(auto.autoID, 2);
+      expect(auto?.autoID, 2);
     });
 
     // Return a list of vehicles available for a specific user
@@ -98,7 +98,7 @@ void main() {
     //Future<List<Auto>> listVehicles() async
     test('test listVehicles', () async {
       apiClient.client = MockClient((request) async {
-        List<Auto> vehicles = List<Auto>();
+        List<Auto> vehicles = [];
         Auto auto1 = Auto();
         Auto auto2 = Auto();
 
@@ -124,7 +124,7 @@ void main() {
     //
     //Future<List<Auto>> listVehiclesByUserId(int userId) async
     test('test listVehiclesByUserId', () async {
-      List<Auto> vehicles = List<Auto>();
+      List<Auto> vehicles = [];
       Auto auto1 = Auto();
       Auto auto2 = Auto();
       Auto auto3 = Auto();

@@ -22,7 +22,7 @@ void main() {
     //
     //Future<Journey> addJourney(Journey journey) async
     test('test addJourney', () async {
-      var journeys = List<Journey>();
+      var journeys = [];
       var journey = Journey();
 
       journey.autoID = 1;
@@ -39,15 +39,15 @@ void main() {
       final result = await instance.addJourney(journey);
 
       expect(journeys.isNotEmpty, true);
-      expect(result.autoID, 1);
-      expect(result.driverID, 1);
+      expect(result?.autoID, 1);
+      expect(result?.driverID, 1);
     });
 
     // Create a Journey classification
     //
     //Future<JourneyClassifications> createJourneyClassification(JourneyClassifications journeyClassifications) async
     test('test createJourneyClassification', () async {
-      var classifications = List<JourneyClassifications>();
+      var classifications = [];
       var classification = JourneyClassifications();
 
       classification.classificationName = "work";
@@ -65,9 +65,9 @@ void main() {
       final result = await instance.createJourneyClassification(classification);
 
       expect(classifications.isNotEmpty, true);
-      expect(result.classificationID, 1);
-      expect(result.classificationName, "work");
-      expect(result.driverID, 1);
+      expect(result?.classificationID, 1);
+      expect(result?.classificationName, "work");
+      expect(result?.driverID, 1);
     });
 
     // Delete Journey by ID
@@ -76,7 +76,7 @@ void main() {
     //
     //Future deleteJourney(String journeyId) async
     test('test deleteJourney', () async {
-      var journeys = List<Journey>();
+      var journeys = [];
       var journey1 = Journey();
       var journey2 = Journey();
 
@@ -103,7 +103,7 @@ void main() {
     //
     //Future deleteJourneyClassification(int classificationId) async
     test('test deleteJourneyClassification', () async {
-      var classifications = List<JourneyClassifications>();
+      var classifications = [];
       var classification1 = JourneyClassifications();
       var classification2 = JourneyClassifications();
 
@@ -143,16 +143,16 @@ void main() {
       });
       final instance = JourneysApi();
       final journey = await instance.getJourneyById("1");
-      expect(journey.journeyID, "1");
-      expect(journey.driverID, 1);
-      expect(journey.autoID, 123);
+      expect(journey?.journeyID, "1");
+      expect(journey?.driverID, 1);
+      expect(journey?.autoID, 123);
     });
 
     // Get Journey classification by classification id
     //
     //Future<JourneyClassifications> getJourneyClassificationById(int classificationId) async
     test('test getJourneyClassificationById', () async {
-      var classifications = List<JourneyClassifications>();
+      var classifications = [];
       var classification1 = JourneyClassifications();
       var classification2 = JourneyClassifications();
 
@@ -173,8 +173,8 @@ void main() {
       final instance = JourneysApi(apiClient);
       final result = await instance.getJourneyClassificationById(1);
 
-      expect(result.classificationID, 1);
-      expect(result.classificationName, "work");
+      expect(result?.classificationID, 1);
+      expect(result?.classificationName, "work");
     });
 
     // Return a list of Journey classifications available for a specific user
@@ -184,7 +184,7 @@ void main() {
     //Future<List<JourneyClassifications>> listJourneyClassifications() async
     test('test listJourneyClassifications', () async {
       apiClient.client = MockClient((request) async {
-        var classifications = List<JourneyClassifications>();
+        var classifications = [];
         var classification1 = JourneyClassifications();
         var classification2 = JourneyClassifications();
 
@@ -223,7 +223,7 @@ void main() {
     //Future<List<Journey>> listJourneys() async
     test('test listJourneys', () async {
       apiClient.client = MockClient((request) async {
-        var journeys = List<Journey>();
+        var journeys = [];
         var journey1 = Journey();
         var journey2 = Journey();
 
@@ -251,7 +251,7 @@ void main() {
     test('test listJourneysByUserId', () async {
       apiClient.client = MockClient((request) async {
         var userId = int.parse(request.url.pathSegments.elementAt(2));
-        var journeys = List<Journey>();
+        var journeys = [];
         var journey1 = Journey();
         var journey2 = Journey();
         var journey3 = Journey();

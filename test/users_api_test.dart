@@ -15,7 +15,7 @@ void main() {
     //
     //Future<User> createUser(User user) async
     test('test createUser', () async {
-      List<User> users = List<User>();
+      List<User> users = [];
       User user = User();
 
       user.emailAddress = "labs@adaptant.io";
@@ -32,7 +32,7 @@ void main() {
       final result = await instance.createUser(user);
 
       expect(users.isNotEmpty, true);
-      expect(result.personID, 123);
+      expect(result?.personID, 123);
     });
 
     // Delete user
@@ -41,7 +41,7 @@ void main() {
     //
     //Future deleteUser(int userId) async
     test('test deleteUser', () async {
-      List<User> users = List<User>();
+      List<User> users = [];
       User user1 = User();
       User user2 = User();
 
@@ -75,8 +75,8 @@ void main() {
       });
       final instance = UsersApi();
       final user = await instance.getUserById(1);
-      expect(user.personID, 1);
-      expect(user.emailAddress, "labs@adaptant.io");
+      expect(user?.personID, 1);
+      expect(user?.emailAddress, "labs@adaptant.io");
     });
 
     // Updated user

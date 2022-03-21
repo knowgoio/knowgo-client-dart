@@ -1,11 +1,11 @@
 part of knowgo.api;
 
 class JourneyClassifications {
-  int driverID = null;
+  int? driverID = null;
 
-  int classificationID = null;
+  int? classificationID = null;
 
-  String classificationName = null;
+  String? classificationName = null;
   JourneyClassifications();
 
   @override
@@ -13,7 +13,7 @@ class JourneyClassifications {
     return 'JourneyClassifications[driverID=$driverID, classificationID=$classificationID, classificationName=$classificationName, ]';
   }
 
-  JourneyClassifications.fromJson(Map<String, dynamic> json) {
+  JourneyClassifications.fromJson(Map<String, dynamic>? json) {
     if (json == null) return;
     if (json['DriverID'] == null) {
       driverID = null;
@@ -42,18 +42,14 @@ class JourneyClassifications {
   }
 
   static List<JourneyClassifications> listFromJson(List<dynamic> json) {
-    return json == null
-        ? List<JourneyClassifications>()
-        : json.map((value) => JourneyClassifications.fromJson(value)).toList();
+    return json.map((value) => JourneyClassifications.fromJson(value)).toList();
   }
 
   static Map<String, JourneyClassifications> mapFromJson(
       Map<String, dynamic> json) {
     var map = Map<String, JourneyClassifications>();
-    if (json != null && json.isNotEmpty) {
-      json.forEach((String key, dynamic value) =>
+    json.forEach((String key, dynamic value) =>
           map[key] = JourneyClassifications.fromJson(value));
-    }
     return map;
   }
 }

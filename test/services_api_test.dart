@@ -13,7 +13,7 @@ void main() {
     //
     //Future addService(ServiceDefinition serviceDefinition) async
     test('test addService', () async {
-      List<ServiceDefinition> services = List<ServiceDefinition>();
+      List<ServiceDefinition> services = [];
       ServiceDefinition service = ServiceDefinition();
       final serviceName = "knowgo-score";
 
@@ -47,7 +47,7 @@ void main() {
       final instance = ServicesApi(apiClient);
       final service = await instance.getServiceDefinition(serviceName);
 
-      expect(service.serviceName, serviceName);
+      expect(service?.serviceName, serviceName);
     });
 
     // Return a list of available KnowGo platform services
@@ -70,7 +70,7 @@ void main() {
     //
     //Future removeServiceDefinition(String serviceName) async
     test('test removeServiceDefinition', () async {
-      List<ServiceDefinition> services = List<ServiceDefinition>();
+      List<ServiceDefinition> services = [];
       ServiceDefinition service1 = ServiceDefinition();
       ServiceDefinition service2 = ServiceDefinition();
       final serviceName = "knowgo-score";
