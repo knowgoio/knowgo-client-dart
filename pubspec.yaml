@@ -1,11 +1,11 @@
 name: knowgo
-version: 1.0.3+1
+version: 1.1.0
 description: KnowGo Platform REST API client
 repository: https://github.com/knowgoio/knowgo-client-dart
 issue_tracker: https://github.com/knowgoio/knowgo-client-dart/issues
 environment:
-  sdk: '>=2.8.1 <3.0.0'
+  sdk: '>=2.10.0 <3.0.0'
 dependencies:
-  http: ^0.12.2
+  http: ^0.13.4
 dev_dependencies:
-  test: ^1.3.0
+  test: ^1.20.2
